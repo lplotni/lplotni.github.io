@@ -4,7 +4,7 @@
   <title><![CDATA[Category: learning | Working thoughts]]></title>
   <link href="http://lplotni.github.io/blog/categories/learning/atom.xml" rel="self"/>
   <link href="http://lplotni.github.io/"/>
-  <updated>2013-09-17T13:17:27+02:00</updated>
+  <updated>2013-09-18T19:40:03+02:00</updated>
   <id>http://lplotni.github.io/</id>
   <author>
     <name><![CDATA[Lukasz Plotnicki]]></name>
@@ -23,7 +23,7 @@
 <!-- More -->
 
 
-<p><img class="right" src="/images/liquidpub_screenshot.png" title="Our app" > To be able to deliver something within less than a day of coding, we went with Ruby on Rails. This gave me the opportunity to finally try out Rails and learn it a bit by pairing with some experienced Ruby/Rails devs. The application itself has been deployed on heroku and being ThoughtWorks we built and deployed it after each push to our <a href="https://github.com/thoughtworks/liquid-pub">github repo</a> using <a href="https://www.heroku.com/">snap-ci</a> &ndash; <a href="http://martinfowler.com/bliki/ContinuousDelivery.html">continuous delivery</a> FTW!</p>
+<p><img class="right" src="/images/liquidpub_screenshot.png" title="Our app" > To be able to deliver something within less than a day of coding, we went with Ruby on Rails. This gave me the opportunity to finally try out Rails and learn it a bit by pairing with some experienced Ruby/Rails devs. The application itself has been deployed on heroku and being ThoughtWorks we built and deployed it after each push to our <a href="https://github.com/thoughtworks/liquid-pub">github repo</a> using <a href="https://www.snap-ci.com/">snap-ci</a> &ndash; <a href="http://martinfowler.com/bliki/ContinuousDelivery.html">continuous delivery</a> FTW!</p>
 
 <p>You can see the result <a href="http://liquid-pub.herokuapp.com/stories/3">here</a>.</p>
 
