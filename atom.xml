@@ -4,7 +4,7 @@
   <title><![CDATA[Working thoughts]]></title>
   <link href="http://lplotni.github.io/atom.xml" rel="self"/>
   <link href="http://lplotni.github.io/"/>
-  <updated>2014-11-09T12:07:55+01:00</updated>
+  <updated>2014-11-09T12:13:29+01:00</updated>
   <id>http://lplotni.github.io/</id>
   <author>
     <name><![CDATA[Lukasz Plotnicki]]></name>
@@ -12,31 +12,6 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
-  
-  <entry>
-    <title type="html"><![CDATA[Tech used during last year]]></title>
-    <link href="http://lplotni.github.io/blog/2014/11/08/tech-used-during-last-year/"/>
-    <updated>2014-11-08T23:18:00+01:00</updated>
-    <id>http://lplotni.github.io/blog/2014/11/08/tech-used-during-last-year</id>
-    <content type="html"><![CDATA[<p>It has been a while since I posted something here&hellip; A bit more then year acctualy.</p>
-
-<h2>Clever code can hurt</h2>
-
-<p>Scala and Scalatra</p>
-
-<h2>Going fast</h2>
-
-<p>JavaScript, AngularJS
-JDK8</p>
-
-<h2>Side project</h2>
-
-<h2>Bleeding edge</h2>
-
-<p>iOS and SWIFT
-JDK8, node.js</p>
-]]></content>
-  </entry>
   
   <entry>
     <title type="html"><![CDATA[Scoopcamp Hackathon]]></title>
