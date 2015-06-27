@@ -9,7 +9,8 @@
   <meta name="author" content="Lukasz Plotnicki">
 
   
-  <meta name="description" content="Last Thursday I was a part of the Scoopcamp hackathon and it was so great that I just couldn&rsquo;t resist to write down some of my thoughts about &hellip;">
+  <meta name="description" content="During my last four projects or so, the teams I worked with were always using GO.CD as the CD tool of their
+choosing. Although the pipeline state &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -79,6 +80,49 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/06/27/build-monitors/">Burstah, a Build Monitor</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-06-27T15:41:00+02:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>27</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>3:41 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>During my last four projects or so, the teams I worked with were always using <a href="http://www.go.cd/">GO.CD</a> as the CD tool of their
+choosing. Although the pipeline state visualisation GO.CD comes with is quite nice, it still doesn&rsquo;t cut it as a proper,
+<em>obvious</em> build monitor enabling everybody in the team to quickly recognize what is the pipeline status.</p>
+
+<p><img class="left" src="/images/burstah_example.png" title="Burstah in action" ></p>
+
+<p>Therefore first <a href="https://github.com/lplotni/cidar">cidar</a>, a simple sinatra based build monitor, has been born. I quickly discovered
+that sinatra and especially the nokogiri dependency, doesn&rsquo;t make it easy to use e.g. a Rasberry Pi as the monitor hardware. So,
+having the liberty, I decided to re-implement everything in JavaScript using node.js &amp; express. <a href="https://github.com/lplotni/burtstah">Burstah</a>
+, my second attempt at the ultimative build monitor, has been born  <img alt="bowtie" src="/images/emoji/bowtie.png" class="emoji" /></p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2015/06/27/build-monitors/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -241,6 +285,10 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2015/06/27/build-monitors/">Burstah, a Build Monitor</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2013/09/14/scoopcamp-hackathon/">Scoopcamp Hackathon</a>
