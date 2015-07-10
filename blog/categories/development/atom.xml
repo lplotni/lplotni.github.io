@@ -4,7 +4,7 @@
   <title><![CDATA[Category: development, | Working thoughts]]></title>
   <link href="http://lplotni.github.io/blog/categories/development/atom.xml" rel="self"/>
   <link href="http://lplotni.github.io/"/>
-  <updated>2015-07-05T22:07:13+02:00</updated>
+  <updated>2015-07-10T11:35:05+02:00</updated>
   <id>http://lplotni.github.io/</id>
   <author>
     <name><![CDATA[Lukasz Plotnicki]]></name>
@@ -26,7 +26,7 @@ choosing. Although the pipeline state visualisation GO.CD comes with is quite ni
 
 <p>Therefore first <a href="https://github.com/lplotni/cidar">cidar</a>, a simple sinatra based build monitor, has been born. I quickly discovered
 that sinatra and especially the nokogiri dependency, doesn&rsquo;t make it easy to use e.g. a Raspberry Pi as the monitor hardware. So,
-having the liberty, I decided to re-implement everything in JavaScript using node.js &amp; express. <a href="https://github.com/lplotni/burtstah">Burstah</a>
+having the liberty, I decided to re-implement everything in JavaScript using node.js &amp; express. <a href="https://github.com/lplotni/burstah">Burstah</a>
 , my second attempt at the ultimative build monitor, has been born  <img alt="bowtie" src="/images/emoji/bowtie.png" class="emoji" /></p>
 
 <!--more-->
