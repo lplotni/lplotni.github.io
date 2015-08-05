@@ -4,7 +4,7 @@
   <title><![CDATA[Category: technology | Working thoughts]]></title>
   <link href="http://lplotni.github.io/blog/categories/technology/atom.xml" rel="self"/>
   <link href="http://lplotni.github.io/"/>
-  <updated>2015-08-05T13:53:11+02:00</updated>
+  <updated>2015-08-05T21:56:55+02:00</updated>
   <id>http://lplotni.github.io/</id>
   <author>
     <name><![CDATA[Lukasz Plotnicki]]></name>
@@ -19,7 +19,7 @@
     <updated>2015-08-04T16:52:53+02:00</updated>
     <id>http://lplotni.github.io/blog/2015/08/04/bootstraping-a-node-dot-js-webapp</id>
     <content type="html"><![CDATA[<p>Together with few friends we started building <strong><a href="https://github.com/lplotni/pace">pace</a></strong> - a web application for
-organizing and managing running events &amp; competitions. We are a colorful bunch of people with different background, therefore we wanted to choose an approachable tech stack, as some of us wants also to learn one or two things about <strong>JavaScript</strong>, <strong>web applications</strong> or <strong>programming</strong> in general.</p>
+organizing and managing running events &amp; competitions. We are a colorful bunch of people with different backgrounds, therefore we wanted to choose an approachable tech stack, as some of us wants also to learn one or two things about <strong>JavaScript</strong>, <strong>web applications</strong> or <strong>programming</strong> in general.</p>
 
 <p>And then, somebody suggested to write one thing or two, about our technology
 decisions and accompany it with some <em>HowTo</em> information. So here we are.</p>
