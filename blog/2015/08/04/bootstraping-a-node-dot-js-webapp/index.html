@@ -267,7 +267,7 @@ decisions and accompany it with some <em>HowTo</em> information. So here we are.
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>The <code>index.js</code> uses expresses <code>router</code> and wires request for <strong>/</strong> to the the function responding with a rendered <code>index.jade</code> template, to which it passes a variable called <code>title</code>. If you never used <a href="http://jade-lang.com/">jade</a>, don&rsquo;t worry, is a pretty simple HTML template engine. Look at the following:</p>
+<p>The <code>index.js</code> uses express' <code>router</code> and wires request for <strong>/</strong> to the function responding with a rendered <code>index.jade</code> template, to which it passes a variable called <code>title</code>. If you never used <a href="http://jade-lang.com/">jade</a>, don&rsquo;t worry, is a pretty simple HTML template engine. Look at the following:</p>
 
 <figure class='code'><figcaption><span>index.jade</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -284,7 +284,7 @@ decisions and accompany it with some <em>HowTo</em> information. So here we are.
 
 <p>Jade enables template composition. In here we extend <code>layout.jade</code> which defines the general page structure. If other template defines a <strong>block</strong> called <code>content</code> it will be then injected at the corresponding place.</p>
 
-<figure class='code'><figcaption><span>laout.jade</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>layout.jade</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -330,7 +330,7 @@ decisions and accompany it with some <em>HowTo</em> information. So here we are.
 
 <p>Now you have seen all the parts making the browser render the most basic page of all time <img alt="sunglasses" src="/images/emoji/unicode/1f60e.png" class="emoji" /></p>
 
-<p>Next post out of the <strong>pace</strong> series, will actually explaining how to start working on the functionality we need. Right now you can start to play around with the data which is passed by the <code>index.js</code> to the <code>index.jade</code> template and how the template uses it. Have fun!</p>
+<p>Next post out of the <strong>pace</strong> series, will actually explain how to start working on the functionality we need. Right now you can start to play around with the data which is passed by the <code>index.js</code> to the <code>index.jade</code> template and how the template uses it. Have fun!</p>
 </div>
 
 

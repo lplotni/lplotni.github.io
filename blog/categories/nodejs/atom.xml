@@ -4,7 +4,7 @@
   <title><![CDATA[Category: nodejs | Working thoughts]]></title>
   <link href="http://lplotni.github.io/blog/categories/nodejs/atom.xml" rel="self"/>
   <link href="http://lplotni.github.io/"/>
-  <updated>2015-08-05T13:26:29+02:00</updated>
+  <updated>2015-08-05T13:53:11+02:00</updated>
   <id>http://lplotni.github.io/</id>
   <author>
     <name><![CDATA[Lukasz Plotnicki]]></name>
@@ -127,7 +127,7 @@ router.get('/', function(req, res) {
 module.exports = router;
 </code></pre>
 
-<p>The <code>index.js</code> uses expresses <code>router</code> and wires request for <strong>/</strong> to the the function responding with a rendered <code>index.jade</code> template, to which it passes a variable called <code>title</code>. If you never used <a href="http://jade-lang.com/">jade</a>, don&rsquo;t worry, is a pretty simple HTML template engine. Look at the following:</p>
+<p>The <code>index.js</code> uses express' <code>router</code> and wires request for <strong>/</strong> to the function responding with a rendered <code>index.jade</code> template, to which it passes a variable called <code>title</code>. If you never used <a href="http://jade-lang.com/">jade</a>, don&rsquo;t worry, is a pretty simple HTML template engine. Look at the following:</p>
 
 <pre><code class="jade index.jade">extends layout
 
@@ -138,7 +138,7 @@ block content
 
 <p>Jade enables template composition. In here we extend <code>layout.jade</code> which defines the general page structure. If other template defines a <strong>block</strong> called <code>content</code> it will be then injected at the corresponding place.</p>
 
-<pre><code class="jade laout.jade">doctype html
+<pre><code class="jade layout.jade">doctype html
 html
   head
     title= title
@@ -164,7 +164,7 @@ html
 
 <p>Now you have seen all the parts making the browser render the most basic page of all time <img alt="sunglasses" src="/images/emoji/unicode/1f60e.png" class="emoji" /></p>
 
-<p>Next post out of the <strong>pace</strong> series, will actually explaining how to start working on the functionality we need. Right now you can start to play around with the data which is passed by the <code>index.js</code> to the <code>index.jade</code> template and how the template uses it. Have fun!</p>
+<p>Next post out of the <strong>pace</strong> series, will actually explain how to start working on the functionality we need. Right now you can start to play around with the data which is passed by the <code>index.js</code> to the <code>index.jade</code> template and how the template uses it. Have fun!</p>
 ]]></content>
   </entry>
   
