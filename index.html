@@ -9,8 +9,9 @@
   <meta name="author" content="Lukasz Plotnicki">
 
   
-  <meta name="description" content="Together with few friends we started building pace - a web application for
-organizing and managing running events &amp; competitions. We are a &hellip;">
+  <meta name="description" content="After we managed to set up our basic web application,
+let&rsquo;s get our
+hands dirty writing some code. And as we want to do it in a test-driven &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -80,6 +81,59 @@ organizing and managing running events &amp; competitions. We are a &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/10/10/express-testing/">Pace: Testing an Express App</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-10-10T07:29:20+02:00'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>10</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>7:29 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><img class="right" src="/images/test_pyramid.jpg" width="400" height="300" title="Test pyramid" >
+After we managed to set up our basic <a href="/blog/2015/08/04/bootstraping-a-node-dot-js-webapp/">web application</a>,
+let&rsquo;s get our
+hands dirty writing some code. And as we want to do it in a test-driven
+manner (<a href="http://martinfowler.com/bliki/TestDrivenDevelopment.html">TDD</a>), we need
+a proper test setup. This piece is all about our initial test pyramid. Test,
+what? Yes, pyramid:</p>
+
+<blockquote><p>At the base of the test automation pyramid is unit testing. Unit testing should<br/>be the foundation of a solid test automation strategy and as such represents<br/>the largest part of the pyramid. (...) Automated user interface testing is<br/>placed at the top of the test automation pyramid because we want to do as<br/>little of it as possible. (...) Testing through the user interface like this is<br/>expensive and should be minimized. Although there are many test cases that need<br/>to be invoked, not all need to be run through the user interface. And this is<br/>where the service layer of the test automation pyramid comes in.</p><footer><strong>Mike Cohn</strong> <cite><a href='https://www.mountaingoatsoftware.com/blog/the-forgotten-layer-of-the-test-automation-pyramid'>www.mountaingoatsoftware.com/&hellip;</a></cite></footer></blockquote>
+
+
+<p>Depending on your personal style (look at this
+<a href="http://martinfowler.com/bliki/TestPyramid.html">post</a> by Martin Fowler for
+more details around different <em>flavours</em> of unit testing) and probably also the
+task at hand, you will either be starting with a unit test or
+acceptance/functional test. The rest of this post will show you how to set up
+each kind of test and give you a brief description of what we mean by saying
+<strong>unit</strong>, <strong>integration</strong> and <strong>functional</strong> test. I will also show you
+how to automate the test execution by its integration into a <strong>CI
+server/provider</strong> and <strong>gulp setup</strong>.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2015/10/10/express-testing/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -325,6 +379,10 @@ having the liberty, I decided to re-implement everything in JavaScript using nod
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2015/10/10/express-testing/">Pace: Testing an Express App</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2015/08/04/bootstraping-a-node-dot-js-webapp/">Pace: Starting With Node & Express</a>
       </li>
     
@@ -338,10 +396,6 @@ having the liberty, I decided to re-implement everything in JavaScript using nod
     
       <li class="post">
         <a href="/blog/2013/06/15/gwt-part-i/">GWT: Part I</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/05/14/setting-up-dot-dot-dot/">Setting Up...</a>
       </li>
     
   </ul>
@@ -392,25 +446,7 @@ having the liberty, I decided to re-implement everything in JavaScript using nod
 
 
 
-  <script type="text/javascript">
-    (function() {
-      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
-      script.src = 'https://apis.google.com/js/plusone.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
-    })();
-  </script>
 
-
-
-  <script type="text/javascript">
-    (function(){
-      var twitterWidgets = document.createElement('script');
-      twitterWidgets.type = 'text/javascript';
-      twitterWidgets.async = true;
-      twitterWidgets.src = '//platform.twitter.com/widgets.js';
-      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
-    })();
-  </script>
 
 
 
