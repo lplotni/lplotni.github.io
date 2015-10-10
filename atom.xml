@@ -4,7 +4,7 @@
   <title><![CDATA[Working thoughts]]></title>
   <link href="http://lplotni.github.io/atom.xml" rel="self"/>
   <link href="http://lplotni.github.io/"/>
-  <updated>2015-10-10T22:47:41+02:00</updated>
+  <updated>2015-10-10T23:08:08+02:00</updated>
   <id>http://lplotni.github.io/</id>
   <author>
     <name><![CDATA[Lukasz Plotnicki]]></name>
@@ -35,9 +35,8 @@ more details around different <em>flavours</em> of unit testing) and probably al
 task at hand, you will either be starting with a unit test or
 acceptance/functional test. The rest of this post will show you how to set up
 each kind of test and give you a brief description of what we mean by saying
-<strong>unit</strong>, <strong>integration</strong> and <strong>functional</strong> test. I will also show you
-how to automate the test execution by its integration into a <strong>CI
-server/provider</strong> and <strong>gulp setup</strong>.</p>
+<strong>unit</strong>, <strong>integration</strong> and <strong>functional</strong> test. I will also describe our
+<strong>gulp setup</strong>.</p>
 
 <!-- more -->
 
