@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: nodejs | Working thoughts]]></title>
-  <link href="http://lplotni.github.io/blog/categories/nodejs/atom.xml" rel="self"/>
-  <link href="http://lplotni.github.io/"/>
-  <updated>2015-10-15T11:02:17+02:00</updated>
-  <id>http://lplotni.github.io/</id>
+  <link href="https://lplotni.github.io/blog/categories/nodejs/atom.xml" rel="self"/>
+  <link href="https://lplotni.github.io/"/>
+  <updated>2015-10-15T12:18:41+02:00</updated>
+  <id>https://lplotni.github.io/</id>
   <author>
     <name><![CDATA[Lukasz Plotnicki]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Pace: testing an express app]]></title>
-    <link href="http://lplotni.github.io/blog/2015/10/10/express-testing/"/>
+    <link href="https://lplotni.github.io/blog/2015/10/10/express-testing/"/>
     <updated>2015-10-10T07:29:20+02:00</updated>
-    <id>http://lplotni.github.io/blog/2015/10/10/express-testing</id>
+    <id>https://lplotni.github.io/blog/2015/10/10/express-testing</id>
     <content type="html"><![CDATA[<p><img class="right" src="/images/test_pyramid.jpg" width="400" height="300" title="Test pyramid" >
 After we managed to set up our basic <a href="/blog/2015/08/04/bootstraping-a-node-dot-js-webapp/">web application</a>,
 let&rsquo;s get our
@@ -268,9 +268,9 @@ all dependencies for selenium and executes the database migrations</li>
   
   <entry>
     <title type="html"><![CDATA[Pace: Starting with node & express]]></title>
-    <link href="http://lplotni.github.io/blog/2015/08/04/bootstraping-a-node-dot-js-webapp/"/>
+    <link href="https://lplotni.github.io/blog/2015/08/04/bootstraping-a-node-dot-js-webapp/"/>
     <updated>2015-08-04T16:52:53+02:00</updated>
-    <id>http://lplotni.github.io/blog/2015/08/04/bootstraping-a-node-dot-js-webapp</id>
+    <id>https://lplotni.github.io/blog/2015/08/04/bootstraping-a-node-dot-js-webapp</id>
     <content type="html"><![CDATA[<p>Together with few friends we started building <strong><a href="https://github.com/lplotni/pace">pace</a></strong> - a web application for
 organizing and managing running events &amp; competitions. We are a colorful bunch of people with different backgrounds, therefore we wanted to choose an approachable tech stack, as some of us wants also to learn one or two things about <strong>JavaScript</strong>, <strong>web applications</strong> or <strong>programming</strong> in general.</p>
 
@@ -395,7 +395,7 @@ block content
 html
   head
     title= title
-    link(rel='stylesheet', href='http://lplotni.github.io/stylesheets/style.css')
+    link(rel='stylesheet', href='https://lplotni.github.io/stylesheets/style.css')
   body
     block content
 </code></pre>
@@ -406,7 +406,7 @@ html
 &lt;html&gt;
   &lt;head&gt;
     &lt;title&gt;Express&lt;/title&gt;
-    &lt;link rel="stylesheet" href="http://lplotni.github.io/stylesheets/style.css"&gt;
+    &lt;link rel="stylesheet" href="https://lplotni.github.io/stylesheets/style.css"&gt;
   &lt;/head&gt;
   &lt;body&gt;
     &lt;h1&gt;Express&lt;/h1&gt;

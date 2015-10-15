@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: technology | Working thoughts]]></title>
-  <link href="http://lplotni.github.io/blog/categories/technology/atom.xml" rel="self"/>
-  <link href="http://lplotni.github.io/"/>
-  <updated>2015-10-15T11:02:17+02:00</updated>
-  <id>http://lplotni.github.io/</id>
+  <link href="https://lplotni.github.io/blog/categories/technology/atom.xml" rel="self"/>
+  <link href="https://lplotni.github.io/"/>
+  <updated>2015-10-15T12:18:41+02:00</updated>
+  <id>https://lplotni.github.io/</id>
   <author>
     <name><![CDATA[Lukasz Plotnicki]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Pace: testing an express app]]></title>
-    <link href="http://lplotni.github.io/blog/2015/10/10/express-testing/"/>
+    <link href="https://lplotni.github.io/blog/2015/10/10/express-testing/"/>
     <updated>2015-10-10T07:29:20+02:00</updated>
-    <id>http://lplotni.github.io/blog/2015/10/10/express-testing</id>
+    <id>https://lplotni.github.io/blog/2015/10/10/express-testing</id>
     <content type="html"><![CDATA[<p><img class="right" src="/images/test_pyramid.jpg" width="400" height="300" title="Test pyramid" >
 After we managed to set up our basic <a href="/blog/2015/08/04/bootstraping-a-node-dot-js-webapp/">web application</a>,
 let&rsquo;s get our
@@ -268,9 +268,9 @@ all dependencies for selenium and executes the database migrations</li>
   
   <entry>
     <title type="html"><![CDATA[Pace: Starting with node & express]]></title>
-    <link href="http://lplotni.github.io/blog/2015/08/04/bootstraping-a-node-dot-js-webapp/"/>
+    <link href="https://lplotni.github.io/blog/2015/08/04/bootstraping-a-node-dot-js-webapp/"/>
     <updated>2015-08-04T16:52:53+02:00</updated>
-    <id>http://lplotni.github.io/blog/2015/08/04/bootstraping-a-node-dot-js-webapp</id>
+    <id>https://lplotni.github.io/blog/2015/08/04/bootstraping-a-node-dot-js-webapp</id>
     <content type="html"><![CDATA[<p>Together with few friends we started building <strong><a href="https://github.com/lplotni/pace">pace</a></strong> - a web application for
 organizing and managing running events &amp; competitions. We are a colorful bunch of people with different backgrounds, therefore we wanted to choose an approachable tech stack, as some of us wants also to learn one or two things about <strong>JavaScript</strong>, <strong>web applications</strong> or <strong>programming</strong> in general.</p>
 
@@ -395,7 +395,7 @@ block content
 html
   head
     title= title
-    link(rel='stylesheet', href='http://lplotni.github.io/stylesheets/style.css')
+    link(rel='stylesheet', href='https://lplotni.github.io/stylesheets/style.css')
   body
     block content
 </code></pre>
@@ -406,7 +406,7 @@ html
 &lt;html&gt;
   &lt;head&gt;
     &lt;title&gt;Express&lt;/title&gt;
-    &lt;link rel="stylesheet" href="http://lplotni.github.io/stylesheets/style.css"&gt;
+    &lt;link rel="stylesheet" href="https://lplotni.github.io/stylesheets/style.css"&gt;
   &lt;/head&gt;
   &lt;body&gt;
     &lt;h1&gt;Express&lt;/h1&gt;
@@ -423,9 +423,9 @@ html
   
   <entry>
     <title type="html"><![CDATA[Burstah, a build monitor]]></title>
-    <link href="http://lplotni.github.io/blog/2015/06/27/build-monitors/"/>
+    <link href="https://lplotni.github.io/blog/2015/06/27/build-monitors/"/>
     <updated>2015-06-27T15:41:00+02:00</updated>
-    <id>http://lplotni.github.io/blog/2015/06/27/build-monitors</id>
+    <id>https://lplotni.github.io/blog/2015/06/27/build-monitors</id>
     <content type="html"><![CDATA[<p>During my last four projects or so, the teams I worked with were always using <a href="http://www.go.cd/">GO.CD</a> as the CD tool of their
 choosing. Although the pipeline state visualisation GO.CD comes with is quite nice, it still doesn&rsquo;t cut it as a proper,
 <em>obvious</em> build monitor enabling everybody in the team to quickly recognize what is the pipeline status.</p>
@@ -458,9 +458,9 @@ having the liberty, I decided to re-implement everything in JavaScript using nod
   
   <entry>
     <title type="html"><![CDATA[GWT: part I]]></title>
-    <link href="http://lplotni.github.io/blog/2013/06/15/gwt-part-i/"/>
+    <link href="https://lplotni.github.io/blog/2013/06/15/gwt-part-i/"/>
     <updated>2013-06-15T18:01:00+02:00</updated>
-    <id>http://lplotni.github.io/blog/2013/06/15/gwt-part-i</id>
+    <id>https://lplotni.github.io/blog/2013/06/15/gwt-part-i</id>
     <content type="html"><![CDATA[<p>Back in 2009 I became the job to design and start realizing a quite large web application for a health care research project. I took some time, sat down and thought about the technology stack, I would like to use to build it. As we wanted to have an RIA and I already had some experience with GWT, we quickly decided to use it. Since then four years have passed and we are about to release the 2.0 version of our system. During this time, the whole team learned a lot about GWT, its advantages and also some disadvantages, and I thought it would be useful to write some of them up. This part is about the <strong>status quo</strong>, in the second part I will try to write about a GWT setup I would go for, when starting the project today - so if you have any hints in this regard, please feel free to leave a comment, I would definitely appreciate it!</p>
 
 <!--more-->
@@ -692,9 +692,9 @@ In the gwt-presenter class hierarchy there was no possibility to define the mode
   
   <entry>
     <title type="html"><![CDATA[Setting up...]]></title>
-    <link href="http://lplotni.github.io/blog/2013/05/14/setting-up-dot-dot-dot/"/>
+    <link href="https://lplotni.github.io/blog/2013/05/14/setting-up-dot-dot-dot/"/>
     <updated>2013-05-14T17:46:00+02:00</updated>
-    <id>http://lplotni.github.io/blog/2013/05/14/setting-up-dot-dot-dot</id>
+    <id>https://lplotni.github.io/blog/2013/05/14/setting-up-dot-dot-dot</id>
     <content type="html"><![CDATA[<p>There&rsquo;s nothing like this moment, when you have a big smile on your face, because you&rsquo;re just stunned how well things are working and how simple the set-up process was. <a href="http://octopress.org">Octopress</a> is just amazing. <strong>Period</strong>. If you haven&rsquo;t heard about it and you&rsquo;re thinking to start a blog or migrate one, then you should definitely check it out. To put it simple:
 <blockquote><p>Octopress is a framework designed by Brandon Mathis for Jekyll, the blog aware static site generator powering Github Pages. To start blogging with Jekyll, you have to write your own HTML templates, CSS, Javascripts and set up your configuration. But with Octopress All of that is already taken care of. Simply clone or fork Octopress, install dependencies and the theme, and you&rsquo;re set.</p><footer><strong>Brandon Mathis <a href="http://octopress.org/blog/2011/07/23/octopress-20-surfaces/">http://octopress.org/blog/2011/07/23/octopress-20-surfaces/</a></strong></footer></blockquote>
 It took me just few hours from having the idea: <em>Today is the day to start my own blog</em> to actually having it hosted on github. And the experience itself (checking out the octopress repo, configuring, building and deploying to github) was really simple. Thumbs up for the good documentation!</p>

@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: development | Working thoughts]]></title>
-  <link href="http://lplotni.github.io/blog/categories/development/atom.xml" rel="self"/>
-  <link href="http://lplotni.github.io/"/>
-  <updated>2015-10-15T11:02:17+02:00</updated>
-  <id>http://lplotni.github.io/</id>
+  <link href="https://lplotni.github.io/blog/categories/development/atom.xml" rel="self"/>
+  <link href="https://lplotni.github.io/"/>
+  <updated>2015-10-15T12:18:41+02:00</updated>
+  <id>https://lplotni.github.io/</id>
   <author>
     <name><![CDATA[Lukasz Plotnicki]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Pace: testing an express app]]></title>
-    <link href="http://lplotni.github.io/blog/2015/10/10/express-testing/"/>
+    <link href="https://lplotni.github.io/blog/2015/10/10/express-testing/"/>
     <updated>2015-10-10T07:29:20+02:00</updated>
-    <id>http://lplotni.github.io/blog/2015/10/10/express-testing</id>
+    <id>https://lplotni.github.io/blog/2015/10/10/express-testing</id>
     <content type="html"><![CDATA[<p><img class="right" src="/images/test_pyramid.jpg" width="400" height="300" title="Test pyramid" >
 After we managed to set up our basic <a href="/blog/2015/08/04/bootstraping-a-node-dot-js-webapp/">web application</a>,
 let&rsquo;s get our
@@ -268,9 +268,9 @@ all dependencies for selenium and executes the database migrations</li>
   
   <entry>
     <title type="html"><![CDATA[Pace: Starting with node & express]]></title>
-    <link href="http://lplotni.github.io/blog/2015/08/04/bootstraping-a-node-dot-js-webapp/"/>
+    <link href="https://lplotni.github.io/blog/2015/08/04/bootstraping-a-node-dot-js-webapp/"/>
     <updated>2015-08-04T16:52:53+02:00</updated>
-    <id>http://lplotni.github.io/blog/2015/08/04/bootstraping-a-node-dot-js-webapp</id>
+    <id>https://lplotni.github.io/blog/2015/08/04/bootstraping-a-node-dot-js-webapp</id>
     <content type="html"><![CDATA[<p>Together with few friends we started building <strong><a href="https://github.com/lplotni/pace">pace</a></strong> - a web application for
 organizing and managing running events &amp; competitions. We are a colorful bunch of people with different backgrounds, therefore we wanted to choose an approachable tech stack, as some of us wants also to learn one or two things about <strong>JavaScript</strong>, <strong>web applications</strong> or <strong>programming</strong> in general.</p>
 
@@ -395,7 +395,7 @@ block content
 html
   head
     title= title
-    link(rel='stylesheet', href='http://lplotni.github.io/stylesheets/style.css')
+    link(rel='stylesheet', href='https://lplotni.github.io/stylesheets/style.css')
   body
     block content
 </code></pre>
@@ -406,7 +406,7 @@ html
 &lt;html&gt;
   &lt;head&gt;
     &lt;title&gt;Express&lt;/title&gt;
-    &lt;link rel="stylesheet" href="http://lplotni.github.io/stylesheets/style.css"&gt;
+    &lt;link rel="stylesheet" href="https://lplotni.github.io/stylesheets/style.css"&gt;
   &lt;/head&gt;
   &lt;body&gt;
     &lt;h1&gt;Express&lt;/h1&gt;
@@ -423,9 +423,9 @@ html
   
   <entry>
     <title type="html"><![CDATA[Burstah, a build monitor]]></title>
-    <link href="http://lplotni.github.io/blog/2015/06/27/build-monitors/"/>
+    <link href="https://lplotni.github.io/blog/2015/06/27/build-monitors/"/>
     <updated>2015-06-27T15:41:00+02:00</updated>
-    <id>http://lplotni.github.io/blog/2015/06/27/build-monitors</id>
+    <id>https://lplotni.github.io/blog/2015/06/27/build-monitors</id>
     <content type="html"><![CDATA[<p>During my last four projects or so, the teams I worked with were always using <a href="http://www.go.cd/">GO.CD</a> as the CD tool of their
 choosing. Although the pipeline state visualisation GO.CD comes with is quite nice, it still doesn&rsquo;t cut it as a proper,
 <em>obvious</em> build monitor enabling everybody in the team to quickly recognize what is the pipeline status.</p>
@@ -458,9 +458,9 @@ having the liberty, I decided to re-implement everything in JavaScript using nod
   
   <entry>
     <title type="html"><![CDATA[Scoopcamp Hackathon]]></title>
-    <link href="http://lplotni.github.io/blog/2013/09/14/scoopcamp-hackathon/"/>
+    <link href="https://lplotni.github.io/blog/2013/09/14/scoopcamp-hackathon/"/>
     <updated>2013-09-14T13:05:00+02:00</updated>
-    <id>http://lplotni.github.io/blog/2013/09/14/scoopcamp-hackathon</id>
+    <id>https://lplotni.github.io/blog/2013/09/14/scoopcamp-hackathon</id>
     <content type="html"><![CDATA[<p>Last Thursday I was a part of the <a href="http://scoopcamp.de/hackathon/">Scoopcamp hackathon</a> and it was so great that I just couldn&rsquo;t resist to write down some of my thoughts about it. Our team <strong>ThoughtWorks and friends</strong> a colorful mix of journalists, students and developers had a rough idea for a modern - more <strong>agile</strong> - journalism, where the journalist reporting about an ongoing event writes the background story and live updates from his perspective, but can also incorporate content written by the readers who create their own streams representing their own take on the particular event. Being able to see which stream/entry is getting most likes (=feedback), he/she can quickly react and focus on the currently favorite perspective. During a quick brainstorming we came up with the name: <strong>LiquidPub</strong> (for liquid publishing) and started defining the first user stories.</p>
 
 <!-- More -->

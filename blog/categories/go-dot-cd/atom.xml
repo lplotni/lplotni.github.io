@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: go.cd | Working thoughts]]></title>
-  <link href="http://lplotni.github.io/blog/categories/go-dot-cd/atom.xml" rel="self"/>
-  <link href="http://lplotni.github.io/"/>
-  <updated>2015-10-15T11:02:17+02:00</updated>
-  <id>http://lplotni.github.io/</id>
+  <link href="https://lplotni.github.io/blog/categories/go-dot-cd/atom.xml" rel="self"/>
+  <link href="https://lplotni.github.io/"/>
+  <updated>2015-10-15T12:18:41+02:00</updated>
+  <id>https://lplotni.github.io/</id>
   <author>
     <name><![CDATA[Lukasz Plotnicki]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Burstah, a build monitor]]></title>
-    <link href="http://lplotni.github.io/blog/2015/06/27/build-monitors/"/>
+    <link href="https://lplotni.github.io/blog/2015/06/27/build-monitors/"/>
     <updated>2015-06-27T15:41:00+02:00</updated>
-    <id>http://lplotni.github.io/blog/2015/06/27/build-monitors</id>
+    <id>https://lplotni.github.io/blog/2015/06/27/build-monitors</id>
     <content type="html"><![CDATA[<p>During my last four projects or so, the teams I worked with were always using <a href="http://www.go.cd/">GO.CD</a> as the CD tool of their
 choosing. Although the pipeline state visualisation GO.CD comes with is quite nice, it still doesn&rsquo;t cut it as a proper,
 <em>obvious</em> build monitor enabling everybody in the team to quickly recognize what is the pipeline status.</p>

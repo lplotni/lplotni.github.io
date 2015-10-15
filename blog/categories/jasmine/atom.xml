@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: jasmine | Working thoughts]]></title>
-  <link href="http://lplotni.github.io/blog/categories/jasmine/atom.xml" rel="self"/>
-  <link href="http://lplotni.github.io/"/>
-  <updated>2015-10-15T11:02:17+02:00</updated>
-  <id>http://lplotni.github.io/</id>
+  <link href="https://lplotni.github.io/blog/categories/jasmine/atom.xml" rel="self"/>
+  <link href="https://lplotni.github.io/"/>
+  <updated>2015-10-15T12:18:41+02:00</updated>
+  <id>https://lplotni.github.io/</id>
   <author>
     <name><![CDATA[Lukasz Plotnicki]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Pace: testing an express app]]></title>
-    <link href="http://lplotni.github.io/blog/2015/10/10/express-testing/"/>
+    <link href="https://lplotni.github.io/blog/2015/10/10/express-testing/"/>
     <updated>2015-10-10T07:29:20+02:00</updated>
-    <id>http://lplotni.github.io/blog/2015/10/10/express-testing</id>
+    <id>https://lplotni.github.io/blog/2015/10/10/express-testing</id>
     <content type="html"><![CDATA[<p><img class="right" src="/images/test_pyramid.jpg" width="400" height="300" title="Test pyramid" >
 After we managed to set up our basic <a href="/blog/2015/08/04/bootstraping-a-node-dot-js-webapp/">web application</a>,
 let&rsquo;s get our

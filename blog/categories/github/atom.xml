@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: github | Working thoughts]]></title>
-  <link href="http://lplotni.github.io/blog/categories/github/atom.xml" rel="self"/>
-  <link href="http://lplotni.github.io/"/>
-  <updated>2015-10-15T11:02:17+02:00</updated>
-  <id>http://lplotni.github.io/</id>
+  <link href="https://lplotni.github.io/blog/categories/github/atom.xml" rel="self"/>
+  <link href="https://lplotni.github.io/"/>
+  <updated>2015-10-15T12:18:41+02:00</updated>
+  <id>https://lplotni.github.io/</id>
   <author>
     <name><![CDATA[Lukasz Plotnicki]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Setting up...]]></title>
-    <link href="http://lplotni.github.io/blog/2013/05/14/setting-up-dot-dot-dot/"/>
+    <link href="https://lplotni.github.io/blog/2013/05/14/setting-up-dot-dot-dot/"/>
     <updated>2013-05-14T17:46:00+02:00</updated>
-    <id>http://lplotni.github.io/blog/2013/05/14/setting-up-dot-dot-dot</id>
+    <id>https://lplotni.github.io/blog/2013/05/14/setting-up-dot-dot-dot</id>
     <content type="html"><![CDATA[<p>There&rsquo;s nothing like this moment, when you have a big smile on your face, because you&rsquo;re just stunned how well things are working and how simple the set-up process was. <a href="http://octopress.org">Octopress</a> is just amazing. <strong>Period</strong>. If you haven&rsquo;t heard about it and you&rsquo;re thinking to start a blog or migrate one, then you should definitely check it out. To put it simple:
 <blockquote><p>Octopress is a framework designed by Brandon Mathis for Jekyll, the blog aware static site generator powering Github Pages. To start blogging with Jekyll, you have to write your own HTML templates, CSS, Javascripts and set up your configuration. But with Octopress All of that is already taken care of. Simply clone or fork Octopress, install dependencies and the theme, and you&rsquo;re set.</p><footer><strong>Brandon Mathis <a href="http://octopress.org/blog/2011/07/23/octopress-20-surfaces/">http://octopress.org/blog/2011/07/23/octopress-20-surfaces/</a></strong></footer></blockquote>
 It took me just few hours from having the idea: <em>Today is the day to start my own blog</em> to actually having it hosted on github. And the experience itself (checking out the octopress repo, configuring, building and deploying to github) was really simple. Thumbs up for the good documentation!</p>

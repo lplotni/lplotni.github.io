@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 
-Sitemap: http://lplotni.github.io/sitemap.xml 
+Sitemap: https://lplotni.github.io/sitemap.xml 
