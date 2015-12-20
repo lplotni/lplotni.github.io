@@ -1,0 +1,491 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>GWT: Part I - Working thoughts</title>
+  <meta name="author" content="Lukasz Plotnicki">
+
+  
+  <meta name="description" content="Back in 2009 I became the job to design and start realizing a quite large web application for a health care research project. I took some time, sat &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="https://lplotni.github.io/blog/2013/06/15/gwt-part-i/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Working thoughts" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href='//fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-40792356-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   class="no-sidebar"  >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Working thoughts</a></h1>
+  
+    <h2>Ideas, thoughts... mainly about programming & co.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="lplotni.github.io">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/talks">Talks & Writing</a></li>
+  <li><a href="/about">About</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">GWT: Part I</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2013-06-15T18:01:00+02:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>15</span><span class='date-suffix'>th</span>, <span class='date-year'>2013</span></span> <span class='time'>6:01 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Back in 2009 I became the job to design and start realizing a quite large web application for a health care research project. I took some time, sat down and thought about the technology stack, I would like to use to build it. As we wanted to have an RIA and I already had some experience with GWT, we quickly decided to use it. Since then four years have passed and we are about to release the 2.0 version of our system. During this time, the whole team learned a lot about GWT, its advantages and also some disadvantages, and I thought it would be useful to write some of them up. This part is about the <strong>status quo</strong>, in the second part I will try to write about a GWT setup I would go for, when starting the project today - so if you have any hints in this regard, please feel free to leave a comment, I would definitely appreciate it!</p>
+
+<!--more-->
+
+
+<h2>1. Client setup</h2>
+
+<p>Around the same time, as I started to draw the first diagrams of the inner life of our web app, Ray Ryan gave a <a href="http://www.youtube.com/watch?v=PDuhR18-EdM">talk at the IO conference</a> about the best practices for GWT app architecture, mentioning the <a href="http://martinfowler.com/eaaDev/uiArchs.html">model view presenter</a>, the usage of an event bus for components communication and the command pattern for dispatching the GWT-RPC calls to the server. Shortly after I discovered the <a href="http://code.google.com/p/gwt-presenter/">gwt-presenter</a> and the <a href="http://code.google.com/p/gwt-dispatch/">gwt-dispatch</a> libraries, offering an easy way to build an GWT app based on the principles from  Ray&rsquo;s talk. I also found a very detailed <a href="http://blog.hivedevelopment.co.uk/2009/08/google-web-toolkit-gwt-mvp-example.html">blog post</a> explaining how everything works together.  <img src="/images/gwt_mvp.png" title="MVP with EventBus and Dispatcher" > At this point we defined one <strong>Presenter</strong> for all the entities, we wanted to made accessible on the client, and each presenter defined his own <strong>Display</strong> interface which then was implemented by the <strong>View</strong> class. The instantiation of all presenters and views has been managed by <a href="http://code.google.com/p/google-gin/">gin</a> - a dependency injection framework for the client side. The code looked more or less like this:</p>
+
+<figure class='code'><figcaption><span>Presenter & Display</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">HistoryPresenter</span> <span class="kd">extends</span> <span class="n">WidgetPresenter</span><span class="o">&lt;</span><span class="n">HistoryPresenter</span><span class="o">.</span><span class="na">Display</span><span class="o">&gt;</span>
+</span><span class='line'>      <span class="kd">implements</span> <span class="n">PresentsDTO</span><span class="o">&lt;</span><span class="n">HistoryDTO</span><span class="o">&gt;</span> <span class="o">{</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Display</span> <span class="kd">extends</span> <span class="n">WidgetDisplay</span><span class="o">,</span> <span class="n">Resettable</span><span class="o">,</span> <span class="n">Editable</span> <span class="o">{</span>
+</span><span class='line'>      <span class="n">HasText</span> <span class="nf">getPrimaryDisease</span><span class="o">();</span>
+</span><span class='line'>      <span class="n">HasText</span> <span class="nf">getPrimaryDiagnosis</span><span class="o">();</span>
+</span><span class='line'>      <span class="n">HasValue</span><span class="o">&lt;</span><span class="n">Date</span><span class="o">&gt;</span> <span class="nf">getPrimaryDiseaseStart</span><span class="o">();</span>
+</span><span class='line'>      <span class="n">HasValue</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="nf">getHypertension</span><span class="o">();</span>
+</span><span class='line'>      <span class="c1">// (...) and some more stuff here</span>
+</span><span class='line'>  <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="kd">private</span> <span class="n">HistoryDTO</span> <span class="n">currentDTO</span><span class="o">;</span>
+</span><span class='line'>  <span class="kd">private</span> <span class="kd">final</span> <span class="n">DispatchAsync</span> <span class="n">dispatcher</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nd">@Inject</span>
+</span><span class='line'>  <span class="kd">public</span> <span class="nf">HistoryPresenter</span><span class="o">(</span><span class="kd">final</span> <span class="n">Display</span> <span class="n">display</span><span class="o">,</span> <span class="kd">final</span> <span class="n">EventBus</span> <span class="n">eventBus</span><span class="o">,</span> <span class="kd">final</span> <span class="n">DispatchAsync</span> <span class="n">dispatcher</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>      <span class="kd">super</span><span class="o">(</span><span class="n">display</span><span class="o">,</span> <span class="n">eventBus</span><span class="o">);</span>
+</span><span class='line'>      <span class="n">bind</span><span class="o">();</span>
+</span><span class='line'>  <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nd">@Override</span>
+</span><span class='line'>  <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onBind</span><span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>      <span class="c1">// Add handlers to the event bus if needed</span>
+</span><span class='line'>  <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nd">@Override</span>
+</span><span class='line'>  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">resetUI</span><span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>      <span class="n">currentDTO</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+</span><span class='line'>      <span class="n">display</span><span class="o">.</span><span class="na">resetUI</span><span class="o">();</span>
+</span><span class='line'>  <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nd">@Override</span>
+</span><span class='line'>  <span class="kd">public</span> <span class="n">HistoryDTO</span> <span class="nf">getDTO</span><span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>      <span class="n">syncDTO</span><span class="o">();</span>
+</span><span class='line'>      <span class="k">return</span> <span class="n">currentDTO</span><span class="o">;</span>
+</span><span class='line'>  <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nd">@Override</span>
+</span><span class='line'>  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">syncDTO</span><span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>      <span class="c1">// create new DTO object with the content from the display</span>
+</span><span class='line'>  <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nd">@Override</span>
+</span><span class='line'>  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">showDTO</span><span class="o">(</span><span class="n">HistoryDTO</span> <span class="n">dto</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>      <span class="c1">// refresh the display with the data from the DTO</span>
+</span><span class='line'>  <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nd">@Override</span>
+</span><span class='line'>  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setEditable</span><span class="o">(</span><span class="kt">boolean</span> <span class="n">value</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>      <span class="n">display</span><span class="o">.</span><span class="na">setEditable</span><span class="o">(</span><span class="n">value</span><span class="o">);</span>
+</span><span class='line'>  <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nd">@Override</span>
+</span><span class='line'>  <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onRevealDisplay</span><span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>      <span class="c1">// React on place request e.g use the dispatcher to load the data from the server</span>
+</span><span class='line'>  <span class="o">}</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>In the gwt-presenter class hierarchy there was no possibility to define the model class the presenter will be responsible for. For that reason we introduced a <code>PresentDTO\&lt;T></code> and <code>PresentDTOs\&lt;T></code> interfaces to ensure the existence of <code>T getDTO()</code> etc. methods. The view classes are quite straightforward, the only difference is that back in 2009 ui:binder was not really there, therefore the gwt-presenter had no direct support for it. But switching to the declarative layout definition was indeed very easy - each view defines its own *.ui.xml file and the <code>asWidget()</code> method just returns the result of the <code>uiBinder.createAndBindUi()</code> call. As you can see in the code below we introduced also a <code>WidgetsManager</code> class which is a convinient way to managed all the widgets the view is defining (offering a general <code>setEditable()</code> method and taking care of the validation visualization).</p>
+
+<figure class='code'><figcaption><span>View</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">HistoryView</span> <span class="kd">implements</span> <span class="n">Display</span> <span class="o">{</span>
+</span><span class='line'>  <span class="kd">interface</span> <span class="nc">HistoryViewUiBinder</span> <span class="kd">extends</span> <span class="n">UiBinder</span><span class="o">&lt;</span><span class="n">LayoutPanel</span><span class="o">,</span> <span class="n">HistoryView</span><span class="o">&gt;</span> <span class="o">{}</span>
+</span><span class='line'>  <span class="kd">private</span> <span class="kd">static</span> <span class="n">HistoryViewUiBinder</span> <span class="n">uiBinder</span> <span class="o">=</span> <span class="n">GWT</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">HistoryViewUiBinder</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nd">@UiField</span>
+</span><span class='line'>  <span class="n">LabeledSuggestBox</span> <span class="n">renalDisease</span><span class="o">;</span>
+</span><span class='line'>  <span class="nd">@UiField</span>
+</span><span class='line'>  <span class="n">DateBox</span> <span class="n">renalDiseaseStart</span><span class="o">;</span>
+</span><span class='line'>  <span class="nd">@UiField</span>
+</span><span class='line'>  <span class="n">TextArea</span> <span class="n">renalDiseaseText</span><span class="o">;</span>
+</span><span class='line'>  <span class="nd">@UiField</span>
+</span><span class='line'>  <span class="n">ValueListBox</span> <span class="n">hypertension</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="kd">private</span> <span class="kd">final</span> <span class="n">WidgetsManager</span> <span class="n">widgetsManager</span><span class="o">;</span>
+</span><span class='line'>  <span class="kd">private</span> <span class="kd">final</span> <span class="n">LayoutPanel</span> <span class="n">content</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nd">@Inject</span>
+</span><span class='line'>  <span class="kd">public</span> <span class="nf">HistoryView</span><span class="o">(</span><span class="n">WidgetsManager</span> <span class="n">widgetsManager</span><span class="o">,</span> <span class="kd">final</span> <span class="n">RegisterConstants</span> <span class="n">c</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>      <span class="k">this</span><span class="o">.</span><span class="na">widgetsManager</span> <span class="o">=</span> <span class="n">widgetsManager</span><span class="o">;</span>
+</span><span class='line'>      <span class="n">content</span> <span class="o">=</span> <span class="n">uiBinder</span><span class="o">.</span><span class="na">createAndBindUi</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+</span><span class='line'>      <span class="n">content</span><span class="o">.</span><span class="na">setTitle</span><span class="o">(</span><span class="n">c</span><span class="o">.</span><span class="na">historyTab</span><span class="o">());</span>
+</span><span class='line'>      <span class="c1">//Registering the widgets within the widget mgr.</span>
+</span><span class='line'>      <span class="n">widgetsManager</span><span class="o">.</span><span class="na">registerWidgets</span><span class="o">(</span>
+</span><span class='line'>              <span class="k">new</span> <span class="n">String</span><span class="o">[]</span> <span class="o">{</span><span class="s">&quot;primaryDiseaseGroup&quot;</span><span class="o">,</span>
+</span><span class='line'>                      <span class="s">&quot;primaryDiseaseDiagnosis&quot;</span><span class="o">,</span> <span class="s">&quot;primaryDiseaseStart&quot;</span><span class="o">},</span>
+</span><span class='line'>              <span class="k">new</span> <span class="n">Widget</span><span class="o">[]</span> <span class="o">{</span>
+</span><span class='line'>                      <span class="n">renalDisease</span><span class="o">,</span>
+</span><span class='line'>                      <span class="n">renalDiseaseText</span><span class="o">,</span>
+</span><span class='line'>                      <span class="n">renalDiseaseStart</span><span class="o">});</span>
+</span><span class='line'>      <span class="n">widgetsManager</span><span class="o">.</span><span class="na">configureValidation</span><span class="o">(</span><span class="n">HistoryDTO</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+</span><span class='line'>  <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nd">@Override</span>
+</span><span class='line'>  <span class="kd">public</span> <span class="n">Widget</span> <span class="nf">asWidget</span><span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>      <span class="k">return</span> <span class="n">content</span><span class="o">;</span>
+</span><span class='line'>  <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nd">@Override</span>
+</span><span class='line'>  <span class="kd">public</span> <span class="n">HasText</span> <span class="nf">getPrimaryDiagnosis</span><span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>      <span class="k">return</span> <span class="n">renalDiseaseText</span><span class="o">;</span>
+</span><span class='line'>  <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nd">@Override</span>
+</span><span class='line'>  <span class="kd">public</span> <span class="n">HasText</span> <span class="nf">getPrimaryDisease</span><span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>      <span class="k">return</span> <span class="n">renalDisease</span><span class="o">;</span>
+</span><span class='line'>  <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nd">@Override</span>
+</span><span class='line'>  <span class="kd">public</span> <span class="n">HasValue</span><span class="o">&lt;</span><span class="n">Date</span><span class="o">&gt;</span> <span class="nf">getPrimaryDiseaseStart</span><span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>      <span class="k">return</span> <span class="n">renalDiseaseStart</span><span class="o">;</span>
+</span><span class='line'>  <span class="o">}</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>To ensure a loosely coupled client we try to communicate between the presenters only via the EventBus or PlaceRequests, so if a new part of the UI should be rendered, a new place event needs to be fired.</p>
+
+<h2>2. Client - server communication</h2>
+
+<p>The client - server communication is based fully on the GWT-RPC mechanism. As mentioned above we are using the gwt-dispatch library meaning that for every request, we have a command object, result object and a server side handler. It is a bit verbose, but in the end it is also a very simple pattern and every new dev introduced to our team grasps it very quickly. The implementation of the client-side caching is easily done, as you just need to compare the command object which should be executed and if one of them has been already seen, then you can serve the already received result saving you one round-trip.</p>
+
+<p>To execute a command a corresponding object just needs to be passed to the dispatcher which is a singleton on the client and gets injected to every presenter that should be able to trigger the communication. In most of the cases the result of a command (or to use gwt-dispatch terminology: an action) contains a DTO object which is then shown by the presenter. On the server side we are using JPA &amp; Hibernate so obviously we need to take care of the server entity to DTO conversion. Although some libraries exists for this purpose (e.g <a href="http://sourceforge.net/projects/gilead/">gilead</a>), in our specific setting we decided to implement it ourself which was actually a straightforward task when using the reflection API and sticking to a well defined class hierarchy of our own. <img src="/images/dto.png" title="MVP with EventBus and Dispatcher" > We also use the JSR303 annotations for validation of the entities and are able to push the constraint violations back to the client where they will be assigned to the specific widgets by our <code>WidgetsManager</code> - here we are just using a simple convention of associating the input widgets with same names as the property paths in the entities.</p>
+
+<h2>3. Testing the client</h2>
+
+<p>One of the main advantages of doing MVP is the separation of the business logic (sitting in the presenter) from the actual UI components (being a part of the view) resulting in the ability of writing normal, fast unit test (normal, meaning not using the GWTTestCase) and mocking the views. Nevertheless in our project we use <a href="http://docs.seleniumhq.org/">selenium</a> as the main way to assure the correct functionality of our client. As using the normal selenium recorder is not an option with GWT due to the element ids changing during each compile process, we tried to get our selenium tests (written in java as normal unit tests) as independent as it only can be from the layout definition itself (trying not to use exact XPath etc.). Our client is very data input heavy, so we have a lot of input components to test. When we test if the entities get created in a correct way, we just access all visible input components of a certain type, populate them with a random content (which we then store for later comparison), trigger the save action and reload the UI to verify if the same components holds still the same data. Thus, we don&rsquo;t have to update the tests if our data definition changes and we have introduced some new input components. The test will also work if the layout of the UI changes either on purpose, because we rearranged it, or when a new GWT version switch to a different HTML representation for some standard widgets.</p>
+
+<figure class='code'><figcaption><span>Getting certain elements from selenium driver</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kd">protected</span> <span class="kd">static</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">WebElement</span><span class="o">&gt;</span> <span class="nf">getVisibleElements</span><span class="o">(</span><span class="n">String</span> <span class="n">tagName</span><span class="o">,</span>
+</span><span class='line'>          <span class="kd">final</span> <span class="n">String</span> <span class="n">classString</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>      <span class="n">List</span><span class="o">&lt;</span><span class="n">WebElement</span><span class="o">&gt;</span> <span class="n">elements</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="na">findElements</span><span class="o">(</span><span class="n">By</span><span class="o">.</span><span class="na">tagName</span><span class="o">(</span><span class="n">tagName</span><span class="o">));</span>
+</span><span class='line'>      <span class="k">return</span> <span class="n">Lists</span><span class="o">.</span><span class="na">newArrayList</span><span class="o">(</span><span class="n">Collections2</span><span class="o">.</span><span class="na">filter</span><span class="o">(</span><span class="n">elements</span><span class="o">,</span>
+</span><span class='line'>              <span class="k">new</span> <span class="n">Predicate</span><span class="o">&lt;</span><span class="n">WebElement</span><span class="o">&gt;()</span> <span class="o">{</span>
+</span><span class='line'>                  <span class="nd">@Override</span>
+</span><span class='line'>                  <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">apply</span><span class="o">(</span><span class="nd">@Nullable</span> <span class="n">WebElement</span> <span class="n">input</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>                      <span class="kt">boolean</span> <span class="n">b</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+</span><span class='line'>                      <span class="k">try</span> <span class="o">{</span>
+</span><span class='line'>                          <span class="n">String</span> <span class="n">classAttribute</span> <span class="o">=</span> <span class="n">input</span><span class="o">.</span><span class="na">getAttribute</span><span class="o">(</span><span class="s">&quot;class&quot;</span><span class="o">);</span>
+</span><span class='line'>                          <span class="n">b</span> <span class="o">=</span> <span class="n">input</span><span class="o">.</span><span class="na">isDisplayed</span><span class="o">()</span> <span class="o">&amp;&amp;</span> <span class="n">classAttribute</span> <span class="o">!=</span> <span class="kc">null</span>
+</span><span class='line'>                                  <span class="o">&amp;&amp;</span> <span class="n">classAttribute</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="n">classString</span><span class="o">);</span>
+</span><span class='line'>                      <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">StaleElementReferenceException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>                          <span class="c1">// Ignoring stale element</span>
+</span><span class='line'>                      <span class="o">}</span>
+</span><span class='line'>                      <span class="k">return</span> <span class="n">b</span><span class="o">;</span>
+</span><span class='line'>                  <span class="o">}</span>
+</span><span class='line'>              <span class="o">}));</span>
+</span><span class='line'>  <span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>4. Issues</h2>
+
+<p>We are quite happy how things are working now, but there is room for improvement:</p>
+
+<ul>
+<li><strong>The compile time during development</strong>: trying to change something in the client code in a iterative manner using the standard <strong>DevMode</strong> is very frustrating as it takes just too much time. <strong>SuperDevMode</strong> improved a lot our situation but we still have the problem of having the server and client side in one maven project - changing the server-side code means a <code>mvn clean -DskipTests tomcat7:run-war</code> and this means basically an &ldquo;espresso&rdquo; break.</li>
+<li><strong>The size of the client</strong>: our *.cache.js file is currently 6.1MB (we use the gwtquery and gwt-chosen libs which are quite large) We will definitely try to introduce some code splitting in the future release, to load only as much as we need and not everything from the beginning.</li>
+<li><strong>Execution time of the selenium tests</strong>: our current selenium suite takes a bit over 3 hours to run on our CI server. And although we could, we don&rsquo;t have enough of the presenter unit tests to have a sufficient coverage letting us sleep well at night. Here probably a wrong choice have been made: concentrating to much on the selenium tests and trying to go for a very exhaustive test suite, instead of implementing a good amount of unit tests for the presenters and a simpler selenium suite for the main work flows in the application.</li>
+</ul>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Lukasz Plotnicki</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2013-06-15T18:01:00+02:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>15</span><span class='date-suffix'>th</span>, <span class='date-year'>2013</span></span> <span class='time'>6:01 pm</span></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/gwt/'>gwt</a>, <a class='category' href='/blog/categories/technology/'>technology</a>, <a class='category' href='/blog/categories/web/'>web</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/05/14/setting-up-dot-dot-dot/" title="Previous Post: Setting up...">&laquo; Setting up...</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2013/09/14/scoopcamp-hackathon/" title="Next Post: Scoopcamp Hackathon">Scoopcamp Hackathon &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - Lukasz Plotnicki -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'blog-lplotni';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'https://lplotni.github.io/blog/2013/06/15/gwt-part-i/';
+        var disqus_url = 'https://lplotni.github.io/blog/2013/06/15/gwt-part-i/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

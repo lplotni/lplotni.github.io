@@ -1,0 +1,223 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Scoopcamp Hackathon - Working thoughts</title>
+  <meta name="author" content="Lukasz Plotnicki">
+
+  
+  <meta name="description" content="Last Thursday I was a part of the Scoopcamp hackathon and it was so great that I just couldn&rsquo;t resist to write down some of my thoughts about &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="https://lplotni.github.io/blog/2013/09/14/scoopcamp-hackathon/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Working thoughts" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href='//fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-40792356-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   class="no-sidebar"  >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Working thoughts</a></h1>
+  
+    <h2>Ideas, thoughts... mainly about programming & co.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="lplotni.github.io">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/talks">Talks & Writing</a></li>
+  <li><a href="/about">About</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Scoopcamp Hackathon</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2013-09-14T13:05:00+02:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>14</span><span class='date-suffix'>th</span>, <span class='date-year'>2013</span></span> <span class='time'>1:05 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Last Thursday I was a part of the <a href="http://scoopcamp.de/hackathon/">Scoopcamp hackathon</a> and it was so great that I just couldn&rsquo;t resist to write down some of my thoughts about it. Our team <strong>ThoughtWorks and friends</strong> a colorful mix of journalists, students and developers had a rough idea for a modern - more <strong>agile</strong> - journalism, where the journalist reporting about an ongoing event writes the background story and live updates from his perspective, but can also incorporate content written by the readers who create their own streams representing their own take on the particular event. Being able to see which stream/entry is getting most likes (=feedback), he/she can quickly react and focus on the currently favorite perspective. During a quick brainstorming we came up with the name: <strong>LiquidPub</strong> (for liquid publishing) and started defining the first user stories.</p>
+
+<!-- More -->
+
+
+<p><img class="right" src="/images/liquidpub_screenshot.png" title="Our app" > To be able to deliver something within less than a day of coding, we went with Ruby on Rails. This gave me the opportunity to finally try out Rails and learn it a bit by pairing with some experienced Ruby/Rails devs. The application itself has been deployed on heroku and being ThoughtWorks we built and deployed it after each push to our <a href="https://github.com/thoughtworks/liquid-pub">github repo</a> using <a href="https://www.snap-ci.com/">snap-ci</a> - <a href="http://martinfowler.com/bliki/ContinuousDelivery.html">continuous delivery</a> FTW!</p>
+
+<p>You can see the result <a href="http://liquid-pub.herokuapp.com/stories/3">here</a>.</p>
+
+<h2>Tech stack</h2>
+
+<ul>
+<li>Ruby/Rails + <a href="http://slim-lang.com/">slim</a> (as the templating engine) + <a href="http://foundation.zurb.com/">Foundation</a> CSS lib (for a responsive client)</li>
+<li>PostgreSQL</li>
+</ul>
+
+
+<h2>Some stats</h2>
+
+<ul>
+<li>4 dev pairs and 1 designer implemented 27 user stories in 6 iterations</li>
+<li>I arrived at 8:45 and left around 00:30 (<em>true hackathon sprit! ;)</em>)</li>
+<li>91 builds / 145 commits</li>
+</ul>
+
+
+<h2>Wrap-up + My take on Rails</h2>
+
+<p>A day before the hackathon, I got the message that we will do it using Ruby on Rails - so I did not really have a lot of time to look into it. But that was actually no problem at all, as I paired with another guy who had some rails experience. Although I heard it often, I was still amazed how quickly one can set up a CRUD application with it. There is of course a lot of magic happening in the background and when you have some more complicated use cases, you really need to look deeper into the <a href="http://guides.rubyonrails.org/">rails guide</a> or other documentation. My pair and myself had some issues trying to integrate a <a href="https://github.com/galetahub/rails-ckeditor">WYSIWYG editor</a> which was working in the development mode but not in the production mode due to some assets processing problems. This was the only problem we could not solve quickly. For templates we used slim which is definitely nice, but takes some time getting used to. Otherwise Rails provides as I already expected a very nice developer experience. As I am taking a deeper look into <a href="http://www.playframework.com/">Play2.0</a> now, I can try to write the same application to be able to compare the development speed and experience of both frameworks. A blog post will follow&hellip;
+This hackathon was really a great opportunity to have fun and meet new people and try out new technologies. I really look forward to another event like this!</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Lukasz Plotnicki</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2013-09-14T13:05:00+02:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>14</span><span class='date-suffix'>th</span>, <span class='date-year'>2013</span></span> <span class='time'>1:05 pm</span></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/development/'>development</a>, <a class='category' href='/blog/categories/hackathon/'>hackathon</a>, <a class='category' href='/blog/categories/learning/'>learning</a>, <a class='category' href='/blog/categories/rails/'>rails</a>, <a class='category' href='/blog/categories/snap-ci/'>snap-ci</a>, <a class='category' href='/blog/categories/web/'>web</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/06/15/gwt-part-i/" title="Previous Post: GWT: part I">&laquo; GWT: part I</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2015/06/27/build-monitors/" title="Next Post: Burstah, a build monitor">Burstah, a build monitor &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - Lukasz Plotnicki -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'blog-lplotni';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'https://lplotni.github.io/blog/2013/09/14/scoopcamp-hackathon/';
+        var disqus_url = 'https://lplotni.github.io/blog/2013/09/14/scoopcamp-hackathon/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

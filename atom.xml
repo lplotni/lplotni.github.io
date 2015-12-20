@@ -1,0 +1,1074 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Working thoughts]]></title>
+  <link href="https://lplotni.github.io/atom.xml" rel="self"/>
+  <link href="https://lplotni.github.io/"/>
+  <updated>2015-10-15T12:18:41+02:00</updated>
+  <id>https://lplotni.github.io/</id>
+  <author>
+    <name><![CDATA[Lukasz Plotnicki]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Pace: Testing an Express App]]></title>
+    <link href="https://lplotni.github.io/blog/2015/10/10/express-testing/"/>
+    <updated>2015-10-10T07:29:20+02:00</updated>
+    <id>https://lplotni.github.io/blog/2015/10/10/express-testing</id>
+    <content type="html"><![CDATA[<p><img class="right" src="https://lplotni.github.io/images/test_pyramid.jpg" width="400" height="300" title="Test pyramid" >
+After we managed to set up our basic <a href="https://lplotni.github.io/blog/2015/08/04/bootstraping-a-node-dot-js-webapp/">web application</a>,
+let&rsquo;s get our
+hands dirty writing some code. And as we want to do it in a test-driven
+manner (<a href="http://martinfowler.com/bliki/TestDrivenDevelopment.html">TDD</a>), we need
+a proper test setup. This piece is all about our initial test pyramid. Test,
+what? Yes, pyramid:</p>
+
+<blockquote><p>At the base of the test automation pyramid is unit testing. Unit testing should<br/>be the foundation of a solid test automation strategy and as such represents<br/>the largest part of the pyramid. (...) Automated user interface testing is<br/>placed at the top of the test automation pyramid because we want to do as<br/>little of it as possible. (...) Testing through the user interface like this is<br/>expensive and should be minimized. Although there are many test cases that need<br/>to be invoked, not all need to be run through the user interface. And this is<br/>where the service layer of the test automation pyramid comes in.</p><footer><strong>Mike Cohn</strong> <cite><a href='https://www.mountaingoatsoftware.com/blog/the-forgotten-layer-of-the-test-automation-pyramid'>www.mountaingoatsoftware.com/&hellip;</a></cite></footer></blockquote>
+
+
+<p>Depending on your personal style (look at this
+<a href="http://martinfowler.com/bliki/TestPyramid.html">post</a> by Martin Fowler for
+more details around different <em>flavours</em> of unit testing) and probably also the
+task at hand, you will either be starting with a unit test or
+acceptance/functional test. The rest of this post will show you how to set up
+each kind of test and give you a brief description of what we mean by saying
+<strong>unit</strong>, <strong>integration</strong> and <strong>functional</strong> test. I will also describe our
+<strong>gulp setup</strong>.</p>
+
+<!-- more -->
+
+
+<h2>Unit test</h2>
+
+<p>In JavaScript and node.js world your are spoiled for choices in regards to
+your unit tests libraries and runners: Jasmine, Mocha and friends, just pick
+one. We decided to go with
+<a href="https://jasmine.github.io/2.3/introduction.html">Jasmine</a>, in which a test
+looks like this:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="cm">/* jshint node: true */</span>
+</span><span class='line'><span class="cm">/* global describe, beforeEach, afterEach, it, jasmine, expect */</span>
+</span><span class='line'><span class="s1">&#39;use strict&#39;</span><span class="p">;</span>
+</span><span class='line'><span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;exractParticipant&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">extractParticipant</span><span class="p">;</span>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">validRequestData</span> <span class="o">=</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">body</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>      <span class="nx">firstname</span><span class="o">:</span> <span class="s1">&#39;Mark&#39;</span><span class="p">,</span>
+</span><span class='line'>      <span class="nx">lastname</span><span class="o">:</span> <span class="s1">&#39;Mueller&#39;</span><span class="p">,</span>
+</span><span class='line'>      <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;m.mueller@example.com&#39;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>  <span class="p">};</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nx">beforeEach</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">extractParticipant</span><span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../routes/registration.js&#39;</span><span class="p">).</span><span class="nx">extractParticipant</span>
+</span><span class='line'>  <span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should read firstname from the request body&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">expect</span><span class="p">(</span><span class="nx">extractParticipant</span><span class="p">(</span><span class="nx">validRequestData</span><span class="p">).</span><span class="nx">firstname</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="s1">&#39;Mark&#39;</span><span class="p">);</span>
+</span><span class='line'>  <span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should throw an error if no firstname can be found&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>    <span class="kd">function</span> <span class="nx">callWithNoFirstname</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>      <span class="nx">extractParticipant</span><span class="p">({</span><span class="nx">body</span><span class="o">:</span> <span class="p">{}});</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">expect</span><span class="p">(</span><span class="nx">callWithNoFirstname</span><span class="p">).</span><span class="nx">toThrow</span><span class="p">();</span>
+</span><span class='line'>  <span class="p">});</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Here we are verifying the behavior of the <code>extractParticipant()</code> function
+which given a request body returns a specific JS object. We can use multiple
+ <code>describe</code> calls, or even nested <code>describe</code> calls to cluster the
+tested functionality. Each <code>it</code> call corresponds with a specific behaviour
+we want to verify. <strong>Jasmine</strong> provides matchers and spies to simplify our
+testing: Just look at the
+<a href="https://jasmine.github.io/2.3/introduction.html">reference</a> to see what&rsquo;s
+possible.  Generally it&rsquo;s a good practice to verify one specific aspect per
+test. Any other recommendations, you ask <img alt="sunglasses" src="https://lplotni.github.io/images/emoji/unicode/1f60e.png" class="emoji" /> A good unit test
+is:</p>
+
+<ul>
+<li><strong>fast</strong>: All the unit tests will be executed very often, therefore it&rsquo;s
+necessarry that their execution happens in ms</li>
+<li><strong>atomic</strong>: The unit tests should be independant from one-another, so that you can
+run them parallel. This means that they should not relay on any side
+effects (data modifications done by other tests etc.). It&rsquo;s also way easier
+to reason why a certain test is red, if all you need to care about is only
+the scope of that particular test.</li>
+</ul>
+
+
+<p>As usual Martin Fowler wrote a nice <a href="http://martinfowler.com/bliki/UnitTest.html">bliki about unit tests</a>.</p>
+
+<h2>Integration test</h2>
+
+<p>As the name already states, an integration test verifies the behaviour of
+a group of components of our software acting together. Look at the following
+test, which checks the intgeration between a service and the database:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="s1">&#39;use strict&#39;</span><span class="p">;</span>
+</span><span class='line'><span class="cm">/* jshint node: true */</span>
+</span><span class='line'><span class="cm">/* jshint esnext: true */</span>
+</span><span class='line'><span class="cm">/* global describe, beforeEach, afterAll, it, jasmine, expect */</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;participants service&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="kr">const</span> <span class="nx">participants</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../../service/participants&#39;</span><span class="p">);</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">pg</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;pg&#39;</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">beforeEach</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">done</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="kd">var</span> <span class="nx">connectionString</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">SNAP_DB_PG_URL</span> <span class="o">||</span> <span class="s2">&quot;tcp://vagrant@localhost/pace&quot;</span><span class="p">;</span>
+</span><span class='line'>        <span class="kd">var</span> <span class="nx">jasmineDone</span> <span class="o">=</span> <span class="nx">done</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="nx">pg</span><span class="p">.</span><span class="nx">connect</span><span class="p">(</span><span class="nx">connectionString</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">client</span><span class="p">,</span> <span class="nx">done</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>                <span class="nx">client</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="s1">&#39;delete from participants&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>                    <span class="nx">done</span><span class="p">();</span>
+</span><span class='line'>                    <span class="nx">jasmineDone</span><span class="p">();</span>
+</span><span class='line'>                <span class="p">});</span>
+</span><span class='line'>            <span class="p">}</span>
+</span><span class='line'>        <span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">afterAll</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">done</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">pg</span><span class="p">.</span><span class="nx">end</span><span class="p">();</span>
+</span><span class='line'>        <span class="nx">done</span><span class="p">();</span>
+</span><span class='line'>    <span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should store and read participants&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">done</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="kd">var</span> <span class="nx">aParticipant</span> <span class="o">=</span> <span class="p">{</span>
+</span><span class='line'>            <span class="nx">firstname</span><span class="o">:</span> <span class="s1">&#39;Hertha&#39;</span><span class="p">,</span>
+</span><span class='line'>            <span class="nx">lastname</span><span class="o">:</span> <span class="s1">&#39;Mustermann&#39;</span><span class="p">,</span>
+</span><span class='line'>            <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;h.mustermann@example.com&#39;</span>
+</span><span class='line'>        <span class="p">};</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="nx">participants</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="nx">aParticipant</span><span class="p">)</span>
+</span><span class='line'>            <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">participants</span><span class="p">.</span><span class="nx">getAll</span><span class="p">)</span>
+</span><span class='line'>            <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>                <span class="nx">expect</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">length</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span><span class='line'>                <span class="nx">expect</span><span class="p">(</span><span class="nx">data</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">firstname</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="nx">aParticipant</span><span class="p">.</span><span class="nx">firstname</span><span class="p">);</span>
+</span><span class='line'>                <span class="nx">expect</span><span class="p">(</span><span class="nx">data</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">lastname</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="nx">aParticipant</span><span class="p">.</span><span class="nx">lastname</span><span class="p">);</span>
+</span><span class='line'>                <span class="nx">expect</span><span class="p">(</span><span class="nx">data</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">email</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="nx">aParticipant</span><span class="p">.</span><span class="nx">email</span><span class="p">);</span>
+</span><span class='line'>                <span class="nx">done</span><span class="p">();</span>
+</span><span class='line'>            <span class="p">});</span>
+</span><span class='line'>    <span class="p">});</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The integration test is similiar to the unit one (it&rsquo;s also based on jasmine),
+but instead of mocking our dependencies we use the real implementation (here
+the <code>pg</code> PostgreSQL client) and verify the integration of both components.
+In this particular example, we store a participant and expect that if we call
+the <code>getAll</code> function, it will be returned in the correct form. As the
+test will actually store objects in the dabase, we need to assure that before
+we execute the test, the database is cleared. This is done in the
+ <code>beforeEach</code> method. You may ask &lsquo;why before the test and not afterwards&rsquo;:
+In case of an error, we will still have the possibility to check the state of
+the database.</p>
+
+<p>As we need to connect to the database and assure a particular state before
+each test run, those tests will always be slower than the unit ones. Therefore
+we should try to test only the integrational aspects in them and everything
+else on the unit level. In the end we are not interested in a test suite for
+a 3rd party component, but only a verification of the fact that our usage of
+it is correct.</p>
+
+<h2>Functional test</h2>
+
+<p>Whenever we test the system as a whole, we talk about functional tests.
+Typically those tests go against an outer-most interface of our app, often
+the UI. In our case we will interact with pace via its web page.
+To do that, we use <a href="http://webdriver.io/">WebDriverIO</a> on top of <a href="http://docs.seleniumhq.org/">selenium</a> and a headless browser called <a href="http://phantomjs.org/">phantomjs</a>. This combination offers an easy to use API for browser-interaction.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="cm">/* jshint node: true */</span>
+</span><span class='line'><span class="cm">/* global describe, beforeEach, afterEach, it, jasmine, expect */</span>
+</span><span class='line'><span class="s1">&#39;use strict&#39;</span><span class="p">;</span>
+</span><span class='line'><span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;regisitration journey&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">client</span><span class="p">;</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">paceUrl</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PACE_URL</span> <span class="o">||</span> <span class="s1">&#39;http://localhost:3000/&#39;</span><span class="p">;</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">originalTimeout</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">beforeEach</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="kd">var</span> <span class="nx">webdriverio</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;webdriverio&#39;</span><span class="p">);</span>
+</span><span class='line'>        <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+</span><span class='line'>            <span class="nx">desiredCapabilities</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>                <span class="nx">browserName</span><span class="o">:</span> <span class="s1">&#39;phantomjs&#39;</span>
+</span><span class='line'>            <span class="p">}</span>
+</span><span class='line'>        <span class="p">};</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="nx">client</span> <span class="o">=</span> <span class="nx">webdriverio</span><span class="p">.</span><span class="nx">remote</span><span class="p">(</span><span class="nx">options</span><span class="p">);</span>
+</span><span class='line'>        <span class="nx">originalTimeout</span> <span class="o">=</span> <span class="nx">jasmine</span><span class="p">.</span><span class="nx">DEFAULT_TIMEOUT_INTERVAL</span><span class="p">;</span>
+</span><span class='line'>        <span class="nx">jasmine</span><span class="p">.</span><span class="nx">DEFAULT_TIMEOUT_INTERVAL</span> <span class="o">=</span> <span class="mi">10000</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">afterEach</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">jasmine</span><span class="p">.</span><span class="nx">DEFAULT_TIMEOUT_INTERVAL</span> <span class="o">=</span> <span class="nx">originalTimeout</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;allows to register via the registration page&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">done</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="nx">client</span><span class="p">.</span><span class="nx">init</span><span class="p">()</span>
+</span><span class='line'>            <span class="p">.</span><span class="nx">url</span><span class="p">(</span><span class="nx">paceUrl</span><span class="p">)</span>
+</span><span class='line'>            <span class="p">.</span><span class="nx">click</span><span class="p">(</span><span class="s1">&#39;a#registration&#39;</span><span class="p">)</span>
+</span><span class='line'>            <span class="p">.</span><span class="nx">setValue</span><span class="p">(</span><span class="s1">&#39;input#firstname&#39;</span><span class="p">,</span> <span class="s1">&#39;Max&#39;</span><span class="p">)</span>
+</span><span class='line'>            <span class="p">.</span><span class="nx">setValue</span><span class="p">(</span><span class="s1">&#39;input#lastname&#39;</span><span class="p">,</span> <span class="s1">&#39;Mustermann&#39;</span><span class="p">)</span>
+</span><span class='line'>            <span class="p">.</span><span class="nx">setValue</span><span class="p">(</span><span class="s1">&#39;input#email&#39;</span><span class="p">,</span> <span class="s1">&#39;max@example.com&#39;</span><span class="p">)</span>
+</span><span class='line'>            <span class="p">.</span><span class="nx">setValue</span><span class="p">(</span><span class="s1">&#39;input#gender&#39;</span><span class="p">,</span> <span class="s1">&#39;Unicorn&#39;</span><span class="p">)</span>
+</span><span class='line'>            <span class="p">.</span><span class="nx">click</span><span class="p">(</span><span class="s1">&#39;button#submit&#39;</span><span class="p">)</span>
+</span><span class='line'>            <span class="p">.</span><span class="nx">isVisible</span><span class="p">(</span><span class="s1">&#39;div.thanks&#39;</span><span class="p">)</span>
+</span><span class='line'>            <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">isVisible</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>                <span class="nx">expect</span><span class="p">(</span><span class="nx">isVisible</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+</span><span class='line'>                <span class="nx">done</span><span class="p">();</span>
+</span><span class='line'>            <span class="p">})</span>
+</span><span class='line'>            <span class="p">.</span><span class="nx">end</span><span class="p">();</span>
+</span><span class='line'>    <span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>First we need to setup the webdriver client to use the proper pace base url and
+browser. We also change the default jasmine timeout for async tests, as in
+general the browser based interactions tend to take more time. After that it is
+pretty straightforward: We click on a link, type into input fields, submit
+the form and verify that we land on the success page (look at
+<a href="http://webdriver.io/api.html">webdriverio API</a> for all the different interactions
+one can trigger). This is the happy path of our registration journey and as the
+functional test are the most expensive ones (in regards to the execution time),
+we will try to stick only to happy-path testing on this level.</p>
+
+<h2>Test execution</h2>
+
+<p>Ok, so how can you run all the tests in a convenient way? Pace uses <a href="http://gulpjs.com/">gulp</a> to build and automate a lot of stuff. Here are the important commands and convention:</p>
+
+<ul>
+<li>All tests (specs) should be places in the <strong>/spec</strong> directory</li>
+<li>All integration tests must have &lsquo;<strong>IT</strong>&rsquo; in their filename</li>
+<li>All functional tests must have &lsquo;<strong>Journey</strong>&rsquo; in their filename</li>
+<li><code>gulp test</code> - runs all the unit tests</li>
+<li><code>gulp test-integration</code> - runs all the integration tests, depends on
+existing database</li>
+<li><code>gulp test-functional</code> - runs all functional tests, depends on installed
+selenium-server and drivers</li>
+</ul>
+
+
+<p>To simplify the setup of a dev box, pace offers one simple command:</p>
+
+<ul>
+<li><code>gulp dev-setup</code> - prepares the vagrant box with the databse, installs
+all dependencies for selenium and executes the database migrations</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Pace: Starting With Node & Express]]></title>
+    <link href="https://lplotni.github.io/blog/2015/08/04/bootstraping-a-node-dot-js-webapp/"/>
+    <updated>2015-08-04T16:52:53+02:00</updated>
+    <id>https://lplotni.github.io/blog/2015/08/04/bootstraping-a-node-dot-js-webapp</id>
+    <content type="html"><![CDATA[<p>Together with few friends we started building <strong><a href="https://github.com/lplotni/pace">pace</a></strong> - a web application for
+organizing and managing running events &amp; competitions. We are a colorful bunch of people with different backgrounds, therefore we wanted to choose an approachable tech stack, as some of us wants also to learn one or two things about <strong>JavaScript</strong>, <strong>web applications</strong> or <strong>programming</strong> in general.</p>
+
+<p>And then, somebody suggested to write one thing or two, about our technology
+decisions and accompany it with some <em>HowTo</em> information. So here we are.</p>
+
+<!-- more -->
+
+
+<p>This is the first post out of the <strong>pace</strong> series. We will take a look at how to quickly bootstrap a new express.js application and what is acctually happening during that process.</p>
+
+<h2>First things first: node.js &amp; express.js</h2>
+
+<blockquote><p>Node.js® is a platform  built on Chrome's JavaScript runtime for easily building fast, scalable network applications. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient, perfect for data-intensive real-time applications that run across distributed devices.</p><footer><strong>Nodejs.org</strong> <cite><a href='https://nodejs.org'>nodejs.org/&hellip;</a></cite></footer></blockquote>
+
+
+<p>Probably also due to the popularity of JavaScript <a href="https://nodejs.org/">node</a> quickly spread all around the web and is nowadays widely <a href="https://github.com/joyent/node/wiki/projects,-applications,-and-companies-using-node">used</a> and has an impressive ecosystem of additional libraries/modules (just take a look at <a href="https://www.npmjs.com/">npm package manager</a>).</p>
+
+<p><a href="http://expressjs.com/">express.js</a> is one of many web frameworks based on node, but seems also to be one of the most popular ones. What is a web framework you ask:</p>
+
+<blockquote><p>A web application framework is a software framework that is designed to support the development of dynamic websites, web applications, web services and web resources. The framework aims to alleviate the overhead associated with common activities performed in web development. For example, many frameworks provide libraries for database access, templating frameworks and session management, and they often promote code reuse</p><footer><strong>Wikipedia</strong> <cite><a href='https://en.wikipedia.org/wiki/Web_application_framework'>en.wikipedia.org/wiki/&hellip;</a></cite></footer></blockquote>
+
+
+<h3>How to bootstrap a web app &amp; what happens</h3>
+
+<p>Assuming you have node already installed on your machine (if not look at <a href="https://nodejs.org/download/">here</a>)</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>npm install express-generator -g
+</span><span class='line'>express myWebApp
+</span><span class='line'><span class="nb">cd </span>myWebApp
+</span><span class='line'>npm install
+</span><span class='line'>npm start
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>What happened you ask? So first we globally installed <a href="https://www.npmjs.com/package/express-generator">express-generator</a> (it will be now available to you via <em>express</em> cmd). Then we made it bootstrap for us an app called <em>myWebApp</em>. This resulted in the following:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>/tmp<span class="p">|</span>⇒ express myWebApp
+</span><span class='line'>
+</span><span class='line'>   create : myWebApp
+</span><span class='line'>   create : myWebApp/package.json
+</span><span class='line'>   create : myWebApp/app.js
+</span><span class='line'>   create : myWebApp/public
+</span><span class='line'>   create : myWebApp/public/javascripts
+</span><span class='line'>   create : myWebApp/public/images
+</span><span class='line'>   create : myWebApp/routes
+</span><span class='line'>   create : myWebApp/routes/index.js
+</span><span class='line'>   create : myWebApp/routes/users.js
+</span><span class='line'>   create : myWebApp/public/stylesheets
+</span><span class='line'>   create : myWebApp/public/stylesheets/style.css
+</span><span class='line'>   create : myWebApp/views
+</span><span class='line'>   create : myWebApp/views/index.jade
+</span><span class='line'>   create : myWebApp/views/layout.jade
+</span><span class='line'>   create : myWebApp/views/error.jade
+</span><span class='line'>   create : myWebApp/bin
+</span><span class='line'>   create : myWebApp/bin/www
+</span><span class='line'>
+</span><span class='line'>   install dependencies:
+</span><span class='line'>     <span class="nv">$ </span><span class="nb">cd </span>myWebApp <span class="o">&amp;&amp;</span> npm install
+</span><span class='line'>
+</span><span class='line'>   run the app:
+</span><span class='line'>     <span class="nv">$ DEBUG</span><span class="o">=</span>myWebApp ./bin/www
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The generator created for us a new directory which contains all the needed files the web application consists of:</p>
+
+<ul>
+<li><strong>package.json</strong> -> definition of our node dependencies and some node configuration</li>
+<li><strong>app.js</strong> -> the main entry point into the application</li>
+<li><strong>public</strong> -> contains all public assets whic will be exposed to the public</li>
+<li><strong>routes</strong> -> contains the definitions of our routes (as ourDomain/index or ourDomain/somethingDifferent)</li>
+<li><strong>views</strong> -> contains our templates (more about this in future posts)</li>
+<li><strong>bin/www</strong> -> executable application (if you run <code>npm start</code> this will be started)</li>
+</ul>
+
+
+<p>The execution of <code>npm install</code> in app&rsquo;s directory, installs all the dependencies defined in the <code>package.json</code> file. Those dependencies will be installed only locally in the <code>node_modules</code> directory. After this step we are ready to go and able to run <code>npm start</code> which should result in this:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>myWebApp<span class="p">|</span>⇒ npm start
+</span><span class='line'>
+</span><span class='line'>&gt; myWebApp@0.0.1 start /private/tmp/myWebApp
+</span><span class='line'>&gt; node ./bin/www
+</span><span class='line'>
+</span><span class='line'>GET / <span class="m">200</span> 305ms - 170b
+</span><span class='line'>GET / <span class="m">200</span> 34ms - 170b
+</span><span class='line'>GET /stylesheets/style.css <span class="m">200</span> 4ms - 110b
+</span><span class='line'>GET / <span class="m">304</span> 25ms
+</span><span class='line'>GET /stylesheets/style.css <span class="m">304</span> 1ms
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You can see, that I opened <a href="http://localhost:3000">http://localhost:3000</a> in the browser and express served me the index page with the <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html">200 code</a> (you can also see that I refreshed the page and got 304 NOT MODIFIED). Everything works also as expected <img alt="+1" src="https://lplotni.github.io/images/emoji/unicode/1f44d.png" class="emoji" /></p>
+
+<p><strong>Why? How?</strong> Let&rsquo;s take a quick look at the following:</p>
+
+<figure class='code'><figcaption><span>app.js</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='JavaScript'><span class='line'><span class="kd">var</span> <span class="nx">routes</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./routes/index&#39;</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="nx">routes</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This is only a part of the <code>app.js</code> file but shows the wiring of our default root to the index.js file shown below. BTW: you can also see how to load dependencies/modules for our code via the <code>require</code> function (if you want to read more about that, <a href="http://openmymind.net/2012/2/3/Node-Require-and-Exports/">here is a nice write-up</a>)</p>
+
+<figure class='code'><figcaption><span>routes/index.js</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='JavaScript'><span class='line'><span class="kd">var</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;express&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">router</span> <span class="o">=</span> <span class="nx">express</span><span class="p">.</span><span class="nx">Router</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm">/* GET home page. */</span>
+</span><span class='line'><span class="nx">router</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Express&#39;</span> <span class="p">});</span>
+</span><span class='line'><span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">router</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The <code>index.js</code> uses express' <code>router</code> and wires request for <strong>/</strong> to the function responding with a rendered <code>index.jade</code> template, to which it passes a variable called <code>title</code>. If you never used <a href="http://jade-lang.com/">jade</a>, don&rsquo;t worry, is a pretty simple HTML template engine. Look at the following:</p>
+
+<figure class='code'><figcaption><span>index.jade</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='jade'><span class='line'><span class="nt">extends</span> layout
+</span><span class='line'>
+</span><span class='line'><span class="nt">block</span> content
+</span><span class='line'>  <span class="nt">h1</span><span class="p">=</span> <span class="n">title</span>
+</span><span class='line'>  <span class="nt">p</span> Welcome to <span class="si">#{</span><span class="n">title</span><span class="si">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Jade enables template composition. In here we extend <code>layout.jade</code> which defines the general page structure. If other template defines a <strong>block</strong> called <code>content</code> it will be then injected at the corresponding place.</p>
+
+<figure class='code'><figcaption><span>layout.jade</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='jade'><span class='line'><span class="nt">doctype</span> html
+</span><span class='line'><span class="nt">html</span>
+</span><span class='line'>  <span class="nt">head</span>
+</span><span class='line'>    <span class="nt">title</span><span class="p">=</span> <span class="n">title</span>
+</span><span class='line'>    <span class="nt">link</span>(<span class="na">rel=</span><span class="s">&#39;stylesheet&#39;</span><span class="err">,</span> <span class="na">href=</span><span class="s">&#39;/stylesheets/style.css&#39;</span>)
+</span><span class='line'>  <span class="nt">body</span>
+</span><span class='line'>    <span class="nt">block</span> content
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Jade is indentation aware, meaning that the above example results in the following:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='HTML'><span class='line'><span class="cp">&lt;!DOCTYPE html&gt;</span>
+</span><span class='line'><span class="nt">&lt;html&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;head&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;title&gt;</span>Express<span class="nt">&lt;/title&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;/stylesheets/style.css&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/head&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;body&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;h1&gt;</span>Express<span class="nt">&lt;/h1&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;p&gt;</span>Welcome to Express<span class="nt">&lt;/p&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/body&gt;</span>
+</span><span class='line'><span class="nt">&lt;/html&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now you have seen all the parts making the browser render the most basic page of all time <img alt="sunglasses" src="https://lplotni.github.io/images/emoji/unicode/1f60e.png" class="emoji" /></p>
+
+<p>Next post out of the <strong>pace</strong> series, will actually explain how to start working on the functionality we need. Right now you can start to play around with the data which is passed by the <code>index.js</code> to the <code>index.jade</code> template and how the template uses it. Have fun!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Burstah, a Build Monitor]]></title>
+    <link href="https://lplotni.github.io/blog/2015/06/27/build-monitors/"/>
+    <updated>2015-06-27T15:41:00+02:00</updated>
+    <id>https://lplotni.github.io/blog/2015/06/27/build-monitors</id>
+    <content type="html"><![CDATA[<p>During my last four projects or so, the teams I worked with were always using <a href="http://www.go.cd/">GO.CD</a> as the CD tool of their
+choosing. Although the pipeline state visualisation GO.CD comes with is quite nice, it still doesn&rsquo;t cut it as a proper,
+<em>obvious</em> build monitor enabling everybody in the team to quickly recognize what is the pipeline status.</p>
+
+<p><img class="left" src="https://lplotni.github.io/images/burstah_example.png" title="Burstah in action" ></p>
+
+<p>Therefore first <a href="https://github.com/lplotni/cidar">cidar</a>, a simple sinatra based build monitor, has been born. I quickly discovered
+that sinatra and especially the nokogiri dependency, doesn&rsquo;t make it easy to use e.g. a Raspberry Pi as the monitor hardware. So,
+having the liberty, I decided to re-implement everything in JavaScript using node.js &amp; express. <a href="https://github.com/lplotni/burstah">Burstah</a>
+, my second attempt at the ultimative build monitor, has been born  <img alt="bowtie" src="https://lplotni.github.io/images/emoji/bowtie.png" class="emoji" /></p>
+
+<!--more-->
+
+
+<p>All the necessary information how to use, install or contribute can be found in <strong>Burstah</strong>&rsquo;s readme.</p>
+
+<p>Currently <strong>Burstah</strong> has following features:</p>
+
+<ul>
+<li>Polling for the cctray.xml to recognize the pipelines and their status</li>
+<li>Grabbing the commit details directly out of the GO.CD and presenting them</li>
+<li>Providing an animation when the build is running</li>
+<li>Supporting emojis in the commit messages <img alt="thumbsup" src="https://lplotni.github.io/images/emoji/unicode/1f44d.png" class="emoji" /></li>
+</ul>
+
+
+<p>If you have any wishes or issues, just write stuff down on the <a href="https://github.com/lplotni/burstah/issues">github issues page</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Scoopcamp Hackathon]]></title>
+    <link href="https://lplotni.github.io/blog/2013/09/14/scoopcamp-hackathon/"/>
+    <updated>2013-09-14T13:05:00+02:00</updated>
+    <id>https://lplotni.github.io/blog/2013/09/14/scoopcamp-hackathon</id>
+    <content type="html"><![CDATA[<p>Last Thursday I was a part of the <a href="http://scoopcamp.de/hackathon/">Scoopcamp hackathon</a> and it was so great that I just couldn&rsquo;t resist to write down some of my thoughts about it. Our team <strong>ThoughtWorks and friends</strong> a colorful mix of journalists, students and developers had a rough idea for a modern - more <strong>agile</strong> - journalism, where the journalist reporting about an ongoing event writes the background story and live updates from his perspective, but can also incorporate content written by the readers who create their own streams representing their own take on the particular event. Being able to see which stream/entry is getting most likes (=feedback), he/she can quickly react and focus on the currently favorite perspective. During a quick brainstorming we came up with the name: <strong>LiquidPub</strong> (for liquid publishing) and started defining the first user stories.</p>
+
+<!-- More -->
+
+
+<p><img class="right" src="https://lplotni.github.io/images/liquidpub_screenshot.png" title="Our app" > To be able to deliver something within less than a day of coding, we went with Ruby on Rails. This gave me the opportunity to finally try out Rails and learn it a bit by pairing with some experienced Ruby/Rails devs. The application itself has been deployed on heroku and being ThoughtWorks we built and deployed it after each push to our <a href="https://github.com/thoughtworks/liquid-pub">github repo</a> using <a href="https://www.snap-ci.com/">snap-ci</a> - <a href="http://martinfowler.com/bliki/ContinuousDelivery.html">continuous delivery</a> FTW!</p>
+
+<p>You can see the result <a href="http://liquid-pub.herokuapp.com/stories/3">here</a>.</p>
+
+<h2>Tech stack</h2>
+
+<ul>
+<li>Ruby/Rails + <a href="http://slim-lang.com/">slim</a> (as the templating engine) + <a href="http://foundation.zurb.com/">Foundation</a> CSS lib (for a responsive client)</li>
+<li>PostgreSQL</li>
+</ul>
+
+
+<h2>Some stats</h2>
+
+<ul>
+<li>4 dev pairs and 1 designer implemented 27 user stories in 6 iterations</li>
+<li>I arrived at 8:45 and left around 00:30 (<em>true hackathon sprit! ;)</em>)</li>
+<li>91 builds / 145 commits</li>
+</ul>
+
+
+<h2>Wrap-up + My take on Rails</h2>
+
+<p>A day before the hackathon, I got the message that we will do it using Ruby on Rails - so I did not really have a lot of time to look into it. But that was actually no problem at all, as I paired with another guy who had some rails experience. Although I heard it often, I was still amazed how quickly one can set up a CRUD application with it. There is of course a lot of magic happening in the background and when you have some more complicated use cases, you really need to look deeper into the <a href="http://guides.rubyonrails.org/">rails guide</a> or other documentation. My pair and myself had some issues trying to integrate a <a href="https://github.com/galetahub/rails-ckeditor">WYSIWYG editor</a> which was working in the development mode but not in the production mode due to some assets processing problems. This was the only problem we could not solve quickly. For templates we used slim which is definitely nice, but takes some time getting used to. Otherwise Rails provides as I already expected a very nice developer experience. As I am taking a deeper look into <a href="http://www.playframework.com/">Play2.0</a> now, I can try to write the same application to be able to compare the development speed and experience of both frameworks. A blog post will follow&hellip;
+This hackathon was really a great opportunity to have fun and meet new people and try out new technologies. I really look forward to another event like this!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[GWT: Part I]]></title>
+    <link href="https://lplotni.github.io/blog/2013/06/15/gwt-part-i/"/>
+    <updated>2013-06-15T18:01:00+02:00</updated>
+    <id>https://lplotni.github.io/blog/2013/06/15/gwt-part-i</id>
+    <content type="html"><![CDATA[<p>Back in 2009 I became the job to design and start realizing a quite large web application for a health care research project. I took some time, sat down and thought about the technology stack, I would like to use to build it. As we wanted to have an RIA and I already had some experience with GWT, we quickly decided to use it. Since then four years have passed and we are about to release the 2.0 version of our system. During this time, the whole team learned a lot about GWT, its advantages and also some disadvantages, and I thought it would be useful to write some of them up. This part is about the <strong>status quo</strong>, in the second part I will try to write about a GWT setup I would go for, when starting the project today - so if you have any hints in this regard, please feel free to leave a comment, I would definitely appreciate it!</p>
+
+<!--more-->
+
+
+<h2>1. Client setup</h2>
+
+<p>Around the same time, as I started to draw the first diagrams of the inner life of our web app, Ray Ryan gave a <a href="http://www.youtube.com/watch?v=PDuhR18-EdM">talk at the IO conference</a> about the best practices for GWT app architecture, mentioning the <a href="http://martinfowler.com/eaaDev/uiArchs.html">model view presenter</a>, the usage of an event bus for components communication and the command pattern for dispatching the GWT-RPC calls to the server. Shortly after I discovered the <a href="http://code.google.com/p/gwt-presenter/">gwt-presenter</a> and the <a href="http://code.google.com/p/gwt-dispatch/">gwt-dispatch</a> libraries, offering an easy way to build an GWT app based on the principles from  Ray&rsquo;s talk. I also found a very detailed <a href="http://blog.hivedevelopment.co.uk/2009/08/google-web-toolkit-gwt-mvp-example.html">blog post</a> explaining how everything works together.  <img src="https://lplotni.github.io/images/gwt_mvp.png" title="MVP with EventBus and Dispatcher" > At this point we defined one <strong>Presenter</strong> for all the entities, we wanted to made accessible on the client, and each presenter defined his own <strong>Display</strong> interface which then was implemented by the <strong>View</strong> class. The instantiation of all presenters and views has been managed by <a href="http://code.google.com/p/google-gin/">gin</a> - a dependency injection framework for the client side. The code looked more or less like this:</p>
+
+<figure class='code'><figcaption><span>Presenter & Display</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">HistoryPresenter</span> <span class="kd">extends</span> <span class="n">WidgetPresenter</span><span class="o">&lt;</span><span class="n">HistoryPresenter</span><span class="o">.</span><span class="na">Display</span><span class="o">&gt;</span>
+</span><span class='line'>      <span class="kd">implements</span> <span class="n">PresentsDTO</span><span class="o">&lt;</span><span class="n">HistoryDTO</span><span class="o">&gt;</span> <span class="o">{</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Display</span> <span class="kd">extends</span> <span class="n">WidgetDisplay</span><span class="o">,</span> <span class="n">Resettable</span><span class="o">,</span> <span class="n">Editable</span> <span class="o">{</span>
+</span><span class='line'>      <span class="n">HasText</span> <span class="nf">getPrimaryDisease</span><span class="o">();</span>
+</span><span class='line'>      <span class="n">HasText</span> <span class="nf">getPrimaryDiagnosis</span><span class="o">();</span>
+</span><span class='line'>      <span class="n">HasValue</span><span class="o">&lt;</span><span class="n">Date</span><span class="o">&gt;</span> <span class="nf">getPrimaryDiseaseStart</span><span class="o">();</span>
+</span><span class='line'>      <span class="n">HasValue</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="nf">getHypertension</span><span class="o">();</span>
+</span><span class='line'>      <span class="c1">// (...) and some more stuff here</span>
+</span><span class='line'>  <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="kd">private</span> <span class="n">HistoryDTO</span> <span class="n">currentDTO</span><span class="o">;</span>
+</span><span class='line'>  <span class="kd">private</span> <span class="kd">final</span> <span class="n">DispatchAsync</span> <span class="n">dispatcher</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nd">@Inject</span>
+</span><span class='line'>  <span class="kd">public</span> <span class="nf">HistoryPresenter</span><span class="o">(</span><span class="kd">final</span> <span class="n">Display</span> <span class="n">display</span><span class="o">,</span> <span class="kd">final</span> <span class="n">EventBus</span> <span class="n">eventBus</span><span class="o">,</span> <span class="kd">final</span> <span class="n">DispatchAsync</span> <span class="n">dispatcher</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>      <span class="kd">super</span><span class="o">(</span><span class="n">display</span><span class="o">,</span> <span class="n">eventBus</span><span class="o">);</span>
+</span><span class='line'>      <span class="n">bind</span><span class="o">();</span>
+</span><span class='line'>  <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nd">@Override</span>
+</span><span class='line'>  <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onBind</span><span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>      <span class="c1">// Add handlers to the event bus if needed</span>
+</span><span class='line'>  <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nd">@Override</span>
+</span><span class='line'>  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">resetUI</span><span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>      <span class="n">currentDTO</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+</span><span class='line'>      <span class="n">display</span><span class="o">.</span><span class="na">resetUI</span><span class="o">();</span>
+</span><span class='line'>  <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nd">@Override</span>
+</span><span class='line'>  <span class="kd">public</span> <span class="n">HistoryDTO</span> <span class="nf">getDTO</span><span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>      <span class="n">syncDTO</span><span class="o">();</span>
+</span><span class='line'>      <span class="k">return</span> <span class="n">currentDTO</span><span class="o">;</span>
+</span><span class='line'>  <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nd">@Override</span>
+</span><span class='line'>  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">syncDTO</span><span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>      <span class="c1">// create new DTO object with the content from the display</span>
+</span><span class='line'>  <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nd">@Override</span>
+</span><span class='line'>  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">showDTO</span><span class="o">(</span><span class="n">HistoryDTO</span> <span class="n">dto</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>      <span class="c1">// refresh the display with the data from the DTO</span>
+</span><span class='line'>  <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nd">@Override</span>
+</span><span class='line'>  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setEditable</span><span class="o">(</span><span class="kt">boolean</span> <span class="n">value</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>      <span class="n">display</span><span class="o">.</span><span class="na">setEditable</span><span class="o">(</span><span class="n">value</span><span class="o">);</span>
+</span><span class='line'>  <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nd">@Override</span>
+</span><span class='line'>  <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onRevealDisplay</span><span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>      <span class="c1">// React on place request e.g use the dispatcher to load the data from the server</span>
+</span><span class='line'>  <span class="o">}</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>In the gwt-presenter class hierarchy there was no possibility to define the model class the presenter will be responsible for. For that reason we introduced a <code>PresentDTO\&lt;T></code> and <code>PresentDTOs\&lt;T></code> interfaces to ensure the existence of <code>T getDTO()</code> etc. methods. The view classes are quite straightforward, the only difference is that back in 2009 ui:binder was not really there, therefore the gwt-presenter had no direct support for it. But switching to the declarative layout definition was indeed very easy - each view defines its own *.ui.xml file and the <code>asWidget()</code> method just returns the result of the <code>uiBinder.createAndBindUi()</code> call. As you can see in the code below we introduced also a <code>WidgetsManager</code> class which is a convinient way to managed all the widgets the view is defining (offering a general <code>setEditable()</code> method and taking care of the validation visualization).</p>
+
+<figure class='code'><figcaption><span>View</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">HistoryView</span> <span class="kd">implements</span> <span class="n">Display</span> <span class="o">{</span>
+</span><span class='line'>  <span class="kd">interface</span> <span class="nc">HistoryViewUiBinder</span> <span class="kd">extends</span> <span class="n">UiBinder</span><span class="o">&lt;</span><span class="n">LayoutPanel</span><span class="o">,</span> <span class="n">HistoryView</span><span class="o">&gt;</span> <span class="o">{}</span>
+</span><span class='line'>  <span class="kd">private</span> <span class="kd">static</span> <span class="n">HistoryViewUiBinder</span> <span class="n">uiBinder</span> <span class="o">=</span> <span class="n">GWT</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">HistoryViewUiBinder</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nd">@UiField</span>
+</span><span class='line'>  <span class="n">LabeledSuggestBox</span> <span class="n">renalDisease</span><span class="o">;</span>
+</span><span class='line'>  <span class="nd">@UiField</span>
+</span><span class='line'>  <span class="n">DateBox</span> <span class="n">renalDiseaseStart</span><span class="o">;</span>
+</span><span class='line'>  <span class="nd">@UiField</span>
+</span><span class='line'>  <span class="n">TextArea</span> <span class="n">renalDiseaseText</span><span class="o">;</span>
+</span><span class='line'>  <span class="nd">@UiField</span>
+</span><span class='line'>  <span class="n">ValueListBox</span> <span class="n">hypertension</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="kd">private</span> <span class="kd">final</span> <span class="n">WidgetsManager</span> <span class="n">widgetsManager</span><span class="o">;</span>
+</span><span class='line'>  <span class="kd">private</span> <span class="kd">final</span> <span class="n">LayoutPanel</span> <span class="n">content</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nd">@Inject</span>
+</span><span class='line'>  <span class="kd">public</span> <span class="nf">HistoryView</span><span class="o">(</span><span class="n">WidgetsManager</span> <span class="n">widgetsManager</span><span class="o">,</span> <span class="kd">final</span> <span class="n">RegisterConstants</span> <span class="n">c</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>      <span class="k">this</span><span class="o">.</span><span class="na">widgetsManager</span> <span class="o">=</span> <span class="n">widgetsManager</span><span class="o">;</span>
+</span><span class='line'>      <span class="n">content</span> <span class="o">=</span> <span class="n">uiBinder</span><span class="o">.</span><span class="na">createAndBindUi</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+</span><span class='line'>      <span class="n">content</span><span class="o">.</span><span class="na">setTitle</span><span class="o">(</span><span class="n">c</span><span class="o">.</span><span class="na">historyTab</span><span class="o">());</span>
+</span><span class='line'>      <span class="c1">//Registering the widgets within the widget mgr.</span>
+</span><span class='line'>      <span class="n">widgetsManager</span><span class="o">.</span><span class="na">registerWidgets</span><span class="o">(</span>
+</span><span class='line'>              <span class="k">new</span> <span class="n">String</span><span class="o">[]</span> <span class="o">{</span><span class="s">&quot;primaryDiseaseGroup&quot;</span><span class="o">,</span>
+</span><span class='line'>                      <span class="s">&quot;primaryDiseaseDiagnosis&quot;</span><span class="o">,</span> <span class="s">&quot;primaryDiseaseStart&quot;</span><span class="o">},</span>
+</span><span class='line'>              <span class="k">new</span> <span class="n">Widget</span><span class="o">[]</span> <span class="o">{</span>
+</span><span class='line'>                      <span class="n">renalDisease</span><span class="o">,</span>
+</span><span class='line'>                      <span class="n">renalDiseaseText</span><span class="o">,</span>
+</span><span class='line'>                      <span class="n">renalDiseaseStart</span><span class="o">});</span>
+</span><span class='line'>      <span class="n">widgetsManager</span><span class="o">.</span><span class="na">configureValidation</span><span class="o">(</span><span class="n">HistoryDTO</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+</span><span class='line'>  <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nd">@Override</span>
+</span><span class='line'>  <span class="kd">public</span> <span class="n">Widget</span> <span class="nf">asWidget</span><span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>      <span class="k">return</span> <span class="n">content</span><span class="o">;</span>
+</span><span class='line'>  <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nd">@Override</span>
+</span><span class='line'>  <span class="kd">public</span> <span class="n">HasText</span> <span class="nf">getPrimaryDiagnosis</span><span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>      <span class="k">return</span> <span class="n">renalDiseaseText</span><span class="o">;</span>
+</span><span class='line'>  <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nd">@Override</span>
+</span><span class='line'>  <span class="kd">public</span> <span class="n">HasText</span> <span class="nf">getPrimaryDisease</span><span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>      <span class="k">return</span> <span class="n">renalDisease</span><span class="o">;</span>
+</span><span class='line'>  <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nd">@Override</span>
+</span><span class='line'>  <span class="kd">public</span> <span class="n">HasValue</span><span class="o">&lt;</span><span class="n">Date</span><span class="o">&gt;</span> <span class="nf">getPrimaryDiseaseStart</span><span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>      <span class="k">return</span> <span class="n">renalDiseaseStart</span><span class="o">;</span>
+</span><span class='line'>  <span class="o">}</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>To ensure a loosely coupled client we try to communicate between the presenters only via the EventBus or PlaceRequests, so if a new part of the UI should be rendered, a new place event needs to be fired.</p>
+
+<h2>2. Client - server communication</h2>
+
+<p>The client - server communication is based fully on the GWT-RPC mechanism. As mentioned above we are using the gwt-dispatch library meaning that for every request, we have a command object, result object and a server side handler. It is a bit verbose, but in the end it is also a very simple pattern and every new dev introduced to our team grasps it very quickly. The implementation of the client-side caching is easily done, as you just need to compare the command object which should be executed and if one of them has been already seen, then you can serve the already received result saving you one round-trip.</p>
+
+<p>To execute a command a corresponding object just needs to be passed to the dispatcher which is a singleton on the client and gets injected to every presenter that should be able to trigger the communication. In most of the cases the result of a command (or to use gwt-dispatch terminology: an action) contains a DTO object which is then shown by the presenter. On the server side we are using JPA &amp; Hibernate so obviously we need to take care of the server entity to DTO conversion. Although some libraries exists for this purpose (e.g <a href="http://sourceforge.net/projects/gilead/">gilead</a>), in our specific setting we decided to implement it ourself which was actually a straightforward task when using the reflection API and sticking to a well defined class hierarchy of our own. <img src="https://lplotni.github.io/images/dto.png" title="MVP with EventBus and Dispatcher" > We also use the JSR303 annotations for validation of the entities and are able to push the constraint violations back to the client where they will be assigned to the specific widgets by our <code>WidgetsManager</code> - here we are just using a simple convention of associating the input widgets with same names as the property paths in the entities.</p>
+
+<h2>3. Testing the client</h2>
+
+<p>One of the main advantages of doing MVP is the separation of the business logic (sitting in the presenter) from the actual UI components (being a part of the view) resulting in the ability of writing normal, fast unit test (normal, meaning not using the GWTTestCase) and mocking the views. Nevertheless in our project we use <a href="http://docs.seleniumhq.org/">selenium</a> as the main way to assure the correct functionality of our client. As using the normal selenium recorder is not an option with GWT due to the element ids changing during each compile process, we tried to get our selenium tests (written in java as normal unit tests) as independent as it only can be from the layout definition itself (trying not to use exact XPath etc.). Our client is very data input heavy, so we have a lot of input components to test. When we test if the entities get created in a correct way, we just access all visible input components of a certain type, populate them with a random content (which we then store for later comparison), trigger the save action and reload the UI to verify if the same components holds still the same data. Thus, we don&rsquo;t have to update the tests if our data definition changes and we have introduced some new input components. The test will also work if the layout of the UI changes either on purpose, because we rearranged it, or when a new GWT version switch to a different HTML representation for some standard widgets.</p>
+
+<figure class='code'><figcaption><span>Getting certain elements from selenium driver</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kd">protected</span> <span class="kd">static</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">WebElement</span><span class="o">&gt;</span> <span class="nf">getVisibleElements</span><span class="o">(</span><span class="n">String</span> <span class="n">tagName</span><span class="o">,</span>
+</span><span class='line'>          <span class="kd">final</span> <span class="n">String</span> <span class="n">classString</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>      <span class="n">List</span><span class="o">&lt;</span><span class="n">WebElement</span><span class="o">&gt;</span> <span class="n">elements</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="na">findElements</span><span class="o">(</span><span class="n">By</span><span class="o">.</span><span class="na">tagName</span><span class="o">(</span><span class="n">tagName</span><span class="o">));</span>
+</span><span class='line'>      <span class="k">return</span> <span class="n">Lists</span><span class="o">.</span><span class="na">newArrayList</span><span class="o">(</span><span class="n">Collections2</span><span class="o">.</span><span class="na">filter</span><span class="o">(</span><span class="n">elements</span><span class="o">,</span>
+</span><span class='line'>              <span class="k">new</span> <span class="n">Predicate</span><span class="o">&lt;</span><span class="n">WebElement</span><span class="o">&gt;()</span> <span class="o">{</span>
+</span><span class='line'>                  <span class="nd">@Override</span>
+</span><span class='line'>                  <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">apply</span><span class="o">(</span><span class="nd">@Nullable</span> <span class="n">WebElement</span> <span class="n">input</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>                      <span class="kt">boolean</span> <span class="n">b</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+</span><span class='line'>                      <span class="k">try</span> <span class="o">{</span>
+</span><span class='line'>                          <span class="n">String</span> <span class="n">classAttribute</span> <span class="o">=</span> <span class="n">input</span><span class="o">.</span><span class="na">getAttribute</span><span class="o">(</span><span class="s">&quot;class&quot;</span><span class="o">);</span>
+</span><span class='line'>                          <span class="n">b</span> <span class="o">=</span> <span class="n">input</span><span class="o">.</span><span class="na">isDisplayed</span><span class="o">()</span> <span class="o">&amp;&amp;</span> <span class="n">classAttribute</span> <span class="o">!=</span> <span class="kc">null</span>
+</span><span class='line'>                                  <span class="o">&amp;&amp;</span> <span class="n">classAttribute</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="n">classString</span><span class="o">);</span>
+</span><span class='line'>                      <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">StaleElementReferenceException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>                          <span class="c1">// Ignoring stale element</span>
+</span><span class='line'>                      <span class="o">}</span>
+</span><span class='line'>                      <span class="k">return</span> <span class="n">b</span><span class="o">;</span>
+</span><span class='line'>                  <span class="o">}</span>
+</span><span class='line'>              <span class="o">}));</span>
+</span><span class='line'>  <span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>4. Issues</h2>
+
+<p>We are quite happy how things are working now, but there is room for improvement:</p>
+
+<ul>
+<li><strong>The compile time during development</strong>: trying to change something in the client code in a iterative manner using the standard <strong>DevMode</strong> is very frustrating as it takes just too much time. <strong>SuperDevMode</strong> improved a lot our situation but we still have the problem of having the server and client side in one maven project - changing the server-side code means a <code>mvn clean -DskipTests tomcat7:run-war</code> and this means basically an &ldquo;espresso&rdquo; break.</li>
+<li><strong>The size of the client</strong>: our *.cache.js file is currently 6.1MB (we use the gwtquery and gwt-chosen libs which are quite large) We will definitely try to introduce some code splitting in the future release, to load only as much as we need and not everything from the beginning.</li>
+<li><strong>Execution time of the selenium tests</strong>: our current selenium suite takes a bit over 3 hours to run on our CI server. And although we could, we don&rsquo;t have enough of the presenter unit tests to have a sufficient coverage letting us sleep well at night. Here probably a wrong choice have been made: concentrating to much on the selenium tests and trying to go for a very exhaustive test suite, instead of implementing a good amount of unit tests for the presenters and a simpler selenium suite for the main work flows in the application.</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Setting Up...]]></title>
+    <link href="https://lplotni.github.io/blog/2013/05/14/setting-up-dot-dot-dot/"/>
+    <updated>2013-05-14T17:46:00+02:00</updated>
+    <id>https://lplotni.github.io/blog/2013/05/14/setting-up-dot-dot-dot</id>
+    <content type="html"><![CDATA[<p>There&rsquo;s nothing like this moment, when you have a big smile on your face, because you&rsquo;re just stunned how well things are working and how simple the set-up process was. <a href="http://octopress.org">Octopress</a> is just amazing. <strong>Period</strong>. If you haven&rsquo;t heard about it and you&rsquo;re thinking to start a blog or migrate one, then you should definitely check it out. To put it simple:</p>
+
+<blockquote><p>Octopress is a framework designed by Brandon Mathis for Jekyll, the blog aware static site generator powering Github Pages. To start blogging with Jekyll, you have to write your own HTML templates, CSS, Javascripts and set up your configuration. But with Octopress All of that is already taken care of. Simply clone or fork Octopress, install dependencies and the theme, and you're set.</p><footer><strong>Brandon Mathis</strong> <cite><a href='http://octopress.org/blog/2011/07/23/octopress-20-surfaces/'>octopress.org/blog/2011/07/23/&hellip;</a></cite></footer></blockquote>
+
+
+<p>It took me just few hours from having the idea: <em>Today is the day to start my own blog</em> to actually having it hosted on github. And the experience itself (checking out the octopress repo, configuring, building and deploying to github) was really simple. Thumbs up for the good documentation!</p>
+
+<h2>My setup</h2>
+
+<ol>
+<li><strong>octopress</strong> is publishing directly to my github user page. Therefore the access is fairly simple and I can use my blog to link to other stuff, I have on github or somewhere else like e.g. slides to my talks.</li>
+<li>I decided against using the default theme and went with a clean and responsive one called the <a href="https://github.com/lucaslew/whitespace">whitespace</a>. There are many, many others so everyone should be able to find something suiting own needs. A list with some of the themes available: <a href="https://github.com/imathis/octopress/wiki/3rd-Party-Octopress-Themes">3rd-Party-Octopress-Themes</a></li>
+</ol>
+
+
+<!--more-->
+
+
+<ol>
+<li>During the set-up phase I had only one ubuntu-related (using the 13.04) hickup. When executing the <code>bundle install</code> I got an missing dependency error, so after googling for like a minute, I found a simple solution: just execute <code>sudo apt-get install ruby1.9.1-full</code> and everything will work as described in octopress docs.</li>
+<li>As I&rsquo;m a <strong>zsh</strong> and <a href="https://github.com/robbyrussell/oh-my-zsh">oh-my-zsh</a> user, I run also into the <code>rake new_post[title]</code> execution problem. A solution for it was also easily found: just add <code>alias rake=&ldquo;noglob rake&rdquo;</code> to your <code>~/.zshrc</code>.</li>
+<li>To be able to see, if anybody actually reads this stuff, I activated the support for google analytics in the <code>_config.yml</code> file.</li>
+<li>I also activated <a href="http://disqus.com">disqus</a> to support comments. Although I&rsquo;ve never heard about it, it makes a very nice impression and as everything till now, was very easy to set-up (create an account, get unique id and put it into the <code>_config.yml</code> file). I deactivated all the <strong>discovery</strong> stuff from disqus though, as I&rsquo;m not interested in monetizing anything here.</li>
+</ol>
+
+
+<p>If you read it till now, you may be asking yourself <blockquote><p>OK, yet another possibility to create a blog. So what. Why bother with all this stuff when one can just use blogger or wordpress.com.</p></blockquote> My answer:</p>
+
+<h2>Killer features &amp; the work-flow</h2>
+
+<ol>
+<li>Everything is hosted on github within my repository and I have control over all the files etc.</li>
+<li>To create a new blog post you just type <code>rake new_post[&lsquo;some title&rsquo;]</code> and open the created file to edit the content. Everything will be written in markdown (<strong>+1</strong>), so I&rsquo;m using <a href="http://www.sublimetext.com/">sublime</a> as my editor and the <strong>distraction free mode</strong> when writing&hellip;</li>
+<li>When you work on a new post or a change then you can tweak and test everything on your local machine under <code>localhost:4000</code> with each change made automatically visible thanks to <code>rake watch</code> and <code>rake preview</code></li>
+<li>Everything is manged by git, so you can work on posts in branches etc.</li>
+<li>When you&rsquo;re done, you just hit <code>rake generate</code> and <code>rake deploy</code> and the new stuff will be pushed to github.</li>
+</ol>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Hello World]]></title>
+    <link href="https://lplotni.github.io/blog/2013/05/09/hello-world/"/>
+    <updated>2013-05-09T18:54:00+02:00</updated>
+    <id>https://lplotni.github.io/blog/2013/05/09/hello-world</id>
+    <content type="html"><![CDATA[<p>I had this idea to create my own blog since like forever but always convinced myself that it will be either too time consuming or all the topics I would like to write about, are already well described, so what&rsquo;s the point&hellip;</p>
+
+<p>But then, I had also too many moments, when I thought - wait, you already had this problem/issue/idea&hellip; What was the solution? Where did you find it?</p>
+
+<p>So today, I finally decided to create my own blog - mainly as a reference for future me. I will write about the technology, I&rsquo;m currently working with or interested in and from time to time maybe about some general stuff, I would like to talk about.</p>
+
+<p>As I have no experience whatsoever in this domain (blog writing), I will try to push myself and write one post per month. Fingers crossed, that I&rsquo;ll find the time for it&hellip;</p>
+]]></content>
+  </entry>
+  
+</feed>
