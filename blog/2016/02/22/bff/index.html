@@ -5,12 +5,13 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Burstah, a Build Monitor - Working thoughts</title>
+  <title>All About BFF - Working thoughts</title>
   <meta name="author" content="Lukasz Plotnicki">
 
   
-  <meta name="description" content="During my last four projects or so, the teams I worked with were always using GO.CD as the CD tool of their
-choosing. Although the pipeline state &hellip;">
+  <meta name="description" content="A while ago I wrote a ThoughtWorks insights post about the
+Backends for frontends pattern and the story behind its adaption at
+SoundCloud. It &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +20,7 @@ choosing. Although the pipeline state &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="https://lplotni.github.io/blog/2015/06/27/build-monitors/">
+  <link rel="canonical" href="https://lplotni.github.io/blog/2016/02/22/bff/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Working thoughts" type="application/atom+xml">
@@ -84,7 +85,7 @@ choosing. Although the pipeline state &hellip;">
   
   <header>
     
-      <h1 class="entry-title">Burstah, a Build Monitor</h1>
+      <h1 class="entry-title">All About BFF</h1>
     
     
       <p class="meta">
@@ -93,40 +94,30 @@ choosing. Although the pipeline state &hellip;">
 
 
 
-<time class='entry-date' datetime='2015-06-27T15:41:00+02:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>27</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>3:41 pm</span></time>
+<time class='entry-date' datetime='2016-02-22T17:58:50+01:00'><span class='date'><span class='date-month'>Feb</span> <span class='date-day'>22</span><span class='date-suffix'>nd</span>, <span class='date-year'>2016</span></span> <span class='time'>5:58 pm</span></time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>During my last four projects or so, the teams I worked with were always using <a href="http://www.go.cd/">GO.CD</a> as the CD tool of their
-choosing. Although the pipeline state visualisation GO.CD comes with is quite nice, it still doesn&rsquo;t cut it as a proper,
-<em>obvious</em> build monitor enabling everybody in the team to quickly recognize what is the pipeline status.</p>
-
-<p><img class="left" src="/images/burstah_example.png" title="Burstah in action" ></p>
-
-<p>Therefore first <a href="https://github.com/lplotni/cidar">cidar</a>, a simple sinatra based build monitor, has been born. I quickly discovered
-that sinatra and especially the nokogiri dependency, doesn&rsquo;t make it easy to use e.g. a Raspberry Pi as the monitor hardware. So,
-having the liberty, I decided to re-implement everything in JavaScript using node.js &amp; express. <a href="https://github.com/lplotni/burstah">Burstah</a>
-, my second attempt at the ultimative build monitor, has been born  <img alt="bowtie" src="/images/emoji/bowtie.png" class="emoji" /></p>
-
-<!--more-->
-
-
-<p>All the necessary information how to use, install or contribute can be found in <strong>Burstah</strong>&rsquo;s readme.</p>
-
-<p>Currently <strong>Burstah</strong> has following features:</p>
+<div class="entry-content"><p>A while ago I wrote a <a href="https://www.thoughtworks.com/insights/blog/bff-soundcloud">ThoughtWorks insights post</a> about the
+<strong>Backends for frontends</strong> pattern and the story behind its adaption at
+<a href="http://soundcloud.com">SoundCloud</a>. It generated interesting discussions
+and resulted also in some further content and I thought it would be good to
+have a place with links to all this resources for the future reference.</p>
 
 <ul>
-<li>Polling for the cctray.xml to recognize the pipelines and their status</li>
-<li>Grabbing the commit details directly out of the GO.CD and presenting them</li>
-<li>Providing an animation when the build is running</li>
-<li>Supporting emojis in the commit messages <img alt="thumbsup" src="/images/emoji/unicode/1f44d.png" class="emoji" /></li>
+<li><a href="https://www.thoughtworks.com/insights/blog/bff-soundcloud">BFF @ SoundCloud</a> - the original post talking about the pattern and journey towards it</li>
+<li><a href="http://samnewman.io/patterns/architectural/bff/">BFF pattern definition</a> - comprehensive pattern definition</li>
+<li><a href="http://softwareengineeringdaily.com/2016/02/04/moving-to-microservices-at-soundcloud-with-lukasz-plotnicki/">Moving to Microservices at SoundCloud - Software Engineering Daily podcast</a> - a podcast talking about microservices in gerneral, SoundCloud&rsquo;s journey towards this style of architecture and usage of BFFs</li>
+<li><a href="https://soundcloud.com/thoughtworks/bff-soundcloud">BFF @ SoundCloud (podcast)</a> - an interview about UI composition in a microservices world in general and the BFF pattern</li>
 </ul>
 
 
-<p>If you have any wishes or issues, just write stuff down on the <a href="https://github.com/lplotni/burstah/issues">github issues page</a>.</p>
+<iframe width="100%" height="200" scrolling="no" frameborder="no"
+src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/247896089&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
+
 </div>
 
 
@@ -142,12 +133,12 @@ having the liberty, I decided to re-implement everything in JavaScript using nod
 
 
 
-<time class='entry-date' datetime='2015-06-27T15:41:00+02:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>27</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>3:41 pm</span></time>
+<time class='entry-date' datetime='2016-02-22T17:58:50+01:00'><span class='date'><span class='date-month'>Feb</span> <span class='date-day'>22</span><span class='date-suffix'>nd</span>, <span class='date-year'>2016</span></span> <span class='time'>5:58 pm</span></time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/development/'>development</a>, <a class='category' href='/blog/categories/go-dot-cd/'>go.cd</a>, <a class='category' href='/blog/categories/technology/'>technology</a>
+    <a class='category' href='/blog/categories/microservices/'>microservices</a>, <a class='category' href='/blog/categories/pattern/'>pattern,</a>, <a class='category' href='/blog/categories/podcast/'>podcast,</a>
   
 </span>
 
@@ -163,10 +154,8 @@ having the liberty, I decided to re-implement everything in JavaScript using nod
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2013/09/14/scoopcamp-hackathon/" title="Previous Post: Scoopcamp Hackathon">&laquo; Scoopcamp Hackathon</a>
+        <a class="basic-alignment left" href="/blog/2015/10/10/express-testing/" title="Previous Post: Pace: testing an express app">&laquo; Pace: testing an express app</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2015/08/04/bootstraping-a-node-dot-js-webapp/" title="Next Post: Pace: Starting with node & express">Pace: Starting with node & express &raquo;</a>
       
     </p>
   </footer>
@@ -196,8 +185,8 @@ having the liberty, I decided to re-implement everything in JavaScript using nod
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'https://lplotni.github.io/blog/2015/06/27/build-monitors/';
-        var disqus_url = 'https://lplotni.github.io/blog/2015/06/27/build-monitors/';
+        var disqus_identifier = 'https://lplotni.github.io/blog/2016/02/22/bff/';
+        var disqus_url = 'https://lplotni.github.io/blog/2016/02/22/bff/';
         var disqus_script = 'embed.js';
       
     (function () {

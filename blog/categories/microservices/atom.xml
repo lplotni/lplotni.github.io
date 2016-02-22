@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: microservices | Working thoughts]]></title>
+  <link href="https://lplotni.github.io/blog/categories/microservices/atom.xml" rel="self"/>
+  <link href="https://lplotni.github.io/"/>
+  <updated>2016-02-22T20:41:55+01:00</updated>
+  <id>https://lplotni.github.io/</id>
+  <author>
+    <name><![CDATA[Lukasz Plotnicki]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[All about BFF]]></title>
+    <link href="https://lplotni.github.io/blog/2016/02/22/bff/"/>
+    <updated>2016-02-22T17:58:50+01:00</updated>
+    <id>https://lplotni.github.io/blog/2016/02/22/bff</id>
+    <content type="html"><![CDATA[<p>A while ago I wrote a <a href="https://www.thoughtworks.com/insights/blog/bff-soundcloud">ThoughtWorks insights post</a> about the
+<strong>Backends for frontends</strong> pattern and the story behind its adaption at
+<a href="http://soundcloud.com">SoundCloud</a>. It generated interesting discussions
+and resulted also in some further content and I thought it would be good to
+have a place with links to all this resources for the future reference.</p>
+
+<ul>
+<li><a href="https://www.thoughtworks.com/insights/blog/bff-soundcloud">BFF @ SoundCloud</a> - the original post talking about the pattern and journey towards it</li>
+<li><a href="http://samnewman.io/patterns/architectural/bff/">BFF pattern definition</a> - comprehensive pattern definition</li>
+<li><a href="http://softwareengineeringdaily.com/2016/02/04/moving-to-microservices-at-soundcloud-with-lukasz-plotnicki/">Moving to Microservices at SoundCloud - Software Engineering Daily podcast</a> - a podcast talking about microservices in gerneral, SoundCloud&rsquo;s journey towards this style of architecture and usage of BFFs</li>
+<li><a href="https://soundcloud.com/thoughtworks/bff-soundcloud">BFF @ SoundCloud (podcast)</a> - an interview about UI composition in a microservices world in general and the BFF pattern</li>
+</ul>
+
+
+<iframe width="100%" height="200" scrolling="no" frameborder="no"
+src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/247896089&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
+
+]]></content>
+  </entry>
+  
+</feed>
