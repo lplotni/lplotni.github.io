@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Working thoughts</title>
+    <link>https://lplotni.github.io/post/</link>
+    <description>Recent content in Posts on Working thoughts</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2017 | Follow on &lt;a href=&#34;https://twitter.com/lplotni&#34; target=&#34;_blank&#34;&gt;Twitter&lt;/a&gt; | &lt;a href=&#34;https://github.com/mgjohansen/hucore.git&#34; target=&#34;_blank&#34;&gt;Hucore theme&lt;/a&gt; &amp; &lt;a href=&#34;http://gohugo.io&#34; target=&#34;_blank&#34;&gt;Hugo&lt;/a&gt; ♥</copyright>
+    <lastBuildDate>Mon, 22 Feb 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://lplotni.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>bff</title>
+      <link>https://lplotni.github.io/post/2016/02/22/bff/</link>
+      <pubDate>Mon, 22 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://lplotni.github.io/post/2016/02/22/bff/</guid>
+      <description>A while ago I wrote a ThoughtWorks insights post about the Backends for frontends pattern and the story behind its adaption at SoundCloud. It generated interesting discussions and resulted also in some further content and I thought it would be good to have a place with links to all this resources for the future reference.
+ BFF @ SoundCloud - the original post talking about the pattern and journey towards it BFF pattern definition - comprehensive pattern definition Moving to Microservices at SoundCloud - Software Engineering Daily podcast - a podcast talking about microservices in gerneral, SoundCloud&amp;rsquo;s journey towards this style of architecture and usage of BFFs BFF @ SoundCloud (podcast) - an interview about UI composition in a microservices world in general and the BFF pattern   </description>
+    </item>
+    
+    <item>
+      <title>express testing</title>
+      <link>https://lplotni.github.io/post/2015/10/10/express-testing/</link>
+      <pubDate>Sat, 10 Oct 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://lplotni.github.io/post/2015/10/10/express-testing/</guid>
+      <description>After we managed to set up our basic web application, let&amp;rsquo;s get our hands dirty writing some code. And as we want to do it in a test-driven manner (TDD), we need a proper test setup. This piece is all about our initial test pyramid. Test, what? Yes, pyramid:
+ At the base of the test automation pyramid is unit testing. Unit testing should be the foundation of a solid test automation strategy and as such represents the largest part of the pyramid.</description>
+    </item>
+    
+    <item>
+      <title>bootstraping a node dot js webapp</title>
+      <link>https://lplotni.github.io/post/2015/08/04/bootstraping-a-node-dot-js-webapp/</link>
+      <pubDate>Tue, 04 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://lplotni.github.io/post/2015/08/04/bootstraping-a-node-dot-js-webapp/</guid>
+      <description>Together with few friends we started building pace - a web application for organizing and managing running events &amp;amp; competitions. We are a colorful bunch of people with different backgrounds, therefore we wanted to choose an approachable tech stack, as some of us wants also to learn one or two things about JavaScript, web applications or programming in general.
+And then, somebody suggested to write one thing or two, about our technology decisions and accompany it with some HowTo information.</description>
+    </item>
+    
+    <item>
+      <title>build monitors</title>
+      <link>https://lplotni.github.io/post/2015/06/27/build-monitors/</link>
+      <pubDate>Sat, 27 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://lplotni.github.io/post/2015/06/27/build-monitors/</guid>
+      <description>During my last four projects or so, the teams I worked with were always using GO.CD as the CD tool of their choosing. Although the pipeline state visualisation GO.CD comes with is quite nice, it still doesn&amp;rsquo;t cut it as a proper, obvious build monitor enabling everybody in the team to quickly recognize what is the pipeline status.
+ Burstah in action   Therefore first cidar, a simple sinatra based build monitor, has been born.</description>
+    </item>
+    
+    <item>
+      <title>scoopcamp hackathon</title>
+      <link>https://lplotni.github.io/post/2013/09/14/scoopcamp-hackathon/</link>
+      <pubDate>Sat, 14 Sep 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://lplotni.github.io/post/2013/09/14/scoopcamp-hackathon/</guid>
+      <description>Last Thursday I was a part of the Scoopcamp hackathon and it was so great that I just couldn&amp;rsquo;t resist to write down some of my thoughts about it. Our team ThoughtWorks and friends a colorful mix of journalists, students and developers had a rough idea for a modern - more agile - journalism, where the journalist reporting about an ongoing event writes the background story and live updates from his perspective, but can also incorporate content written by the readers who create their own streams representing their own take on the particular event.</description>
+    </item>
+    
+    <item>
+      <title>gwt part i</title>
+      <link>https://lplotni.github.io/post/2013/06/15/gwt-part-i/</link>
+      <pubDate>Sat, 15 Jun 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://lplotni.github.io/post/2013/06/15/gwt-part-i/</guid>
+      <description>&lt;p&gt;Back in 2009 I became the job to design and start realizing a quite large web application for a health care research project. I took some time, sat down and thought about the technology stack, I would like to use to build it. As we wanted to have an RIA and I already had some experience with GWT, we quickly decided to use it. Since then four years have passed and we are about to release the 2.0 version of our system. During this time, the whole team learned a lot about GWT, its advantages and also some disadvantages, and I thought it would be useful to write some of them up. This part is about the &lt;strong&gt;status quo&lt;/strong&gt;, in the second part I will try to write about a GWT setup I would go for, when starting the project today - so if you have any hints in this regard, please feel free to leave a comment, I would definitely appreciate it!
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>setting up ...</title>
+      <link>https://lplotni.github.io/post/2013/05/14/setting-up-dot-dot-dot/</link>
+      <pubDate>Tue, 14 May 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://lplotni.github.io/post/2013/05/14/setting-up-dot-dot-dot/</guid>
+      <description>There&amp;rsquo;s nothing like this moment, when you have a big smile on your face, because you&amp;rsquo;re just stunned how well things are working and how simple the set-up process was. Octopress is just amazing. Period. If you haven&amp;rsquo;t heard about it and you&amp;rsquo;re thinking to start a blog or migrate one, then you should definitely check it out. To put it simple:
+ Octopress is a framework designed by Brandon Mathis for Jekyll, the blog aware static site generator powering Github Pages.</description>
+    </item>
+    
+    <item>
+      <title>hello world</title>
+      <link>https://lplotni.github.io/post/2013/05/09/hello-world/</link>
+      <pubDate>Thu, 09 May 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://lplotni.github.io/post/2013/05/09/hello-world/</guid>
+      <description>I had this idea to create my own blog since like forever but always convinced myself that it will be either too time consuming or all the topics I would like to write about, are already well described, so what&amp;rsquo;s the point &amp;hellip;
+But then, I had also too many moments, when I thought - wait, you already had this problem/issue/idea&amp;hellip; What was the solution? Where did you find it?</description>
+    </item>
+    
+  </channel>
+</rss>
