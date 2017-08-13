@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta content="programming, , keyword 3" name="keywords">
+<meta content="Lukasz Plotnicki" name="author">
+<meta property="og:title" content="bootstraping a node dot js webapp - Working thoughts">
+<meta property="og:url" content="https://lplotni.github.io/post/2015/08/04/bootstraping-a-node-dot-js-webapp/">
+<meta property="og:description" content="Ideas, thoughts... mainly about programming &amp; co.">
+<meta property="og:type" content="website" />
+<title>bootstraping a node dot js webapp | Working thoughts</title>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+<link rel="stylesheet" href="https://lplotni.github.io//css/style.css">
+<link rel="shortcut icon" href="https://lplotni.github.io//wave.ico">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/github.min.css">
+
+</head>
+
+<body>
+<section class="section">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav-left">
+        <a class="nav-item" href="https://lplotni.github.io/"><h1 class="title is-4">Working thoughts</h1></a>
+      </div>
+      <div class="nav-right">
+        <nav class="nav-item level is-mobile">
+          
+          <a class="level-item" href="https://github.com/lplotni" target="_blank">
+            <span class="icon">
+              <i class="fa fa-github"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="https://twitter.com/lplotni" target="_blank">
+            <span class="icon">
+              <i class="fa fa-twitter"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="https://www.linkedin.com/in/lukasz-plotnicki-945442140/" target="_blank">
+            <span class="icon">
+              <i class="fa fa-linkedin-square"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="/index.xml" target="_blank">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+          </a>
+          
+        </nav>
+      </div>
+    </nav>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h1 class="title">bootstraping a node dot js webapp</h1>
+    <h2 class="subtitle is-5">August 4, 2015 by Lukasz Plotnicki</h2>
+    
+    <div class="content">
+      
+
+<p>Together with few friends we started building <strong><a href="https://github.com/lplotni/pace">pace</a></strong> - a web application for
+organizing and managing running events &amp; competitions. We are a colorful bunch of people with different backgrounds, therefore we wanted to choose an approachable tech stack, as some of us wants also to learn one or two things about <strong>JavaScript</strong>, <strong>web applications</strong> or <strong>programming</strong> in general.</p>
+
+<p>And then, somebody suggested to write one thing or two, about our technology
+decisions and accompany it with some <em>HowTo</em> information. So here we are.</p>
+
+<!-- more -->
+
+<p>This is the first post out of the <strong>pace</strong> series. We will take a look at how to quickly bootstrap a new express.js application and what is acctually happening during that process.</p>
+
+<h2 id="first-things-first-node-js-express-js">First things first: node.js &amp; express.js</h2>
+
+<blockquote>
+<p>Node.js® is a platform  built on Chrome&rsquo;s JavaScript runtime for easily building fast, scalable network applications. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient, perfect for data-intensive real-time applications that run across distributed devices. - Nodejs.org <a href="https://nodejs.org">https://nodejs.org</a></p>
+</blockquote>
+
+<p>Probably also due to the popularity of JavaScript <a href="https://nodejs.org/">node</a> quickly spread all around the web and is nowadays widely <a href="https://github.com/joyent/node/wiki/projects,-applications,-and-companies-using-node">used</a> and has an impressive ecosystem of additional libraries/modules (just take a look at <a href="https://www.npmjs.com/">npm package manager</a>).</p>
+
+<p><a href="http://expressjs.com/">express.js</a> is one of many web frameworks based on node, but seems also to be one of the most popular ones. What is a web framework you ask:</p>
+
+<blockquote>
+<p>A web application framework is a software framework that is designed to support the development of dynamic websites, web applications, web services and web resources. The framework aims to alleviate the overhead associated with common activities performed in web development. For example, many frameworks provide libraries for database access, templating frameworks and session management, and they often promote code reuse - <a href="http://localhost:1313/post/2016/02/22/bff/">http://localhost:1313/post/2016/02/22/bff/</a></p>
+</blockquote>
+
+<h3 id="how-to-bootstrap-a-web-app-what-happens">How to bootstrap a web app &amp; what happens</h3>
+
+<p>Assuming you have node already installed on your machine (if not look at <a href="https://nodejs.org/download/">here</a>)</p>
+
+<pre><code class="language-bash">npm install express-generator -g
+express myWebApp
+cd myWebApp
+npm install
+npm start
+</code></pre>
+
+<p>What happened you ask? So first we globally installed <a href="https://www.npmjs.com/package/express-generator">express-generator</a> (it will be now available to you via <em>express</em> cmd). Then we made it bootstrap for us an app called <em>myWebApp</em>. This resulted in the following:</p>
+
+<pre><code class="language-bash">/tmp|⇒ express myWebApp
+
+   create : myWebApp
+   create : myWebApp/package.json
+   create : myWebApp/app.js
+   create : myWebApp/public
+   create : myWebApp/public/javascripts
+   create : myWebApp/public/images
+   create : myWebApp/routes
+   create : myWebApp/routes/index.js
+   create : myWebApp/routes/users.js
+   create : myWebApp/public/stylesheets
+   create : myWebApp/public/stylesheets/style.css
+   create : myWebApp/views
+   create : myWebApp/views/index.jade
+   create : myWebApp/views/layout.jade
+   create : myWebApp/views/error.jade
+   create : myWebApp/bin
+   create : myWebApp/bin/www
+
+   install dependencies:
+     $ cd myWebApp &amp;&amp; npm install
+
+   run the app:
+     $ DEBUG=myWebApp ./bin/www
+</code></pre>
+
+<p>The generator created for us a new directory which contains all the needed files the web application consists of:</p>
+
+<ul>
+<li><strong>package.json</strong> -&gt; definition of our node dependencies and some node configuration</li>
+<li><strong>app.js</strong> -&gt; the main entry point into the application</li>
+<li><strong>public</strong> -&gt; contains all public assets whic will be exposed to the public</li>
+<li><strong>routes</strong> -&gt; contains the definitions of our routes (as ourDomain/index or ourDomain/somethingDifferent)</li>
+<li><strong>views</strong> -&gt; contains our templates (more about this in future posts)</li>
+<li><strong>bin/www</strong> -&gt; executable application (if you run <code>npm start</code> this will be started)</li>
+</ul>
+
+<p>The execution of <code>npm install</code> in app&rsquo;s directory, installs all the dependencies defined in the <code>package.json</code> file. Those dependencies will be installed only locally in the <code>node_modules</code> directory. After this step we are ready to go and able to run <code>npm start</code> which should result in this:</p>
+
+<pre><code class="language-bash">myWebApp|⇒ npm start
+
+&gt; myWebApp@0.0.1 start /private/tmp/myWebApp
+&gt; node ./bin/www
+
+GET / 200 305ms - 170b
+GET / 200 34ms - 170b
+GET /stylesheets/style.css 200 4ms - 110b
+GET / 304 25ms
+GET /stylesheets/style.css 304 1ms
+</code></pre>
+
+<p>You can see, that I opened <a href="http://localhost:3000">http://localhost:3000</a> in the browser and express served me the index page with the <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html">200 code</a> (you can also see that I refreshed the page and got 304 NOT MODIFIED). Everything works also as expected {%gemoji +1%}</p>
+
+<p><strong>Why? How?</strong> Let&rsquo;s take a quick look at the following:</p>
+
+<p><em>app.js</em></p>
+
+<pre><code class="language-JavaScript">var routes = require('./routes/index');
+
+app.use('/', routes)
+</code></pre>
+
+<p>This is only a part of the <code>app.js</code> file but shows the wiring of our default root to the index.js file shown below. BTW: you can also see how to load dependencies/modules for our code via the <code>require</code> function (if you want to read more about that, <a href="http://openmymind.net/2012/2/3/Node-Require-and-Exports/">here is a nice write-up</a>)</p>
+
+<p><em>routes/index.js:</em></p>
+
+<pre><code class="language-JavaScript">var express = require('express');
+var router = express.Router();
+
+/* GET home page. */
+router.get('/', function(req, res) {
+title = &quot;bootstraping a node dot js webapp&quot;
+});
+
+module.exports = router;
+</code></pre>
+
+<p>The <code>index.js</code> uses express&rsquo; <code>router</code> and wires request for <strong>/</strong> to the function responding with a rendered <code>index.jade</code> template, to which it passes a variable called <code>title</code>. If you never used <a href="http://jade-lang.com/">jade</a>, don&rsquo;t worry, is a pretty simple HTML template engine. Look at the following:
+<em>index.jade:</em></p>
+
+<pre><code class="language-jade">extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+
+</code></pre>
+
+<p>Jade enables template composition. In here we extend <code>layout.jade</code> which defines the general page structure. If other template defines a <strong>block</strong> called <code>content</code> it will be then injected at the corresponding place.
+<em>layout.jade:</em></p>
+
+<pre><code class="language-jade">doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    block content
+</code></pre>
+
+<p>Jade is indentation aware, meaning that the above example results in the following:</p>
+
+<pre><code class="language-HTML">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Express&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/stylesheets/style.css&quot;&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Express&lt;/h1&gt;
+    &lt;p&gt;Welcome to Express&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>Now you have seen all the parts making the browser render the most basic page of all time 😎</p>
+
+<p>Next post out of the <strong>pace</strong> series, will actually explain how to start working on the functionality we need. Right now you can start to play around with the data which is passed by the <code>index.js</code> to the <code>index.jade</code> template and how the template uses it. Have fun!</p>
+
+    </div>
+    
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container has-text-centered">
+    <p>&copy; 2017 | Follow on <a href="https://twitter.com/lplotni" target="_blank">Twitter</a> | <a href="https://github.com/mgjohansen/hucore.git" target="_blank">Hucore theme</a> & <a href="http://gohugo.io" target="_blank">Hugo</a> ♥</p>
+  </div>
+</section>
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js" integrity="sha256-+bhVTaRmJ/c07eV80nU8gD2cBBF0rYkf1txqXlrbvb0=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/go.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/dockerfile.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/java.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/javascript.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/bash.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-40792356-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+
+</body>
