@@ -11,5 +11,68 @@
 	<atom:link href="https://lplotni.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
+    <item>
+      <title>Development</title>
+      <link>https://lplotni.github.io/categories/development/</link>
+      <pubDate>Tue, 04 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://lplotni.github.io/categories/development/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Expressjs</title>
+      <link>https://lplotni.github.io/categories/expressjs/</link>
+      <pubDate>Tue, 04 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://lplotni.github.io/categories/expressjs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Howto</title>
+      <link>https://lplotni.github.io/categories/howto/</link>
+      <pubDate>Tue, 04 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://lplotni.github.io/categories/howto/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Javascript</title>
+      <link>https://lplotni.github.io/categories/javascript/</link>
+      <pubDate>Tue, 04 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://lplotni.github.io/categories/javascript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Nodejs</title>
+      <link>https://lplotni.github.io/categories/nodejs/</link>
+      <pubDate>Tue, 04 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://lplotni.github.io/categories/nodejs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Pace</title>
+      <link>https://lplotni.github.io/categories/pace/</link>
+      <pubDate>Tue, 04 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://lplotni.github.io/categories/pace/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Technology</title>
+      <link>https://lplotni.github.io/categories/technology/</link>
+      <pubDate>Tue, 04 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://lplotni.github.io/categories/technology/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta content="programming, java, javascript, scala" name="keywords">
+<meta content="Lukasz Plotnicki" name="author">
+<meta property="og:title" content="scoopcamp hackathon - Working thoughts">
+<meta property="og:url" content="https://lplotni.github.io/blog/2013/09/14/scoopcamp-hackathon/">
+<meta property="og:description" content="Ideas, thoughts... mainly about programming &amp; co.">
+<meta property="og:type" content="website" />
+<title>scoopcamp hackathon | Working thoughts</title>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+<link rel="stylesheet" href="https://lplotni.github.io//css/style.css">
+<link rel="shortcut icon" href="https://lplotni.github.io//wave.ico">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/github.min.css">
+
+</head>
+
+<body>
+<section class="section">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav-left">
+        <a class="nav-item" href="https://lplotni.github.io/"><h1 class="title is-4">Working thoughts</h1></a>
+      </div>
+      <div class="nav-right">
+        <nav class="nav-item level is-mobile">
+          
+          <a class="level-item" href="https://github.com/lplotni" target="_blank">
+            <span class="icon">
+              <i class="fa fa-github"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="https://twitter.com/lplotni" target="_blank">
+            <span class="icon">
+              <i class="fa fa-twitter"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="https://www.linkedin.com/in/lukasz-plotnicki-945442140/" target="_blank">
+            <span class="icon">
+              <i class="fa fa-linkedin-square"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="/index.xml" target="_blank">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+          </a>
+          
+        </nav>
+      </div>
+    </nav>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h1 class="title">scoopcamp hackathon</h1>
+    <h2 class="subtitle is-5">September 14, 2013 by Lukasz Plotnicki</h2>
+    
+    <div class="content">
+      
+
+<p>Last Thursday I was a part of the <a href="http://scoopcamp.de/hackathon/">Scoopcamp hackathon</a> and it was so great that I just couldn&rsquo;t resist to write down some of my thoughts about it. Our team <strong>ThoughtWorks and friends</strong> a colorful mix of journalists, students and developers had a rough idea for a modern - more <strong>agile</strong> - journalism, where the journalist reporting about an ongoing event writes the background story and live updates from his perspective, but can also incorporate content written by the readers who create their own streams representing their own take on the particular event. Being able to see which stream/entry is getting most likes (=feedback), he/she can quickly react and focus on the currently favorite perspective. During a quick brainstorming we came up with the name: <strong>LiquidPub</strong> (for liquid publishing) and started defining the first user stories.
+
+<figure >
+    
+        <img src="/media/liquidpub_screenshot.png" />
+    
+    
+    <figcaption>
+        <h4>Our app</h4>
+        
+    </figcaption>
+    
+</figure>
+ To be able to deliver something within less than a day of coding, we went with Ruby on Rails. This gave me the opportunity to finally try out Rails and learn it a bit by pairing with some experienced Ruby/Rails devs. The application itself has been deployed on heroku and being ThoughtWorks we built and deployed it after each push to our <a href="https://github.com/thoughtworks/liquid-pub">github repo</a> using <a href="https://www.snap-ci.com/">snap-ci</a> - <a href="http://martinfowler.com/bliki/ContinuousDelivery.html">continuous delivery</a> FTW!</p>
+
+<p>You can see the result <a href="http://liquid-pub.herokuapp.com/stories/3">here</a>.</p>
+
+<h2 id="tech-stack">Tech stack</h2>
+
+<ul>
+<li>Ruby/Rails + <a href="http://slim-lang.com/">slim</a> (as the templating engine) + <a href="http://foundation.zurb.com/">Foundation</a> CSS lib (for a responsive client)</li>
+<li>PostgreSQL</li>
+</ul>
+
+<h2 id="some-stats">Some stats</h2>
+
+<ul>
+<li>4 dev pairs and 1 designer implemented 27 user stories in 6 iterations</li>
+<li>I arrived at 8:45 and left around 00:30 (<em>true hackathon sprit! ;)</em>)</li>
+<li>91 builds / 145 commits</li>
+</ul>
+
+<h2 id="wrap-up-my-take-on-rails">Wrap-up + My take on Rails</h2>
+
+<p>A day before the hackathon, I got the message that we will do it using Ruby on Rails - so I did not really have a lot of time to look into it. But that was actually no problem at all, as I paired with another guy who had some rails experience. Although I heard it often, I was still amazed how quickly one can set up a CRUD application with it. There is of course a lot of magic happening in the background and when you have some more complicated use cases, you really need to look deeper into the <a href="http://guides.rubyonrails.org/">rails guide</a> or other documentation. My pair and myself had some issues trying to integrate a <a href="https://github.com/galetahub/rails-ckeditor">WYSIWYG editor</a> which was working in the development mode but not in the production mode due to some assets processing problems. This was the only problem we could not solve quickly. For templates we used slim which is definitely nice, but takes some time getting used to. Otherwise Rails provides as I already expected a very nice developer experience. As I am taking a deeper look into <a href="http://www.playframework.com/">Play2.0</a> now, I can try to write the same application to be able to compare the development speed and experience of both frameworks. A blog post will follow.
+This hackathon was really a great opportunity to have fun and meet new people and try out new technologies. I really look forward to another event like this!</p>
+
+    </div>
+    
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container has-text-centered">
+    <p>&copy; 2017 | Follow on <a href="https://twitter.com/lplotni" target="_blank">Twitter</a> | <a href="https://github.com/mgjohansen/hucore.git" target="_blank">Hucore theme</a> & <a href="http://gohugo.io" target="_blank">Hugo</a> ♥</p>
+  </div>
+</section>
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js" integrity="sha256-+bhVTaRmJ/c07eV80nU8gD2cBBF0rYkf1txqXlrbvb0=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/go.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/dockerfile.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/java.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/javascript.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/bash.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-40792356-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+
+</body>
