@@ -58,7 +58,7 @@ And then, somebody suggested to write one thing or two, about our technology dec
       
       <guid>https://lplotni.github.io/blog/2015/06/27/build-monitors/</guid>
       <description>During my last four projects or so, the teams I worked with were always using GO.CD as the CD tool of their choosing. Although the pipeline state visualisation GO.CD comes with is quite nice, it still doesn&amp;rsquo;t cut it as a proper, obvious build monitor enabling everybody in the team to quickly recognize what is the pipeline status.
- Burstah in action   Therefore first cidar, a simple sinatra based build monitor, has been born.</description>
+  Burstah in action   Therefore first cidar, a simple sinatra based build monitor, has been born.</description>
     </item>
     
     <item>

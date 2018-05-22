@@ -80,7 +80,7 @@
 
 <p>Around the same time, as I started to draw the first diagrams of the inner life of our web app, Ray Ryan gave a <a href="http://www.youtube.com/watch?v=PDuhR18-EdM">talk at the IO conference</a> about the best practices for GWT app architecture, mentioning the <a href="http://martinfowler.com/eaaDev/uiArchs.html">model view presenter</a>, the usage of an event bus for components communication and the command pattern for dispatching the GWT-RPC calls to the server. Shortly after I discovered the <a href="http://code.google.com/p/gwt-presenter/">gwt-presenter</a> and the <a href="http://code.google.com/p/gwt-dispatch/">gwt-dispatch</a> libraries, offering an easy way to build an GWT app based on the principles from  Ray&rsquo;s talk. I also found a very detailed <a href="http://blog.hivedevelopment.co.uk/2009/08/google-web-toolkit-gwt-mvp-example.html">blog post</a> explaining how everything works together.<br />
 
-<figure >
+<figure>
     
         <img src="/media/gwt_mvp.png" />
     
@@ -221,7 +221,7 @@ At this point we defined one <strong>Presenter</strong> for all the entities, we
 
 <p>To execute a command a corresponding object just needs to be passed to the dispatcher which is a singleton on the client and gets injected to every presenter that should be able to trigger the communication. In most of the cases the result of a command (or to use gwt-dispatch terminology: an action) contains a DTO object which is then shown by the presenter. On the server side we are using JPA &amp; Hibernate so obviously we need to take care of the server entity to DTO conversion. Although some libraries exists for this purpose (e.g <a href="http://sourceforge.net/projects/gilead/">gilead</a>), in our specific setting we decided to implement it ourself which was actually a straightforward task when using the reflection API and sticking to a well defined class hierarchy of our own.
 
-<figure >
+<figure>
     
         <img src="/media/dto.png" />
     
@@ -302,15 +302,6 @@ We also use the JSR303 annotations for validation of the entities and are able t
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
 
 <script>hljs.initHighlightingOnLoad();</script>
-
-
-<script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-40792356-1', 'auto');
-ga('send', 'pageview');
-</script>
-<script async src='//www.google-analytics.com/analytics.js'></script>
-
 
 
 </body>
