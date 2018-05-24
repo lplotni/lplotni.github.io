@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta content="programming, java, javascript, scala" name="keywords">
+<meta content="Lukasz Plotnicki" name="author">
+<meta property="og:title" content="Using your yubikey as ssh key provider / Quick(est) guide - Working thoughts">
+<meta property="og:url" content="https://lplotni.github.io/blog/sshkey_yubikey/">
+<meta property="og:description" content="Ideas, thoughts... mainly about programming &amp; co.">
+<meta property="og:type" content="website" />
+<title>Using your yubikey as ssh key provider / Quick(est) guide | Working thoughts</title>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+<link rel="stylesheet" href="https://lplotni.github.io//css/style.css">
+<link rel="shortcut icon" href="https://lplotni.github.io//wave.ico">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/github.min.css">
+
+</head>
+
+<body>
+<section class="section">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav-left">
+        <a class="nav-item" href="https://lplotni.github.io/"><h1 class="title is-4">Working thoughts</h1></a>
+      </div>
+      <div class="nav-right">
+        <nav class="nav-item level is-mobile">
+          
+          <a class="level-item" href="https://github.com/lplotni" target="_blank">
+            <span class="icon">
+              <i class="fa fa-github"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="https://twitter.com/lplotni" target="_blank">
+            <span class="icon">
+              <i class="fa fa-twitter"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="https://www.linkedin.com/in/lukasz-plotnicki-945442140/" target="_blank">
+            <span class="icon">
+              <i class="fa fa-linkedin-square"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="/index.xml" target="_blank">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+          </a>
+          
+        </nav>
+      </div>
+    </nav>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h1 class="title">Using your yubikey as ssh key provider / Quick(est) guide</h1>
+    <h2 class="subtitle is-5">May 23, 2018 by Lukasz Plotnicki</h2>
+    
+    <div class="content">
+      <p>I figured it&rsquo;s time to write up the quickest guide about using the yubikey as
+the source of your ssh key. This assumes that:</p>
+
+<ul>
+<li>You have a yubikey and it&rsquo;s in your usb port</li>
+<li>You&rsquo;ve configured gpg on you machine (I&rsquo;m running gpg (GnuPG) 2.2.7)</li>
+<li>You&rsquo;re using the gpg-agent with enabled ssh support</li>
+</ul>
+
+<p>Here are the steps:</p>
+
+<pre><code>gpg --card-edit
+&gt; admin
+&gt; generate
+&gt; [enter the requested PIN]
+&gt; quit
+</code></pre>
+
+<p>And now you&rsquo;re done. You can check if the new ssh key get pulled correctly from
+your yubikey typing:</p>
+
+<pre><code>ssh-add -L
+</code></pre>
+
+<p>And you should see something like:</p>
+
+<pre><code>ssh-rsa
+AAAAB3NzaC1yc2EAAAADAQABAAABAQC2ooHO4NuRkjkOQ6zpl/P+RQwRibWd2EZStK61IX2RksD8m2PQKA4rpoYlbwR8tHqJYp+9hF3630ZhDBLqaN6wnLOzJ9tdAFg2QkR7uw/TlWh3/3kuDjzF8GatYIvfvnbtlX0FtVuz+rmUAeUswYpvRQKA5feX5Tf9M56IhttRtFbXZjNz5BNy8qkXD9FOTX4Ym0Zidgn6tl9EKKH4ctvK1/wTF4oSHEfyVwpKLqn/FI+0DIDi5Lx8cpFLnB4nJqj1WFe8o86yRVNWq5PehOJR3qSpllfx3fheUXePRNPrvYGyO5Ch9aikzuPoLZh4oq/TTqkfjcZLQvTv1Ai+qk8J
+cardno:000605308805
+</code></pre>
+
+<p>Now you can use this key e.g for as your github key and whenever your
+push/pull/clone you will need to enter the yubikey into your device.</p>
+
+    </div>
+    
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container has-text-centered">
+    <p>&copy; 2017 | Follow on <a href="https://twitter.com/lplotni" target="_blank">Twitter</a> | <a href="https://github.com/mgjohansen/hucore.git" target="_blank">Hucore theme</a> & <a href="http://gohugo.io" target="_blank">Hugo</a> ♥</p>
+  </div>
+</section>
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js" integrity="sha256-+bhVTaRmJ/c07eV80nU8gD2cBBF0rYkf1txqXlrbvb0=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/go.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/dockerfile.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/java.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/javascript.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/bash.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+</body>

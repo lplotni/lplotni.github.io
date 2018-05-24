@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://lplotni.github.io/blog/sshkey_yubikey/</loc>
+    <lastmod>2018-05-23T21:36:52+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://lplotni.github.io/blog/why-hugo/</loc>
     <lastmod>2017-10-09T21:44:11+02:00</lastmod>
   </url>
@@ -49,7 +54,7 @@
   
   <url>
     <loc>https://lplotni.github.io/blog/</loc>
-    <lastmod>2017-10-09T21:44:11+02:00</lastmod>
+    <lastmod>2018-05-23T21:36:52+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -107,7 +112,7 @@
   
   <url>
     <loc>https://lplotni.github.io/</loc>
-    <lastmod>2017-10-09T21:44:11+02:00</lastmod>
+    <lastmod>2018-05-23T21:36:52+02:00</lastmod>
     <priority>0</priority>
   </url>
   
