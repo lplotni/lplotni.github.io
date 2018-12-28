@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018 | Follow on &lt;a href=&#34;https://twitter.com/lplotni&#34; target=&#34;_blank&#34;&gt;Twitter&lt;/a&gt;</copyright>
-    <lastBuildDate>Wed, 23 May 2018 21:36:52 +0200</lastBuildDate>
+    <lastBuildDate>Fri, 28 Dec 2018 23:24:02 +0100</lastBuildDate>
     
 	<atom:link href="https://lplotni.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>My first UHK layout</title>
+      <link>https://lplotni.github.io/blog/uhk_setup/</link>
+      <pubDate>Fri, 28 Dec 2018 23:24:02 +0100</pubDate>
+      
+      <guid>https://lplotni.github.io/blog/uhk_setup/</guid>
+      <description>I ordered the UHK with the linux layout as I thought that I will be moving towards a linux laptop as the main driver for my work. Somehow this didn&amp;rsquo;t happen 😕 and therefore I ended up using the UHK with a Mackbook Pro. Thus, I changed few settings and love my setup even more. UHK is really a spectacular keyboard.
+   I quickly decided to just align the Fn, Ctrl, Option and Cmd key with the mac layout so that my mussle memory doesn&amp;rsquo;t suffer too much.</description>
+    </item>
     
     <item>
       <title>Using your yubikey as ssh key provider / Quick(est) guide</title>
