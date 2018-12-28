@@ -86,27 +86,18 @@ the source of your ssh key. This assumes that:</p>
 </ul>
 
 <p>Here are the steps:</p>
-
-<pre><code>gpg --card-edit
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">gpg --card-edit
 &gt; admin
 &gt; generate
-&gt; [enter the requested PIN]
-&gt; quit
-</code></pre>
-
+&gt; <span style="color:#f92672">[</span>enter the requested PIN<span style="color:#f92672">]</span>
+&gt; quit</code></pre></div>
 <p>And now you&rsquo;re done. You can check if the new ssh key get pulled correctly from
 your yubikey typing:</p>
-
-<pre><code>ssh-add -L
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ssh-add -L</code></pre></div>
 <p>And you should see something like:</p>
-
-<pre><code>ssh-rsa
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ssh-rsa
 AAAAB3NzaC1yc2EAAAADAQABAAABAQC2ooHO4NuRkjkOQ6zpl/P+RQwRibWd2EZStK61IX2RksD8m2PQKA4rpoYlbwR8tHqJYp+9hF3630ZhDBLqaN6wnLOzJ9tdAFg2QkR7uw/TlWh3/3kuDjzF8GatYIvfvnbtlX0FtVuz+rmUAeUswYpvRQKA5feX5Tf9M56IhttRtFbXZjNz5BNy8qkXD9FOTX4Ym0Zidgn6tl9EKKH4ctvK1/wTF4oSHEfyVwpKLqn/FI+0DIDi5Lx8cpFLnB4nJqj1WFe8o86yRVNWq5PehOJR3qSpllfx3fheUXePRNPrvYGyO5Ch9aikzuPoLZh4oq/TTqkfjcZLQvTv1Ai+qk8J
-cardno:000605308805
-</code></pre>
-
+cardno:000605308805</code></pre></div>
 <p>Now you can use this key e.g for as your github key and whenever your
 push/pull/clone you will need to enter the yubikey into your device.</p>
 

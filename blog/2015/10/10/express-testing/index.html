@@ -116,38 +116,36 @@ your unit tests libraries and runners: Jasmine, Mocha and friends, just pick
 one. We decided to go with
 <a href="https://jasmine.github.io/2.3/introduction.html" target="_blank">Jasmine</a>, in which a test
 looks like this:</p>
-
-<pre><code class="language-javascript">/* jshint node: true */
-/* global describe, beforeEach, afterEach, it, jasmine, expect */
-'use strict';
-describe('exractParticipant', function () {
-  var extractParticipant;
-  var validRequestData = {
-    body: {
-      firstname: 'Mark',
-      lastname: 'Mueller',
-      email: 'm.mueller@example.com'
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">/* jshint node: true */</span>
+<span style="color:#75715e">/* global describe, beforeEach, afterEach, it, jasmine, expect */</span>
+<span style="color:#e6db74">&#39;use strict&#39;</span>;
+<span style="color:#a6e22e">describe</span>(<span style="color:#e6db74">&#39;exractParticipant&#39;</span>, <span style="color:#66d9ef">function</span> () {
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">extractParticipant</span>;
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">validRequestData</span> <span style="color:#f92672">=</span> {
+    <span style="color:#a6e22e">body</span><span style="color:#f92672">:</span> {
+      <span style="color:#a6e22e">firstname</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Mark&#39;</span>,
+      <span style="color:#a6e22e">lastname</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Mueller&#39;</span>,
+      <span style="color:#a6e22e">email</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;m.mueller@example.com&#39;</span>
     }
   };
 
-  beforeEach(function () {
-    extractParticipant= require('../routes/registration.js').extractParticipant
+  <span style="color:#a6e22e">beforeEach</span>(<span style="color:#66d9ef">function</span> () {
+    <span style="color:#a6e22e">extractParticipant</span><span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;../routes/registration.js&#39;</span>).<span style="color:#a6e22e">extractParticipant</span>
   });
 
-  it('should read firstname from the request body', function() {
-    expect(extractParticipant(validRequestData).firstname).toBe('Mark');
+  <span style="color:#a6e22e">it</span>(<span style="color:#e6db74">&#39;should read firstname from the request body&#39;</span>, <span style="color:#66d9ef">function</span>() {
+    <span style="color:#a6e22e">expect</span>(<span style="color:#a6e22e">extractParticipant</span>(<span style="color:#a6e22e">validRequestData</span>).<span style="color:#a6e22e">firstname</span>).<span style="color:#a6e22e">toBe</span>(<span style="color:#e6db74">&#39;Mark&#39;</span>);
   });
 
-  it('should throw an error if no firstname can be found', function () {
-    function callWithNoFirstname() {
-      extractParticipant({body: {}});
+  <span style="color:#a6e22e">it</span>(<span style="color:#e6db74">&#39;should throw an error if no firstname can be found&#39;</span>, <span style="color:#66d9ef">function</span> () {
+    <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">callWithNoFirstname</span>() {
+      <span style="color:#a6e22e">extractParticipant</span>({<span style="color:#a6e22e">body</span><span style="color:#f92672">:</span> {}});
     }
 
-    expect(callWithNoFirstname).toThrow();
+    <span style="color:#a6e22e">expect</span>(<span style="color:#a6e22e">callWithNoFirstname</span>).<span style="color:#a6e22e">toThrow</span>();
   });
 }
-</code></pre>
-
+</code></pre></div>
 <p>Here we are verifying the behavior of the <code>extractParticipant()</code> function
 which given a request body returns a specific JS object. We can use multiple
  <code>describe</code> calls, or even nested <code>describe</code> calls to cluster the
@@ -176,57 +174,55 @@ the scope of that particular test.</li>
 <p>As the name already states, an integration test verifies the behaviour of
 a group of components of our software acting together. Look at the following
 test, which checks the intgeration between a service and the database:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#e6db74">&#39;use strict&#39;</span>;
+<span style="color:#75715e">/* jshint node: true */</span>
+<span style="color:#75715e">/* jshint esnext: true */</span>
+<span style="color:#75715e">/* global describe, beforeEach, afterAll, it, jasmine, expect */</span>
 
-<pre><code class="language-javascript">'use strict';
-/* jshint node: true */
-/* jshint esnext: true */
-/* global describe, beforeEach, afterAll, it, jasmine, expect */
+<span style="color:#a6e22e">describe</span>(<span style="color:#e6db74">&#39;participants service&#39;</span>, <span style="color:#66d9ef">function</span> () {
 
-describe('participants service', function () {
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">participants</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;../../service/participants&#39;</span>);
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">pg</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;pg&#39;</span>);
 
-    const participants = require('../../service/participants');
-    var pg = require('pg');
+    <span style="color:#a6e22e">beforeEach</span>(<span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">done</span>) {
+        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">connectionString</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">SNAP_DB_PG_URL</span> <span style="color:#f92672">||</span> <span style="color:#e6db74">&#34;tcp://vagrant@localhost/pace&#34;</span>;
+        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">jasmineDone</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">done</span>;
 
-    beforeEach(function (done) {
-        var connectionString = process.env.SNAP_DB_PG_URL || &quot;tcp://vagrant@localhost/pace&quot;;
-        var jasmineDone = done;
-
-        pg.connect(connectionString, function (err, client, done) {
-                client.query('delete from participants', function () {
-                    done();
-                    jasmineDone();
+        <span style="color:#a6e22e">pg</span>.<span style="color:#a6e22e">connect</span>(<span style="color:#a6e22e">connectionString</span>, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">err</span>, <span style="color:#a6e22e">client</span>, <span style="color:#a6e22e">done</span>) {
+                <span style="color:#a6e22e">client</span>.<span style="color:#a6e22e">query</span>(<span style="color:#e6db74">&#39;delete from participants&#39;</span>, <span style="color:#66d9ef">function</span> () {
+                    <span style="color:#a6e22e">done</span>();
+                    <span style="color:#a6e22e">jasmineDone</span>();
                 });
             }
         );
 
     });
 
-    afterAll(function(done) {
-        pg.end();
-        done();
+    <span style="color:#a6e22e">afterAll</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">done</span>) {
+        <span style="color:#a6e22e">pg</span>.<span style="color:#a6e22e">end</span>();
+        <span style="color:#a6e22e">done</span>();
     });
 
 
-    it('should store and read participants', function (done) {
-        var aParticipant = {
-            firstname: 'Hertha',
-            lastname: 'Mustermann',
-            email: 'h.mustermann@example.com'
+    <span style="color:#a6e22e">it</span>(<span style="color:#e6db74">&#39;should store and read participants&#39;</span>, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">done</span>) {
+        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">aParticipant</span> <span style="color:#f92672">=</span> {
+            <span style="color:#a6e22e">firstname</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Hertha&#39;</span>,
+            <span style="color:#a6e22e">lastname</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Mustermann&#39;</span>,
+            <span style="color:#a6e22e">email</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;h.mustermann@example.com&#39;</span>
         };
 
-        participants.save(aParticipant)
-            .then(participants.getAll)
-            .then(function (data) {
-                expect(data.length).toBe(1);
-                expect(data[0].firstname).toBe(aParticipant.firstname);
-                expect(data[0].lastname).toBe(aParticipant.lastname);
-                expect(data[0].email).toBe(aParticipant.email);
-                done();
+        <span style="color:#a6e22e">participants</span>.<span style="color:#a6e22e">save</span>(<span style="color:#a6e22e">aParticipant</span>)
+            .<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">participants</span>.<span style="color:#a6e22e">getAll</span>)
+            .<span style="color:#a6e22e">then</span>(<span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">data</span>) {
+                <span style="color:#a6e22e">expect</span>(<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">length</span>).<span style="color:#a6e22e">toBe</span>(<span style="color:#ae81ff">1</span>);
+                <span style="color:#a6e22e">expect</span>(<span style="color:#a6e22e">data</span>[<span style="color:#ae81ff">0</span>].<span style="color:#a6e22e">firstname</span>).<span style="color:#a6e22e">toBe</span>(<span style="color:#a6e22e">aParticipant</span>.<span style="color:#a6e22e">firstname</span>);
+                <span style="color:#a6e22e">expect</span>(<span style="color:#a6e22e">data</span>[<span style="color:#ae81ff">0</span>].<span style="color:#a6e22e">lastname</span>).<span style="color:#a6e22e">toBe</span>(<span style="color:#a6e22e">aParticipant</span>.<span style="color:#a6e22e">lastname</span>);
+                <span style="color:#a6e22e">expect</span>(<span style="color:#a6e22e">data</span>[<span style="color:#ae81ff">0</span>].<span style="color:#a6e22e">email</span>).<span style="color:#a6e22e">toBe</span>(<span style="color:#a6e22e">aParticipant</span>.<span style="color:#a6e22e">email</span>);
+                <span style="color:#a6e22e">done</span>();
             });
     });
 });
-</code></pre>
-
+</code></pre></div>
 <p>The integration test is similiar to the unit one (it&rsquo;s also based on jasmine),
 but instead of mocking our dependencies we use the real implementation (here
 the <code>pg</code> PostgreSQL client) and verify the integration of both components.
@@ -251,53 +247,51 @@ it is correct.</p>
 Typically those tests go against an outer-most interface of our app, often
 the UI. In our case we will interact with pace via its web page.
 To do that, we use <a href="http://webdriver.io/" target="_blank">WebDriverIO</a> on top of <a href="http://docs.seleniumhq.org/" target="_blank">selenium</a> and a headless browser called <a href="http://phantomjs.org/" target="_blank">phantomjs</a>. This combination offers an easy to use API for browser-interaction.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">/* jshint node: true */</span>
+<span style="color:#75715e">/* global describe, beforeEach, afterEach, it, jasmine, expect */</span>
+<span style="color:#e6db74">&#39;use strict&#39;</span>;
+<span style="color:#a6e22e">describe</span>(<span style="color:#e6db74">&#39;regisitration journey&#39;</span>, <span style="color:#66d9ef">function</span> () {
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">client</span>;
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">paceUrl</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">PACE_URL</span> <span style="color:#f92672">||</span> <span style="color:#e6db74">&#39;http://localhost:3000/&#39;</span>;
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">originalTimeout</span>;
 
-<pre><code class="language-javascript">/* jshint node: true */
-/* global describe, beforeEach, afterEach, it, jasmine, expect */
-'use strict';
-describe('regisitration journey', function () {
-    var client;
-    var paceUrl = process.env.PACE_URL || 'http://localhost:3000/';
-    var originalTimeout;
-
-    beforeEach(function () {
-        var webdriverio = require('webdriverio');
-        var options = {
-            desiredCapabilities: {
-                browserName: 'phantomjs'
+    <span style="color:#a6e22e">beforeEach</span>(<span style="color:#66d9ef">function</span> () {
+        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">webdriverio</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;webdriverio&#39;</span>);
+        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">options</span> <span style="color:#f92672">=</span> {
+            <span style="color:#a6e22e">desiredCapabilities</span><span style="color:#f92672">:</span> {
+                <span style="color:#a6e22e">browserName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;phantomjs&#39;</span>
             }
         };
 
-        client = webdriverio.remote(options);
-        originalTimeout = jasmine.DEFAULT_TIMEOUT_INTERVAL;
-        jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000;
+        <span style="color:#a6e22e">client</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">webdriverio</span>.<span style="color:#a6e22e">remote</span>(<span style="color:#a6e22e">options</span>);
+        <span style="color:#a6e22e">originalTimeout</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">jasmine</span>.<span style="color:#a6e22e">DEFAULT_TIMEOUT_INTERVAL</span>;
+        <span style="color:#a6e22e">jasmine</span>.<span style="color:#a6e22e">DEFAULT_TIMEOUT_INTERVAL</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">10000</span>;
     });
 
-    afterEach(function () {
-        jasmine.DEFAULT_TIMEOUT_INTERVAL = originalTimeout;
+    <span style="color:#a6e22e">afterEach</span>(<span style="color:#66d9ef">function</span> () {
+        <span style="color:#a6e22e">jasmine</span>.<span style="color:#a6e22e">DEFAULT_TIMEOUT_INTERVAL</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">originalTimeout</span>;
     });
 
-    it('allows to register via the registration page', function (done) {
+    <span style="color:#a6e22e">it</span>(<span style="color:#e6db74">&#39;allows to register via the registration page&#39;</span>, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">done</span>) {
 
-        client.init()
-            .url(paceUrl)
-            .click('a#registration')
-            .setValue('input#firstname', 'Max')
-            .setValue('input#lastname', 'Mustermann')
-            .setValue('input#email', 'max@example.com')
-            .setValue('input#gender', 'Unicorn')
-            .click('button#submit')
-            .isVisible('div.thanks')
-            .then(function (isVisible) {
-                expect(isVisible).toBe(true);
-                done();
+        <span style="color:#a6e22e">client</span>.<span style="color:#a6e22e">init</span>()
+            .<span style="color:#a6e22e">url</span>(<span style="color:#a6e22e">paceUrl</span>)
+            .<span style="color:#a6e22e">click</span>(<span style="color:#e6db74">&#39;a#registration&#39;</span>)
+            .<span style="color:#a6e22e">setValue</span>(<span style="color:#e6db74">&#39;input#firstname&#39;</span>, <span style="color:#e6db74">&#39;Max&#39;</span>)
+            .<span style="color:#a6e22e">setValue</span>(<span style="color:#e6db74">&#39;input#lastname&#39;</span>, <span style="color:#e6db74">&#39;Mustermann&#39;</span>)
+            .<span style="color:#a6e22e">setValue</span>(<span style="color:#e6db74">&#39;input#email&#39;</span>, <span style="color:#e6db74">&#39;max@example.com&#39;</span>)
+            .<span style="color:#a6e22e">setValue</span>(<span style="color:#e6db74">&#39;input#gender&#39;</span>, <span style="color:#e6db74">&#39;Unicorn&#39;</span>)
+            .<span style="color:#a6e22e">click</span>(<span style="color:#e6db74">&#39;button#submit&#39;</span>)
+            .<span style="color:#a6e22e">isVisible</span>(<span style="color:#e6db74">&#39;div.thanks&#39;</span>)
+            .<span style="color:#a6e22e">then</span>(<span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">isVisible</span>) {
+                <span style="color:#a6e22e">expect</span>(<span style="color:#a6e22e">isVisible</span>).<span style="color:#a6e22e">toBe</span>(<span style="color:#66d9ef">true</span>);
+                <span style="color:#a6e22e">done</span>();
             })
-            .end();
+            .<span style="color:#a6e22e">end</span>();
     });
 
 });
-</code></pre>
-
+</code></pre></div>
 <p>First we need to setup the webdriver client to use the proper pace base url and
 browser. We also change the default jasmine timeout for async tests, as in
 general the browser based interactions tend to take more time. After that it is

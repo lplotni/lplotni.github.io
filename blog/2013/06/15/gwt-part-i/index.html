@@ -228,28 +228,25 @@ We also use the JSR303 annotations for validation of the entities and are able t
 <p>One of the main advantages of doing MVP is the separation of the business logic (sitting in the presenter) from the actual UI components (being a part of the view) resulting in the ability of writing normal, fast unit test (normal, meaning not using the GWTTestCase) and mocking the views. Nevertheless in our project we use <a href="http://docs.seleniumhq.org/" target="_blank">selenium</a> as the main way to assure the correct functionality of our client. As using the normal selenium recorder is not an option with GWT due to the element ids changing during each compile process, we tried to get our selenium tests (written in java as normal unit tests) as independent as it only can be from the layout definition itself (trying not to use exact XPath etc.). Our client is very data input heavy, so we have a lot of input components to test. When we test if the entities get created in a correct way, we just access all visible input components of a certain type, populate them with a random content (which we then store for later comparison), trigger the save action and reload the UI to verify if the same components holds still the same data. Thus, we don&rsquo;t have to update the tests if our data definition changes and we have introduced some new input components. The test will also work if the layout of the UI changes either on purpose, because we rearranged it, or when a new GWT version switch to a different HTML representation for some standard widgets.</p>
 
 <p><em>Getting certain elements from selenium driver:</em></p>
-
-<pre><code class="language-java">protected static ArrayList&lt;WebElement&gt; getVisibleElements(String tagName,
-			final String classString) {
-		List&lt;WebElement&gt; elements = driver.findElements(By.tagName(tagName));
-		return Lists.newArrayList(Collections2.filter(elements,
-				new Predicate&lt;WebElement&gt;() {
-					@Override
-					public boolean apply(@Nullable WebElement input) {
-						boolean b = false;
-						try {
-							String classAttribute = input.getAttribute(&quot;class&quot;);
-							b = input.isDisplayed() &amp;&amp; classAttribute != null
-									&amp;&amp; classAttribute.contains(classString);
-						} catch (StaleElementReferenceException e) {
-							// Ignoring stale element
-						}
-						return b;
-					}
-				}));
-	}
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">static</span> ArrayList<span style="color:#f92672">&lt;</span>WebElement<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getVisibleElements</span><span style="color:#f92672">(</span>String tagName<span style="color:#f92672">,</span>
+			<span style="color:#66d9ef">final</span> String classString<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		List<span style="color:#f92672">&lt;</span>WebElement<span style="color:#f92672">&gt;</span> elements <span style="color:#f92672">=</span> driver<span style="color:#f92672">.</span><span style="color:#a6e22e">findElements</span><span style="color:#f92672">(</span>By<span style="color:#f92672">.</span><span style="color:#a6e22e">tagName</span><span style="color:#f92672">(</span>tagName<span style="color:#f92672">));</span>
+		<span style="color:#66d9ef">return</span> Lists<span style="color:#f92672">.</span><span style="color:#a6e22e">newArrayList</span><span style="color:#f92672">(</span>Collections2<span style="color:#f92672">.</span><span style="color:#a6e22e">filter</span><span style="color:#f92672">(</span>elements<span style="color:#f92672">,</span>
+				<span style="color:#66d9ef">new</span> Predicate<span style="color:#f92672">&lt;</span>WebElement<span style="color:#f92672">&gt;()</span> <span style="color:#f92672">{</span>
+					<span style="color:#a6e22e">@Override</span>
+					<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">apply</span><span style="color:#f92672">(</span><span style="color:#a6e22e">@Nullable</span> WebElement input<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+						<span style="color:#66d9ef">boolean</span> b <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+						<span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+							String classAttribute <span style="color:#f92672">=</span> input<span style="color:#f92672">.</span><span style="color:#a6e22e">getAttribute</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;class&#34;</span><span style="color:#f92672">);</span>
+							b <span style="color:#f92672">=</span> input<span style="color:#f92672">.</span><span style="color:#a6e22e">isDisplayed</span><span style="color:#f92672">()</span> <span style="color:#f92672">&amp;&amp;</span> classAttribute <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span>
+									<span style="color:#f92672">&amp;&amp;</span> classAttribute<span style="color:#f92672">.</span><span style="color:#a6e22e">contains</span><span style="color:#f92672">(</span>classString<span style="color:#f92672">);</span>
+						<span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>StaleElementReferenceException e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+							<span style="color:#75715e">// Ignoring stale element
+</span><span style="color:#75715e"></span>						<span style="color:#f92672">}</span>
+						<span style="color:#66d9ef">return</span> b<span style="color:#f92672">;</span>
+					<span style="color:#f92672">}</span>
+				<span style="color:#f92672">}));</span>
+	<span style="color:#f92672">}</span></code></pre></div>
 <h2 id="4-issues">4. Issues</h2>
 
 <p>We are quite happy how things are working now, but there is room for improvement:</p>

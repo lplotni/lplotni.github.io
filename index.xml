@@ -30,27 +30,18 @@ the source of your ssh key. This assumes that:&lt;/p&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;Here are the steps:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;gpg --card-edit
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;gpg --card-edit
 &amp;gt; admin
 &amp;gt; generate
-&amp;gt; [enter the requested PIN]
-&amp;gt; quit
-&lt;/code&gt;&lt;/pre&gt;
-
+&amp;gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;enter the requested PIN&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+&amp;gt; quit&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;And now you&amp;rsquo;re done. You can check if the new ssh key get pulled correctly from
 your yubikey typing:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;ssh-add -L
-&lt;/code&gt;&lt;/pre&gt;
-
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;ssh-add -L&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;And you should see something like:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;ssh-rsa
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;ssh-rsa
 AAAAB3NzaC1yc2EAAAADAQABAAABAQC2ooHO4NuRkjkOQ6zpl/P+RQwRibWd2EZStK61IX2RksD8m2PQKA4rpoYlbwR8tHqJYp+9hF3630ZhDBLqaN6wnLOzJ9tdAFg2QkR7uw/TlWh3/3kuDjzF8GatYIvfvnbtlX0FtVuz+rmUAeUswYpvRQKA5feX5Tf9M56IhttRtFbXZjNz5BNy8qkXD9FOTX4Ym0Zidgn6tl9EKKH4ctvK1/wTF4oSHEfyVwpKLqn/FI+0DIDi5Lx8cpFLnB4nJqj1WFe8o86yRVNWq5PehOJR3qSpllfx3fheUXePRNPrvYGyO5Ch9aikzuPoLZh4oq/TTqkfjcZLQvTv1Ai+qk8J
-cardno:000605308805
-&lt;/code&gt;&lt;/pre&gt;
-
+cardno:000605308805&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Now you can use this key e.g for as your github key and whenever your
 push/pull/clone you will need to enter the yubikey into your device.&lt;/p&gt;
 </content>
@@ -164,38 +155,36 @@ your unit tests libraries and runners: Jasmine, Mocha and friends, just pick
 one. We decided to go with
 &lt;a href=&#34;https://jasmine.github.io/2.3/introduction.html&#34; target=&#34;_blank&#34;&gt;Jasmine&lt;/a&gt;, in which a test
 looks like this:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;/* jshint node: true */
-/* global describe, beforeEach, afterEach, it, jasmine, expect */
-&#39;use strict&#39;;
-describe(&#39;exractParticipant&#39;, function () {
-  var extractParticipant;
-  var validRequestData = {
-    body: {
-      firstname: &#39;Mark&#39;,
-      lastname: &#39;Mueller&#39;,
-      email: &#39;m.mueller@example.com&#39;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;/* jshint node: true */&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;/* global describe, beforeEach, afterEach, it, jasmine, expect */&lt;/span&gt;
+&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;use strict&amp;#39;&lt;/span&gt;;
+&lt;span style=&#34;color:#a6e22e&#34;&gt;describe&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;exractParticipant&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt; () {
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;extractParticipant&lt;/span&gt;;
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;validRequestData&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; {
+    &lt;span style=&#34;color:#a6e22e&#34;&gt;body&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; {
+      &lt;span style=&#34;color:#a6e22e&#34;&gt;firstname&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Mark&amp;#39;&lt;/span&gt;,
+      &lt;span style=&#34;color:#a6e22e&#34;&gt;lastname&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Mueller&amp;#39;&lt;/span&gt;,
+      &lt;span style=&#34;color:#a6e22e&#34;&gt;email&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;m.mueller@example.com&amp;#39;&lt;/span&gt;
     }
   };
 
-  beforeEach(function () {
-    extractParticipant= require(&#39;../routes/registration.js&#39;).extractParticipant
+  &lt;span style=&#34;color:#a6e22e&#34;&gt;beforeEach&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt; () {
+    &lt;span style=&#34;color:#a6e22e&#34;&gt;extractParticipant&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;require&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;../routes/registration.js&amp;#39;&lt;/span&gt;).&lt;span style=&#34;color:#a6e22e&#34;&gt;extractParticipant&lt;/span&gt;
   });
 
-  it(&#39;should read firstname from the request body&#39;, function() {
-    expect(extractParticipant(validRequestData).firstname).toBe(&#39;Mark&#39;);
+  &lt;span style=&#34;color:#a6e22e&#34;&gt;it&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;should read firstname from the request body&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt;() {
+    &lt;span style=&#34;color:#a6e22e&#34;&gt;expect&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;extractParticipant&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;validRequestData&lt;/span&gt;).&lt;span style=&#34;color:#a6e22e&#34;&gt;firstname&lt;/span&gt;).&lt;span style=&#34;color:#a6e22e&#34;&gt;toBe&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Mark&amp;#39;&lt;/span&gt;);
   });
 
-  it(&#39;should throw an error if no firstname can be found&#39;, function () {
-    function callWithNoFirstname() {
-      extractParticipant({body: {}});
+  &lt;span style=&#34;color:#a6e22e&#34;&gt;it&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;should throw an error if no firstname can be found&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt; () {
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;callWithNoFirstname&lt;/span&gt;() {
+      &lt;span style=&#34;color:#a6e22e&#34;&gt;extractParticipant&lt;/span&gt;({&lt;span style=&#34;color:#a6e22e&#34;&gt;body&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; {}});
     }
 
-    expect(callWithNoFirstname).toThrow();
+    &lt;span style=&#34;color:#a6e22e&#34;&gt;expect&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;callWithNoFirstname&lt;/span&gt;).&lt;span style=&#34;color:#a6e22e&#34;&gt;toThrow&lt;/span&gt;();
   });
 }
-&lt;/code&gt;&lt;/pre&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Here we are verifying the behavior of the &lt;code&gt;extractParticipant()&lt;/code&gt; function
 which given a request body returns a specific JS object. We can use multiple
  &lt;code&gt;describe&lt;/code&gt; calls, or even nested &lt;code&gt;describe&lt;/code&gt; calls to cluster the
@@ -224,57 +213,55 @@ the scope of that particular test.&lt;/li&gt;
 &lt;p&gt;As the name already states, an integration test verifies the behaviour of
 a group of components of our software acting together. Look at the following
 test, which checks the intgeration between a service and the database:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;use strict&amp;#39;&lt;/span&gt;;
+&lt;span style=&#34;color:#75715e&#34;&gt;/* jshint node: true */&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;/* jshint esnext: true */&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;/* global describe, beforeEach, afterAll, it, jasmine, expect */&lt;/span&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;&#39;use strict&#39;;
-/* jshint node: true */
-/* jshint esnext: true */
-/* global describe, beforeEach, afterAll, it, jasmine, expect */
+&lt;span style=&#34;color:#a6e22e&#34;&gt;describe&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;participants service&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt; () {
 
-describe(&#39;participants service&#39;, function () {
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;participants&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;require&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;../../service/participants&amp;#39;&lt;/span&gt;);
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;pg&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;require&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;pg&amp;#39;&lt;/span&gt;);
 
-    const participants = require(&#39;../../service/participants&#39;);
-    var pg = require(&#39;pg&#39;);
+    &lt;span style=&#34;color:#a6e22e&#34;&gt;beforeEach&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;done&lt;/span&gt;) {
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;connectionString&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;process&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;env&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;SNAP_DB_PG_URL&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;||&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;tcp://vagrant@localhost/pace&amp;#34;&lt;/span&gt;;
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;jasmineDone&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;done&lt;/span&gt;;
 
-    beforeEach(function (done) {
-        var connectionString = process.env.SNAP_DB_PG_URL || &amp;quot;tcp://vagrant@localhost/pace&amp;quot;;
-        var jasmineDone = done;
-
-        pg.connect(connectionString, function (err, client, done) {
-                client.query(&#39;delete from participants&#39;, function () {
-                    done();
-                    jasmineDone();
+        &lt;span style=&#34;color:#a6e22e&#34;&gt;pg&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;connect&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;connectionString&lt;/span&gt;, &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;client&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;done&lt;/span&gt;) {
+                &lt;span style=&#34;color:#a6e22e&#34;&gt;client&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;query&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;delete from participants&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt; () {
+                    &lt;span style=&#34;color:#a6e22e&#34;&gt;done&lt;/span&gt;();
+                    &lt;span style=&#34;color:#a6e22e&#34;&gt;jasmineDone&lt;/span&gt;();
                 });
             }
         );
 
     });
 
-    afterAll(function(done) {
-        pg.end();
-        done();
+    &lt;span style=&#34;color:#a6e22e&#34;&gt;afterAll&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;done&lt;/span&gt;) {
+        &lt;span style=&#34;color:#a6e22e&#34;&gt;pg&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;end&lt;/span&gt;();
+        &lt;span style=&#34;color:#a6e22e&#34;&gt;done&lt;/span&gt;();
     });
 
 
-    it(&#39;should store and read participants&#39;, function (done) {
-        var aParticipant = {
-            firstname: &#39;Hertha&#39;,
-            lastname: &#39;Mustermann&#39;,
-            email: &#39;h.mustermann@example.com&#39;
+    &lt;span style=&#34;color:#a6e22e&#34;&gt;it&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;should store and read participants&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;done&lt;/span&gt;) {
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;aParticipant&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; {
+            &lt;span style=&#34;color:#a6e22e&#34;&gt;firstname&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Hertha&amp;#39;&lt;/span&gt;,
+            &lt;span style=&#34;color:#a6e22e&#34;&gt;lastname&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Mustermann&amp;#39;&lt;/span&gt;,
+            &lt;span style=&#34;color:#a6e22e&#34;&gt;email&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;h.mustermann@example.com&amp;#39;&lt;/span&gt;
         };
 
-        participants.save(aParticipant)
-            .then(participants.getAll)
-            .then(function (data) {
-                expect(data.length).toBe(1);
-                expect(data[0].firstname).toBe(aParticipant.firstname);
-                expect(data[0].lastname).toBe(aParticipant.lastname);
-                expect(data[0].email).toBe(aParticipant.email);
-                done();
+        &lt;span style=&#34;color:#a6e22e&#34;&gt;participants&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;save&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;aParticipant&lt;/span&gt;)
+            .&lt;span style=&#34;color:#a6e22e&#34;&gt;then&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;participants&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;getAll&lt;/span&gt;)
+            .&lt;span style=&#34;color:#a6e22e&#34;&gt;then&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;data&lt;/span&gt;) {
+                &lt;span style=&#34;color:#a6e22e&#34;&gt;expect&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;data&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;length&lt;/span&gt;).&lt;span style=&#34;color:#a6e22e&#34;&gt;toBe&lt;/span&gt;(&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;);
+                &lt;span style=&#34;color:#a6e22e&#34;&gt;expect&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;data&lt;/span&gt;[&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;].&lt;span style=&#34;color:#a6e22e&#34;&gt;firstname&lt;/span&gt;).&lt;span style=&#34;color:#a6e22e&#34;&gt;toBe&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;aParticipant&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;firstname&lt;/span&gt;);
+                &lt;span style=&#34;color:#a6e22e&#34;&gt;expect&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;data&lt;/span&gt;[&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;].&lt;span style=&#34;color:#a6e22e&#34;&gt;lastname&lt;/span&gt;).&lt;span style=&#34;color:#a6e22e&#34;&gt;toBe&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;aParticipant&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;lastname&lt;/span&gt;);
+                &lt;span style=&#34;color:#a6e22e&#34;&gt;expect&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;data&lt;/span&gt;[&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;].&lt;span style=&#34;color:#a6e22e&#34;&gt;email&lt;/span&gt;).&lt;span style=&#34;color:#a6e22e&#34;&gt;toBe&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;aParticipant&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;email&lt;/span&gt;);
+                &lt;span style=&#34;color:#a6e22e&#34;&gt;done&lt;/span&gt;();
             });
     });
 });
-&lt;/code&gt;&lt;/pre&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;The integration test is similiar to the unit one (it&amp;rsquo;s also based on jasmine),
 but instead of mocking our dependencies we use the real implementation (here
 the &lt;code&gt;pg&lt;/code&gt; PostgreSQL client) and verify the integration of both components.
@@ -299,53 +286,51 @@ it is correct.&lt;/p&gt;
 Typically those tests go against an outer-most interface of our app, often
 the UI. In our case we will interact with pace via its web page.
 To do that, we use &lt;a href=&#34;http://webdriver.io/&#34; target=&#34;_blank&#34;&gt;WebDriverIO&lt;/a&gt; on top of &lt;a href=&#34;http://docs.seleniumhq.org/&#34; target=&#34;_blank&#34;&gt;selenium&lt;/a&gt; and a headless browser called &lt;a href=&#34;http://phantomjs.org/&#34; target=&#34;_blank&#34;&gt;phantomjs&lt;/a&gt;. This combination offers an easy to use API for browser-interaction.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;/* jshint node: true */&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;/* global describe, beforeEach, afterEach, it, jasmine, expect */&lt;/span&gt;
+&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;use strict&amp;#39;&lt;/span&gt;;
+&lt;span style=&#34;color:#a6e22e&#34;&gt;describe&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;regisitration journey&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt; () {
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;client&lt;/span&gt;;
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;paceUrl&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;process&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;env&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;PACE_URL&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;||&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;http://localhost:3000/&amp;#39;&lt;/span&gt;;
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;originalTimeout&lt;/span&gt;;
 
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;/* jshint node: true */
-/* global describe, beforeEach, afterEach, it, jasmine, expect */
-&#39;use strict&#39;;
-describe(&#39;regisitration journey&#39;, function () {
-    var client;
-    var paceUrl = process.env.PACE_URL || &#39;http://localhost:3000/&#39;;
-    var originalTimeout;
-
-    beforeEach(function () {
-        var webdriverio = require(&#39;webdriverio&#39;);
-        var options = {
-            desiredCapabilities: {
-                browserName: &#39;phantomjs&#39;
+    &lt;span style=&#34;color:#a6e22e&#34;&gt;beforeEach&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt; () {
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;webdriverio&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;require&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;webdriverio&amp;#39;&lt;/span&gt;);
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;options&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; {
+            &lt;span style=&#34;color:#a6e22e&#34;&gt;desiredCapabilities&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; {
+                &lt;span style=&#34;color:#a6e22e&#34;&gt;browserName&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;phantomjs&amp;#39;&lt;/span&gt;
             }
         };
 
-        client = webdriverio.remote(options);
-        originalTimeout = jasmine.DEFAULT_TIMEOUT_INTERVAL;
-        jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000;
+        &lt;span style=&#34;color:#a6e22e&#34;&gt;client&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;webdriverio&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;remote&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;options&lt;/span&gt;);
+        &lt;span style=&#34;color:#a6e22e&#34;&gt;originalTimeout&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;jasmine&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;DEFAULT_TIMEOUT_INTERVAL&lt;/span&gt;;
+        &lt;span style=&#34;color:#a6e22e&#34;&gt;jasmine&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;DEFAULT_TIMEOUT_INTERVAL&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;10000&lt;/span&gt;;
     });
 
-    afterEach(function () {
-        jasmine.DEFAULT_TIMEOUT_INTERVAL = originalTimeout;
+    &lt;span style=&#34;color:#a6e22e&#34;&gt;afterEach&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt; () {
+        &lt;span style=&#34;color:#a6e22e&#34;&gt;jasmine&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;DEFAULT_TIMEOUT_INTERVAL&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;originalTimeout&lt;/span&gt;;
     });
 
-    it(&#39;allows to register via the registration page&#39;, function (done) {
+    &lt;span style=&#34;color:#a6e22e&#34;&gt;it&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;allows to register via the registration page&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;done&lt;/span&gt;) {
 
-        client.init()
-            .url(paceUrl)
-            .click(&#39;a#registration&#39;)
-            .setValue(&#39;input#firstname&#39;, &#39;Max&#39;)
-            .setValue(&#39;input#lastname&#39;, &#39;Mustermann&#39;)
-            .setValue(&#39;input#email&#39;, &#39;max@example.com&#39;)
-            .setValue(&#39;input#gender&#39;, &#39;Unicorn&#39;)
-            .click(&#39;button#submit&#39;)
-            .isVisible(&#39;div.thanks&#39;)
-            .then(function (isVisible) {
-                expect(isVisible).toBe(true);
-                done();
+        &lt;span style=&#34;color:#a6e22e&#34;&gt;client&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;init&lt;/span&gt;()
+            .&lt;span style=&#34;color:#a6e22e&#34;&gt;url&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;paceUrl&lt;/span&gt;)
+            .&lt;span style=&#34;color:#a6e22e&#34;&gt;click&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;a#registration&amp;#39;&lt;/span&gt;)
+            .&lt;span style=&#34;color:#a6e22e&#34;&gt;setValue&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;input#firstname&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Max&amp;#39;&lt;/span&gt;)
+            .&lt;span style=&#34;color:#a6e22e&#34;&gt;setValue&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;input#lastname&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Mustermann&amp;#39;&lt;/span&gt;)
+            .&lt;span style=&#34;color:#a6e22e&#34;&gt;setValue&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;input#email&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;max@example.com&amp;#39;&lt;/span&gt;)
+            .&lt;span style=&#34;color:#a6e22e&#34;&gt;setValue&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;input#gender&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Unicorn&amp;#39;&lt;/span&gt;)
+            .&lt;span style=&#34;color:#a6e22e&#34;&gt;click&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;button#submit&amp;#39;&lt;/span&gt;)
+            .&lt;span style=&#34;color:#a6e22e&#34;&gt;isVisible&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;div.thanks&amp;#39;&lt;/span&gt;)
+            .&lt;span style=&#34;color:#a6e22e&#34;&gt;then&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;isVisible&lt;/span&gt;) {
+                &lt;span style=&#34;color:#a6e22e&#34;&gt;expect&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;isVisible&lt;/span&gt;).&lt;span style=&#34;color:#a6e22e&#34;&gt;toBe&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;);
+                &lt;span style=&#34;color:#a6e22e&#34;&gt;done&lt;/span&gt;();
             })
-            .end();
+            .&lt;span style=&#34;color:#a6e22e&#34;&gt;end&lt;/span&gt;();
     });
 
 });
-&lt;/code&gt;&lt;/pre&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;First we need to setup the webdriver client to use the proper pace base url and
 browser. We also change the default jasmine timeout for async tests, as in
 general the browser based interactions tend to take more time. After that it is
@@ -418,17 +403,13 @@ decisions and accompany it with some &lt;em&gt;HowTo&lt;/em&gt; information. So 
 &lt;h3 id=&#34;how-to-bootstrap-a-web-app-what-happens&#34;&gt;How to bootstrap a web app &amp;amp; what happens&lt;/h3&gt;
 
 &lt;p&gt;Assuming you have node already installed on your machine (if not look at &lt;a href=&#34;https://nodejs.org/download/&#34; target=&#34;_blank&#34;&gt;here&lt;/a&gt;)&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;npm install express-generator -g
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;npm install express-generator -g
 express myWebApp
 cd myWebApp
 npm install
-npm start
-&lt;/code&gt;&lt;/pre&gt;
-
+npm start&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;What happened you ask? So first we globally installed &lt;a href=&#34;https://www.npmjs.com/package/express-generator&#34; target=&#34;_blank&#34;&gt;express-generator&lt;/a&gt; (it will be now available to you via &lt;em&gt;express&lt;/em&gt; cmd). Then we made it bootstrap for us an app called &lt;em&gt;myWebApp&lt;/em&gt;. This resulted in the following:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;/tmp|⇒ express myWebApp
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;/tmp|⇒ express myWebApp
 
    create : myWebApp
    create : myWebApp/package.json
@@ -449,12 +430,10 @@ npm start
    create : myWebApp/bin/www
 
    install dependencies:
-     $ cd myWebApp &amp;amp;&amp;amp; npm install
+     $ cd myWebApp &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; npm install
 
    run the app:
-     $ DEBUG=myWebApp ./bin/www
-&lt;/code&gt;&lt;/pre&gt;
-
+     $ DEBUG&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;myWebApp ./bin/www&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;The generator created for us a new directory which contains all the needed files the web application consists of:&lt;/p&gt;
 
 &lt;ul&gt;
@@ -467,83 +446,66 @@ npm start
 &lt;/ul&gt;
 
 &lt;p&gt;The execution of &lt;code&gt;npm install&lt;/code&gt; in app&amp;rsquo;s directory, installs all the dependencies defined in the &lt;code&gt;package.json&lt;/code&gt; file. Those dependencies will be installed only locally in the &lt;code&gt;node_modules&lt;/code&gt; directory. After this step we are ready to go and able to run &lt;code&gt;npm start&lt;/code&gt; which should result in this:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;myWebApp|⇒ npm start
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;myWebApp|⇒ npm start
 
 &amp;gt; myWebApp@0.0.1 start /private/tmp/myWebApp
 &amp;gt; node ./bin/www
 
-GET / 200 305ms - 170b
-GET / 200 34ms - 170b
-GET /stylesheets/style.css 200 4ms - 110b
-GET / 304 25ms
-GET /stylesheets/style.css 304 1ms
-&lt;/code&gt;&lt;/pre&gt;
-
+GET / &lt;span style=&#34;color:#ae81ff&#34;&gt;200&lt;/span&gt; 305ms - 170b
+GET / &lt;span style=&#34;color:#ae81ff&#34;&gt;200&lt;/span&gt; 34ms - 170b
+GET /stylesheets/style.css &lt;span style=&#34;color:#ae81ff&#34;&gt;200&lt;/span&gt; 4ms - 110b
+GET / &lt;span style=&#34;color:#ae81ff&#34;&gt;304&lt;/span&gt; 25ms
+GET /stylesheets/style.css &lt;span style=&#34;color:#ae81ff&#34;&gt;304&lt;/span&gt; 1ms&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;You can see, that I opened &lt;a href=&#34;http://localhost:3000&#34; target=&#34;_blank&#34;&gt;http://localhost:3000&lt;/a&gt; in the browser and express served me the index page with the &lt;a href=&#34;http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html&#34; target=&#34;_blank&#34;&gt;200 code&lt;/a&gt; (you can also see that I refreshed the page and got 304 NOT MODIFIED). Everything works also as expected {%gemoji +1%}&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Why? How?&lt;/strong&gt; Let&amp;rsquo;s take a quick look at the following:&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;app.js&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-JavaScript&#34; data-lang=&#34;JavaScript&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;routes&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;require&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;./routes/index&amp;#39;&lt;/span&gt;);
 
-&lt;pre&gt;&lt;code class=&#34;language-JavaScript&#34;&gt;var routes = require(&#39;./routes/index&#39;);
-
-app.use(&#39;/&#39;, routes)
-&lt;/code&gt;&lt;/pre&gt;
-
+&lt;span style=&#34;color:#a6e22e&#34;&gt;app&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;use&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;/&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;routes&lt;/span&gt;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;This is only a part of the &lt;code&gt;app.js&lt;/code&gt; file but shows the wiring of our default root to the index.js file shown below. BTW: you can also see how to load dependencies/modules for our code via the &lt;code&gt;require&lt;/code&gt; function (if you want to read more about that, &lt;a href=&#34;http://openmymind.net/2012/2/3/Node-Require-and-Exports/&#34; target=&#34;_blank&#34;&gt;here is a nice write-up&lt;/a&gt;)&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;routes/index.js:&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-JavaScript&#34; data-lang=&#34;JavaScript&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;express&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;require&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;express&amp;#39;&lt;/span&gt;);
+&lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;router&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;express&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Router&lt;/span&gt;();
 
-&lt;pre&gt;&lt;code class=&#34;language-JavaScript&#34;&gt;var express = require(&#39;express&#39;);
-var router = express.Router();
-
-/* GET home page. */
-router.get(&#39;/&#39;, function(req, res) {
-title = &amp;quot;bootstraping a node dot js webapp&amp;quot;
+&lt;span style=&#34;color:#75715e&#34;&gt;/* GET home page. */&lt;/span&gt;
+&lt;span style=&#34;color:#a6e22e&#34;&gt;router&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;get&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;/&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;req&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;res&lt;/span&gt;) {
+&lt;span style=&#34;color:#a6e22e&#34;&gt;title&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;bootstraping a node dot js webapp&amp;#34;&lt;/span&gt;
 });
 
-module.exports = router;
-&lt;/code&gt;&lt;/pre&gt;
-
+&lt;span style=&#34;color:#a6e22e&#34;&gt;module&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;exports&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;router&lt;/span&gt;;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;The &lt;code&gt;index.js&lt;/code&gt; uses express&amp;rsquo; &lt;code&gt;router&lt;/code&gt; and wires request for &lt;strong&gt;/&lt;/strong&gt; to the function responding with a rendered &lt;code&gt;index.jade&lt;/code&gt; template, to which it passes a variable called &lt;code&gt;title&lt;/code&gt;. If you never used &lt;a href=&#34;http://jade-lang.com/&#34; target=&#34;_blank&#34;&gt;jade&lt;/a&gt;, don&amp;rsquo;t worry, is a pretty simple HTML template engine. Look at the following:
 &lt;em&gt;index.jade:&lt;/em&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-jade&#34;&gt;extends layout
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-jade&#34; data-lang=&#34;jade&#34;&gt;extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
-
-&lt;/code&gt;&lt;/pre&gt;
-
+  p Welcome to #{title}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Jade enables template composition. In here we extend &lt;code&gt;layout.jade&lt;/code&gt; which defines the general page structure. If other template defines a &lt;strong&gt;block&lt;/strong&gt; called &lt;code&gt;content&lt;/code&gt; it will be then injected at the corresponding place.
 &lt;em&gt;layout.jade:&lt;/em&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-jade&#34;&gt;doctype html
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-jade&#34; data-lang=&#34;jade&#34;&gt;doctype html
 html
   head
     title= title
-    link(rel=&#39;stylesheet&#39;, href=&#39;https://lplotni.github.io/stylesheets/style.css&#39;)
+    link(rel=&amp;#39;stylesheet&amp;#39;, href=&amp;#39;/stylesheets/style.css&amp;#39;)
   body
-    block content
-&lt;/code&gt;&lt;/pre&gt;
-
+    block content&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Jade is indentation aware, meaning that the above example results in the following:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-HTML&#34;&gt;&amp;lt;!DOCTYPE html&amp;gt;
-&amp;lt;html&amp;gt;
-  &amp;lt;head&amp;gt;
-    &amp;lt;title&amp;gt;Express&amp;lt;/title&amp;gt;
-    &amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;/stylesheets/style.css&amp;quot;&amp;gt;
-  &amp;lt;/head&amp;gt;
-  &amp;lt;body&amp;gt;
-    &amp;lt;h1&amp;gt;Express&amp;lt;/h1&amp;gt;
-    &amp;lt;p&amp;gt;Welcome to Express&amp;lt;/p&amp;gt;
-  &amp;lt;/body&amp;gt;
-&amp;lt;/html&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-HTML&#34; data-lang=&#34;HTML&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
+&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;html&lt;/span&gt;&amp;gt;
+  &amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;head&lt;/span&gt;&amp;gt;
+    &amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;title&lt;/span&gt;&amp;gt;Express&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;title&lt;/span&gt;&amp;gt;
+    &amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;link&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;rel&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;stylesheet&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;href&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/stylesheets/style.css&amp;#34;&lt;/span&gt;&amp;gt;
+  &amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;head&lt;/span&gt;&amp;gt;
+  &amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;body&lt;/span&gt;&amp;gt;
+    &amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;h1&lt;/span&gt;&amp;gt;Express&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;h1&lt;/span&gt;&amp;gt;
+    &amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;p&lt;/span&gt;&amp;gt;Welcome to Express&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;p&lt;/span&gt;&amp;gt;
+  &amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;body&lt;/span&gt;&amp;gt;
+&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;html&lt;/span&gt;&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Now you have seen all the parts making the browser render the most basic page of all time 😎&lt;/p&gt;
 
 &lt;p&gt;Next post out of the &lt;strong&gt;pace&lt;/strong&gt; series, will actually explain how to start working on the functionality we need. Right now you can start to play around with the data which is passed by the &lt;code&gt;index.js&lt;/code&gt; to the &lt;code&gt;index.jade&lt;/code&gt; template and how the template uses it. Have fun!&lt;/p&gt;
@@ -794,28 +756,25 @@ We also use the JSR303 annotations for validation of the entities and are able t
 &lt;p&gt;One of the main advantages of doing MVP is the separation of the business logic (sitting in the presenter) from the actual UI components (being a part of the view) resulting in the ability of writing normal, fast unit test (normal, meaning not using the GWTTestCase) and mocking the views. Nevertheless in our project we use &lt;a href=&#34;http://docs.seleniumhq.org/&#34; target=&#34;_blank&#34;&gt;selenium&lt;/a&gt; as the main way to assure the correct functionality of our client. As using the normal selenium recorder is not an option with GWT due to the element ids changing during each compile process, we tried to get our selenium tests (written in java as normal unit tests) as independent as it only can be from the layout definition itself (trying not to use exact XPath etc.). Our client is very data input heavy, so we have a lot of input components to test. When we test if the entities get created in a correct way, we just access all visible input components of a certain type, populate them with a random content (which we then store for later comparison), trigger the save action and reload the UI to verify if the same components holds still the same data. Thus, we don&amp;rsquo;t have to update the tests if our data definition changes and we have introduced some new input components. The test will also work if the layout of the UI changes either on purpose, because we rearranged it, or when a new GWT version switch to a different HTML representation for some standard widgets.&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;Getting certain elements from selenium driver:&lt;/em&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;protected static ArrayList&amp;lt;WebElement&amp;gt; getVisibleElements(String tagName,
-			final String classString) {
-		List&amp;lt;WebElement&amp;gt; elements = driver.findElements(By.tagName(tagName));
-		return Lists.newArrayList(Collections2.filter(elements,
-				new Predicate&amp;lt;WebElement&amp;gt;() {
-					@Override
-					public boolean apply(@Nullable WebElement input) {
-						boolean b = false;
-						try {
-							String classAttribute = input.getAttribute(&amp;quot;class&amp;quot;);
-							b = input.isDisplayed() &amp;amp;&amp;amp; classAttribute != null
-									&amp;amp;&amp;amp; classAttribute.contains(classString);
-						} catch (StaleElementReferenceException e) {
-							// Ignoring stale element
-						}
-						return b;
-					}
-				}));
-	}
-&lt;/code&gt;&lt;/pre&gt;
-
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;protected&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;static&lt;/span&gt; ArrayList&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;WebElement&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;getVisibleElements&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;String tagName&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt;
+			&lt;span style=&#34;color:#66d9ef&#34;&gt;final&lt;/span&gt; String classString&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+		List&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;WebElement&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; elements &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; driver&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;findElements&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;By&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;tagName&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;tagName&lt;span style=&#34;color:#f92672&#34;&gt;));&lt;/span&gt;
+		&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; Lists&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;newArrayList&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;Collections2&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;filter&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;elements&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt;
+				&lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; Predicate&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;WebElement&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;()&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+					&lt;span style=&#34;color:#a6e22e&#34;&gt;@Override&lt;/span&gt;
+					&lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;boolean&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;apply&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;@Nullable&lt;/span&gt; WebElement input&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+						&lt;span style=&#34;color:#66d9ef&#34;&gt;boolean&lt;/span&gt; b &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;false&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
+						&lt;span style=&#34;color:#66d9ef&#34;&gt;try&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+							String classAttribute &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; input&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;getAttribute&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;class&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
+							b &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; input&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;isDisplayed&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; classAttribute &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;
+									&lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; classAttribute&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;contains&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;classString&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
+						&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;catch&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;StaleElementReferenceException e&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+							&lt;span style=&#34;color:#75715e&#34;&gt;// Ignoring stale element
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;						&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+						&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; b&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
+					&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+				&lt;span style=&#34;color:#f92672&#34;&gt;}));&lt;/span&gt;
+	&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2 id=&#34;4-issues&#34;&gt;4. Issues&lt;/h2&gt;
 
 &lt;p&gt;We are quite happy how things are working now, but there is room for improvement:&lt;/p&gt;

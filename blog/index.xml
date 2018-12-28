@@ -20,7 +20,7 @@
       <guid>https://lplotni.github.io/blog/sshkey_yubikey/</guid>
       <description>I figured it&amp;rsquo;s time to write up the quickest guide about using the yubikey as the source of your ssh key. This assumes that:
  You have a yubikey and it&amp;rsquo;s in your usb port You&amp;rsquo;ve configured gpg on you machine (I&amp;rsquo;m running gpg (GnuPG) 2.2.7) You&amp;rsquo;re using the gpg-agent with enabled ssh support  Here are the steps:
-gpg --card-edit &amp;gt; admin &amp;gt; generate &amp;gt; [enter the requested PIN] &amp;gt; quit  And now you&amp;rsquo;re done.</description>
+gpg --card-edit &amp;gt; admin &amp;gt; generate &amp;gt; [enter the requested PIN] &amp;gt; quit And now you&amp;rsquo;re done.</description>
     </item>
     
     <item>
