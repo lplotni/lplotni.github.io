@@ -1,81 +1,84 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html xmlns="http://www.w3.org/1999/xhtml"  lang="en-us">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta content="programming, java, javascript, scala" name="keywords">
-<meta content="Lukasz Plotnicki" name="author">
-<meta property="og:title" content="bootstraping a node.js webapp - Working thoughts">
-<meta property="og:url" content="https://lplotni.github.io/blog/2015/08/04/bootstraping-a-node-dot-js-webapp/">
-<meta property="og:description" content="Ideas, thoughts... mainly about programming &amp; co.">
-<meta property="og:type" content="website" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
 <title>bootstraping a node.js webapp | Working thoughts</title>
 
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      processEscapes: true
-    }
-  });
-</script>
-<link rel="stylesheet" href="https://lplotni.github.io//css/style.css">
-<link rel="shortcut icon" href="https://lplotni.github.io//wave.ico">
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
 
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/github.min.css">
 
+<link href="https://lplotni.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Working thoughts" />
+
+<link rel="stylesheet" href="/css/style.css"/><link rel='stylesheet' href='https://lplotni.github.io/css/custom.css'><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
 </head>
-
 <body>
 <section class="section">
   <div class="container">
     <nav class="nav">
       <div class="nav-left">
-        <a class="nav-item" href="https://lplotni.github.io/"><h1 class="title is-4">Working thoughts</h1></a>
+        <a class="nav-item" href="https://lplotni.github.io/">
+          <h1 class="title is-4">Working thoughts</h1>
+        </a>
       </div>
       <div class="nav-right">
-        <nav class="nav-item level is-mobile">
-          
-          <a class="level-item" href="https://github.com/lplotni" target="_blank">
+        <nav class="nav-item level is-mobile"><a class="level-item" aria-label="github" href='https://github.com/lplotni'
+            target='_blank' rel='noopener'>
             <span class="icon">
-              <i class="fa fa-github"></i>
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+    
+  </svg></i>
             </span>
-          </a>
-          
-          <a class="level-item" href="https://twitter.com/lplotni" target="_blank">
+          </a><a class="level-item" aria-label="twitter" href='https://twitter.com/lplotni'
+            target='_blank' rel='noopener'>
             <span class="icon">
-              <i class="fa fa-twitter"></i>
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+    
+  </svg></i>
             </span>
-          </a>
-          
-          <a class="level-item" href="https://www.linkedin.com/in/lukasz-plotnicki-945442140/" target="_blank">
+          </a><a class="level-item" aria-label="linkedin" href='https://linkedin.com/in/lukasz-plotnicki-945442140'
+            target='_blank' rel='noopener'>
             <span class="icon">
-              <i class="fa fa-linkedin-square"></i>
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path stroke-width="1.8" d="m5.839218,4.101561c0,1.211972 -0.974141,2.194011 -2.176459,2.194011s-2.176459,-0.982039 -2.176459,-2.194011c0,-1.211094 0.974141,-2.194011 2.176459,-2.194011s2.176459,0.982917 2.176459,2.194011zm0.017552,3.94922l-4.388022,0l0,14.04167l4.388022,0l0,-14.04167zm7.005038,0l-4.359939,0l0,14.04167l4.360816,0l0,-7.370999c0,-4.098413 5.291077,-4.433657 5.291077,0l0,7.370999l4.377491,0l0,-8.89101c0,-6.915523 -7.829986,-6.66365 -9.669445,-3.259423l0,-1.891237z"/>
+    
+  </svg></i>
             </span>
-          </a>
-          
-          <a class="level-item" href="/index.xml" target="_blank">
-            <span class="icon">
-              <i class="fa fa-rss"></i>
-            </span>
-          </a>
-          
-        </nav>
+          </a></nav>
       </div>
     </nav>
+
+    <nav class="nav">
+      
+
+      
+    </nav>
+
   </div>
 </section>
-
 <section class="section">
   <div class="container">
+    <div class="subtitle tags is-6 is-pulled-right">
+      
+    </div>
+    <h2 class="subtitle is-6">August 4, 2015</h2>
     <h1 class="title">bootstraping a node.js webapp</h1>
-    <h2 class="subtitle is-5">August 4, 2015 by Lukasz Plotnicki</h2>
     
     <div class="content">
       
 
-<p>Together with few friends we started building <strong><a href="https://github.com/lplotni/pace">pace</a></strong> - a web application for
+<p>Together with few friends we started building <strong><a href="https://github.com/lplotni/pace" target="_blank">pace</a></strong> - a web application for
 organizing and managing running events &amp; competitions. We are a colorful bunch of people with different backgrounds, therefore we wanted to choose an approachable tech stack, as some of us wants also to learn one or two things about <strong>JavaScript</strong>, <strong>web applications</strong> or <strong>programming</strong> in general.</p>
 
 <p>And then, somebody suggested to write one thing or two, about our technology
@@ -88,20 +91,20 @@ decisions and accompany it with some <em>HowTo</em> information. So here we are.
 <h2 id="first-things-first-node-js-express-js">First things first: node.js &amp; express.js</h2>
 
 <blockquote>
-<p>Node.js® is a platform  built on Chrome&rsquo;s JavaScript runtime for easily building fast, scalable network applications. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient, perfect for data-intensive real-time applications that run across distributed devices. - Nodejs.org <a href="https://nodejs.org">https://nodejs.org</a></p>
+<p>Node.js® is a platform  built on Chrome&rsquo;s JavaScript runtime for easily building fast, scalable network applications. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient, perfect for data-intensive real-time applications that run across distributed devices. - Nodejs.org <a href="https://nodejs.org" target="_blank">https://nodejs.org</a></p>
 </blockquote>
 
-<p>Probably also due to the popularity of JavaScript <a href="https://nodejs.org/">node</a> quickly spread all around the web and is nowadays widely <a href="https://github.com/joyent/node/wiki/projects,-applications,-and-companies-using-node">used</a> and has an impressive ecosystem of additional libraries/modules (just take a look at <a href="https://www.npmjs.com/">npm package manager</a>).</p>
+<p>Probably also due to the popularity of JavaScript <a href="https://nodejs.org/" target="_blank">node</a> quickly spread all around the web and is nowadays widely <a href="https://github.com/joyent/node/wiki/projects,-applications,-and-companies-using-node" target="_blank">used</a> and has an impressive ecosystem of additional libraries/modules (just take a look at <a href="https://www.npmjs.com/" target="_blank">npm package manager</a>).</p>
 
-<p><a href="http://expressjs.com/">express.js</a> is one of many web frameworks based on node, but seems also to be one of the most popular ones. What is a web framework you ask:</p>
+<p><a href="http://expressjs.com/" target="_blank">express.js</a> is one of many web frameworks based on node, but seems also to be one of the most popular ones. What is a web framework you ask:</p>
 
 <blockquote>
-<p>A web application framework is a software framework that is designed to support the development of dynamic websites, web applications, web services and web resources. The framework aims to alleviate the overhead associated with common activities performed in web development. For example, many frameworks provide libraries for database access, templating frameworks and session management, and they often promote code reuse - <a href="http://localhost:1313/post/2016/02/22/bff/">http://localhost:1313/post/2016/02/22/bff/</a></p>
+<p>A web application framework is a software framework that is designed to support the development of dynamic websites, web applications, web services and web resources. The framework aims to alleviate the overhead associated with common activities performed in web development. For example, many frameworks provide libraries for database access, templating frameworks and session management, and they often promote code reuse - <a href="http://localhost:1313/post/2016/02/22/bff/" target="_blank">http://localhost:1313/post/2016/02/22/bff/</a></p>
 </blockquote>
 
 <h3 id="how-to-bootstrap-a-web-app-what-happens">How to bootstrap a web app &amp; what happens</h3>
 
-<p>Assuming you have node already installed on your machine (if not look at <a href="https://nodejs.org/download/">here</a>)</p>
+<p>Assuming you have node already installed on your machine (if not look at <a href="https://nodejs.org/download/" target="_blank">here</a>)</p>
 
 <pre><code class="language-bash">npm install express-generator -g
 express myWebApp
@@ -110,7 +113,7 @@ npm install
 npm start
 </code></pre>
 
-<p>What happened you ask? So first we globally installed <a href="https://www.npmjs.com/package/express-generator">express-generator</a> (it will be now available to you via <em>express</em> cmd). Then we made it bootstrap for us an app called <em>myWebApp</em>. This resulted in the following:</p>
+<p>What happened you ask? So first we globally installed <a href="https://www.npmjs.com/package/express-generator" target="_blank">express-generator</a> (it will be now available to you via <em>express</em> cmd). Then we made it bootstrap for us an app called <em>myWebApp</em>. This resulted in the following:</p>
 
 <pre><code class="language-bash">/tmp|⇒ express myWebApp
 
@@ -164,7 +167,7 @@ GET / 304 25ms
 GET /stylesheets/style.css 304 1ms
 </code></pre>
 
-<p>You can see, that I opened <a href="http://localhost:3000">http://localhost:3000</a> in the browser and express served me the index page with the <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html">200 code</a> (you can also see that I refreshed the page and got 304 NOT MODIFIED). Everything works also as expected {%gemoji +1%}</p>
+<p>You can see, that I opened <a href="http://localhost:3000" target="_blank">http://localhost:3000</a> in the browser and express served me the index page with the <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html" target="_blank">200 code</a> (you can also see that I refreshed the page and got 304 NOT MODIFIED). Everything works also as expected {%gemoji +1%}</p>
 
 <p><strong>Why? How?</strong> Let&rsquo;s take a quick look at the following:</p>
 
@@ -175,7 +178,7 @@ GET /stylesheets/style.css 304 1ms
 app.use('/', routes)
 </code></pre>
 
-<p>This is only a part of the <code>app.js</code> file but shows the wiring of our default root to the index.js file shown below. BTW: you can also see how to load dependencies/modules for our code via the <code>require</code> function (if you want to read more about that, <a href="http://openmymind.net/2012/2/3/Node-Require-and-Exports/">here is a nice write-up</a>)</p>
+<p>This is only a part of the <code>app.js</code> file but shows the wiring of our default root to the index.js file shown below. BTW: you can also see how to load dependencies/modules for our code via the <code>require</code> function (if you want to read more about that, <a href="http://openmymind.net/2012/2/3/Node-Require-and-Exports/" target="_blank">here is a nice write-up</a>)</p>
 
 <p><em>routes/index.js:</em></p>
 
@@ -190,7 +193,7 @@ title = &quot;bootstraping a node dot js webapp&quot;
 module.exports = router;
 </code></pre>
 
-<p>The <code>index.js</code> uses express&rsquo; <code>router</code> and wires request for <strong>/</strong> to the function responding with a rendered <code>index.jade</code> template, to which it passes a variable called <code>title</code>. If you never used <a href="http://jade-lang.com/">jade</a>, don&rsquo;t worry, is a pretty simple HTML template engine. Look at the following:
+<p>The <code>index.js</code> uses express&rsquo; <code>router</code> and wires request for <strong>/</strong> to the function responding with a rendered <code>index.jade</code> template, to which it passes a variable called <code>title</code>. If you never used <a href="http://jade-lang.com/" target="_blank">jade</a>, don&rsquo;t worry, is a pretty simple HTML template engine. Look at the following:
 <em>index.jade:</em></p>
 
 <pre><code class="language-jade">extends layout
@@ -232,6 +235,10 @@ html
 
 <p>Next post out of the <strong>pace</strong> series, will actually explain how to start working on the functionality we need. Right now you can start to play around with the data which is passed by the <code>index.js</code> to the <code>index.jade</code> template and how the template uses it. Have fun!</p>
 
+      
+      <div class="related">
+</div>
+      
     </div>
     
   </div>
@@ -240,29 +247,15 @@ html
 
 <section class="section">
   <div class="container has-text-centered">
-    <p>&copy; 2018 | Lukasz Plotnicki | <a href="https://github.com/mgjohansen/hucore.git" target="_blank">Hucore theme</a> & <a href="http://gohugo.io" target="_blank">Hugo</a> ♥</p>
+    <p>&copy; 2018 | Follow on <a href="https://twitter.com/lplotni" target="_blank">Twitter</a></p>
+    
+      <p>Powered by <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/ribice/kiss">Kiss</a>.</p>
+    
   </div>
 </section>
 
 
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js" integrity="sha256-+bhVTaRmJ/c07eV80nU8gD2cBBF0rYkf1txqXlrbvb0=" crossorigin="anonymous"></script>
-
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/go.min.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
-
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/dockerfile.min.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
-
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/java.min.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
-
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/javascript.min.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
-
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/bash.min.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
-
-<script>hljs.initHighlightingOnLoad();</script>
-
 
 </body>
+</html>
+

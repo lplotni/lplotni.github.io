@@ -1,98 +1,93 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html xmlns="http://www.w3.org/1999/xhtml"  lang="en-us">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta content="programming, java, javascript, scala" name="keywords">
-<meta content="Lukasz Plotnicki" name="author">
-<meta property="og:title" content="gwt part i - Working thoughts">
-<meta property="og:url" content="https://lplotni.github.io/blog/2013/06/15/gwt-part-i/">
-<meta property="og:description" content="Ideas, thoughts... mainly about programming &amp; co.">
-<meta property="og:type" content="website" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
 <title>gwt part i | Working thoughts</title>
 
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      processEscapes: true
-    }
-  });
-</script>
-<link rel="stylesheet" href="https://lplotni.github.io//css/style.css">
-<link rel="shortcut icon" href="https://lplotni.github.io//wave.ico">
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
 
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/github.min.css">
 
+<link href="https://lplotni.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Working thoughts" />
+
+<link rel="stylesheet" href="/css/style.css"/><link rel='stylesheet' href='https://lplotni.github.io/css/custom.css'><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
 </head>
-
 <body>
 <section class="section">
   <div class="container">
     <nav class="nav">
       <div class="nav-left">
-        <a class="nav-item" href="https://lplotni.github.io/"><h1 class="title is-4">Working thoughts</h1></a>
+        <a class="nav-item" href="https://lplotni.github.io/">
+          <h1 class="title is-4">Working thoughts</h1>
+        </a>
       </div>
       <div class="nav-right">
-        <nav class="nav-item level is-mobile">
-          
-          <a class="level-item" href="https://github.com/lplotni" target="_blank">
+        <nav class="nav-item level is-mobile"><a class="level-item" aria-label="github" href='https://github.com/lplotni'
+            target='_blank' rel='noopener'>
             <span class="icon">
-              <i class="fa fa-github"></i>
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+    
+  </svg></i>
             </span>
-          </a>
-          
-          <a class="level-item" href="https://twitter.com/lplotni" target="_blank">
+          </a><a class="level-item" aria-label="twitter" href='https://twitter.com/lplotni'
+            target='_blank' rel='noopener'>
             <span class="icon">
-              <i class="fa fa-twitter"></i>
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+    
+  </svg></i>
             </span>
-          </a>
-          
-          <a class="level-item" href="https://www.linkedin.com/in/lukasz-plotnicki-945442140/" target="_blank">
+          </a><a class="level-item" aria-label="linkedin" href='https://linkedin.com/in/lukasz-plotnicki-945442140'
+            target='_blank' rel='noopener'>
             <span class="icon">
-              <i class="fa fa-linkedin-square"></i>
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path stroke-width="1.8" d="m5.839218,4.101561c0,1.211972 -0.974141,2.194011 -2.176459,2.194011s-2.176459,-0.982039 -2.176459,-2.194011c0,-1.211094 0.974141,-2.194011 2.176459,-2.194011s2.176459,0.982917 2.176459,2.194011zm0.017552,3.94922l-4.388022,0l0,14.04167l4.388022,0l0,-14.04167zm7.005038,0l-4.359939,0l0,14.04167l4.360816,0l0,-7.370999c0,-4.098413 5.291077,-4.433657 5.291077,0l0,7.370999l4.377491,0l0,-8.89101c0,-6.915523 -7.829986,-6.66365 -9.669445,-3.259423l0,-1.891237z"/>
+    
+  </svg></i>
             </span>
-          </a>
-          
-          <a class="level-item" href="/index.xml" target="_blank">
-            <span class="icon">
-              <i class="fa fa-rss"></i>
-            </span>
-          </a>
-          
-        </nav>
+          </a></nav>
       </div>
     </nav>
+
+    <nav class="nav">
+      
+
+      
+    </nav>
+
   </div>
 </section>
-
 <section class="section">
   <div class="container">
+    <div class="subtitle tags is-6 is-pulled-right">
+      
+    </div>
+    <h2 class="subtitle is-6">June 15, 2013</h2>
     <h1 class="title">gwt part i</h1>
-    <h2 class="subtitle is-5">June 15, 2013 by Lukasz Plotnicki</h2>
     
     <div class="content">
-      <p>Back in 2009 I became the job to design and start realizing a quite large web application for a health care research project. I took some time, sat down and thought about the technology stack, I would like to use to build it. As we wanted to have an RIA and I already had some experience with GWT, we quickly decided to use it. Since then four years have passed and we are about to release the 2.0 version of our system. During this time, the whole team learned a lot about GWT, its advantages and also some disadvantages, and I thought it would be useful to write some of them up. This part is about the <strong>status quo</strong>, in the second part I will try to write about a GWT setup I would go for, when starting the project today - so if you have any hints in this regard, please feel free to leave a comment, I would definitely appreciate it!
-</p>
+      <p>Back in 2009 I became the job to design and start realizing a quite large web application for a health care research project. I took some time, sat down and thought about the technology stack, I would like to use to build it. As we wanted to have an RIA and I already had some experience with GWT, we quickly decided to use it. Since then four years have passed and we are about to release the 2.0 version of our system. During this time, the whole team learned a lot about GWT, its advantages and also some disadvantages, and I thought it would be useful to write some of them up. This part is about the <strong>status quo</strong>, in the second part I will try to write about a GWT setup I would go for, when starting the project today - so if you have any hints in this regard, please feel free to leave a comment, I would definitely appreciate it!</p>
 
 <h2 id="1-client-setup">1. Client setup</h2>
 
-<p>Around the same time, as I started to draw the first diagrams of the inner life of our web app, Ray Ryan gave a <a href="http://www.youtube.com/watch?v=PDuhR18-EdM">talk at the IO conference</a> about the best practices for GWT app architecture, mentioning the <a href="http://martinfowler.com/eaaDev/uiArchs.html">model view presenter</a>, the usage of an event bus for components communication and the command pattern for dispatching the GWT-RPC calls to the server. Shortly after I discovered the <a href="http://code.google.com/p/gwt-presenter/">gwt-presenter</a> and the <a href="http://code.google.com/p/gwt-dispatch/">gwt-dispatch</a> libraries, offering an easy way to build an GWT app based on the principles from  Ray&rsquo;s talk. I also found a very detailed <a href="http://blog.hivedevelopment.co.uk/2009/08/google-web-toolkit-gwt-mvp-example.html">blog post</a> explaining how everything works together.<br />
-
+<p>Around the same time, as I started to draw the first diagrams of the inner life of our web app, Ray Ryan gave a <a href="http://www.youtube.com/watch?v=PDuhR18-EdM" target="_blank">talk at the IO conference</a> about the best practices for GWT app architecture, mentioning the <a href="http://martinfowler.com/eaaDev/uiArchs.html" target="_blank">model view presenter</a>, the usage of an event bus for components communication and the command pattern for dispatching the GWT-RPC calls to the server. Shortly after I discovered the <a href="http://code.google.com/p/gwt-presenter/" target="_blank">gwt-presenter</a> and the <a href="http://code.google.com/p/gwt-dispatch/" target="_blank">gwt-dispatch</a> libraries, offering an easy way to build an GWT app based on the principles from  Ray&rsquo;s talk. I also found a very detailed <a href="http://blog.hivedevelopment.co.uk/2009/08/google-web-toolkit-gwt-mvp-example.html" target="_blank">blog post</a> explaining how everything works together.<br />
 <figure>
-    
-        <img src="/media/gwt_mvp.png" />
-    
-    
-    <figcaption>
-        <h4>MVP with EventBus and Dispatcher</h4>
-        
-    </figcaption>
-    
+    <img src="/media/gwt_mvp.png"/> <figcaption>
+            <h4>MVP with EventBus and Dispatcher</h4>
+        </figcaption>
 </figure>
 
-At this point we defined one <strong>Presenter</strong> for all the entities, we wanted to made accessible on the client, and each presenter defined his own <strong>Display</strong> interface which then was implemented by the <strong>View</strong> class. The instantiation of all presenters and views has been managed by <a href="http://code.google.com/p/google-gin/">gin</a> - a dependency injection framework for the client side. The code looked more or less like this:</p>
+At this point we defined one <strong>Presenter</strong> for all the entities, we wanted to made accessible on the client, and each presenter defined his own <strong>Display</strong> interface which then was implemented by the <strong>View</strong> class. The instantiation of all presenters and views has been managed by <a href="http://code.google.com/p/google-gin/" target="_blank">gin</a> - a dependency injection framework for the client side. The code looked more or less like this:</p>
 
 <p><em>Presenter &amp; Display:</em></p>
 
@@ -219,25 +214,18 @@ At this point we defined one <strong>Presenter</strong> for all the entities, we
 
 <p>The client - server communication is based fully on the GWT-RPC mechanism. As mentioned above we are using the gwt-dispatch library meaning that for every request, we have a command object, result object and a server side handler. It is a bit verbose, but in the end it is also a very simple pattern and every new dev introduced to our team grasps it very quickly. The implementation of the client-side caching is easily done, as you just need to compare the command object which should be executed and if one of them has been already seen, then you can serve the already received result saving you one round-trip.</p>
 
-<p>To execute a command a corresponding object just needs to be passed to the dispatcher which is a singleton on the client and gets injected to every presenter that should be able to trigger the communication. In most of the cases the result of a command (or to use gwt-dispatch terminology: an action) contains a DTO object which is then shown by the presenter. On the server side we are using JPA &amp; Hibernate so obviously we need to take care of the server entity to DTO conversion. Although some libraries exists for this purpose (e.g <a href="http://sourceforge.net/projects/gilead/">gilead</a>), in our specific setting we decided to implement it ourself which was actually a straightforward task when using the reflection API and sticking to a well defined class hierarchy of our own.
-
+<p>To execute a command a corresponding object just needs to be passed to the dispatcher which is a singleton on the client and gets injected to every presenter that should be able to trigger the communication. In most of the cases the result of a command (or to use gwt-dispatch terminology: an action) contains a DTO object which is then shown by the presenter. On the server side we are using JPA &amp; Hibernate so obviously we need to take care of the server entity to DTO conversion. Although some libraries exists for this purpose (e.g <a href="http://sourceforge.net/projects/gilead/" target="_blank">gilead</a>), in our specific setting we decided to implement it ourself which was actually a straightforward task when using the reflection API and sticking to a well defined class hierarchy of our own.
 <figure>
-    
-        <img src="/media/dto.png" />
-    
-    
-    <figcaption>
-        <h4>DTO</h4>
-        
-    </figcaption>
-    
+    <img src="/media/dto.png"/> <figcaption>
+            <h4>DTO</h4>
+        </figcaption>
 </figure>
 
 We also use the JSR303 annotations for validation of the entities and are able to push the constraint violations back to the client where they will be assigned to the specific widgets by our <code>WidgetsManager</code> - here we are just using a simple convention of associating the input widgets with same names as the property paths in the entities.</p>
 
 <h2 id="3-testing-the-client">3. Testing the client</h2>
 
-<p>One of the main advantages of doing MVP is the separation of the business logic (sitting in the presenter) from the actual UI components (being a part of the view) resulting in the ability of writing normal, fast unit test (normal, meaning not using the GWTTestCase) and mocking the views. Nevertheless in our project we use <a href="http://docs.seleniumhq.org/">selenium</a> as the main way to assure the correct functionality of our client. As using the normal selenium recorder is not an option with GWT due to the element ids changing during each compile process, we tried to get our selenium tests (written in java as normal unit tests) as independent as it only can be from the layout definition itself (trying not to use exact XPath etc.). Our client is very data input heavy, so we have a lot of input components to test. When we test if the entities get created in a correct way, we just access all visible input components of a certain type, populate them with a random content (which we then store for later comparison), trigger the save action and reload the UI to verify if the same components holds still the same data. Thus, we don&rsquo;t have to update the tests if our data definition changes and we have introduced some new input components. The test will also work if the layout of the UI changes either on purpose, because we rearranged it, or when a new GWT version switch to a different HTML representation for some standard widgets.</p>
+<p>One of the main advantages of doing MVP is the separation of the business logic (sitting in the presenter) from the actual UI components (being a part of the view) resulting in the ability of writing normal, fast unit test (normal, meaning not using the GWTTestCase) and mocking the views. Nevertheless in our project we use <a href="http://docs.seleniumhq.org/" target="_blank">selenium</a> as the main way to assure the correct functionality of our client. As using the normal selenium recorder is not an option with GWT due to the element ids changing during each compile process, we tried to get our selenium tests (written in java as normal unit tests) as independent as it only can be from the layout definition itself (trying not to use exact XPath etc.). Our client is very data input heavy, so we have a lot of input components to test. When we test if the entities get created in a correct way, we just access all visible input components of a certain type, populate them with a random content (which we then store for later comparison), trigger the save action and reload the UI to verify if the same components holds still the same data. Thus, we don&rsquo;t have to update the tests if our data definition changes and we have introduced some new input components. The test will also work if the layout of the UI changes either on purpose, because we rearranged it, or when a new GWT version switch to a different HTML representation for some standard widgets.</p>
 
 <p><em>Getting certain elements from selenium driver:</em></p>
 
@@ -271,6 +259,10 @@ We also use the JSR303 annotations for validation of the entities and are able t
 <li><strong>The size of the client</strong>: our *.cache.js file is currently 6.1MB (we use the gwtquery and gwt-chosen libs which are quite large) We will definitely try to introduce some code splitting in the future release, to load only as much as we need and not everything from the beginning.</li>
 <li><strong>Execution time of the selenium tests</strong>: our current selenium suite takes a bit over 3 hours to run on our CI server. And although we could, we don&rsquo;t have enough of the presenter unit tests to have a sufficient coverage letting us sleep well at night. Here probably a wrong choice have been made: concentrating to much on the selenium tests and trying to go for a very exhaustive test suite, instead of implementing a good amount of unit tests for the presenters and a simpler selenium suite for the main work flows in the application.</li>
 </ul>
+      
+      <div class="related">
+</div>
+      
     </div>
     
   </div>
@@ -279,29 +271,15 @@ We also use the JSR303 annotations for validation of the entities and are able t
 
 <section class="section">
   <div class="container has-text-centered">
-    <p>&copy; 2018 | Lukasz Plotnicki | <a href="https://github.com/mgjohansen/hucore.git" target="_blank">Hucore theme</a> & <a href="http://gohugo.io" target="_blank">Hugo</a> ♥</p>
+    <p>&copy; 2018 | Follow on <a href="https://twitter.com/lplotni" target="_blank">Twitter</a></p>
+    
+      <p>Powered by <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/ribice/kiss">Kiss</a>.</p>
+    
   </div>
 </section>
 
 
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js" integrity="sha256-+bhVTaRmJ/c07eV80nU8gD2cBBF0rYkf1txqXlrbvb0=" crossorigin="anonymous"></script>
-
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/go.min.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
-
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/dockerfile.min.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
-
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/java.min.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
-
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/javascript.min.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
-
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/bash.min.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
-
-<script>hljs.initHighlightingOnLoad();</script>
-
 
 </body>
+</html>
+

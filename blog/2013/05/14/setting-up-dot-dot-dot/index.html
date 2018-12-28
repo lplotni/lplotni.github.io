@@ -1,84 +1,87 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html xmlns="http://www.w3.org/1999/xhtml"  lang="en-us">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta content="programming, java, javascript, scala" name="keywords">
-<meta content="Lukasz Plotnicki" name="author">
-<meta property="og:title" content="setting up ... - Working thoughts">
-<meta property="og:url" content="https://lplotni.github.io/blog/2013/05/14/setting-up-dot-dot-dot/">
-<meta property="og:description" content="Ideas, thoughts... mainly about programming &amp; co.">
-<meta property="og:type" content="website" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
 <title>setting up ... | Working thoughts</title>
 
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      processEscapes: true
-    }
-  });
-</script>
-<link rel="stylesheet" href="https://lplotni.github.io//css/style.css">
-<link rel="shortcut icon" href="https://lplotni.github.io//wave.ico">
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
 
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/github.min.css">
 
+<link href="https://lplotni.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Working thoughts" />
+
+<link rel="stylesheet" href="/css/style.css"/><link rel='stylesheet' href='https://lplotni.github.io/css/custom.css'><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
 </head>
-
 <body>
 <section class="section">
   <div class="container">
     <nav class="nav">
       <div class="nav-left">
-        <a class="nav-item" href="https://lplotni.github.io/"><h1 class="title is-4">Working thoughts</h1></a>
+        <a class="nav-item" href="https://lplotni.github.io/">
+          <h1 class="title is-4">Working thoughts</h1>
+        </a>
       </div>
       <div class="nav-right">
-        <nav class="nav-item level is-mobile">
-          
-          <a class="level-item" href="https://github.com/lplotni" target="_blank">
+        <nav class="nav-item level is-mobile"><a class="level-item" aria-label="github" href='https://github.com/lplotni'
+            target='_blank' rel='noopener'>
             <span class="icon">
-              <i class="fa fa-github"></i>
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+    
+  </svg></i>
             </span>
-          </a>
-          
-          <a class="level-item" href="https://twitter.com/lplotni" target="_blank">
+          </a><a class="level-item" aria-label="twitter" href='https://twitter.com/lplotni'
+            target='_blank' rel='noopener'>
             <span class="icon">
-              <i class="fa fa-twitter"></i>
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+    
+  </svg></i>
             </span>
-          </a>
-          
-          <a class="level-item" href="https://www.linkedin.com/in/lukasz-plotnicki-945442140/" target="_blank">
+          </a><a class="level-item" aria-label="linkedin" href='https://linkedin.com/in/lukasz-plotnicki-945442140'
+            target='_blank' rel='noopener'>
             <span class="icon">
-              <i class="fa fa-linkedin-square"></i>
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path stroke-width="1.8" d="m5.839218,4.101561c0,1.211972 -0.974141,2.194011 -2.176459,2.194011s-2.176459,-0.982039 -2.176459,-2.194011c0,-1.211094 0.974141,-2.194011 2.176459,-2.194011s2.176459,0.982917 2.176459,2.194011zm0.017552,3.94922l-4.388022,0l0,14.04167l4.388022,0l0,-14.04167zm7.005038,0l-4.359939,0l0,14.04167l4.360816,0l0,-7.370999c0,-4.098413 5.291077,-4.433657 5.291077,0l0,7.370999l4.377491,0l0,-8.89101c0,-6.915523 -7.829986,-6.66365 -9.669445,-3.259423l0,-1.891237z"/>
+    
+  </svg></i>
             </span>
-          </a>
-          
-          <a class="level-item" href="/index.xml" target="_blank">
-            <span class="icon">
-              <i class="fa fa-rss"></i>
-            </span>
-          </a>
-          
-        </nav>
+          </a></nav>
       </div>
     </nav>
+
+    <nav class="nav">
+      
+
+      
+    </nav>
+
   </div>
 </section>
-
 <section class="section">
   <div class="container">
+    <div class="subtitle tags is-6 is-pulled-right">
+      
+    </div>
+    <h2 class="subtitle is-6">May 14, 2013</h2>
     <h1 class="title">setting up ...</h1>
-    <h2 class="subtitle is-5">May 14, 2013 by Lukasz Plotnicki</h2>
     
     <div class="content">
       
 
-<p>There&rsquo;s nothing like this moment, when you have a big smile on your face, because you&rsquo;re just stunned how well things are working and how simple the set-up process was. <a href="http://octopress.org">Octopress</a> is just amazing. <strong>Period</strong>. If you haven&rsquo;t heard about it and you&rsquo;re thinking to start a blog or migrate one, then you should definitely check it out. To put it simple:</p>
+<p>There&rsquo;s nothing like this moment, when you have a big smile on your face, because you&rsquo;re just stunned how well things are working and how simple the set-up process was. <a href="http://octopress.org" target="_blank">Octopress</a> is just amazing. <strong>Period</strong>. If you haven&rsquo;t heard about it and you&rsquo;re thinking to start a blog or migrate one, then you should definitely check it out. To put it simple:</p>
 
 <blockquote>
-<p>Octopress is a framework designed by Brandon Mathis for Jekyll, the blog aware static site generator powering Github Pages. To start blogging with Jekyll, you have to write your own HTML templates, CSS, Javascripts and set up your configuration. But with Octopress All of that is already taken care of. Simply clone or fork Octopress, install dependencies and the theme, and you&rsquo;re set. - Brandon Mathis <a href="http://octopress.org/blog/2011/07/23/octopress-20-surfaces/">http://octopress.org/blog/2011/07/23/octopress-20-surfaces/</a></p>
+<p>Octopress is a framework designed by Brandon Mathis for Jekyll, the blog aware static site generator powering Github Pages. To start blogging with Jekyll, you have to write your own HTML templates, CSS, Javascripts and set up your configuration. But with Octopress All of that is already taken care of. Simply clone or fork Octopress, install dependencies and the theme, and you&rsquo;re set. - Brandon Mathis <a href="http://octopress.org/blog/2011/07/23/octopress-20-surfaces/" target="_blank">http://octopress.org/blog/2011/07/23/octopress-20-surfaces/</a></p>
 </blockquote>
 
 <p>It took me just few hours from having the idea: <em>Today is the day to start my own blog</em> to actually having it hosted on github. And the experience itself (checking out the octopress repo, configuring, building and deploying to github) was really simple. Thumbs up for the good documentation!</p>
@@ -87,11 +90,11 @@
 
 <ol>
 <li><strong>octopress</strong> is publishing directly to my github user page. Therefore the access is fairly simple and I can use my blog to link to other stuff, I have on github or somewhere else like e.g. slides to my talks.</li>
-<li>I decided against using the default theme and went with a clean and responsive one called the <a href="https://github.com/lucaslew/whitespace">whitespace</a>. There are many, many others so everyone should be able to find something suiting own needs. A list with some of the themes available: <a href="https://github.com/imathis/octopress/wiki/3rd-Party-Octopress-Themes">3rd-Party-Octopress-Themes</a></li>
+<li>I decided against using the default theme and went with a clean and responsive one called the <a href="https://github.com/lucaslew/whitespace" target="_blank">whitespace</a>. There are many, many others so everyone should be able to find something suiting own needs. A list with some of the themes available: <a href="https://github.com/imathis/octopress/wiki/3rd-Party-Octopress-Themes" target="_blank">3rd-Party-Octopress-Themes</a></li>
 <li>During the set-up phase I had only one ubuntu-related (using the 13.04) hickup. When executing the <code>bundle install</code> I got an missing dependency error, so after googling for like a minute, I found a simple solution: just execute <code>sudo apt-get install ruby1.9.1-full</code> and everything will work as described in octopress docs.</li>
-<li>As I&rsquo;m a <strong>zsh</strong> and <a href="https://github.com/robbyrussell/oh-my-zsh">oh-my-zsh</a> user, I run also into the <code>rake new_post[title]</code> execution problem. A solution for it was also easily found: just add <code>alias rake=&ldquo;noglob rake&rdquo;</code> to your <code>~/.zshrc</code>.</li>
+<li>As I&rsquo;m a <strong>zsh</strong> and <a href="https://github.com/robbyrussell/oh-my-zsh" target="_blank">oh-my-zsh</a> user, I run also into the <code>rake new_post[title]</code> execution problem. A solution for it was also easily found: just add <code>alias rake=&ldquo;noglob rake&rdquo;</code> to your <code>~/.zshrc</code>.</li>
 <li>To be able to see, if anybody actually reads this stuff, I activated the support for google analytics in the <code>_config.yml</code> file.</li>
-<li>I also activated <a href="http://disqus.com">disqus</a> to support comments. Although I&rsquo;ve never heard about it, it makes a very nice impression and as everything till now, was very easy to set-up (create an account, get unique id and put it into the <code>_config.yml</code> file). I deactivated all the <strong>discovery</strong> stuff from disqus though, as I&rsquo;m not interested in monetizing anything here.</li>
+<li>I also activated <a href="http://disqus.com" target="_blank">disqus</a> to support comments. Although I&rsquo;ve never heard about it, it makes a very nice impression and as everything till now, was very easy to set-up (create an account, get unique id and put it into the <code>_config.yml</code> file). I deactivated all the <strong>discovery</strong> stuff from disqus though, as I&rsquo;m not interested in monetizing anything here.</li>
 </ol>
 
 <p>If you read it till now, you may be asking yourself</p>
@@ -106,12 +109,16 @@
 
 <ol>
 <li>Everything is hosted on github within my repository and I have control over all the files etc.</li>
-<li>To create a new blog post you just type <code>rake new_post[&lsquo;some title&rsquo;]</code> and open the created file to edit the content. Everything will be written in markdown (<strong>+1</strong>), so I&rsquo;m using <a href="http://www.sublimetext.com/">sublime</a> as my editor and the <strong>distraction free mode</strong> when writing&hellip;</li>
+<li>To create a new blog post you just type <code>rake new_post[&lsquo;some title&rsquo;]</code> and open the created file to edit the content. Everything will be written in markdown (<strong>+1</strong>), so I&rsquo;m using <a href="http://www.sublimetext.com/" target="_blank">sublime</a> as my editor and the <strong>distraction free mode</strong> when writing&hellip;</li>
 <li>When you work on a new post or a change then you can tweak and test everything on your local machine under <code>localhost:4000</code> with each change made automatically visible thanks to <code>rake watch</code> and <code>rake preview</code></li>
 <li>Everything is manged by git, so you can work on posts in branches etc.</li>
 <li>When you&rsquo;re done, you just hit <code>rake generate</code> and <code>rake deploy</code> and the new stuff will be pushed to github.</li>
 </ol>
 
+      
+      <div class="related">
+</div>
+      
     </div>
     
   </div>
@@ -120,29 +127,15 @@
 
 <section class="section">
   <div class="container has-text-centered">
-    <p>&copy; 2018 | Lukasz Plotnicki | <a href="https://github.com/mgjohansen/hucore.git" target="_blank">Hucore theme</a> & <a href="http://gohugo.io" target="_blank">Hugo</a> ♥</p>
+    <p>&copy; 2018 | Follow on <a href="https://twitter.com/lplotni" target="_blank">Twitter</a></p>
+    
+      <p>Powered by <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/ribice/kiss">Kiss</a>.</p>
+    
   </div>
 </section>
 
 
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js" integrity="sha256-+bhVTaRmJ/c07eV80nU8gD2cBBF0rYkf1txqXlrbvb0=" crossorigin="anonymous"></script>
-
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/go.min.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
-
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/dockerfile.min.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
-
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/java.min.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
-
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/javascript.min.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
-
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/bash.min.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
-
-<script>hljs.initHighlightingOnLoad();</script>
-
 
 </body>
+</html>
+

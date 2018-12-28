@@ -59,54 +59,7 @@
   </url>
   
   <url>
-    <loc>https://lplotni.github.io/categories/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://lplotni.github.io/categories/development/</loc>
-    <lastmod>2015-08-04T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://lplotni.github.io/categories/expressjs/</loc>
-    <lastmod>2015-08-04T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://lplotni.github.io/categories/howto/</loc>
-    <lastmod>2015-08-04T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://lplotni.github.io/categories/javascript/</loc>
-    <lastmod>2015-08-04T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://lplotni.github.io/categories/nodejs/</loc>
-    <lastmod>2015-08-04T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://lplotni.github.io/categories/pace/</loc>
-    <lastmod>2015-08-04T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://lplotni.github.io/tags/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://lplotni.github.io/categories/technology/</loc>
-    <lastmod>2015-08-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

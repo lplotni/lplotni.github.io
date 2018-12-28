@@ -4,111 +4,897 @@
     <title>Working thoughts</title>
     <link>https://lplotni.github.io/</link>
     <description>Recent content on Working thoughts</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>&amp;copy; 2018 | Lukasz Plotnicki | &lt;a href=&#34;https://github.com/mgjohansen/hucore.git&#34; target=&#34;_blank&#34;&gt;Hucore theme&lt;/a&gt; &amp; &lt;a href=&#34;http://gohugo.io&#34; target=&#34;_blank&#34;&gt;Hugo&lt;/a&gt; ♥</copyright>
-    <lastBuildDate>Wed, 23 May 2018 21:36:52 +0200</lastBuildDate>
+    <generator>Hugo - gohugo.io</generator>
+    <language>en</language>
+    <contact>l.plotnicki@gmail.com</contact>
+    <copyright>&copy; 2018 | Follow on <a href="https://twitter.com/lplotni" target="_blank">Twitter</a></copyright>
     
-	<atom:link href="https://lplotni.github.io/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://lplotni.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Using your yubikey as ssh key provider / Quick(est) guide</title>
       <link>https://lplotni.github.io/blog/sshkey_yubikey/</link>
       <pubDate>Wed, 23 May 2018 21:36:52 +0200</pubDate>
-      
+      <author>Lukasz Plotnicki</author>
       <guid>https://lplotni.github.io/blog/sshkey_yubikey/</guid>
-      <description>I figured it&amp;rsquo;s time to write up the quickest guide about using the yubikey as the source of your ssh key. This assumes that:
- You have a yubikey and it&amp;rsquo;s in your usb port You&amp;rsquo;ve configured gpg on you machine (I&amp;rsquo;m running gpg (GnuPG) 2.2.7) You&amp;rsquo;re using the gpg-agent with enabled ssh support  Here are the steps:
-gpg --card-edit &amp;gt; admin &amp;gt; generate &amp;gt; [enter the requested PIN] &amp;gt; quit  And now you&amp;rsquo;re done.</description>
+      <description></description>
+      
+      <content>&lt;p&gt;I figured it&amp;rsquo;s time to write up the quickest guide about using the yubikey as
+the source of your ssh key. This assumes that:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;You have a yubikey and it&amp;rsquo;s in your usb port&lt;/li&gt;
+&lt;li&gt;You&amp;rsquo;ve configured gpg on you machine (I&amp;rsquo;m running gpg (GnuPG) 2.2.7)&lt;/li&gt;
+&lt;li&gt;You&amp;rsquo;re using the gpg-agent with enabled ssh support&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Here are the steps:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;gpg --card-edit
+&amp;gt; admin
+&amp;gt; generate
+&amp;gt; [enter the requested PIN]
+&amp;gt; quit
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And now you&amp;rsquo;re done. You can check if the new ssh key get pulled correctly from
+your yubikey typing:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ssh-add -L
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And you should see something like:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ssh-rsa
+AAAAB3NzaC1yc2EAAAADAQABAAABAQC2ooHO4NuRkjkOQ6zpl/P+RQwRibWd2EZStK61IX2RksD8m2PQKA4rpoYlbwR8tHqJYp+9hF3630ZhDBLqaN6wnLOzJ9tdAFg2QkR7uw/TlWh3/3kuDjzF8GatYIvfvnbtlX0FtVuz+rmUAeUswYpvRQKA5feX5Tf9M56IhttRtFbXZjNz5BNy8qkXD9FOTX4Ym0Zidgn6tl9EKKH4ctvK1/wTF4oSHEfyVwpKLqn/FI+0DIDi5Lx8cpFLnB4nJqj1WFe8o86yRVNWq5PehOJR3qSpllfx3fheUXePRNPrvYGyO5Ch9aikzuPoLZh4oq/TTqkfjcZLQvTv1Ai+qk8J
+cardno:000605308805
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now you can use this key e.g for as your github key and whenever your
+push/pull/clone you will need to enter the yubikey into your device.&lt;/p&gt;
+</content>
+      
     </item>
     
     <item>
       <title>why hugo?</title>
       <link>https://lplotni.github.io/blog/why-hugo/</link>
       <pubDate>Mon, 09 Oct 2017 21:44:11 +0200</pubDate>
-      
+      <author>Lukasz Plotnicki</author>
       <guid>https://lplotni.github.io/blog/why-hugo/</guid>
-      <description>As you can see looking at the frequency of my posts, I&amp;rsquo;m more of an occasional writer. Therefore whenever I drag myself in front of my notebook, to write something up I&amp;rsquo;m feeling like sharing, I should really not have any reason to do something else instead. Sadly, although I was really happy with my octopress setup, more than once I found myself fighting the currently installed ruby versions and some conflicts with the gems that octopress was requiring.</description>
+      <description></description>
+      
+      <content>&lt;p&gt;As you can see looking at the frequency of my posts, I&amp;rsquo;m more of an occasional
+writer. Therefore whenever I drag myself in front of my notebook, to write
+something up I&amp;rsquo;m feeling like sharing, I should really not have any reason to
+do something else instead. Sadly, although I was really happy with my
+&lt;a href=&#34;http://octopress.org&#34; target=&#34;_blank&#34;&gt;octopress&lt;/a&gt; setup, more than once
+I found myself fighting the currently installed ruby versions and some
+conflicts with the gems that octopress was requiring.&lt;/p&gt;
+
+&lt;p&gt;In the quest of solving the problem once and for all, I decided to look at
+&lt;a href=&#34;http://gohugo.io/&#34; target=&#34;_blank&#34;&gt;hugo&lt;/a&gt; that is as simple in usage as octopress and has the
+benefit of golang&amp;rsquo;s self-contaied binaries, that don&amp;rsquo;t depend on any runtime.
+And yes, hugo&amp;rsquo;s speed is impressive 💨 It probably doesn&amp;rsquo;t matter for my little blog,
+nevertheless it&amp;rsquo;s nice to have an instant live-reload whenever I work on
+a new post, or just play with the current design.&lt;/p&gt;
+
+&lt;p&gt;The migration from octopress was also very straightforward. Thanks to this
+little migration tool: &lt;a href=&#34;https://github.com/codebrane/octohug&#34; target=&#34;_blank&#34;&gt;octohug&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Bottom line: If you&amp;rsquo;re in the market for a new static web page generation tool,
+I strongly suggest hugo!&lt;/p&gt;
+</content>
+      
     </item>
     
     <item>
       <title>bff</title>
       <link>https://lplotni.github.io/blog/2016/02/22/bff/</link>
       <pubDate>Mon, 22 Feb 2016 00:00:00 +0000</pubDate>
-      
+      <author>Lukasz Plotnicki</author>
       <guid>https://lplotni.github.io/blog/2016/02/22/bff/</guid>
-      <description>A while ago I wrote a ThoughtWorks insights post about the Backends for frontends pattern and the story behind its adaption at SoundCloud. It generated interesting discussions and resulted also in some further content and I thought it would be good to have a place with links to all this resources for the future reference.
- BFF @ SoundCloud - the original post talking about the pattern and journey towards it BFF pattern definition - comprehensive pattern definition Moving to Microservices at SoundCloud - Software Engineering Daily podcast - a podcast talking about microservices in gerneral, SoundCloud&amp;rsquo;s journey towards this style of architecture and usage of BFFs BFF @ SoundCloud (podcast) - an interview about UI composition in a microservices world in general and the BFF pattern   </description>
+      <description></description>
+      
+      <content>&lt;p&gt;A while ago I wrote a &lt;a href=&#34;https://www.thoughtworks.com/insights/blog/bff-soundcloud&#34; target=&#34;_blank&#34;&gt;ThoughtWorks insights post&lt;/a&gt; about the
+&lt;strong&gt;Backends for frontends&lt;/strong&gt; pattern and the story behind its adaption at
+&lt;a href=&#34;http://soundcloud.com&#34; target=&#34;_blank&#34;&gt;SoundCloud&lt;/a&gt;. It generated interesting discussions
+and resulted also in some further content and I thought it would be good to
+have a place with links to all this resources for the future reference.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.thoughtworks.com/insights/blog/bff-soundcloud&#34; target=&#34;_blank&#34;&gt;BFF @ SoundCloud&lt;/a&gt; - the original post talking about the pattern and journey towards it&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://samnewman.io/patterns/architectural/bff/&#34; target=&#34;_blank&#34;&gt;BFF pattern definition&lt;/a&gt; - comprehensive pattern definition&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://softwareengineeringdaily.com/2016/02/04/moving-to-microservices-at-soundcloud-with-lukasz-plotnicki/&#34; target=&#34;_blank&#34;&gt;Moving to Microservices at SoundCloud - Software Engineering Daily podcast&lt;/a&gt; - a podcast talking about microservices in gerneral, SoundCloud&amp;rsquo;s journey towards this style of architecture and usage of BFFs&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://soundcloud.com/thoughtworks/bff-soundcloud&#34; target=&#34;_blank&#34;&gt;BFF @ SoundCloud (podcast)&lt;/a&gt; - an interview about UI composition in a microservices world in general and the BFF pattern&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;iframe width=&#34;100%&#34; height=&#34;200&#34; scrolling=&#34;no&#34; frameborder=&#34;no&#34;
+src=&#34;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/247896089&amp;amp;auto_play=false&amp;amp;hide_related=false&amp;amp;show_comments=true&amp;amp;show_user=true&amp;amp;show_reposts=false&amp;amp;visual=true&#34;&gt;&lt;/iframe&gt;
+</content>
+      
     </item>
     
     <item>
       <title>express testing</title>
       <link>https://lplotni.github.io/blog/2015/10/10/express-testing/</link>
       <pubDate>Sat, 10 Oct 2015 00:00:00 +0000</pubDate>
-      
+      <author>Lukasz Plotnicki</author>
       <guid>https://lplotni.github.io/blog/2015/10/10/express-testing/</guid>
-      <description>After we managed to set up our basic web application, let&amp;rsquo;s get our hands dirty writing some code. And as we want to do it in a test-driven manner (TDD), we need a proper test setup. This piece is all about our initial test pyramid. Test, what? Yes, pyramid:
- At the base of the test automation pyramid is unit testing. Unit testing should be the foundation of a solid test automation strategy and as such represents the largest part of the pyramid.</description>
+      <description></description>
+      
+      <content>
+
+&lt;p&gt;&lt;figure&gt;
+    &lt;img src=&#34;https://lplotni.github.io/media/test_pyramid.jpg&#34;/&gt; 
+&lt;/figure&gt;
+
+After we managed to set up our basic &lt;a href=&#34;https://lplotni.github.io/blog/2015/08/04/bootstraping-a-node-dot-js-webapp/&#34;&gt;web application&lt;/a&gt;,
+let&amp;rsquo;s get our
+hands dirty writing some code. And as we want to do it in a test-driven
+manner (&lt;a href=&#34;http://martinfowler.com/bliki/TestDrivenDevelopment.html&#34; target=&#34;_blank&#34;&gt;TDD&lt;/a&gt;), we need
+a proper test setup. This piece is all about our initial test pyramid. Test,
+what? Yes, pyramid:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;At the base of the test automation pyramid is unit testing. Unit testing should
+be the foundation of a solid test automation strategy and as such represents
+the largest part of the pyramid. (&amp;hellip;) Automated user interface testing is
+placed at the top of the test automation pyramid because we want to do as
+little of it as possible. (&amp;hellip;) Testing through the user interface like this is
+expensive and should be minimized. Although there are many test cases that need
+to be invoked, not all need to be run through the user interface. And this is
+where the service layer of the test automation pyramid comes in. - Mike Cohn &lt;a href=&#34;https://www.mountaingoatsoftware.com/blog/the-forgotten-layer-of-the-test-automation-pyramid&#34; target=&#34;_blank&#34;&gt;https://www.mountaingoatsoftware.com/blog/the-forgotten-layer-of-the-test-automation-pyramid&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Depending on your personal style (look at this
+&lt;a href=&#34;http://martinfowler.com/bliki/TestPyramid.html&#34; target=&#34;_blank&#34;&gt;post&lt;/a&gt; by Martin Fowler for
+more details around different &lt;em&gt;flavours&lt;/em&gt; of unit testing) and probably also the
+task at hand, you will either be starting with a unit test or
+acceptance/functional test. The rest of this post will show you how to set up
+each kind of test and give you a brief description of what we mean by saying
+&lt;strong&gt;unit&lt;/strong&gt;, &lt;strong&gt;integration&lt;/strong&gt; and &lt;strong&gt;functional&lt;/strong&gt; test. I will also describe our
+&lt;strong&gt;gulp setup&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;unit-test&#34;&gt;Unit test&lt;/h2&gt;
+
+&lt;p&gt;In JavaScript and node.js world your are spoiled for choices in regards to
+your unit tests libraries and runners: Jasmine, Mocha and friends, just pick
+one. We decided to go with
+&lt;a href=&#34;https://jasmine.github.io/2.3/introduction.html&#34; target=&#34;_blank&#34;&gt;Jasmine&lt;/a&gt;, in which a test
+looks like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;/* jshint node: true */
+/* global describe, beforeEach, afterEach, it, jasmine, expect */
+&#39;use strict&#39;;
+describe(&#39;exractParticipant&#39;, function () {
+  var extractParticipant;
+  var validRequestData = {
+    body: {
+      firstname: &#39;Mark&#39;,
+      lastname: &#39;Mueller&#39;,
+      email: &#39;m.mueller@example.com&#39;
+    }
+  };
+
+  beforeEach(function () {
+    extractParticipant= require(&#39;../routes/registration.js&#39;).extractParticipant
+  });
+
+  it(&#39;should read firstname from the request body&#39;, function() {
+    expect(extractParticipant(validRequestData).firstname).toBe(&#39;Mark&#39;);
+  });
+
+  it(&#39;should throw an error if no firstname can be found&#39;, function () {
+    function callWithNoFirstname() {
+      extractParticipant({body: {}});
+    }
+
+    expect(callWithNoFirstname).toThrow();
+  });
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Here we are verifying the behavior of the &lt;code&gt;extractParticipant()&lt;/code&gt; function
+which given a request body returns a specific JS object. We can use multiple
+ &lt;code&gt;describe&lt;/code&gt; calls, or even nested &lt;code&gt;describe&lt;/code&gt; calls to cluster the
+tested functionality. Each &lt;code&gt;it&lt;/code&gt; call corresponds with a specific behaviour
+we want to verify. &lt;strong&gt;Jasmine&lt;/strong&gt; provides matchers and spies to simplify our
+testing: Just look at the
+&lt;a href=&#34;https://jasmine.github.io/2.3/introduction.html&#34; target=&#34;_blank&#34;&gt;reference&lt;/a&gt; to see what&amp;rsquo;s
+possible.  Generally it&amp;rsquo;s a good practice to verify one specific aspect per
+test. Any other recommendations, you ask {%gemoji sunglasses%} A good unit test
+is:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;fast&lt;/strong&gt;: All the unit tests will be executed very often, therefore it&amp;rsquo;s
+necessarry that their execution happens in ms&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;atomic&lt;/strong&gt;: The unit tests should be independant from one-another, so that you can
+run them parallel. This means that they should not relay on any side
+effects (data modifications done by other tests etc.). It&amp;rsquo;s also way easier
+to reason why a certain test is red, if all you need to care about is only
+the scope of that particular test.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;As usual Martin Fowler wrote a nice &lt;a href=&#34;http://martinfowler.com/bliki/UnitTest.html&#34; target=&#34;_blank&#34;&gt;bliki about unit tests&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;integration-test&#34;&gt;Integration test&lt;/h2&gt;
+
+&lt;p&gt;As the name already states, an integration test verifies the behaviour of
+a group of components of our software acting together. Look at the following
+test, which checks the intgeration between a service and the database:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;&#39;use strict&#39;;
+/* jshint node: true */
+/* jshint esnext: true */
+/* global describe, beforeEach, afterAll, it, jasmine, expect */
+
+describe(&#39;participants service&#39;, function () {
+
+    const participants = require(&#39;../../service/participants&#39;);
+    var pg = require(&#39;pg&#39;);
+
+    beforeEach(function (done) {
+        var connectionString = process.env.SNAP_DB_PG_URL || &amp;quot;tcp://vagrant@localhost/pace&amp;quot;;
+        var jasmineDone = done;
+
+        pg.connect(connectionString, function (err, client, done) {
+                client.query(&#39;delete from participants&#39;, function () {
+                    done();
+                    jasmineDone();
+                });
+            }
+        );
+
+    });
+
+    afterAll(function(done) {
+        pg.end();
+        done();
+    });
+
+
+    it(&#39;should store and read participants&#39;, function (done) {
+        var aParticipant = {
+            firstname: &#39;Hertha&#39;,
+            lastname: &#39;Mustermann&#39;,
+            email: &#39;h.mustermann@example.com&#39;
+        };
+
+        participants.save(aParticipant)
+            .then(participants.getAll)
+            .then(function (data) {
+                expect(data.length).toBe(1);
+                expect(data[0].firstname).toBe(aParticipant.firstname);
+                expect(data[0].lastname).toBe(aParticipant.lastname);
+                expect(data[0].email).toBe(aParticipant.email);
+                done();
+            });
+    });
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The integration test is similiar to the unit one (it&amp;rsquo;s also based on jasmine),
+but instead of mocking our dependencies we use the real implementation (here
+the &lt;code&gt;pg&lt;/code&gt; PostgreSQL client) and verify the integration of both components.
+In this particular example, we store a participant and expect that if we call
+the &lt;code&gt;getAll&lt;/code&gt; function, it will be returned in the correct form. As the
+test will actually store objects in the dabase, we need to assure that before
+we execute the test, the database is cleared. This is done in the
+ &lt;code&gt;beforeEach&lt;/code&gt; method. You may ask &amp;lsquo;why before the test and not afterwards&amp;rsquo;:
+In case of an error, we will still have the possibility to check the state of
+the database.&lt;/p&gt;
+
+&lt;p&gt;As we need to connect to the database and assure a particular state before
+each test run, those tests will always be slower than the unit ones. Therefore
+we should try to test only the integrational aspects in them and everything
+else on the unit level. In the end we are not interested in a test suite for
+a 3rd party component, but only a verification of the fact that our usage of
+it is correct.&lt;/p&gt;
+
+&lt;h2 id=&#34;functional-test&#34;&gt;Functional test&lt;/h2&gt;
+
+&lt;p&gt;Whenever we test the system as a whole, we talk about functional tests.
+Typically those tests go against an outer-most interface of our app, often
+the UI. In our case we will interact with pace via its web page.
+To do that, we use &lt;a href=&#34;http://webdriver.io/&#34; target=&#34;_blank&#34;&gt;WebDriverIO&lt;/a&gt; on top of &lt;a href=&#34;http://docs.seleniumhq.org/&#34; target=&#34;_blank&#34;&gt;selenium&lt;/a&gt; and a headless browser called &lt;a href=&#34;http://phantomjs.org/&#34; target=&#34;_blank&#34;&gt;phantomjs&lt;/a&gt;. This combination offers an easy to use API for browser-interaction.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;/* jshint node: true */
+/* global describe, beforeEach, afterEach, it, jasmine, expect */
+&#39;use strict&#39;;
+describe(&#39;regisitration journey&#39;, function () {
+    var client;
+    var paceUrl = process.env.PACE_URL || &#39;http://localhost:3000/&#39;;
+    var originalTimeout;
+
+    beforeEach(function () {
+        var webdriverio = require(&#39;webdriverio&#39;);
+        var options = {
+            desiredCapabilities: {
+                browserName: &#39;phantomjs&#39;
+            }
+        };
+
+        client = webdriverio.remote(options);
+        originalTimeout = jasmine.DEFAULT_TIMEOUT_INTERVAL;
+        jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000;
+    });
+
+    afterEach(function () {
+        jasmine.DEFAULT_TIMEOUT_INTERVAL = originalTimeout;
+    });
+
+    it(&#39;allows to register via the registration page&#39;, function (done) {
+
+        client.init()
+            .url(paceUrl)
+            .click(&#39;a#registration&#39;)
+            .setValue(&#39;input#firstname&#39;, &#39;Max&#39;)
+            .setValue(&#39;input#lastname&#39;, &#39;Mustermann&#39;)
+            .setValue(&#39;input#email&#39;, &#39;max@example.com&#39;)
+            .setValue(&#39;input#gender&#39;, &#39;Unicorn&#39;)
+            .click(&#39;button#submit&#39;)
+            .isVisible(&#39;div.thanks&#39;)
+            .then(function (isVisible) {
+                expect(isVisible).toBe(true);
+                done();
+            })
+            .end();
+    });
+
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;First we need to setup the webdriver client to use the proper pace base url and
+browser. We also change the default jasmine timeout for async tests, as in
+general the browser based interactions tend to take more time. After that it is
+pretty straightforward: We click on a link, type into input fields, submit
+the form and verify that we land on the success page (look at
+&lt;a href=&#34;http://webdriver.io/api.html&#34; target=&#34;_blank&#34;&gt;webdriverio API&lt;/a&gt; for all the different interactions
+one can trigger). This is the happy path of our registration journey and as the
+functional test are the most expensive ones (in regards to the execution time),
+we will try to stick only to happy-path testing on this level.&lt;/p&gt;
+
+&lt;h2 id=&#34;test-execution&#34;&gt;Test execution&lt;/h2&gt;
+
+&lt;p&gt;Ok, so how can you run all the tests in a convenient way? Pace uses &lt;a href=&#34;http://gulpjs.com/&#34; target=&#34;_blank&#34;&gt;gulp&lt;/a&gt; to build and automate a lot of stuff. Here are the important commands and convention:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;All tests (specs) should be places in the &lt;strong&gt;/spec&lt;/strong&gt; directory&lt;/li&gt;
+&lt;li&gt;All integration tests must have &amp;lsquo;&lt;strong&gt;IT&lt;/strong&gt;&amp;rsquo; in their filename&lt;/li&gt;
+&lt;li&gt;All functional tests must have &amp;lsquo;&lt;strong&gt;Journey&lt;/strong&gt;&amp;rsquo; in their filename&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;gulp test&lt;/code&gt; - runs all the unit tests&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;gulp test-integration&lt;/code&gt; - runs all the integration tests, depends on
+existing database&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;gulp test-functional&lt;/code&gt; - runs all functional tests, depends on installed
+selenium-server and drivers&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;To simplify the setup of a dev box, pace offers one simple command:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;gulp dev-setup&lt;/code&gt; - prepares the vagrant box with the databse, installs
+all dependencies for selenium and executes the database migrations&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+      
     </item>
     
     <item>
       <title>bootstraping a node.js webapp</title>
       <link>https://lplotni.github.io/blog/2015/08/04/bootstraping-a-node-dot-js-webapp/</link>
       <pubDate>Tue, 04 Aug 2015 00:00:00 +0000</pubDate>
-      
+      <author>Lukasz Plotnicki</author>
       <guid>https://lplotni.github.io/blog/2015/08/04/bootstraping-a-node-dot-js-webapp/</guid>
-      <description>Together with few friends we started building pace - a web application for organizing and managing running events &amp;amp; competitions. We are a colorful bunch of people with different backgrounds, therefore we wanted to choose an approachable tech stack, as some of us wants also to learn one or two things about JavaScript, web applications or programming in general.
-And then, somebody suggested to write one thing or two, about our technology decisions and accompany it with some HowTo information.</description>
+      <description></description>
+      
+      <content>
+
+&lt;p&gt;Together with few friends we started building &lt;strong&gt;&lt;a href=&#34;https://github.com/lplotni/pace&#34; target=&#34;_blank&#34;&gt;pace&lt;/a&gt;&lt;/strong&gt; - a web application for
+organizing and managing running events &amp;amp; competitions. We are a colorful bunch of people with different backgrounds, therefore we wanted to choose an approachable tech stack, as some of us wants also to learn one or two things about &lt;strong&gt;JavaScript&lt;/strong&gt;, &lt;strong&gt;web applications&lt;/strong&gt; or &lt;strong&gt;programming&lt;/strong&gt; in general.&lt;/p&gt;
+
+&lt;p&gt;And then, somebody suggested to write one thing or two, about our technology
+decisions and accompany it with some &lt;em&gt;HowTo&lt;/em&gt; information. So here we are.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;This is the first post out of the &lt;strong&gt;pace&lt;/strong&gt; series. We will take a look at how to quickly bootstrap a new express.js application and what is acctually happening during that process.&lt;/p&gt;
+
+&lt;h2 id=&#34;first-things-first-node-js-express-js&#34;&gt;First things first: node.js &amp;amp; express.js&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Node.js® is a platform  built on Chrome&amp;rsquo;s JavaScript runtime for easily building fast, scalable network applications. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient, perfect for data-intensive real-time applications that run across distributed devices. - Nodejs.org &lt;a href=&#34;https://nodejs.org&#34; target=&#34;_blank&#34;&gt;https://nodejs.org&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Probably also due to the popularity of JavaScript &lt;a href=&#34;https://nodejs.org/&#34; target=&#34;_blank&#34;&gt;node&lt;/a&gt; quickly spread all around the web and is nowadays widely &lt;a href=&#34;https://github.com/joyent/node/wiki/projects,-applications,-and-companies-using-node&#34; target=&#34;_blank&#34;&gt;used&lt;/a&gt; and has an impressive ecosystem of additional libraries/modules (just take a look at &lt;a href=&#34;https://www.npmjs.com/&#34; target=&#34;_blank&#34;&gt;npm package manager&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://expressjs.com/&#34; target=&#34;_blank&#34;&gt;express.js&lt;/a&gt; is one of many web frameworks based on node, but seems also to be one of the most popular ones. What is a web framework you ask:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;A web application framework is a software framework that is designed to support the development of dynamic websites, web applications, web services and web resources. The framework aims to alleviate the overhead associated with common activities performed in web development. For example, many frameworks provide libraries for database access, templating frameworks and session management, and they often promote code reuse - &lt;a href=&#34;http://localhost:1313/post/2016/02/22/bff/&#34; target=&#34;_blank&#34;&gt;http://localhost:1313/post/2016/02/22/bff/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&#34;how-to-bootstrap-a-web-app-what-happens&#34;&gt;How to bootstrap a web app &amp;amp; what happens&lt;/h3&gt;
+
+&lt;p&gt;Assuming you have node already installed on your machine (if not look at &lt;a href=&#34;https://nodejs.org/download/&#34; target=&#34;_blank&#34;&gt;here&lt;/a&gt;)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;npm install express-generator -g
+express myWebApp
+cd myWebApp
+npm install
+npm start
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;What happened you ask? So first we globally installed &lt;a href=&#34;https://www.npmjs.com/package/express-generator&#34; target=&#34;_blank&#34;&gt;express-generator&lt;/a&gt; (it will be now available to you via &lt;em&gt;express&lt;/em&gt; cmd). Then we made it bootstrap for us an app called &lt;em&gt;myWebApp&lt;/em&gt;. This resulted in the following:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;/tmp|⇒ express myWebApp
+
+   create : myWebApp
+   create : myWebApp/package.json
+   create : myWebApp/app.js
+   create : myWebApp/public
+   create : myWebApp/public/javascripts
+   create : myWebApp/public/images
+   create : myWebApp/routes
+   create : myWebApp/routes/index.js
+   create : myWebApp/routes/users.js
+   create : myWebApp/public/stylesheets
+   create : myWebApp/public/stylesheets/style.css
+   create : myWebApp/views
+   create : myWebApp/views/index.jade
+   create : myWebApp/views/layout.jade
+   create : myWebApp/views/error.jade
+   create : myWebApp/bin
+   create : myWebApp/bin/www
+
+   install dependencies:
+     $ cd myWebApp &amp;amp;&amp;amp; npm install
+
+   run the app:
+     $ DEBUG=myWebApp ./bin/www
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The generator created for us a new directory which contains all the needed files the web application consists of:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;package.json&lt;/strong&gt; -&amp;gt; definition of our node dependencies and some node configuration&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;app.js&lt;/strong&gt; -&amp;gt; the main entry point into the application&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;public&lt;/strong&gt; -&amp;gt; contains all public assets whic will be exposed to the public&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;routes&lt;/strong&gt; -&amp;gt; contains the definitions of our routes (as ourDomain/index or ourDomain/somethingDifferent)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;views&lt;/strong&gt; -&amp;gt; contains our templates (more about this in future posts)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;bin/www&lt;/strong&gt; -&amp;gt; executable application (if you run &lt;code&gt;npm start&lt;/code&gt; this will be started)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The execution of &lt;code&gt;npm install&lt;/code&gt; in app&amp;rsquo;s directory, installs all the dependencies defined in the &lt;code&gt;package.json&lt;/code&gt; file. Those dependencies will be installed only locally in the &lt;code&gt;node_modules&lt;/code&gt; directory. After this step we are ready to go and able to run &lt;code&gt;npm start&lt;/code&gt; which should result in this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;myWebApp|⇒ npm start
+
+&amp;gt; myWebApp@0.0.1 start /private/tmp/myWebApp
+&amp;gt; node ./bin/www
+
+GET / 200 305ms - 170b
+GET / 200 34ms - 170b
+GET /stylesheets/style.css 200 4ms - 110b
+GET / 304 25ms
+GET /stylesheets/style.css 304 1ms
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You can see, that I opened &lt;a href=&#34;http://localhost:3000&#34; target=&#34;_blank&#34;&gt;http://localhost:3000&lt;/a&gt; in the browser and express served me the index page with the &lt;a href=&#34;http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html&#34; target=&#34;_blank&#34;&gt;200 code&lt;/a&gt; (you can also see that I refreshed the page and got 304 NOT MODIFIED). Everything works also as expected {%gemoji +1%}&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Why? How?&lt;/strong&gt; Let&amp;rsquo;s take a quick look at the following:&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;app.js&lt;/em&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-JavaScript&#34;&gt;var routes = require(&#39;./routes/index&#39;);
+
+app.use(&#39;/&#39;, routes)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This is only a part of the &lt;code&gt;app.js&lt;/code&gt; file but shows the wiring of our default root to the index.js file shown below. BTW: you can also see how to load dependencies/modules for our code via the &lt;code&gt;require&lt;/code&gt; function (if you want to read more about that, &lt;a href=&#34;http://openmymind.net/2012/2/3/Node-Require-and-Exports/&#34; target=&#34;_blank&#34;&gt;here is a nice write-up&lt;/a&gt;)&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;routes/index.js:&lt;/em&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-JavaScript&#34;&gt;var express = require(&#39;express&#39;);
+var router = express.Router();
+
+/* GET home page. */
+router.get(&#39;/&#39;, function(req, res) {
+title = &amp;quot;bootstraping a node dot js webapp&amp;quot;
+});
+
+module.exports = router;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The &lt;code&gt;index.js&lt;/code&gt; uses express&amp;rsquo; &lt;code&gt;router&lt;/code&gt; and wires request for &lt;strong&gt;/&lt;/strong&gt; to the function responding with a rendered &lt;code&gt;index.jade&lt;/code&gt; template, to which it passes a variable called &lt;code&gt;title&lt;/code&gt;. If you never used &lt;a href=&#34;http://jade-lang.com/&#34; target=&#34;_blank&#34;&gt;jade&lt;/a&gt;, don&amp;rsquo;t worry, is a pretty simple HTML template engine. Look at the following:
+&lt;em&gt;index.jade:&lt;/em&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-jade&#34;&gt;extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Jade enables template composition. In here we extend &lt;code&gt;layout.jade&lt;/code&gt; which defines the general page structure. If other template defines a &lt;strong&gt;block&lt;/strong&gt; called &lt;code&gt;content&lt;/code&gt; it will be then injected at the corresponding place.
+&lt;em&gt;layout.jade:&lt;/em&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-jade&#34;&gt;doctype html
+html
+  head
+    title= title
+    link(rel=&#39;stylesheet&#39;, href=&#39;https://lplotni.github.io/stylesheets/style.css&#39;)
+  body
+    block content
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Jade is indentation aware, meaning that the above example results in the following:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-HTML&#34;&gt;&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    &amp;lt;title&amp;gt;Express&amp;lt;/title&amp;gt;
+    &amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;/stylesheets/style.css&amp;quot;&amp;gt;
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;h1&amp;gt;Express&amp;lt;/h1&amp;gt;
+    &amp;lt;p&amp;gt;Welcome to Express&amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now you have seen all the parts making the browser render the most basic page of all time 😎&lt;/p&gt;
+
+&lt;p&gt;Next post out of the &lt;strong&gt;pace&lt;/strong&gt; series, will actually explain how to start working on the functionality we need. Right now you can start to play around with the data which is passed by the &lt;code&gt;index.js&lt;/code&gt; to the &lt;code&gt;index.jade&lt;/code&gt; template and how the template uses it. Have fun!&lt;/p&gt;
+</content>
+      
     </item>
     
     <item>
       <title>build monitors</title>
       <link>https://lplotni.github.io/blog/2015/06/27/build-monitors/</link>
       <pubDate>Sat, 27 Jun 2015 00:00:00 +0000</pubDate>
-      
+      <author>Lukasz Plotnicki</author>
       <guid>https://lplotni.github.io/blog/2015/06/27/build-monitors/</guid>
-      <description>During my last four projects or so, the teams I worked with were always using GO.CD as the CD tool of their choosing. Although the pipeline state visualisation GO.CD comes with is quite nice, it still doesn&amp;rsquo;t cut it as a proper, obvious build monitor enabling everybody in the team to quickly recognize what is the pipeline status.
-  Burstah in action   Therefore first cidar, a simple sinatra based build monitor, has been born.</description>
+      <description></description>
+      
+      <content>&lt;p&gt;During my last four projects or so, the teams I worked with were always using &lt;a href=&#34;http://www.go.cd/&#34; target=&#34;_blank&#34;&gt;GO.CD&lt;/a&gt; as the CD tool of their
+choosing. Although the pipeline state visualisation GO.CD comes with is quite nice, it still doesn&amp;rsquo;t cut it as a proper,
+&lt;em&gt;obvious&lt;/em&gt; build monitor enabling everybody in the team to quickly recognize what is the pipeline status.&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://lplotni.github.io/media/burstah_example.png&#34;/&gt; &lt;figcaption&gt;
+            &lt;h4&gt;Burstah in action&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+&lt;p&gt;Therefore first &lt;a href=&#34;https://github.com/lplotni/cidar&#34; target=&#34;_blank&#34;&gt;cidar&lt;/a&gt;, a simple sinatra based build monitor, has been born. I quickly discovered
+that sinatra and especially the nokogiri dependency, doesn&amp;rsquo;t make it easy to use e.g. a Raspberry Pi as the monitor hardware. So,
+having the liberty, I decided to re-implement everything in JavaScript using node.js &amp;amp; express. &lt;a href=&#34;https://github.com/lplotni/burstah&#34; target=&#34;_blank&#34;&gt;Burstah&lt;/a&gt;
+, my second attempt at the ultimative build monitor, has been born 😁&lt;/p&gt;
+
+&lt;p&gt;All the necessary information how to use, install or contribute can be found in &lt;strong&gt;Burstah&lt;/strong&gt;&amp;rsquo;s readme.&lt;/p&gt;
+
+&lt;p&gt;Currently &lt;strong&gt;Burstah&lt;/strong&gt; has following features:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Polling for the cctray.xml to recognize the pipelines and their status&lt;/li&gt;
+&lt;li&gt;Grabbing the commit details directly out of the GO.CD and presenting them&lt;/li&gt;
+&lt;li&gt;Providing an animation when the build is running&lt;/li&gt;
+&lt;li&gt;Supporting emojis in the commit messages 👍&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;If you have any wishes or issues, just write stuff down on the &lt;a href=&#34;https://github.com/lplotni/burstah/issues&#34; target=&#34;_blank&#34;&gt;github issues page&lt;/a&gt;.&lt;/p&gt;
+</content>
+      
     </item>
     
     <item>
       <title>scoopcamp hackathon</title>
       <link>https://lplotni.github.io/blog/2013/09/14/scoopcamp-hackathon/</link>
       <pubDate>Sat, 14 Sep 2013 00:00:00 +0000</pubDate>
-      
+      <author>Lukasz Plotnicki</author>
       <guid>https://lplotni.github.io/blog/2013/09/14/scoopcamp-hackathon/</guid>
-      <description>Last Thursday I was a part of the Scoopcamp hackathon and it was so great that I just couldn&amp;rsquo;t resist to write down some of my thoughts about it. Our team ThoughtWorks and friends a colorful mix of journalists, students and developers had a rough idea for a modern - more agile - journalism, where the journalist reporting about an ongoing event writes the background story and live updates from his perspective, but can also incorporate content written by the readers who create their own streams representing their own take on the particular event.</description>
+      <description></description>
+      
+      <content>
+
+&lt;p&gt;Last Thursday I was a part of the &lt;a href=&#34;http://scoopcamp.de/hackathon/&#34; target=&#34;_blank&#34;&gt;Scoopcamp hackathon&lt;/a&gt; and it was so great that I just couldn&amp;rsquo;t resist to write down some of my thoughts about it. Our team &lt;strong&gt;ThoughtWorks and friends&lt;/strong&gt; a colorful mix of journalists, students and developers had a rough idea for a modern - more &lt;strong&gt;agile&lt;/strong&gt; - journalism, where the journalist reporting about an ongoing event writes the background story and live updates from his perspective, but can also incorporate content written by the readers who create their own streams representing their own take on the particular event. Being able to see which stream/entry is getting most likes (=feedback), he/she can quickly react and focus on the currently favorite perspective. During a quick brainstorming we came up with the name: &lt;strong&gt;LiquidPub&lt;/strong&gt; (for liquid publishing) and started defining the first user stories.
+&lt;figure&gt;
+    &lt;img src=&#34;https://lplotni.github.io/media/liquidpub_screenshot.png&#34;/&gt; &lt;figcaption&gt;
+            &lt;h4&gt;Our app&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+ To be able to deliver something within less than a day of coding, we went with Ruby on Rails. This gave me the opportunity to finally try out Rails and learn it a bit by pairing with some experienced Ruby/Rails devs. The application itself has been deployed on heroku and being ThoughtWorks we built and deployed it after each push to our &lt;a href=&#34;https://github.com/thoughtworks/liquid-pub&#34; target=&#34;_blank&#34;&gt;github repo&lt;/a&gt; using &lt;a href=&#34;https://www.snap-ci.com/&#34; target=&#34;_blank&#34;&gt;snap-ci&lt;/a&gt; - &lt;a href=&#34;http://martinfowler.com/bliki/ContinuousDelivery.html&#34; target=&#34;_blank&#34;&gt;continuous delivery&lt;/a&gt; FTW!&lt;/p&gt;
+
+&lt;p&gt;You can see the result &lt;a href=&#34;http://liquid-pub.herokuapp.com/stories/3&#34; target=&#34;_blank&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;tech-stack&#34;&gt;Tech stack&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Ruby/Rails + &lt;a href=&#34;http://slim-lang.com/&#34; target=&#34;_blank&#34;&gt;slim&lt;/a&gt; (as the templating engine) + &lt;a href=&#34;http://foundation.zurb.com/&#34; target=&#34;_blank&#34;&gt;Foundation&lt;/a&gt; CSS lib (for a responsive client)&lt;/li&gt;
+&lt;li&gt;PostgreSQL&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;some-stats&#34;&gt;Some stats&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;4 dev pairs and 1 designer implemented 27 user stories in 6 iterations&lt;/li&gt;
+&lt;li&gt;I arrived at 8:45 and left around 00:30 (&lt;em&gt;true hackathon sprit! ;)&lt;/em&gt;)&lt;/li&gt;
+&lt;li&gt;91 builds / 145 commits&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;wrap-up-my-take-on-rails&#34;&gt;Wrap-up + My take on Rails&lt;/h2&gt;
+
+&lt;p&gt;A day before the hackathon, I got the message that we will do it using Ruby on Rails - so I did not really have a lot of time to look into it. But that was actually no problem at all, as I paired with another guy who had some rails experience. Although I heard it often, I was still amazed how quickly one can set up a CRUD application with it. There is of course a lot of magic happening in the background and when you have some more complicated use cases, you really need to look deeper into the &lt;a href=&#34;http://guides.rubyonrails.org/&#34; target=&#34;_blank&#34;&gt;rails guide&lt;/a&gt; or other documentation. My pair and myself had some issues trying to integrate a &lt;a href=&#34;https://github.com/galetahub/rails-ckeditor&#34; target=&#34;_blank&#34;&gt;WYSIWYG editor&lt;/a&gt; which was working in the development mode but not in the production mode due to some assets processing problems. This was the only problem we could not solve quickly. For templates we used slim which is definitely nice, but takes some time getting used to. Otherwise Rails provides as I already expected a very nice developer experience. As I am taking a deeper look into &lt;a href=&#34;http://www.playframework.com/&#34; target=&#34;_blank&#34;&gt;Play2.0&lt;/a&gt; now, I can try to write the same application to be able to compare the development speed and experience of both frameworks. A blog post will follow.
+This hackathon was really a great opportunity to have fun and meet new people and try out new technologies. I really look forward to another event like this!&lt;/p&gt;
+</content>
+      
     </item>
     
     <item>
       <title>gwt part i</title>
       <link>https://lplotni.github.io/blog/2013/06/15/gwt-part-i/</link>
       <pubDate>Sat, 15 Jun 2013 00:00:00 +0000</pubDate>
-      
+      <author>Lukasz Plotnicki</author>
       <guid>https://lplotni.github.io/blog/2013/06/15/gwt-part-i/</guid>
-      <description>&lt;p&gt;Back in 2009 I became the job to design and start realizing a quite large web application for a health care research project. I took some time, sat down and thought about the technology stack, I would like to use to build it. As we wanted to have an RIA and I already had some experience with GWT, we quickly decided to use it. Since then four years have passed and we are about to release the 2.0 version of our system. During this time, the whole team learned a lot about GWT, its advantages and also some disadvantages, and I thought it would be useful to write some of them up. This part is about the &lt;strong&gt;status quo&lt;/strong&gt;, in the second part I will try to write about a GWT setup I would go for, when starting the project today - so if you have any hints in this regard, please feel free to leave a comment, I would definitely appreciate it!
-&lt;/p&gt;</description>
+      <description></description>
+      
+      <content>&lt;p&gt;Back in 2009 I became the job to design and start realizing a quite large web application for a health care research project. I took some time, sat down and thought about the technology stack, I would like to use to build it. As we wanted to have an RIA and I already had some experience with GWT, we quickly decided to use it. Since then four years have passed and we are about to release the 2.0 version of our system. During this time, the whole team learned a lot about GWT, its advantages and also some disadvantages, and I thought it would be useful to write some of them up. This part is about the &lt;strong&gt;status quo&lt;/strong&gt;, in the second part I will try to write about a GWT setup I would go for, when starting the project today - so if you have any hints in this regard, please feel free to leave a comment, I would definitely appreciate it!&lt;/p&gt;
+
+&lt;h2 id=&#34;1-client-setup&#34;&gt;1. Client setup&lt;/h2&gt;
+
+&lt;p&gt;Around the same time, as I started to draw the first diagrams of the inner life of our web app, Ray Ryan gave a &lt;a href=&#34;http://www.youtube.com/watch?v=PDuhR18-EdM&#34; target=&#34;_blank&#34;&gt;talk at the IO conference&lt;/a&gt; about the best practices for GWT app architecture, mentioning the &lt;a href=&#34;http://martinfowler.com/eaaDev/uiArchs.html&#34; target=&#34;_blank&#34;&gt;model view presenter&lt;/a&gt;, the usage of an event bus for components communication and the command pattern for dispatching the GWT-RPC calls to the server. Shortly after I discovered the &lt;a href=&#34;http://code.google.com/p/gwt-presenter/&#34; target=&#34;_blank&#34;&gt;gwt-presenter&lt;/a&gt; and the &lt;a href=&#34;http://code.google.com/p/gwt-dispatch/&#34; target=&#34;_blank&#34;&gt;gwt-dispatch&lt;/a&gt; libraries, offering an easy way to build an GWT app based on the principles from  Ray&amp;rsquo;s talk. I also found a very detailed &lt;a href=&#34;http://blog.hivedevelopment.co.uk/2009/08/google-web-toolkit-gwt-mvp-example.html&#34; target=&#34;_blank&#34;&gt;blog post&lt;/a&gt; explaining how everything works together.&lt;br /&gt;
+&lt;figure&gt;
+    &lt;img src=&#34;https://lplotni.github.io/media/gwt_mvp.png&#34;/&gt; &lt;figcaption&gt;
+            &lt;h4&gt;MVP with EventBus and Dispatcher&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+At this point we defined one &lt;strong&gt;Presenter&lt;/strong&gt; for all the entities, we wanted to made accessible on the client, and each presenter defined his own &lt;strong&gt;Display&lt;/strong&gt; interface which then was implemented by the &lt;strong&gt;View&lt;/strong&gt; class. The instantiation of all presenters and views has been managed by &lt;a href=&#34;http://code.google.com/p/google-gin/&#34; target=&#34;_blank&#34;&gt;gin&lt;/a&gt; - a dependency injection framework for the client side. The code looked more or less like this:&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Presenter &amp;amp; Display:&lt;/em&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;public class HistoryPresenter extends WidgetPresenter&amp;lt;HistoryPresenter.Display&amp;gt;
+		implements PresentsDTO&amp;lt;HistoryDTO&amp;gt; {
+
+	public interface Display extends WidgetDisplay, Resettable, Editable {
+		HasText getPrimaryDisease();
+		HasText getPrimaryDiagnosis();
+		HasValue&amp;lt;Date&amp;gt; getPrimaryDiseaseStart();
+		HasValue&amp;lt;String&amp;gt; getHypertension();
+		// (...) and some more stuff here
+	}
+
+	private HistoryDTO currentDTO;
+	private final DispatchAsync dispatcher;
+
+	@Inject
+	public HistoryPresenter(final Display display, final EventBus eventBus, final DispatchAsync dispatcher) {
+		super(display, eventBus);
+		bind();
+	}
+
+	@Override
+	protected void onBind() {
+		// Add handlers to the event bus if needed
+	}
+
+	@Override
+	public void resetUI() {
+		currentDTO = null;
+		display.resetUI();
+	}
+
+	@Override
+	public HistoryDTO getDTO() {
+		syncDTO();
+		return currentDTO;
+	}
+
+	@Override
+	public void syncDTO() {
+		// create new DTO object with the content from the display
+	}
+
+	@Override
+	public void showDTO(HistoryDTO dto) {
+		// refresh the display with the data from the DTO
+	}
+
+	@Override
+	public void setEditable(boolean value) {
+		display.setEditable(value);
+	}
+
+	@Override
+	protected void onRevealDisplay() {
+		// React on place request e.g use the dispatcher to load the data from the server
+	}
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In the gwt-presenter class hierarchy there was no possibility to define the model class the presenter will be responsible for. For that reason we introduced a &lt;code&gt;PresentDTO&amp;lt;T&amp;gt;&lt;/code&gt; and &lt;code&gt;PresentDTOs&amp;lt;T&amp;gt;&lt;/code&gt; interfaces to ensure the existence of &lt;code&gt;T getDTO()&lt;/code&gt; etc. methods. The view classes are quite straightforward, the only difference is that back in 2009 ui:binder was not really there, therefore the gwt-presenter had no direct support for it. But switching to the declarative layout definition was indeed very easy - each view defines its own *.ui.xml file and the &lt;code&gt;asWidget()&lt;/code&gt; method just returns the result of the &lt;code&gt;uiBinder.createAndBindUi()&lt;/code&gt; call. As you can see in the code below we introduced also a &lt;code&gt;WidgetsManager&lt;/code&gt; class which is a convinient way to managed all the widgets the view is defining (offering a general &lt;code&gt;setEditable()&lt;/code&gt; method and taking care of the validation visualization).&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;View:&lt;/em&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;public class HistoryView implements Display {
+	interface HistoryViewUiBinder extends UiBinder&amp;lt;LayoutPanel, HistoryView&amp;gt; {}
+	private static HistoryViewUiBinder uiBinder = GWT.create(HistoryViewUiBinder.class);
+
+	@UiField
+	LabeledSuggestBox renalDisease;
+	@UiField
+	DateBox renalDiseaseStart;
+	@UiField
+	TextArea renalDiseaseText;
+	@UiField
+	ValueListBox hypertension;
+
+	private final WidgetsManager widgetsManager;
+	private final LayoutPanel content;
+
+	@Inject
+	public HistoryView(WidgetsManager widgetsManager, final RegisterConstants c) {
+		this.widgetsManager = widgetsManager;
+		content = uiBinder.createAndBindUi(this);
+		content.setTitle(c.historyTab());
+		//Registering the widgets within the widget mgr.
+		widgetsManager.registerWidgets(
+				new String[] {&amp;quot;primaryDiseaseGroup&amp;quot;,
+						&amp;quot;primaryDiseaseDiagnosis&amp;quot;, &amp;quot;primaryDiseaseStart&amp;quot;},
+				new Widget[] {
+						renalDisease,
+						renalDiseaseText,
+						renalDiseaseStart});
+		widgetsManager.configureValidation(HistoryDTO.class);
+	}
+
+	@Override
+	public Widget asWidget() {
+		return content;
+	}
+
+	@Override
+	public HasText getPrimaryDiagnosis() {
+		return renalDiseaseText;
+	}
+
+	@Override
+	public HasText getPrimaryDisease() {
+		return renalDisease;
+	}
+
+	@Override
+	public HasValue&amp;lt;Date&amp;gt; getPrimaryDiseaseStart() {
+		return renalDiseaseStart;
+	}
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To ensure a loosely coupled client we try to communicate between the presenters only via the EventBus or PlaceRequests, so if a new part of the UI should be rendered, a new place event needs to be fired.&lt;/p&gt;
+
+&lt;h2 id=&#34;2-client-server-communication&#34;&gt;2. Client - server communication&lt;/h2&gt;
+
+&lt;p&gt;The client - server communication is based fully on the GWT-RPC mechanism. As mentioned above we are using the gwt-dispatch library meaning that for every request, we have a command object, result object and a server side handler. It is a bit verbose, but in the end it is also a very simple pattern and every new dev introduced to our team grasps it very quickly. The implementation of the client-side caching is easily done, as you just need to compare the command object which should be executed and if one of them has been already seen, then you can serve the already received result saving you one round-trip.&lt;/p&gt;
+
+&lt;p&gt;To execute a command a corresponding object just needs to be passed to the dispatcher which is a singleton on the client and gets injected to every presenter that should be able to trigger the communication. In most of the cases the result of a command (or to use gwt-dispatch terminology: an action) contains a DTO object which is then shown by the presenter. On the server side we are using JPA &amp;amp; Hibernate so obviously we need to take care of the server entity to DTO conversion. Although some libraries exists for this purpose (e.g &lt;a href=&#34;http://sourceforge.net/projects/gilead/&#34; target=&#34;_blank&#34;&gt;gilead&lt;/a&gt;), in our specific setting we decided to implement it ourself which was actually a straightforward task when using the reflection API and sticking to a well defined class hierarchy of our own.
+&lt;figure&gt;
+    &lt;img src=&#34;https://lplotni.github.io/media/dto.png&#34;/&gt; &lt;figcaption&gt;
+            &lt;h4&gt;DTO&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+We also use the JSR303 annotations for validation of the entities and are able to push the constraint violations back to the client where they will be assigned to the specific widgets by our &lt;code&gt;WidgetsManager&lt;/code&gt; - here we are just using a simple convention of associating the input widgets with same names as the property paths in the entities.&lt;/p&gt;
+
+&lt;h2 id=&#34;3-testing-the-client&#34;&gt;3. Testing the client&lt;/h2&gt;
+
+&lt;p&gt;One of the main advantages of doing MVP is the separation of the business logic (sitting in the presenter) from the actual UI components (being a part of the view) resulting in the ability of writing normal, fast unit test (normal, meaning not using the GWTTestCase) and mocking the views. Nevertheless in our project we use &lt;a href=&#34;http://docs.seleniumhq.org/&#34; target=&#34;_blank&#34;&gt;selenium&lt;/a&gt; as the main way to assure the correct functionality of our client. As using the normal selenium recorder is not an option with GWT due to the element ids changing during each compile process, we tried to get our selenium tests (written in java as normal unit tests) as independent as it only can be from the layout definition itself (trying not to use exact XPath etc.). Our client is very data input heavy, so we have a lot of input components to test. When we test if the entities get created in a correct way, we just access all visible input components of a certain type, populate them with a random content (which we then store for later comparison), trigger the save action and reload the UI to verify if the same components holds still the same data. Thus, we don&amp;rsquo;t have to update the tests if our data definition changes and we have introduced some new input components. The test will also work if the layout of the UI changes either on purpose, because we rearranged it, or when a new GWT version switch to a different HTML representation for some standard widgets.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Getting certain elements from selenium driver:&lt;/em&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;protected static ArrayList&amp;lt;WebElement&amp;gt; getVisibleElements(String tagName,
+			final String classString) {
+		List&amp;lt;WebElement&amp;gt; elements = driver.findElements(By.tagName(tagName));
+		return Lists.newArrayList(Collections2.filter(elements,
+				new Predicate&amp;lt;WebElement&amp;gt;() {
+					@Override
+					public boolean apply(@Nullable WebElement input) {
+						boolean b = false;
+						try {
+							String classAttribute = input.getAttribute(&amp;quot;class&amp;quot;);
+							b = input.isDisplayed() &amp;amp;&amp;amp; classAttribute != null
+									&amp;amp;&amp;amp; classAttribute.contains(classString);
+						} catch (StaleElementReferenceException e) {
+							// Ignoring stale element
+						}
+						return b;
+					}
+				}));
+	}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;4-issues&#34;&gt;4. Issues&lt;/h2&gt;
+
+&lt;p&gt;We are quite happy how things are working now, but there is room for improvement:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;The compile time during development&lt;/strong&gt;: trying to change something in the client code in a iterative manner using the standard &lt;strong&gt;DevMode&lt;/strong&gt; is very frustrating as it takes just too much time. &lt;strong&gt;SuperDevMode&lt;/strong&gt; improved a lot our situation but we still have the problem of having the server and client side in one maven project - changing the server-side code means a &lt;code&gt;mvn clean -DskipTests tomcat7:run-war&lt;/code&gt; and this means basically an &amp;ldquo;espresso&amp;rdquo; break.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;The size of the client&lt;/strong&gt;: our *.cache.js file is currently 6.1MB (we use the gwtquery and gwt-chosen libs which are quite large) We will definitely try to introduce some code splitting in the future release, to load only as much as we need and not everything from the beginning.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Execution time of the selenium tests&lt;/strong&gt;: our current selenium suite takes a bit over 3 hours to run on our CI server. And although we could, we don&amp;rsquo;t have enough of the presenter unit tests to have a sufficient coverage letting us sleep well at night. Here probably a wrong choice have been made: concentrating to much on the selenium tests and trying to go for a very exhaustive test suite, instead of implementing a good amount of unit tests for the presenters and a simpler selenium suite for the main work flows in the application.&lt;/li&gt;
+&lt;/ul&gt;</content>
+      
     </item>
     
     <item>
       <title>setting up ...</title>
       <link>https://lplotni.github.io/blog/2013/05/14/setting-up-dot-dot-dot/</link>
       <pubDate>Tue, 14 May 2013 00:00:00 +0000</pubDate>
-      
+      <author>Lukasz Plotnicki</author>
       <guid>https://lplotni.github.io/blog/2013/05/14/setting-up-dot-dot-dot/</guid>
-      <description>There&amp;rsquo;s nothing like this moment, when you have a big smile on your face, because you&amp;rsquo;re just stunned how well things are working and how simple the set-up process was. Octopress is just amazing. Period. If you haven&amp;rsquo;t heard about it and you&amp;rsquo;re thinking to start a blog or migrate one, then you should definitely check it out. To put it simple:
- Octopress is a framework designed by Brandon Mathis for Jekyll, the blog aware static site generator powering Github Pages.</description>
+      <description></description>
+      
+      <content>
+
+&lt;p&gt;There&amp;rsquo;s nothing like this moment, when you have a big smile on your face, because you&amp;rsquo;re just stunned how well things are working and how simple the set-up process was. &lt;a href=&#34;http://octopress.org&#34; target=&#34;_blank&#34;&gt;Octopress&lt;/a&gt; is just amazing. &lt;strong&gt;Period&lt;/strong&gt;. If you haven&amp;rsquo;t heard about it and you&amp;rsquo;re thinking to start a blog or migrate one, then you should definitely check it out. To put it simple:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Octopress is a framework designed by Brandon Mathis for Jekyll, the blog aware static site generator powering Github Pages. To start blogging with Jekyll, you have to write your own HTML templates, CSS, Javascripts and set up your configuration. But with Octopress All of that is already taken care of. Simply clone or fork Octopress, install dependencies and the theme, and you&amp;rsquo;re set. - Brandon Mathis &lt;a href=&#34;http://octopress.org/blog/2011/07/23/octopress-20-surfaces/&#34; target=&#34;_blank&#34;&gt;http://octopress.org/blog/2011/07/23/octopress-20-surfaces/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;It took me just few hours from having the idea: &lt;em&gt;Today is the day to start my own blog&lt;/em&gt; to actually having it hosted on github. And the experience itself (checking out the octopress repo, configuring, building and deploying to github) was really simple. Thumbs up for the good documentation!&lt;/p&gt;
+
+&lt;h2 id=&#34;my-setup&#34;&gt;My setup&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;octopress&lt;/strong&gt; is publishing directly to my github user page. Therefore the access is fairly simple and I can use my blog to link to other stuff, I have on github or somewhere else like e.g. slides to my talks.&lt;/li&gt;
+&lt;li&gt;I decided against using the default theme and went with a clean and responsive one called the &lt;a href=&#34;https://github.com/lucaslew/whitespace&#34; target=&#34;_blank&#34;&gt;whitespace&lt;/a&gt;. There are many, many others so everyone should be able to find something suiting own needs. A list with some of the themes available: &lt;a href=&#34;https://github.com/imathis/octopress/wiki/3rd-Party-Octopress-Themes&#34; target=&#34;_blank&#34;&gt;3rd-Party-Octopress-Themes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;During the set-up phase I had only one ubuntu-related (using the 13.04) hickup. When executing the &lt;code&gt;bundle install&lt;/code&gt; I got an missing dependency error, so after googling for like a minute, I found a simple solution: just execute &lt;code&gt;sudo apt-get install ruby1.9.1-full&lt;/code&gt; and everything will work as described in octopress docs.&lt;/li&gt;
+&lt;li&gt;As I&amp;rsquo;m a &lt;strong&gt;zsh&lt;/strong&gt; and &lt;a href=&#34;https://github.com/robbyrussell/oh-my-zsh&#34; target=&#34;_blank&#34;&gt;oh-my-zsh&lt;/a&gt; user, I run also into the &lt;code&gt;rake new_post[title]&lt;/code&gt; execution problem. A solution for it was also easily found: just add &lt;code&gt;alias rake=&amp;ldquo;noglob rake&amp;rdquo;&lt;/code&gt; to your &lt;code&gt;~/.zshrc&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;To be able to see, if anybody actually reads this stuff, I activated the support for google analytics in the &lt;code&gt;_config.yml&lt;/code&gt; file.&lt;/li&gt;
+&lt;li&gt;I also activated &lt;a href=&#34;http://disqus.com&#34; target=&#34;_blank&#34;&gt;disqus&lt;/a&gt; to support comments. Although I&amp;rsquo;ve never heard about it, it makes a very nice impression and as everything till now, was very easy to set-up (create an account, get unique id and put it into the &lt;code&gt;_config.yml&lt;/code&gt; file). I deactivated all the &lt;strong&gt;discovery&lt;/strong&gt; stuff from disqus though, as I&amp;rsquo;m not interested in monetizing anything here.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;If you read it till now, you may be asking yourself&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;OK, yet another possibility to create a blog. So what. Why bother with all this stuff when one can just use blogger or wordpress.com.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;My answer:&lt;/p&gt;
+
+&lt;h2 id=&#34;killer-features-the-work-flow&#34;&gt;Killer features &amp;amp; the work-flow&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Everything is hosted on github within my repository and I have control over all the files etc.&lt;/li&gt;
+&lt;li&gt;To create a new blog post you just type &lt;code&gt;rake new_post[&amp;lsquo;some title&amp;rsquo;]&lt;/code&gt; and open the created file to edit the content. Everything will be written in markdown (&lt;strong&gt;+1&lt;/strong&gt;), so I&amp;rsquo;m using &lt;a href=&#34;http://www.sublimetext.com/&#34; target=&#34;_blank&#34;&gt;sublime&lt;/a&gt; as my editor and the &lt;strong&gt;distraction free mode&lt;/strong&gt; when writing&amp;hellip;&lt;/li&gt;
+&lt;li&gt;When you work on a new post or a change then you can tweak and test everything on your local machine under &lt;code&gt;localhost:4000&lt;/code&gt; with each change made automatically visible thanks to &lt;code&gt;rake watch&lt;/code&gt; and &lt;code&gt;rake preview&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Everything is manged by git, so you can work on posts in branches etc.&lt;/li&gt;
+&lt;li&gt;When you&amp;rsquo;re done, you just hit &lt;code&gt;rake generate&lt;/code&gt; and &lt;code&gt;rake deploy&lt;/code&gt; and the new stuff will be pushed to github.&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+      
     </item>
     
     <item>
       <title>hello world</title>
       <link>https://lplotni.github.io/blog/2013/05/09/hello-world/</link>
       <pubDate>Thu, 09 May 2013 00:00:00 +0000</pubDate>
-      
+      <author>Lukasz Plotnicki</author>
       <guid>https://lplotni.github.io/blog/2013/05/09/hello-world/</guid>
-      <description>I had this idea to create my own blog since like forever but always convinced myself that it will be either too time consuming or all the topics I would like to write about, are already well described, so what&amp;rsquo;s the point &amp;hellip;
-But then, I had also too many moments, when I thought - wait, you already had this problem/issue/idea&amp;hellip; What was the solution? Where did you find it?</description>
+      <description></description>
+      
+      <content>&lt;p&gt;I had this idea to create my own blog since like forever but always convinced myself that it will be either too time consuming or all the topics I would like to write about, are already well described, so what&amp;rsquo;s the point &amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;But then, I had also too many moments, when I thought - wait, you already had this problem/issue/idea&amp;hellip; What was the solution? Where did you find it?&lt;/p&gt;
+
+&lt;p&gt;So today, I finally decided to create my own blog - mainly as a reference for future me. I will write about the technology, I&amp;rsquo;m currently working with or interested in and from time to time maybe about some general stuff, I would like to talk about.&lt;/p&gt;
+
+&lt;p&gt;As I have no experience whatsoever in this domain (blog writing), I will try to push myself and write one post per month. Fingers crossed, that I&amp;rsquo;ll find the time for it &amp;hellip;&lt;/p&gt;
+</content>
+      
     </item>
     
   </channel>

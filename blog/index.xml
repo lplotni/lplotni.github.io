@@ -6,7 +6,7 @@
     <description>Recent content in Blogs on Working thoughts</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>&amp;copy; 2018 | Lukasz Plotnicki | &lt;a href=&#34;https://github.com/mgjohansen/hucore.git&#34; target=&#34;_blank&#34;&gt;Hucore theme&lt;/a&gt; &amp; &lt;a href=&#34;http://gohugo.io&#34; target=&#34;_blank&#34;&gt;Hugo&lt;/a&gt; ♥</copyright>
+    <copyright>&amp;copy; 2018 | Follow on &lt;a href=&#34;https://twitter.com/lplotni&#34; target=&#34;_blank&#34;&gt;Twitter&lt;/a&gt;</copyright>
     <lastBuildDate>Wed, 23 May 2018 21:36:52 +0200</lastBuildDate>
     
 	<atom:link href="https://lplotni.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
@@ -87,8 +87,7 @@ And then, somebody suggested to write one thing or two, about our technology dec
       <pubDate>Sat, 15 Jun 2013 00:00:00 +0000</pubDate>
       
       <guid>https://lplotni.github.io/blog/2013/06/15/gwt-part-i/</guid>
-      <description>&lt;p&gt;Back in 2009 I became the job to design and start realizing a quite large web application for a health care research project. I took some time, sat down and thought about the technology stack, I would like to use to build it. As we wanted to have an RIA and I already had some experience with GWT, we quickly decided to use it. Since then four years have passed and we are about to release the 2.0 version of our system. During this time, the whole team learned a lot about GWT, its advantages and also some disadvantages, and I thought it would be useful to write some of them up. This part is about the &lt;strong&gt;status quo&lt;/strong&gt;, in the second part I will try to write about a GWT setup I would go for, when starting the project today - so if you have any hints in this regard, please feel free to leave a comment, I would definitely appreciate it!
-&lt;/p&gt;</description>
+      <description>&lt;p&gt;Back in 2009 I became the job to design and start realizing a quite large web application for a health care research project. I took some time, sat down and thought about the technology stack, I would like to use to build it. As we wanted to have an RIA and I already had some experience with GWT, we quickly decided to use it. Since then four years have passed and we are about to release the 2.0 version of our system. During this time, the whole team learned a lot about GWT, its advantages and also some disadvantages, and I thought it would be useful to write some of them up. This part is about the &lt;strong&gt;status quo&lt;/strong&gt;, in the second part I will try to write about a GWT setup I would go for, when starting the project today - so if you have any hints in this regard, please feel free to leave a comment, I would definitely appreciate it!&lt;/p&gt;</description>
     </item>
     
     <item>

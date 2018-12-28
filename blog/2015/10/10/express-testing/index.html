@@ -1,92 +1,91 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html xmlns="http://www.w3.org/1999/xhtml"  lang="en-us">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta content="programming, java, javascript, scala" name="keywords">
-<meta content="Lukasz Plotnicki" name="author">
-<meta property="og:title" content="express testing - Working thoughts">
-<meta property="og:url" content="https://lplotni.github.io/blog/2015/10/10/express-testing/">
-<meta property="og:description" content="Ideas, thoughts... mainly about programming &amp; co.">
-<meta property="og:type" content="website" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
 <title>express testing | Working thoughts</title>
 
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      processEscapes: true
-    }
-  });
-</script>
-<link rel="stylesheet" href="https://lplotni.github.io//css/style.css">
-<link rel="shortcut icon" href="https://lplotni.github.io//wave.ico">
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
 
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/github.min.css">
 
+<link href="https://lplotni.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Working thoughts" />
+
+<link rel="stylesheet" href="/css/style.css"/><link rel='stylesheet' href='https://lplotni.github.io/css/custom.css'><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
 </head>
-
 <body>
 <section class="section">
   <div class="container">
     <nav class="nav">
       <div class="nav-left">
-        <a class="nav-item" href="https://lplotni.github.io/"><h1 class="title is-4">Working thoughts</h1></a>
+        <a class="nav-item" href="https://lplotni.github.io/">
+          <h1 class="title is-4">Working thoughts</h1>
+        </a>
       </div>
       <div class="nav-right">
-        <nav class="nav-item level is-mobile">
-          
-          <a class="level-item" href="https://github.com/lplotni" target="_blank">
+        <nav class="nav-item level is-mobile"><a class="level-item" aria-label="github" href='https://github.com/lplotni'
+            target='_blank' rel='noopener'>
             <span class="icon">
-              <i class="fa fa-github"></i>
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+    
+  </svg></i>
             </span>
-          </a>
-          
-          <a class="level-item" href="https://twitter.com/lplotni" target="_blank">
+          </a><a class="level-item" aria-label="twitter" href='https://twitter.com/lplotni'
+            target='_blank' rel='noopener'>
             <span class="icon">
-              <i class="fa fa-twitter"></i>
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+    
+  </svg></i>
             </span>
-          </a>
-          
-          <a class="level-item" href="https://www.linkedin.com/in/lukasz-plotnicki-945442140/" target="_blank">
+          </a><a class="level-item" aria-label="linkedin" href='https://linkedin.com/in/lukasz-plotnicki-945442140'
+            target='_blank' rel='noopener'>
             <span class="icon">
-              <i class="fa fa-linkedin-square"></i>
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path stroke-width="1.8" d="m5.839218,4.101561c0,1.211972 -0.974141,2.194011 -2.176459,2.194011s-2.176459,-0.982039 -2.176459,-2.194011c0,-1.211094 0.974141,-2.194011 2.176459,-2.194011s2.176459,0.982917 2.176459,2.194011zm0.017552,3.94922l-4.388022,0l0,14.04167l4.388022,0l0,-14.04167zm7.005038,0l-4.359939,0l0,14.04167l4.360816,0l0,-7.370999c0,-4.098413 5.291077,-4.433657 5.291077,0l0,7.370999l4.377491,0l0,-8.89101c0,-6.915523 -7.829986,-6.66365 -9.669445,-3.259423l0,-1.891237z"/>
+    
+  </svg></i>
             </span>
-          </a>
-          
-          <a class="level-item" href="/index.xml" target="_blank">
-            <span class="icon">
-              <i class="fa fa-rss"></i>
-            </span>
-          </a>
-          
-        </nav>
+          </a></nav>
       </div>
     </nav>
+
+    <nav class="nav">
+      
+
+      
+    </nav>
+
   </div>
 </section>
-
 <section class="section">
   <div class="container">
+    <div class="subtitle tags is-6 is-pulled-right">
+      
+    </div>
+    <h2 class="subtitle is-6">October 10, 2015</h2>
     <h1 class="title">express testing</h1>
-    <h2 class="subtitle is-5">October 10, 2015 by Lukasz Plotnicki</h2>
     
     <div class="content">
       
 
-<p>
-<figure>
-    
-        <img src="/media/test_pyramid.jpg" />
-    
-    
+<p><figure>
+    <img src="/media/test_pyramid.jpg"/> 
 </figure>
 
 After we managed to set up our basic <a href="/blog/2015/08/04/bootstraping-a-node-dot-js-webapp/">web application</a>,
 let&rsquo;s get our
 hands dirty writing some code. And as we want to do it in a test-driven
-manner (<a href="http://martinfowler.com/bliki/TestDrivenDevelopment.html">TDD</a>), we need
+manner (<a href="http://martinfowler.com/bliki/TestDrivenDevelopment.html" target="_blank">TDD</a>), we need
 a proper test setup. This piece is all about our initial test pyramid. Test,
 what? Yes, pyramid:</p>
 
@@ -98,11 +97,11 @@ placed at the top of the test automation pyramid because we want to do as
 little of it as possible. (&hellip;) Testing through the user interface like this is
 expensive and should be minimized. Although there are many test cases that need
 to be invoked, not all need to be run through the user interface. And this is
-where the service layer of the test automation pyramid comes in. - Mike Cohn <a href="https://www.mountaingoatsoftware.com/blog/the-forgotten-layer-of-the-test-automation-pyramid">https://www.mountaingoatsoftware.com/blog/the-forgotten-layer-of-the-test-automation-pyramid</a></p>
+where the service layer of the test automation pyramid comes in. - Mike Cohn <a href="https://www.mountaingoatsoftware.com/blog/the-forgotten-layer-of-the-test-automation-pyramid" target="_blank">https://www.mountaingoatsoftware.com/blog/the-forgotten-layer-of-the-test-automation-pyramid</a></p>
 </blockquote>
 
 <p>Depending on your personal style (look at this
-<a href="http://martinfowler.com/bliki/TestPyramid.html">post</a> by Martin Fowler for
+<a href="http://martinfowler.com/bliki/TestPyramid.html" target="_blank">post</a> by Martin Fowler for
 more details around different <em>flavours</em> of unit testing) and probably also the
 task at hand, you will either be starting with a unit test or
 acceptance/functional test. The rest of this post will show you how to set up
@@ -115,7 +114,7 @@ each kind of test and give you a brief description of what we mean by saying
 <p>In JavaScript and node.js world your are spoiled for choices in regards to
 your unit tests libraries and runners: Jasmine, Mocha and friends, just pick
 one. We decided to go with
-<a href="https://jasmine.github.io/2.3/introduction.html">Jasmine</a>, in which a test
+<a href="https://jasmine.github.io/2.3/introduction.html" target="_blank">Jasmine</a>, in which a test
 looks like this:</p>
 
 <pre><code class="language-javascript">/* jshint node: true */
@@ -155,7 +154,7 @@ which given a request body returns a specific JS object. We can use multiple
 tested functionality. Each <code>it</code> call corresponds with a specific behaviour
 we want to verify. <strong>Jasmine</strong> provides matchers and spies to simplify our
 testing: Just look at the
-<a href="https://jasmine.github.io/2.3/introduction.html">reference</a> to see what&rsquo;s
+<a href="https://jasmine.github.io/2.3/introduction.html" target="_blank">reference</a> to see what&rsquo;s
 possible.  Generally it&rsquo;s a good practice to verify one specific aspect per
 test. Any other recommendations, you ask {%gemoji sunglasses%} A good unit test
 is:</p>
@@ -170,7 +169,7 @@ to reason why a certain test is red, if all you need to care about is only
 the scope of that particular test.</li>
 </ul>
 
-<p>As usual Martin Fowler wrote a nice <a href="http://martinfowler.com/bliki/UnitTest.html">bliki about unit tests</a>.</p>
+<p>As usual Martin Fowler wrote a nice <a href="http://martinfowler.com/bliki/UnitTest.html" target="_blank">bliki about unit tests</a>.</p>
 
 <h2 id="integration-test">Integration test</h2>
 
@@ -251,7 +250,7 @@ it is correct.</p>
 <p>Whenever we test the system as a whole, we talk about functional tests.
 Typically those tests go against an outer-most interface of our app, often
 the UI. In our case we will interact with pace via its web page.
-To do that, we use <a href="http://webdriver.io/">WebDriverIO</a> on top of <a href="http://docs.seleniumhq.org/">selenium</a> and a headless browser called <a href="http://phantomjs.org/">phantomjs</a>. This combination offers an easy to use API for browser-interaction.</p>
+To do that, we use <a href="http://webdriver.io/" target="_blank">WebDriverIO</a> on top of <a href="http://docs.seleniumhq.org/" target="_blank">selenium</a> and a headless browser called <a href="http://phantomjs.org/" target="_blank">phantomjs</a>. This combination offers an easy to use API for browser-interaction.</p>
 
 <pre><code class="language-javascript">/* jshint node: true */
 /* global describe, beforeEach, afterEach, it, jasmine, expect */
@@ -304,14 +303,14 @@ browser. We also change the default jasmine timeout for async tests, as in
 general the browser based interactions tend to take more time. After that it is
 pretty straightforward: We click on a link, type into input fields, submit
 the form and verify that we land on the success page (look at
-<a href="http://webdriver.io/api.html">webdriverio API</a> for all the different interactions
+<a href="http://webdriver.io/api.html" target="_blank">webdriverio API</a> for all the different interactions
 one can trigger). This is the happy path of our registration journey and as the
 functional test are the most expensive ones (in regards to the execution time),
 we will try to stick only to happy-path testing on this level.</p>
 
 <h2 id="test-execution">Test execution</h2>
 
-<p>Ok, so how can you run all the tests in a convenient way? Pace uses <a href="http://gulpjs.com/">gulp</a> to build and automate a lot of stuff. Here are the important commands and convention:</p>
+<p>Ok, so how can you run all the tests in a convenient way? Pace uses <a href="http://gulpjs.com/" target="_blank">gulp</a> to build and automate a lot of stuff. Here are the important commands and convention:</p>
 
 <ul>
 <li>All tests (specs) should be places in the <strong>/spec</strong> directory</li>
@@ -331,6 +330,10 @@ selenium-server and drivers</li>
 all dependencies for selenium and executes the database migrations</li>
 </ul>
 
+      
+      <div class="related">
+</div>
+      
     </div>
     
   </div>
@@ -339,29 +342,15 @@ all dependencies for selenium and executes the database migrations</li>
 
 <section class="section">
   <div class="container has-text-centered">
-    <p>&copy; 2018 | Lukasz Plotnicki | <a href="https://github.com/mgjohansen/hucore.git" target="_blank">Hucore theme</a> & <a href="http://gohugo.io" target="_blank">Hugo</a> ♥</p>
+    <p>&copy; 2018 | Follow on <a href="https://twitter.com/lplotni" target="_blank">Twitter</a></p>
+    
+      <p>Powered by <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/ribice/kiss">Kiss</a>.</p>
+    
   </div>
 </section>
 
 
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js" integrity="sha256-+bhVTaRmJ/c07eV80nU8gD2cBBF0rYkf1txqXlrbvb0=" crossorigin="anonymous"></script>
-
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/go.min.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
-
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/dockerfile.min.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
-
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/java.min.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
-
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/javascript.min.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
-
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/bash.min.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
-
-<script>hljs.initHighlightingOnLoad();</script>
-
 
 </body>
+</html>
+
