@@ -2,13 +2,13 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Working thoughts</title>
-    <link>https://lplotni.github.io/tags/</link>
+    <link>https://lukasz.dev/tags/</link>
     <description>Recent content in Tags on Working thoughts</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Lukasz Plotnicki &amp;copy; 2019 | Follow on &lt;a href=&#34;https://twitter.com/lplotni&#34; target=&#34;_blank&#34;&gt;Twitter&lt;/a&gt;</copyright>
     
-	<atom:link href="https://lplotni.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://lukasz.dev/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>

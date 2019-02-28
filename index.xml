@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Working thoughts</title>
-    <link>https://lplotni.github.io/</link>
+    <link>https://lukasz.dev/</link>
     <description>Recent content on Working thoughts</description>
     <generator>Hugo - gohugo.io</generator>
     <language>en</language>
     <contact>l.plotnicki@gmail.com</contact>
     <copyright>Lukasz Plotnicki &copy; 2019 | Follow on <a href="https://twitter.com/lplotni" target="_blank">Twitter</a></copyright>
     
-        <atom:link href="https://lplotni.github.io/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://lukasz.dev/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>My first UHK layout</title>
-      <link>https://lplotni.github.io/blog/uhk_setup/</link>
+      <link>https://lukasz.dev/blog/uhk_setup/</link>
       <pubDate>Fri, 28 Dec 2018 23:24:02 +0100</pubDate>
       <author>Lukasz Plotnicki</author>
-      <guid>https://lplotni.github.io/blog/uhk_setup/</guid>
+      <guid>https://lukasz.dev/blog/uhk_setup/</guid>
       <description></description>
       
       <content>&lt;p&gt;I ordered the &lt;a href=&#34;https://ultimatehackingkeyboard.com&#34; target=&#34;_blank&#34;&gt;UHK&lt;/a&gt; with the linux layout
@@ -27,7 +27,7 @@ with a Mackbook Pro. Thus, I changed few settings and love my setup even more.
 UHK is really a spectacular keyboard.&lt;/p&gt;
 
 &lt;figure&gt;
-    &lt;img src=&#34;https://lplotni.github.io/media/keyboard.png&#34;/&gt; 
+    &lt;img src=&#34;https://lukasz.dev/media/keyboard.png&#34;/&gt; 
 &lt;/figure&gt;
 
 
@@ -59,10 +59,10 @@ able to do so, I wrote a little &lt;em&gt;complex modification&lt;/em&gt; for ka
     
     <item>
       <title>Using your yubikey as ssh key provider / Quick(est) guide</title>
-      <link>https://lplotni.github.io/blog/sshkey_yubikey/</link>
+      <link>https://lukasz.dev/blog/sshkey_yubikey/</link>
       <pubDate>Wed, 23 May 2018 21:36:52 +0200</pubDate>
       <author>Lukasz Plotnicki</author>
-      <guid>https://lplotni.github.io/blog/sshkey_yubikey/</guid>
+      <guid>https://lukasz.dev/blog/sshkey_yubikey/</guid>
       <description></description>
       
       <content>&lt;p&gt;I figured it&amp;rsquo;s time to write up the quickest guide about using the yubikey as
@@ -95,10 +95,10 @@ push/pull/clone you will need to enter the yubikey into your device.&lt;/p&gt;
     
     <item>
       <title>why hugo?</title>
-      <link>https://lplotni.github.io/blog/why-hugo/</link>
+      <link>https://lukasz.dev/blog/why-hugo/</link>
       <pubDate>Mon, 09 Oct 2017 21:44:11 +0200</pubDate>
       <author>Lukasz Plotnicki</author>
-      <guid>https://lplotni.github.io/blog/why-hugo/</guid>
+      <guid>https://lukasz.dev/blog/why-hugo/</guid>
       <description></description>
       
       <content>&lt;p&gt;As you can see looking at the frequency of my posts, I&amp;rsquo;m more of an occasional
@@ -127,10 +127,10 @@ I strongly suggest hugo!&lt;/p&gt;
     
     <item>
       <title>bff</title>
-      <link>https://lplotni.github.io/blog/2016/02/22/bff/</link>
+      <link>https://lukasz.dev/blog/2016/02/22/bff/</link>
       <pubDate>Mon, 22 Feb 2016 00:00:00 +0000</pubDate>
       <author>Lukasz Plotnicki</author>
-      <guid>https://lplotni.github.io/blog/2016/02/22/bff/</guid>
+      <guid>https://lukasz.dev/blog/2016/02/22/bff/</guid>
       <description></description>
       
       <content>&lt;p&gt;A while ago I wrote a &lt;a href=&#34;https://www.thoughtworks.com/insights/blog/bff-soundcloud&#34; target=&#34;_blank&#34;&gt;ThoughtWorks insights post&lt;/a&gt; about the
@@ -154,19 +154,19 @@ src=&#34;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/track
     
     <item>
       <title>express testing</title>
-      <link>https://lplotni.github.io/blog/2015/10/10/express-testing/</link>
+      <link>https://lukasz.dev/blog/2015/10/10/express-testing/</link>
       <pubDate>Sat, 10 Oct 2015 00:00:00 +0000</pubDate>
       <author>Lukasz Plotnicki</author>
-      <guid>https://lplotni.github.io/blog/2015/10/10/express-testing/</guid>
+      <guid>https://lukasz.dev/blog/2015/10/10/express-testing/</guid>
       <description></description>
       
       <content>
 
 &lt;p&gt;&lt;figure&gt;
-    &lt;img src=&#34;https://lplotni.github.io/media/test_pyramid.jpg&#34;/&gt; 
+    &lt;img src=&#34;https://lukasz.dev/media/test_pyramid.jpg&#34;/&gt; 
 &lt;/figure&gt;
 
-After we managed to set up our basic &lt;a href=&#34;https://lplotni.github.io/blog/2015/08/04/bootstraping-a-node-dot-js-webapp/&#34;&gt;web application&lt;/a&gt;,
+After we managed to set up our basic &lt;a href=&#34;https://lukasz.dev/blog/2015/08/04/bootstraping-a-node-dot-js-webapp/&#34;&gt;web application&lt;/a&gt;,
 let&amp;rsquo;s get our
 hands dirty writing some code. And as we want to do it in a test-driven
 manner (&lt;a href=&#34;http://martinfowler.com/bliki/TestDrivenDevelopment.html&#34; target=&#34;_blank&#34;&gt;TDD&lt;/a&gt;), we need
@@ -413,10 +413,10 @@ all dependencies for selenium and executes the database migrations&lt;/li&gt;
     
     <item>
       <title>bootstraping a node.js webapp</title>
-      <link>https://lplotni.github.io/blog/2015/08/04/bootstraping-a-node-dot-js-webapp/</link>
+      <link>https://lukasz.dev/blog/2015/08/04/bootstraping-a-node-dot-js-webapp/</link>
       <pubDate>Tue, 04 Aug 2015 00:00:00 +0000</pubDate>
       <author>Lukasz Plotnicki</author>
-      <guid>https://lplotni.github.io/blog/2015/08/04/bootstraping-a-node-dot-js-webapp/</guid>
+      <guid>https://lukasz.dev/blog/2015/08/04/bootstraping-a-node-dot-js-webapp/</guid>
       <description></description>
       
       <content>
@@ -560,10 +560,10 @@ html
     
     <item>
       <title>build monitors</title>
-      <link>https://lplotni.github.io/blog/2015/06/27/build-monitors/</link>
+      <link>https://lukasz.dev/blog/2015/06/27/build-monitors/</link>
       <pubDate>Sat, 27 Jun 2015 00:00:00 +0000</pubDate>
       <author>Lukasz Plotnicki</author>
-      <guid>https://lplotni.github.io/blog/2015/06/27/build-monitors/</guid>
+      <guid>https://lukasz.dev/blog/2015/06/27/build-monitors/</guid>
       <description></description>
       
       <content>&lt;p&gt;During my last four projects or so, the teams I worked with were always using &lt;a href=&#34;http://www.go.cd/&#34; target=&#34;_blank&#34;&gt;GO.CD&lt;/a&gt; as the CD tool of their
@@ -571,7 +571,7 @@ choosing. Although the pipeline state visualisation GO.CD comes with is quite ni
 &lt;em&gt;obvious&lt;/em&gt; build monitor enabling everybody in the team to quickly recognize what is the pipeline status.&lt;/p&gt;
 
 &lt;figure&gt;
-    &lt;img src=&#34;https://lplotni.github.io/media/burstah_example.png&#34;/&gt; &lt;figcaption&gt;
+    &lt;img src=&#34;https://lukasz.dev/media/burstah_example.png&#34;/&gt; &lt;figcaption&gt;
             &lt;h4&gt;Burstah in action&lt;/h4&gt;
         &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -600,17 +600,17 @@ having the liberty, I decided to re-implement everything in JavaScript using nod
     
     <item>
       <title>scoopcamp hackathon</title>
-      <link>https://lplotni.github.io/blog/2013/09/14/scoopcamp-hackathon/</link>
+      <link>https://lukasz.dev/blog/2013/09/14/scoopcamp-hackathon/</link>
       <pubDate>Sat, 14 Sep 2013 00:00:00 +0000</pubDate>
       <author>Lukasz Plotnicki</author>
-      <guid>https://lplotni.github.io/blog/2013/09/14/scoopcamp-hackathon/</guid>
+      <guid>https://lukasz.dev/blog/2013/09/14/scoopcamp-hackathon/</guid>
       <description></description>
       
       <content>
 
 &lt;p&gt;Last Thursday I was a part of the &lt;a href=&#34;http://scoopcamp.de/hackathon/&#34; target=&#34;_blank&#34;&gt;Scoopcamp hackathon&lt;/a&gt; and it was so great that I just couldn&amp;rsquo;t resist to write down some of my thoughts about it. Our team &lt;strong&gt;ThoughtWorks and friends&lt;/strong&gt; a colorful mix of journalists, students and developers had a rough idea for a modern - more &lt;strong&gt;agile&lt;/strong&gt; - journalism, where the journalist reporting about an ongoing event writes the background story and live updates from his perspective, but can also incorporate content written by the readers who create their own streams representing their own take on the particular event. Being able to see which stream/entry is getting most likes (=feedback), he/she can quickly react and focus on the currently favorite perspective. During a quick brainstorming we came up with the name: &lt;strong&gt;LiquidPub&lt;/strong&gt; (for liquid publishing) and started defining the first user stories.
 &lt;figure&gt;
-    &lt;img src=&#34;https://lplotni.github.io/media/liquidpub_screenshot.png&#34;/&gt; &lt;figcaption&gt;
+    &lt;img src=&#34;https://lukasz.dev/media/liquidpub_screenshot.png&#34;/&gt; &lt;figcaption&gt;
             &lt;h4&gt;Our app&lt;/h4&gt;
         &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -643,10 +643,10 @@ This hackathon was really a great opportunity to have fun and meet new people an
     
     <item>
       <title>gwt part i</title>
-      <link>https://lplotni.github.io/blog/2013/06/15/gwt-part-i/</link>
+      <link>https://lukasz.dev/blog/2013/06/15/gwt-part-i/</link>
       <pubDate>Sat, 15 Jun 2013 00:00:00 +0000</pubDate>
       <author>Lukasz Plotnicki</author>
-      <guid>https://lplotni.github.io/blog/2013/06/15/gwt-part-i/</guid>
+      <guid>https://lukasz.dev/blog/2013/06/15/gwt-part-i/</guid>
       <description></description>
       
       <content>&lt;p&gt;Back in 2009 I became the job to design and start realizing a quite large web application for a health care research project. I took some time, sat down and thought about the technology stack, I would like to use to build it. As we wanted to have an RIA and I already had some experience with GWT, we quickly decided to use it. Since then four years have passed and we are about to release the 2.0 version of our system. During this time, the whole team learned a lot about GWT, its advantages and also some disadvantages, and I thought it would be useful to write some of them up. This part is about the &lt;strong&gt;status quo&lt;/strong&gt;, in the second part I will try to write about a GWT setup I would go for, when starting the project today - so if you have any hints in this regard, please feel free to leave a comment, I would definitely appreciate it!&lt;/p&gt;
@@ -655,7 +655,7 @@ This hackathon was really a great opportunity to have fun and meet new people an
 
 &lt;p&gt;Around the same time, as I started to draw the first diagrams of the inner life of our web app, Ray Ryan gave a &lt;a href=&#34;http://www.youtube.com/watch?v=PDuhR18-EdM&#34; target=&#34;_blank&#34;&gt;talk at the IO conference&lt;/a&gt; about the best practices for GWT app architecture, mentioning the &lt;a href=&#34;http://martinfowler.com/eaaDev/uiArchs.html&#34; target=&#34;_blank&#34;&gt;model view presenter&lt;/a&gt;, the usage of an event bus for components communication and the command pattern for dispatching the GWT-RPC calls to the server. Shortly after I discovered the &lt;a href=&#34;http://code.google.com/p/gwt-presenter/&#34; target=&#34;_blank&#34;&gt;gwt-presenter&lt;/a&gt; and the &lt;a href=&#34;http://code.google.com/p/gwt-dispatch/&#34; target=&#34;_blank&#34;&gt;gwt-dispatch&lt;/a&gt; libraries, offering an easy way to build an GWT app based on the principles from  Ray&amp;rsquo;s talk. I also found a very detailed &lt;a href=&#34;http://blog.hivedevelopment.co.uk/2009/08/google-web-toolkit-gwt-mvp-example.html&#34; target=&#34;_blank&#34;&gt;blog post&lt;/a&gt; explaining how everything works together.&lt;br /&gt;
 &lt;figure&gt;
-    &lt;img src=&#34;https://lplotni.github.io/media/gwt_mvp.png&#34;/&gt; &lt;figcaption&gt;
+    &lt;img src=&#34;https://lukasz.dev/media/gwt_mvp.png&#34;/&gt; &lt;figcaption&gt;
             &lt;h4&gt;MVP with EventBus and Dispatcher&lt;/h4&gt;
         &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -789,7 +789,7 @@ At this point we defined one &lt;strong&gt;Presenter&lt;/strong&gt; for all the 
 
 &lt;p&gt;To execute a command a corresponding object just needs to be passed to the dispatcher which is a singleton on the client and gets injected to every presenter that should be able to trigger the communication. In most of the cases the result of a command (or to use gwt-dispatch terminology: an action) contains a DTO object which is then shown by the presenter. On the server side we are using JPA &amp;amp; Hibernate so obviously we need to take care of the server entity to DTO conversion. Although some libraries exists for this purpose (e.g &lt;a href=&#34;http://sourceforge.net/projects/gilead/&#34; target=&#34;_blank&#34;&gt;gilead&lt;/a&gt;), in our specific setting we decided to implement it ourself which was actually a straightforward task when using the reflection API and sticking to a well defined class hierarchy of our own.
 &lt;figure&gt;
-    &lt;img src=&#34;https://lplotni.github.io/media/dto.png&#34;/&gt; &lt;figcaption&gt;
+    &lt;img src=&#34;https://lukasz.dev/media/dto.png&#34;/&gt; &lt;figcaption&gt;
             &lt;h4&gt;DTO&lt;/h4&gt;
         &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -834,10 +834,10 @@ We also use the JSR303 annotations for validation of the entities and are able t
     
     <item>
       <title>setting up ...</title>
-      <link>https://lplotni.github.io/blog/2013/05/14/setting-up-dot-dot-dot/</link>
+      <link>https://lukasz.dev/blog/2013/05/14/setting-up-dot-dot-dot/</link>
       <pubDate>Tue, 14 May 2013 00:00:00 +0000</pubDate>
       <author>Lukasz Plotnicki</author>
-      <guid>https://lplotni.github.io/blog/2013/05/14/setting-up-dot-dot-dot/</guid>
+      <guid>https://lukasz.dev/blog/2013/05/14/setting-up-dot-dot-dot/</guid>
       <description></description>
       
       <content>
@@ -884,10 +884,10 @@ We also use the JSR303 annotations for validation of the entities and are able t
     
     <item>
       <title>hello world</title>
-      <link>https://lplotni.github.io/blog/2013/05/09/hello-world/</link>
+      <link>https://lukasz.dev/blog/2013/05/09/hello-world/</link>
       <pubDate>Thu, 09 May 2013 00:00:00 +0000</pubDate>
       <author>Lukasz Plotnicki</author>
-      <guid>https://lplotni.github.io/blog/2013/05/09/hello-world/</guid>
+      <guid>https://lukasz.dev/blog/2013/05/09/hello-world/</guid>
       <description></description>
       
       <content>&lt;p&gt;I had this idea to create my own blog since like forever but always convinced myself that it will be either too time consuming or all the topics I would like to write about, are already well described, so what&amp;rsquo;s the point &amp;hellip;&lt;/p&gt;
@@ -903,10 +903,10 @@ We also use the JSR303 annotations for validation of the entities and are able t
     
     <item>
       <title></title>
-      <link>https://lplotni.github.io/about/</link>
+      <link>https://lukasz.dev/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>Lukasz Plotnicki</author>
-      <guid>https://lplotni.github.io/about/</guid>
+      <guid>https://lukasz.dev/about/</guid>
       <description></description>
       
       <content>
