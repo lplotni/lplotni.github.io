@@ -1,0 +1,67 @@
+==================================================================
+https://keybase.io/lplotni
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://lukasz.dev
+  * I am lplotni (https://keybase.io/lplotni) on keybase.
+  * I have a public key with fingerprint 43F9 3BC4 8717 CED6 9B74  E40D 1274 8A7B CA91 C14C
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01014244b6d4b18930927c27d98855f0e3423f56242d6d29d2b997ddf935c7fc05910a",
+      "fingerprint": "43f93bc48717ced69b74e40d12748a7bca91c14c",
+      "host": "keybase.io",
+      "key_id": "12748a7bca91c14c",
+      "kid": "01014244b6d4b18930927c27d98855f0e3423f56242d6d29d2b997ddf935c7fc05910a",
+      "uid": "27f259a6db1c950ffc45d647004bc419",
+      "username": "lplotni"
+    },
+    "service": {
+      "hostname": "lukasz.dev",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "ctime": 1566149474,
+  "expire_in": 157680000,
+  "prev": "f8df91b89573e280c4135836e232f3cc904f277beec2f85d7ca54e92c197ea50",
+  "seqno": 35,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+
+owGtUltIFUEYPqeyi2RoYtENagsKksPu7MzOzhYVRb1UvnSBgjrtXFaXc9w9nd1j
+lh0jyEIrKIgKUruQFYFBoWFYQdBDZBd6KSHoQnaxMnuIoBs1K/nWY/MyzMf3ff/3
+/cyhopGxwvjEsKnu7uFbq+I9/TS2acP+2jqF+ny7YtUpKTF0iTQXQZhMuVyxFFVT
+NQggpAaHVDOJrhKAGcCcmCZCjip0CHQHGQACbnBAOKCEYM4doiOGHaYioqm2Uq44
+rlcpspms64XSFuqSQBk0sYaZ4AahGAqocg1gaNqYMptoTINMCqv8IFLIcNQORML1
+JSYfyaF4/+D/59y5ITuAHYCIbXCqMYJUx2EQcQNiVYWyhUYiYiCynl0tJDudSfuh
+5yr5ckWCNS4T0V6jIsOEXMoOdiS4qJHCTNYPfeanJV4VhpnAinTh9kxE3CZo8q9F
+kroel0uUihqRDVzfUyxNMlnoRp4aMgwNEohhuSJqM25WJN2IgbBhqvJEc+Q4S3FM
+WVKjJkHrsS6Aqcr8OjJ1QwAdODpjRIUOwJgKwYBjIo6ZjaAggGkECxupStRqq+cr
+lo5kULtSmgZupWeHuaxQ8oWNcX1ULF4YmzFp1qhl3xbc3jf5weMTYV/R8M8rGBF9
+u1jhuOJhBLWM+R28G2hbNCdfcfI8/FTh9dX6Y1ruPXl4eX7jus3Xe0R6asOjd+HY
+VbtAUefIEq9Bp1ZX/YtlTXd2fp9wbVBouQ9woCHfmxw9vru9rbN660NzsHT+xt3+
+TOZU6M/R4utr1uS6Xll7nCslXbC19tyB0hXTl94sftPY/JKu/Fze6l415z67dHxj
+SWpEgX2/dMWFi6tnHO1tPfazvn9K/vRr3Hvsy8nm9nFBk3+rfiHdO7p5TlfDtM7E
+z7XTOnoKlnajjvdvHyeW75w3QKYedN+wJbvT23KTG5+eyWTbytRiq6Xjxi8l8Sw+
+u2z5j7Nft/Qf+XS8m5169H7dgrsfU37pzEF/7x8=
+=TveZ
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/lplotni
+
+==================================================================
+
