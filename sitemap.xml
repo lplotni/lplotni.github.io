@@ -5,7 +5,6 @@
   <url>
     <loc>https://lukasz.dev/blog/</loc>
     <lastmod>2018-12-28T23:24:02+01:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -16,7 +15,6 @@
   <url>
     <loc>https://lukasz.dev/</loc>
     <lastmod>2018-12-28T23:24:02+01:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -75,7 +73,6 @@
   
   <url>
     <loc>https://lukasz.dev/tags/</loc>
-    <priority>0</priority>
   </url>
   
 </urlset>
