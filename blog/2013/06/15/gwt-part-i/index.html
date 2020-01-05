@@ -15,20 +15,21 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="canonical" href="https://lukasz.dev/blog/2013/06/15/gwt-part-i/">
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="theme-color" content="#ffffff">
 </head>
 <body>
 <section class="section">
   <div class="container">
-    <nav class="nav">
-      <div class="nav-left">
-        <a class="nav-item" href="https://lukasz.dev/">
-          <h1 class="title is-4">Working thoughts</h1>
+    <nav id="nav-main" class="nav">
+      <div id="nav-name" class="nav-left">
+        <a id="nav-anchor" class="nav-item" href="https://lukasz.dev/">
+          <h1 id="nav-heading" class="title is-4">Working thoughts</h1>
         </a>
       </div>
       <div class="nav-right">
-        <nav class="nav-item level is-mobile"><a class="level-item" aria-label="github" href='https://github.com/lplotni'
+        <nav id="nav-items" class="nav-item level is-mobile"><a class="level-item" aria-label="github" href='https://github.com/lplotni'
             target='_blank' rel='noopener'>
             <span class="icon">
               <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
@@ -72,6 +73,7 @@
     </nav>
 
   </div>
+  <script src="/js/navicon-shift.js"></script>
 </section>
 <section class="section">
   <div class="container">
@@ -83,20 +85,16 @@
     
     <div class="content">
       <p>Back in 2009 I became the job to design and start realizing a quite large web application for a health care research project. I took some time, sat down and thought about the technology stack, I would like to use to build it. As we wanted to have an RIA and I already had some experience with GWT, we quickly decided to use it. Since then four years have passed and we are about to release the 2.0 version of our system. During this time, the whole team learned a lot about GWT, its advantages and also some disadvantages, and I thought it would be useful to write some of them up. This part is about the <strong>status quo</strong>, in the second part I will try to write about a GWT setup I would go for, when starting the project today - so if you have any hints in this regard, please feel free to leave a comment, I would definitely appreciate it!</p>
-
 <h2 id="1-client-setup">1. Client setup</h2>
-
-<p>Around the same time, as I started to draw the first diagrams of the inner life of our web app, Ray Ryan gave a <a href="http://www.youtube.com/watch?v=PDuhR18-EdM" target="_blank">talk at the IO conference</a> about the best practices for GWT app architecture, mentioning the <a href="http://martinfowler.com/eaaDev/uiArchs.html" target="_blank">model view presenter</a>, the usage of an event bus for components communication and the command pattern for dispatching the GWT-RPC calls to the server. Shortly after I discovered the <a href="http://code.google.com/p/gwt-presenter/" target="_blank">gwt-presenter</a> and the <a href="http://code.google.com/p/gwt-dispatch/" target="_blank">gwt-dispatch</a> libraries, offering an easy way to build an GWT app based on the principles from  Ray&rsquo;s talk. I also found a very detailed <a href="http://blog.hivedevelopment.co.uk/2009/08/google-web-toolkit-gwt-mvp-example.html" target="_blank">blog post</a> explaining how everything works together.<br />
+<p>Around the same time, as I started to draw the first diagrams of the inner life of our web app, Ray Ryan gave a <a href="http://www.youtube.com/watch?v=PDuhR18-EdM">talk at the IO conference</a> about the best practices for GWT app architecture, mentioning the <a href="http://martinfowler.com/eaaDev/uiArchs.html">model view presenter</a>, the usage of an event bus for components communication and the command pattern for dispatching the GWT-RPC calls to the server. Shortly after I discovered the <a href="http://code.google.com/p/gwt-presenter/">gwt-presenter</a> and the <a href="http://code.google.com/p/gwt-dispatch/">gwt-dispatch</a> libraries, offering an easy way to build an GWT app based on the principles from  Ray's talk. I also found a very detailed <a href="http://blog.hivedevelopment.co.uk/2009/08/google-web-toolkit-gwt-mvp-example.html">blog post</a> explaining how everything works together.<br>
 <figure>
     <img src="/media/gwt_mvp.png"/> <figcaption>
             <h4>MVP with EventBus and Dispatcher</h4>
         </figcaption>
 </figure>
 
-At this point we defined one <strong>Presenter</strong> for all the entities, we wanted to made accessible on the client, and each presenter defined his own <strong>Display</strong> interface which then was implemented by the <strong>View</strong> class. The instantiation of all presenters and views has been managed by <a href="http://code.google.com/p/google-gin/" target="_blank">gin</a> - a dependency injection framework for the client side. The code looked more or less like this:</p>
-
+At this point we defined one <strong>Presenter</strong> for all the entities, we wanted to made accessible on the client, and each presenter defined his own <strong>Display</strong> interface which then was implemented by the <strong>View</strong> class. The instantiation of all presenters and views has been managed by <a href="http://code.google.com/p/google-gin/">gin</a> - a dependency injection framework for the client side. The code looked more or less like this:</p>
 <p><em>Presenter &amp; Display:</em></p>
-
 <pre><code>public class HistoryPresenter extends WidgetPresenter&lt;HistoryPresenter.Display&gt;
 		implements PresentsDTO&lt;HistoryDTO&gt; {
 
@@ -154,12 +152,8 @@ At this point we defined one <strong>Presenter</strong> for all the entities, we
 		// React on place request e.g use the dispatcher to load the data from the server
 	}
 }
-</code></pre>
-
-<p>In the gwt-presenter class hierarchy there was no possibility to define the model class the presenter will be responsible for. For that reason we introduced a <code>PresentDTO&lt;T&gt;</code> and <code>PresentDTOs&lt;T&gt;</code> interfaces to ensure the existence of <code>T getDTO()</code> etc. methods. The view classes are quite straightforward, the only difference is that back in 2009 ui:binder was not really there, therefore the gwt-presenter had no direct support for it. But switching to the declarative layout definition was indeed very easy - each view defines its own *.ui.xml file and the <code>asWidget()</code> method just returns the result of the <code>uiBinder.createAndBindUi()</code> call. As you can see in the code below we introduced also a <code>WidgetsManager</code> class which is a convinient way to managed all the widgets the view is defining (offering a general <code>setEditable()</code> method and taking care of the validation visualization).</p>
-
+</code></pre><p>In the gwt-presenter class hierarchy there was no possibility to define the model class the presenter will be responsible for. For that reason we introduced a <!-- raw HTML omitted -->PresentDTO&lt;T&gt;<!-- raw HTML omitted --> and <!-- raw HTML omitted -->PresentDTOs&lt;T&gt;<!-- raw HTML omitted --> interfaces to ensure the existence of <!-- raw HTML omitted -->T getDTO()<!-- raw HTML omitted --> etc. methods. The view classes are quite straightforward, the only difference is that back in 2009 ui:binder was not really there, therefore the gwt-presenter had no direct support for it. But switching to the declarative layout definition was indeed very easy - each view defines its own *.ui.xml file and the <!-- raw HTML omitted -->asWidget()<!-- raw HTML omitted --> method just returns the result of the <!-- raw HTML omitted -->uiBinder.createAndBindUi()<!-- raw HTML omitted --> call. As you can see in the code below we introduced also a <!-- raw HTML omitted -->WidgetsManager<!-- raw HTML omitted --> class which is a convinient way to managed all the widgets the view is defining (offering a general <!-- raw HTML omitted -->setEditable()<!-- raw HTML omitted --> method and taking care of the validation visualization).</p>
 <p><em>View:</em></p>
-
 <pre><code>public class HistoryView implements Display {
 	interface HistoryViewUiBinder extends UiBinder&lt;LayoutPanel, HistoryView&gt; {}
 	private static HistoryViewUiBinder uiBinder = GWT.create(HistoryViewUiBinder.class);
@@ -212,55 +206,45 @@ At this point we defined one <strong>Presenter</strong> for all the entities, we
 		return renalDiseaseStart;
 	}
 }
-</code></pre>
-
-<p>To ensure a loosely coupled client we try to communicate between the presenters only via the EventBus or PlaceRequests, so if a new part of the UI should be rendered, a new place event needs to be fired.</p>
-
-<h2 id="2-client-server-communication">2. Client - server communication</h2>
-
+</code></pre><p>To ensure a loosely coupled client we try to communicate between the presenters only via the EventBus or PlaceRequests, so if a new part of the UI should be rendered, a new place event needs to be fired.</p>
+<h2 id="2-client---server-communication">2. Client - server communication</h2>
 <p>The client - server communication is based fully on the GWT-RPC mechanism. As mentioned above we are using the gwt-dispatch library meaning that for every request, we have a command object, result object and a server side handler. It is a bit verbose, but in the end it is also a very simple pattern and every new dev introduced to our team grasps it very quickly. The implementation of the client-side caching is easily done, as you just need to compare the command object which should be executed and if one of them has been already seen, then you can serve the already received result saving you one round-trip.</p>
-
-<p>To execute a command a corresponding object just needs to be passed to the dispatcher which is a singleton on the client and gets injected to every presenter that should be able to trigger the communication. In most of the cases the result of a command (or to use gwt-dispatch terminology: an action) contains a DTO object which is then shown by the presenter. On the server side we are using JPA &amp; Hibernate so obviously we need to take care of the server entity to DTO conversion. Although some libraries exists for this purpose (e.g <a href="http://sourceforge.net/projects/gilead/" target="_blank">gilead</a>), in our specific setting we decided to implement it ourself which was actually a straightforward task when using the reflection API and sticking to a well defined class hierarchy of our own.
+<p>To execute a command a corresponding object just needs to be passed to the dispatcher which is a singleton on the client and gets injected to every presenter that should be able to trigger the communication. In most of the cases the result of a command (or to use gwt-dispatch terminology: an action) contains a DTO object which is then shown by the presenter. On the server side we are using JPA &amp; Hibernate so obviously we need to take care of the server entity to DTO conversion. Although some libraries exists for this purpose (e.g <a href="http://sourceforge.net/projects/gilead/">gilead</a>), in our specific setting we decided to implement it ourself which was actually a straightforward task when using the reflection API and sticking to a well defined class hierarchy of our own.
 <figure>
     <img src="/media/dto.png"/> <figcaption>
             <h4>DTO</h4>
         </figcaption>
 </figure>
 
-We also use the JSR303 annotations for validation of the entities and are able to push the constraint violations back to the client where they will be assigned to the specific widgets by our <code>WidgetsManager</code> - here we are just using a simple convention of associating the input widgets with same names as the property paths in the entities.</p>
-
+We also use the JSR303 annotations for validation of the entities and are able to push the constraint violations back to the client where they will be assigned to the specific widgets by our <!-- raw HTML omitted -->WidgetsManager<!-- raw HTML omitted --> - here we are just using a simple convention of associating the input widgets with same names as the property paths in the entities.</p>
 <h2 id="3-testing-the-client">3. Testing the client</h2>
-
-<p>One of the main advantages of doing MVP is the separation of the business logic (sitting in the presenter) from the actual UI components (being a part of the view) resulting in the ability of writing normal, fast unit test (normal, meaning not using the GWTTestCase) and mocking the views. Nevertheless in our project we use <a href="http://docs.seleniumhq.org/" target="_blank">selenium</a> as the main way to assure the correct functionality of our client. As using the normal selenium recorder is not an option with GWT due to the element ids changing during each compile process, we tried to get our selenium tests (written in java as normal unit tests) as independent as it only can be from the layout definition itself (trying not to use exact XPath etc.). Our client is very data input heavy, so we have a lot of input components to test. When we test if the entities get created in a correct way, we just access all visible input components of a certain type, populate them with a random content (which we then store for later comparison), trigger the save action and reload the UI to verify if the same components holds still the same data. Thus, we don&rsquo;t have to update the tests if our data definition changes and we have introduced some new input components. The test will also work if the layout of the UI changes either on purpose, because we rearranged it, or when a new GWT version switch to a different HTML representation for some standard widgets.</p>
-
+<p>One of the main advantages of doing MVP is the separation of the business logic (sitting in the presenter) from the actual UI components (being a part of the view) resulting in the ability of writing normal, fast unit test (normal, meaning not using the GWTTestCase) and mocking the views. Nevertheless in our project we use <a href="http://docs.seleniumhq.org/">selenium</a> as the main way to assure the correct functionality of our client. As using the normal selenium recorder is not an option with GWT due to the element ids changing during each compile process, we tried to get our selenium tests (written in java as normal unit tests) as independent as it only can be from the layout definition itself (trying not to use exact XPath etc.). Our client is very data input heavy, so we have a lot of input components to test. When we test if the entities get created in a correct way, we just access all visible input components of a certain type, populate them with a random content (which we then store for later comparison), trigger the save action and reload the UI to verify if the same components holds still the same data. Thus, we don't have to update the tests if our data definition changes and we have introduced some new input components. The test will also work if the layout of the UI changes either on purpose, because we rearranged it, or when a new GWT version switch to a different HTML representation for some standard widgets.</p>
 <p><em>Getting certain elements from selenium driver:</em></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">protected</span> <span style="color:#a6e22e">static</span> ArrayList<span style="color:#f92672">&lt;</span>WebElement<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getVisibleElements</span>(String <span style="color:#a6e22e">tagName</span>,
-			<span style="color:#66d9ef">final</span> <span style="color:#a6e22e">String</span> classString) {
-		List<span style="color:#f92672">&lt;</span>WebElement<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">elements</span> <span style="color:#f92672">=</span> driver.<span style="color:#a6e22e">findElements</span>(By.<span style="color:#a6e22e">tagName</span>(tagName));
-		<span style="color:#66d9ef">return</span> Lists.<span style="color:#a6e22e">newArrayList</span>(Collections2.<span style="color:#a6e22e">filter</span>(elements,
-				<span style="color:#66d9ef">new</span> Predicate<span style="color:#f92672">&lt;</span>WebElement<span style="color:#f92672">&gt;</span>() {
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">static</span> ArrayList<span style="color:#f92672">&lt;</span>WebElement<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getVisibleElements</span><span style="color:#f92672">(</span>String tagName<span style="color:#f92672">,</span>
+			<span style="color:#66d9ef">final</span> String classString<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		List<span style="color:#f92672">&lt;</span>WebElement<span style="color:#f92672">&gt;</span> elements <span style="color:#f92672">=</span> driver<span style="color:#f92672">.</span><span style="color:#a6e22e">findElements</span><span style="color:#f92672">(</span>By<span style="color:#f92672">.</span><span style="color:#a6e22e">tagName</span><span style="color:#f92672">(</span>tagName<span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		<span style="color:#66d9ef">return</span> Lists<span style="color:#f92672">.</span><span style="color:#a6e22e">newArrayList</span><span style="color:#f92672">(</span>Collections2<span style="color:#f92672">.</span><span style="color:#a6e22e">filter</span><span style="color:#f92672">(</span>elements<span style="color:#f92672">,</span>
+				<span style="color:#66d9ef">new</span> Predicate<span style="color:#f92672">&lt;</span>WebElement<span style="color:#f92672">&gt;</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
 					<span style="color:#a6e22e">@Override</span>
-					<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">boolean</span> apply(<span style="color:#a6e22e">@Nullable</span> WebElement <span style="color:#a6e22e">input</span>) {
-						<span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">b</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>;
-						<span style="color:#66d9ef">try</span> {
-							String <span style="color:#a6e22e">classAttribute</span> <span style="color:#f92672">=</span> input.<span style="color:#a6e22e">getAttribute</span>(<span style="color:#e6db74">&#34;class&#34;</span>);
-							b <span style="color:#f92672">=</span> input.<span style="color:#a6e22e">isDisplayed</span>() <span style="color:#f92672">&amp;&amp;</span> classAttribute <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span>
-									<span style="color:#f92672">&amp;&amp;</span> classAttribute.<span style="color:#a6e22e">contains</span>(classString);
-						} <span style="color:#66d9ef">catch</span> (StaleElementReferenceException <span style="color:#a6e22e">e</span>) {
+					<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">apply</span><span style="color:#f92672">(</span><span style="color:#a6e22e">@Nullable</span> WebElement input<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+						<span style="color:#66d9ef">boolean</span> b <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+						<span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+							String classAttribute <span style="color:#f92672">=</span> input<span style="color:#f92672">.</span><span style="color:#a6e22e">getAttribute</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;class&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+							b <span style="color:#f92672">=</span> input<span style="color:#f92672">.</span><span style="color:#a6e22e">isDisplayed</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">&amp;</span><span style="color:#f92672">&amp;</span> classAttribute <span style="color:#f92672">!</span><span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>
+									<span style="color:#f92672">&amp;</span><span style="color:#f92672">&amp;</span> classAttribute<span style="color:#f92672">.</span><span style="color:#a6e22e">contains</span><span style="color:#f92672">(</span>classString<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+						<span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>StaleElementReferenceException e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
 							<span style="color:#75715e">// Ignoring stale element
-</span><span style="color:#75715e"></span>						}
-						<span style="color:#66d9ef">return</span> b;
-					}
-				}));
-	}</code></pre></div>
-<h2 id="4-issues">4. Issues</h2>
-
+</span><span style="color:#75715e"></span>						<span style="color:#f92672">}</span>
+						<span style="color:#66d9ef">return</span> b<span style="color:#f92672">;</span>
+					<span style="color:#f92672">}</span>
+				<span style="color:#f92672">}</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+	<span style="color:#f92672">}</span>
+</code></pre></div><h2 id="4-issues">4. Issues</h2>
 <p>We are quite happy how things are working now, but there is room for improvement:</p>
-
 <ul>
-<li><strong>The compile time during development</strong>: trying to change something in the client code in a iterative manner using the standard <strong>DevMode</strong> is very frustrating as it takes just too much time. <strong>SuperDevMode</strong> improved a lot our situation but we still have the problem of having the server and client side in one maven project - changing the server-side code means a <code>mvn clean -DskipTests tomcat7:run-war</code> and this means basically an &ldquo;espresso&rdquo; break.</li>
+<li><strong>The compile time during development</strong>: trying to change something in the client code in a iterative manner using the standard <strong>DevMode</strong> is very frustrating as it takes just too much time. <strong>SuperDevMode</strong> improved a lot our situation but we still have the problem of having the server and client side in one maven project - changing the server-side code means a <!-- raw HTML omitted -->mvn clean -DskipTests tomcat7:run-war<!-- raw HTML omitted --> and this means basically an &ldquo;espresso&rdquo; break.</li>
 <li><strong>The size of the client</strong>: our *.cache.js file is currently 6.1MB (we use the gwtquery and gwt-chosen libs which are quite large) We will definitely try to introduce some code splitting in the future release, to load only as much as we need and not everything from the beginning.</li>
-<li><strong>Execution time of the selenium tests</strong>: our current selenium suite takes a bit over 3 hours to run on our CI server. And although we could, we don&rsquo;t have enough of the presenter unit tests to have a sufficient coverage letting us sleep well at night. Here probably a wrong choice have been made: concentrating to much on the selenium tests and trying to go for a very exhaustive test suite, instead of implementing a good amount of unit tests for the presenters and a simpler selenium suite for the main work flows in the application.</li>
+<li><strong>Execution time of the selenium tests</strong>: our current selenium suite takes a bit over 3 hours to run on our CI server. And although we could, we don't have enough of the presenter unit tests to have a sufficient coverage letting us sleep well at night. Here probably a wrong choice have been made: concentrating to much on the selenium tests and trying to go for a very exhaustive test suite, instead of implementing a good amount of unit tests for the presenters and a simpler selenium suite for the main work flows in the application.</li>
 </ul>
       
       <div class="related">

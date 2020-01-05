@@ -15,20 +15,21 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="canonical" href="https://lukasz.dev/blog/why-hugo/">
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="theme-color" content="#ffffff">
 </head>
 <body>
 <section class="section">
   <div class="container">
-    <nav class="nav">
-      <div class="nav-left">
-        <a class="nav-item" href="https://lukasz.dev/">
-          <h1 class="title is-4">Working thoughts</h1>
+    <nav id="nav-main" class="nav">
+      <div id="nav-name" class="nav-left">
+        <a id="nav-anchor" class="nav-item" href="https://lukasz.dev/">
+          <h1 id="nav-heading" class="title is-4">Working thoughts</h1>
         </a>
       </div>
       <div class="nav-right">
-        <nav class="nav-item level is-mobile"><a class="level-item" aria-label="github" href='https://github.com/lplotni'
+        <nav id="nav-items" class="nav-item level is-mobile"><a class="level-item" aria-label="github" href='https://github.com/lplotni'
             target='_blank' rel='noopener'>
             <span class="icon">
               <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
@@ -72,6 +73,7 @@
     </nav>
 
   </div>
+  <script src="/js/navicon-shift.js"></script>
 </section>
 <section class="section">
   <div class="container">
@@ -82,25 +84,22 @@
     <h1 class="title">why hugo?</h1>
     
     <div class="content">
-      <p>As you can see looking at the frequency of my posts, I&rsquo;m more of an occasional
+      <p>As you can see looking at the frequency of my posts, I'm more of an occasional
 writer. Therefore whenever I drag myself in front of my notebook, to write
-something up I&rsquo;m feeling like sharing, I should really not have any reason to
+something up I'm feeling like sharing, I should really not have any reason to
 do something else instead. Sadly, although I was really happy with my
-<a href="http://octopress.org" target="_blank">octopress</a> setup, more than once
+<a href="http://octopress.org">octopress</a> setup, more than once
 I found myself fighting the currently installed ruby versions and some
 conflicts with the gems that octopress was requiring.</p>
-
 <p>In the quest of solving the problem once and for all, I decided to look at
-<a href="http://gohugo.io/" target="_blank">hugo</a> that is as simple in usage as octopress and has the
-benefit of golang&rsquo;s self-contaied binaries, that don&rsquo;t depend on any runtime.
-And yes, hugo&rsquo;s speed is impressive 💨 It probably doesn&rsquo;t matter for my little blog,
-nevertheless it&rsquo;s nice to have an instant live-reload whenever I work on
+<a href="http://gohugo.io/">hugo</a> that is as simple in usage as octopress and has the
+benefit of golang's self-contaied binaries, that don't depend on any runtime.
+And yes, hugo's speed is impressive 💨 It probably doesn't matter for my little blog,
+nevertheless it's nice to have an instant live-reload whenever I work on
 a new post, or just play with the current design.</p>
-
 <p>The migration from octopress was also very straightforward. Thanks to this
-little migration tool: <a href="https://github.com/codebrane/octohug" target="_blank">octohug</a>.</p>
-
-<p>Bottom line: If you&rsquo;re in the market for a new static web page generation tool,
+little migration tool: <a href="https://github.com/codebrane/octohug">octohug</a>.</p>
+<p>Bottom line: If you're in the market for a new static web page generation tool,
 I strongly suggest hugo!</p>
 
       

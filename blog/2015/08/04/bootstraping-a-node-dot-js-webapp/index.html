@@ -15,20 +15,21 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="canonical" href="https://lukasz.dev/blog/2015/08/04/bootstraping-a-node-dot-js-webapp/">
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="theme-color" content="#ffffff">
 </head>
 <body>
 <section class="section">
   <div class="container">
-    <nav class="nav">
-      <div class="nav-left">
-        <a class="nav-item" href="https://lukasz.dev/">
-          <h1 class="title is-4">Working thoughts</h1>
+    <nav id="nav-main" class="nav">
+      <div id="nav-name" class="nav-left">
+        <a id="nav-anchor" class="nav-item" href="https://lukasz.dev/">
+          <h1 id="nav-heading" class="title is-4">Working thoughts</h1>
         </a>
       </div>
       <div class="nav-right">
-        <nav class="nav-item level is-mobile"><a class="level-item" aria-label="github" href='https://github.com/lplotni'
+        <nav id="nav-items" class="nav-item level is-mobile"><a class="level-item" aria-label="github" href='https://github.com/lplotni'
             target='_blank' rel='noopener'>
             <span class="icon">
               <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
@@ -72,6 +73,7 @@
     </nav>
 
   </div>
+  <script src="/js/navicon-shift.js"></script>
 </section>
 <section class="section">
   <div class="container">
@@ -82,41 +84,29 @@
     <h1 class="title">bootstraping a node.js webapp</h1>
     
     <div class="content">
-      
-
-<p>Together with few friends we started building <strong><a href="https://github.com/lplotni/pace" target="_blank">pace</a></strong> - a web application for
+      <p>Together with few friends we started building <strong><a href="https://github.com/lplotni/pace">pace</a></strong> - a web application for
 organizing and managing running events &amp; competitions. We are a colorful bunch of people with different backgrounds, therefore we wanted to choose an approachable tech stack, as some of us wants also to learn one or two things about <strong>JavaScript</strong>, <strong>web applications</strong> or <strong>programming</strong> in general.</p>
-
 <p>And then, somebody suggested to write one thing or two, about our technology
 decisions and accompany it with some <em>HowTo</em> information. So here we are.</p>
-
-<!-- more -->
-
+<!-- raw HTML omitted -->
 <p>This is the first post out of the <strong>pace</strong> series. We will take a look at how to quickly bootstrap a new express.js application and what is acctually happening during that process.</p>
-
-<h2 id="first-things-first-node-js-express-js">First things first: node.js &amp; express.js</h2>
-
+<h2 id="first-things-first-nodejs--expressjs">First things first: node.js &amp; express.js</h2>
 <blockquote>
-<p>Node.js® is a platform  built on Chrome&rsquo;s JavaScript runtime for easily building fast, scalable network applications. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient, perfect for data-intensive real-time applications that run across distributed devices. - Nodejs.org <a href="https://nodejs.org" target="_blank">https://nodejs.org</a></p>
+<p>Node.js® is a platform  built on Chrome's JavaScript runtime for easily building fast, scalable network applications. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient, perfect for data-intensive real-time applications that run across distributed devices. - Nodejs.org <a href="https://nodejs.org">https://nodejs.org</a></p>
 </blockquote>
-
-<p>Probably also due to the popularity of JavaScript <a href="https://nodejs.org/" target="_blank">node</a> quickly spread all around the web and is nowadays widely <a href="https://github.com/joyent/node/wiki/projects,-applications,-and-companies-using-node" target="_blank">used</a> and has an impressive ecosystem of additional libraries/modules (just take a look at <a href="https://www.npmjs.com/" target="_blank">npm package manager</a>).</p>
-
-<p><a href="http://expressjs.com/" target="_blank">express.js</a> is one of many web frameworks based on node, but seems also to be one of the most popular ones. What is a web framework you ask:</p>
-
+<p>Probably also due to the popularity of JavaScript <a href="https://nodejs.org/">node</a> quickly spread all around the web and is nowadays widely <a href="https://github.com/joyent/node/wiki/projects,-applications,-and-companies-using-node">used</a> and has an impressive ecosystem of additional libraries/modules (just take a look at <a href="https://www.npmjs.com/">npm package manager</a>).</p>
+<p><a href="http://expressjs.com/">express.js</a> is one of many web frameworks based on node, but seems also to be one of the most popular ones. What is a web framework you ask:</p>
 <blockquote>
-<p>A web application framework is a software framework that is designed to support the development of dynamic websites, web applications, web services and web resources. The framework aims to alleviate the overhead associated with common activities performed in web development. For example, many frameworks provide libraries for database access, templating frameworks and session management, and they often promote code reuse - <a href="http://localhost:1313/post/2016/02/22/bff/" target="_blank">http://localhost:1313/post/2016/02/22/bff/</a></p>
+<p>A web application framework is a software framework that is designed to support the development of dynamic websites, web applications, web services and web resources. The framework aims to alleviate the overhead associated with common activities performed in web development. For example, many frameworks provide libraries for database access, templating frameworks and session management, and they often promote code reuse - http://localhost:1313/post/2016/02/22/bff/</p>
 </blockquote>
-
-<h3 id="how-to-bootstrap-a-web-app-what-happens">How to bootstrap a web app &amp; what happens</h3>
-
-<p>Assuming you have node already installed on your machine (if not look at <a href="https://nodejs.org/download/" target="_blank">here</a>)</p>
+<h3 id="how-to-bootstrap-a-web-app--what-happens">How to bootstrap a web app &amp; what happens</h3>
+<p>Assuming you have node already installed on your machine (if not look at <a href="https://nodejs.org/download/">here</a>)</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">npm install express-generator -g
 express myWebApp
 cd myWebApp
 npm install
-npm start</code></pre></div>
-<p>What happened you ask? So first we globally installed <a href="https://www.npmjs.com/package/express-generator" target="_blank">express-generator</a> (it will be now available to you via <em>express</em> cmd). Then we made it bootstrap for us an app called <em>myWebApp</em>. This resulted in the following:</p>
+npm start
+</code></pre></div><p>What happened you ask? So first we globally installed <a href="https://www.npmjs.com/package/express-generator">express-generator</a> (it will be now available to you via <em>express</em> cmd). Then we made it bootstrap for us an app called <em>myWebApp</em>. This resulted in the following:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">/tmp|⇒ express myWebApp
 
    create : myWebApp
@@ -141,9 +131,8 @@ npm start</code></pre></div>
      $ cd myWebApp <span style="color:#f92672">&amp;&amp;</span> npm install
 
    run the app:
-     $ DEBUG<span style="color:#f92672">=</span>myWebApp ./bin/www</code></pre></div>
-<p>The generator created for us a new directory which contains all the needed files the web application consists of:</p>
-
+     $ DEBUG<span style="color:#f92672">=</span>myWebApp ./bin/www
+</code></pre></div><p>The generator created for us a new directory which contains all the needed files the web application consists of:</p>
 <ul>
 <li><strong>package.json</strong> -&gt; definition of our node dependencies and some node configuration</li>
 <li><strong>app.js</strong> -&gt; the main entry point into the application</li>
@@ -152,8 +141,7 @@ npm start</code></pre></div>
 <li><strong>views</strong> -&gt; contains our templates (more about this in future posts)</li>
 <li><strong>bin/www</strong> -&gt; executable application (if you run <code>npm start</code> this will be started)</li>
 </ul>
-
-<p>The execution of <code>npm install</code> in app&rsquo;s directory, installs all the dependencies defined in the <code>package.json</code> file. Those dependencies will be installed only locally in the <code>node_modules</code> directory. After this step we are ready to go and able to run <code>npm start</code> which should result in this:</p>
+<p>The execution of <code>npm install</code> in app's directory, installs all the dependencies defined in the <code>package.json</code> file. Those dependencies will be installed only locally in the <code>node_modules</code> directory. After this step we are ready to go and able to run <code>npm start</code> which should result in this:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">myWebApp|⇒ npm start
 
 &gt; myWebApp@0.0.1 start /private/tmp/myWebApp
@@ -163,18 +151,14 @@ GET / <span style="color:#ae81ff">200</span> 305ms - 170b
 GET / <span style="color:#ae81ff">200</span> 34ms - 170b
 GET /stylesheets/style.css <span style="color:#ae81ff">200</span> 4ms - 110b
 GET / <span style="color:#ae81ff">304</span> 25ms
-GET /stylesheets/style.css <span style="color:#ae81ff">304</span> 1ms</code></pre></div>
-<p>You can see, that I opened <a href="http://localhost:3000" target="_blank">http://localhost:3000</a> in the browser and express served me the index page with the <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html" target="_blank">200 code</a> (you can also see that I refreshed the page and got 304 NOT MODIFIED). Everything works also as expected {%gemoji +1%}</p>
-
-<p><strong>Why? How?</strong> Let&rsquo;s take a quick look at the following:</p>
-
+GET /stylesheets/style.css <span style="color:#ae81ff">304</span> 1ms
+</code></pre></div><p>You can see, that I opened <a href="http://localhost:3000">http://localhost:3000</a> in the browser and express served me the index page with the <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html">200 code</a> (you can also see that I refreshed the page and got 304 NOT MODIFIED). Everything works also as expected {%gemoji +1%}</p>
+<p><strong>Why? How?</strong> Let's take a quick look at the following:</p>
 <p><em>app.js</em></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JavaScript" data-lang="JavaScript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">routes</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;./routes/index&#39;</span>);
 
 <span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">use</span>(<span style="color:#e6db74">&#39;/&#39;</span>, <span style="color:#a6e22e">routes</span>)
-</code></pre></div>
-<p>This is only a part of the <code>app.js</code> file but shows the wiring of our default root to the index.js file shown below. BTW: you can also see how to load dependencies/modules for our code via the <code>require</code> function (if you want to read more about that, <a href="http://openmymind.net/2012/2/3/Node-Require-and-Exports/" target="_blank">here is a nice write-up</a>)</p>
-
+</code></pre></div><p>This is only a part of the <code>app.js</code> file but shows the wiring of our default root to the index.js file shown below. BTW: you can also see how to load dependencies/modules for our code via the <code>require</code> function (if you want to read more about that, <a href="http://openmymind.net/2012/2/3/Node-Require-and-Exports/">here is a nice write-up</a>)</p>
 <p><em>routes/index.js:</em></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JavaScript" data-lang="JavaScript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">express</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;express&#39;</span>);
 <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">router</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">express</span>.<span style="color:#a6e22e">Router</span>();
@@ -185,24 +169,24 @@ GET /stylesheets/style.css <span style="color:#ae81ff">304</span> 1ms</code></pr
 });
 
 <span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">router</span>;
-</code></pre></div>
-<p>The <code>index.js</code> uses express&rsquo; <code>router</code> and wires request for <strong>/</strong> to the function responding with a rendered <code>index.jade</code> template, to which it passes a variable called <code>title</code>. If you never used <a href="http://jade-lang.com/" target="_blank">jade</a>, don&rsquo;t worry, is a pretty simple HTML template engine. Look at the following:
+</code></pre></div><p>The <code>index.js</code> uses express&rsquo; <code>router</code> and wires request for <strong>/</strong> to the function responding with a rendered <code>index.jade</code> template, to which it passes a variable called <code>title</code>. If you never used <a href="http://jade-lang.com/">jade</a>, don't worry, is a pretty simple HTML template engine. Look at the following:
 <em>index.jade:</em></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jade" data-lang="jade">extends layout
+<pre><code class="language-jade" data-lang="jade">extends layout
 
 block content
   h1= title
-  p Welcome to #{title}</code></pre></div>
-<p>Jade enables template composition. In here we extend <code>layout.jade</code> which defines the general page structure. If other template defines a <strong>block</strong> called <code>content</code> it will be then injected at the corresponding place.
+  p Welcome to #{title}
+
+</code></pre><p>Jade enables template composition. In here we extend <code>layout.jade</code> which defines the general page structure. If other template defines a <strong>block</strong> called <code>content</code> it will be then injected at the corresponding place.
 <em>layout.jade:</em></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jade" data-lang="jade">doctype html
+<pre><code class="language-jade" data-lang="jade">doctype html
 html
   head
     title= title
-    link(rel=&#39;stylesheet&#39;, href=&#39;/stylesheets/style.css&#39;)
+    link(rel='stylesheet', href='/stylesheets/style.css')
   body
-    block content</code></pre></div>
-<p>Jade is indentation aware, meaning that the above example results in the following:</p>
+    block content
+</code></pre><p>Jade is indentation aware, meaning that the above example results in the following:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-HTML" data-lang="HTML"><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
 &lt;<span style="color:#f92672">html</span>&gt;
   &lt;<span style="color:#f92672">head</span>&gt;
@@ -213,9 +197,8 @@ html
     &lt;<span style="color:#f92672">h1</span>&gt;Express&lt;/<span style="color:#f92672">h1</span>&gt;
     &lt;<span style="color:#f92672">p</span>&gt;Welcome to Express&lt;/<span style="color:#f92672">p</span>&gt;
   &lt;/<span style="color:#f92672">body</span>&gt;
-&lt;/<span style="color:#f92672">html</span>&gt;</code></pre></div>
-<p>Now you have seen all the parts making the browser render the most basic page of all time 😎</p>
-
+&lt;/<span style="color:#f92672">html</span>&gt;
+</code></pre></div><p>Now you have seen all the parts making the browser render the most basic page of all time 🕶</p>
 <p>Next post out of the <strong>pace</strong> series, will actually explain how to start working on the functionality we need. Right now you can start to play around with the data which is passed by the <code>index.js</code> to the <code>index.jade</code> template and how the template uses it. Have fun!</p>
 
       

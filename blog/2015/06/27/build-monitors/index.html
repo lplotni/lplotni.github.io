@@ -15,20 +15,21 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="canonical" href="https://lukasz.dev/blog/2015/06/27/build-monitors/">
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="theme-color" content="#ffffff">
 </head>
 <body>
 <section class="section">
   <div class="container">
-    <nav class="nav">
-      <div class="nav-left">
-        <a class="nav-item" href="https://lukasz.dev/">
-          <h1 class="title is-4">Working thoughts</h1>
+    <nav id="nav-main" class="nav">
+      <div id="nav-name" class="nav-left">
+        <a id="nav-anchor" class="nav-item" href="https://lukasz.dev/">
+          <h1 id="nav-heading" class="title is-4">Working thoughts</h1>
         </a>
       </div>
       <div class="nav-right">
-        <nav class="nav-item level is-mobile"><a class="level-item" aria-label="github" href='https://github.com/lplotni'
+        <nav id="nav-items" class="nav-item level is-mobile"><a class="level-item" aria-label="github" href='https://github.com/lplotni'
             target='_blank' rel='noopener'>
             <span class="icon">
               <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
@@ -72,6 +73,7 @@
     </nav>
 
   </div>
+  <script src="/js/navicon-shift.js"></script>
 </section>
 <section class="section">
   <div class="container">
@@ -82,34 +84,28 @@
     <h1 class="title">build monitors</h1>
     
     <div class="content">
-      <p>During my last four projects or so, the teams I worked with were always using <a href="http://www.go.cd/" target="_blank">GO.CD</a> as the CD tool of their
-choosing. Although the pipeline state visualisation GO.CD comes with is quite nice, it still doesn&rsquo;t cut it as a proper,
+      <p>During my last four projects or so, the teams I worked with were always using <a href="http://www.go.cd/">GO.CD</a> as the CD tool of their
+choosing. Although the pipeline state visualisation GO.CD comes with is quite nice, it still doesn't cut it as a proper,
 <em>obvious</em> build monitor enabling everybody in the team to quickly recognize what is the pipeline status.</p>
-
 <figure>
     <img src="/media/burstah_example.png"/> <figcaption>
             <h4>Burstah in action</h4>
         </figcaption>
 </figure>
 
-
-<p>Therefore first <a href="https://github.com/lplotni/cidar" target="_blank">cidar</a>, a simple sinatra based build monitor, has been born. I quickly discovered
-that sinatra and especially the nokogiri dependency, doesn&rsquo;t make it easy to use e.g. a Raspberry Pi as the monitor hardware. So,
-having the liberty, I decided to re-implement everything in JavaScript using node.js &amp; express. <a href="https://github.com/lplotni/burstah" target="_blank">Burstah</a>
-, my second attempt at the ultimative build monitor, has been born 😁</p>
-
-<p>All the necessary information how to use, install or contribute can be found in <strong>Burstah</strong>&rsquo;s readme.</p>
-
+<p>Therefore first <a href="https://github.com/lplotni/cidar">cidar</a>, a simple sinatra based build monitor, has been born. I quickly discovered
+that sinatra and especially the nokogiri dependency, doesn't make it easy to use e.g. a Raspberry Pi as the monitor hardware. So,
+having the liberty, I decided to re-implement everything in JavaScript using node.js &amp; express. <a href="https://github.com/lplotni/burstah">Burstah</a>
+, my second attempt at the ultimative build monitor, has been born 😄</p>
+<p>All the necessary information how to use, install or contribute can be found in <strong>Burstah</strong>&lsquo;s readme.</p>
 <p>Currently <strong>Burstah</strong> has following features:</p>
-
 <ul>
 <li>Polling for the cctray.xml to recognize the pipelines and their status</li>
 <li>Grabbing the commit details directly out of the GO.CD and presenting them</li>
 <li>Providing an animation when the build is running</li>
 <li>Supporting emojis in the commit messages 👍</li>
 </ul>
-
-<p>If you have any wishes or issues, just write stuff down on the <a href="https://github.com/lplotni/burstah/issues" target="_blank">github issues page</a>.</p>
+<p>If you have any wishes or issues, just write stuff down on the <a href="https://github.com/lplotni/burstah/issues">github issues page</a>.</p>
 
       
       <div class="related">

@@ -15,20 +15,21 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="canonical" href="https://lukasz.dev/blog/2016/02/22/bff/">
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="theme-color" content="#ffffff">
 </head>
 <body>
 <section class="section">
   <div class="container">
-    <nav class="nav">
-      <div class="nav-left">
-        <a class="nav-item" href="https://lukasz.dev/">
-          <h1 class="title is-4">Working thoughts</h1>
+    <nav id="nav-main" class="nav">
+      <div id="nav-name" class="nav-left">
+        <a id="nav-anchor" class="nav-item" href="https://lukasz.dev/">
+          <h1 id="nav-heading" class="title is-4">Working thoughts</h1>
         </a>
       </div>
       <div class="nav-right">
-        <nav class="nav-item level is-mobile"><a class="level-item" aria-label="github" href='https://github.com/lplotni'
+        <nav id="nav-items" class="nav-item level is-mobile"><a class="level-item" aria-label="github" href='https://github.com/lplotni'
             target='_blank' rel='noopener'>
             <span class="icon">
               <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
@@ -72,6 +73,7 @@
     </nav>
 
   </div>
+  <script src="/js/navicon-shift.js"></script>
 </section>
 <section class="section">
   <div class="container">
@@ -82,21 +84,18 @@
     <h1 class="title">bff</h1>
     
     <div class="content">
-      <p>A while ago I wrote a <a href="https://www.thoughtworks.com/insights/blog/bff-soundcloud" target="_blank">ThoughtWorks insights post</a> about the
+      <p>A while ago I wrote a <a href="https://www.thoughtworks.com/insights/blog/bff-soundcloud">ThoughtWorks insights post</a> about the
 <strong>Backends for frontends</strong> pattern and the story behind its adaption at
-<a href="http://soundcloud.com" target="_blank">SoundCloud</a>. It generated interesting discussions
+<a href="http://soundcloud.com">SoundCloud</a>. It generated interesting discussions
 and resulted also in some further content and I thought it would be good to
 have a place with links to all this resources for the future reference.</p>
-
 <ul>
-<li><a href="https://www.thoughtworks.com/insights/blog/bff-soundcloud" target="_blank">BFF @ SoundCloud</a> - the original post talking about the pattern and journey towards it</li>
-<li><a href="http://samnewman.io/patterns/architectural/bff/" target="_blank">BFF pattern definition</a> - comprehensive pattern definition</li>
-<li><a href="http://softwareengineeringdaily.com/2016/02/04/moving-to-microservices-at-soundcloud-with-lukasz-plotnicki/" target="_blank">Moving to Microservices at SoundCloud - Software Engineering Daily podcast</a> - a podcast talking about microservices in gerneral, SoundCloud&rsquo;s journey towards this style of architecture and usage of BFFs</li>
-<li><a href="https://soundcloud.com/thoughtworks/bff-soundcloud" target="_blank">BFF @ SoundCloud (podcast)</a> - an interview about UI composition in a microservices world in general and the BFF pattern</li>
+<li><a href="https://www.thoughtworks.com/insights/blog/bff-soundcloud">BFF @ SoundCloud</a> - the original post talking about the pattern and journey towards it</li>
+<li><a href="http://samnewman.io/patterns/architectural/bff/">BFF pattern definition</a> - comprehensive pattern definition</li>
+<li><a href="http://softwareengineeringdaily.com/2016/02/04/moving-to-microservices-at-soundcloud-with-lukasz-plotnicki/">Moving to Microservices at SoundCloud - Software Engineering Daily podcast</a> - a podcast talking about microservices in gerneral, SoundCloud's journey towards this style of architecture and usage of BFFs</li>
+<li><a href="https://soundcloud.com/thoughtworks/bff-soundcloud">BFF @ SoundCloud (podcast)</a> - an interview about UI composition in a microservices world in general and the BFF pattern</li>
 </ul>
-
-<iframe width="100%" height="200" scrolling="no" frameborder="no"
-src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/247896089&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
+<!-- raw HTML omitted -->
 
       
       <div class="related">

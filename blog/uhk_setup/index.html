@@ -15,20 +15,21 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="canonical" href="https://lukasz.dev/blog/uhk_setup/">
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="theme-color" content="#ffffff">
 </head>
 <body>
 <section class="section">
   <div class="container">
-    <nav class="nav">
-      <div class="nav-left">
-        <a class="nav-item" href="https://lukasz.dev/">
-          <h1 class="title is-4">Working thoughts</h1>
+    <nav id="nav-main" class="nav">
+      <div id="nav-name" class="nav-left">
+        <a id="nav-anchor" class="nav-item" href="https://lukasz.dev/">
+          <h1 id="nav-heading" class="title is-4">Working thoughts</h1>
         </a>
       </div>
       <div class="nav-right">
-        <nav class="nav-item level is-mobile"><a class="level-item" aria-label="github" href='https://github.com/lplotni'
+        <nav id="nav-items" class="nav-item level is-mobile"><a class="level-item" aria-label="github" href='https://github.com/lplotni'
             target='_blank' rel='noopener'>
             <span class="icon">
               <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
@@ -72,6 +73,7 @@
     </nav>
 
   </div>
+  <script src="/js/navicon-shift.js"></script>
 </section>
 <section class="section">
   <div class="container">
@@ -82,38 +84,39 @@
     <h1 class="title">My first UHK layout</h1>
     
     <div class="content">
-      <p>I ordered the <a href="https://ultimatehackingkeyboard.com" target="_blank">UHK</a> with the linux layout
+      <p>I ordered the <a href="https://ultimatehackingkeyboard.com">UHK</a> with the linux layout
 as I thought that I will be moving towards a linux laptop as the main driver
-for my work. Somehow this didn&rsquo;t happen 😕 and therefore I ended up using the UHK
+for my work. Somehow this didn't happen 😕 and therefore I ended up using the UHK
 with a Mackbook Pro. Thus, I changed few settings and love my setup even more.
 UHK is really a spectacular keyboard.</p>
-
 <figure>
     <img src="/media/keyboard.png"/> 
 </figure>
 
-
 <ul>
-<li><p>I quickly decided to just align the <strong>Fn</strong>, <strong>Ctrl</strong>, <strong>Option</strong> and <strong>Cmd</strong>
-key with the mac layout so that my mussle memory doesn&rsquo;t suffer too much. This
-also made me fell in love with the UHK agent: It&rsquo;s just so easy to remap the
-keys to your liking.</p></li>
-
-<li><p>While at it, I also changed the default <strong>Mouse</strong> key to
+<li>
+<p>I quickly decided to just align the <strong>Fn</strong>, <strong>Ctrl</strong>, <strong>Option</strong> and <strong>Cmd</strong>
+key with the mac layout so that my mussle memory doesn't suffer too much. This
+also made me fell in love with the UHK agent: It's just so easy to remap the
+keys to your liking.</p>
+</li>
+<li>
+<p>While at it, I also changed the default <strong>Mouse</strong> key to
 become my <strong>Ctrl</strong> (cause I alwas been remaping the Caps key to have that
 behaviour) and decided to allocate the <strong>Mouse</strong> key behavoiur to the <strong>Space</strong> key on
-the edge of the keyboard as I have not been using this key at all.</p></li>
-
-<li><p>To customize my internal keyboard layout on the Mac, I&rsquo;ve been using
-<a href="https://github.com/tekezo/Karabiner-Elements" target="_blank">karabiner-essentials</a> for
+the edge of the keyboard as I have not been using this key at all.</p>
+</li>
+<li>
+<p>To customize my internal keyboard layout on the Mac, I've been using
+<a href="https://github.com/tekezo/Karabiner-Elements">karabiner-essentials</a> for
 a while now, With it, I made my <strong>CAPS</strong> become <strong>ESC</strong> while pressed alone and
 <strong>Ctrl</strong> if pressed with in combination with other key. Since the switch to the
 UHK and my <strong>Mod+Mouse</strong> being <strong>ESC</strong>, I missed this on when working on the
 go only with the internal keyboard, therefore I now use <strong>Cmd + Caps</strong> for <strong>ESC</strong>
-on my internal keyboard too, as it&rsquo;s the same movement for my fingers. To be
-able to do so, I wrote a little <em>complex modification</em> for karabiner-elements:</p></li>
+on my internal keyboard too, as it's the same movement for my fingers. To be
+able to do so, I wrote a little <em>complex modification</em> for karabiner-elements:</p>
+</li>
 </ul>
-
 <script type="application/javascript" src="https://gist.github.com/lplotni/f14a37fa7253b4744871fc57d91fa0e8.js"></script>
 
 
