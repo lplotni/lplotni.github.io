@@ -92,7 +92,7 @@ decisions and accompany it with some <em>HowTo</em> information. So here we are.
 <p>This is the first post out of the <strong>pace</strong> series. We will take a look at how to quickly bootstrap a new express.js application and what is acctually happening during that process.</p>
 <h2 id="first-things-first-nodejs--expressjs">First things first: node.js &amp; express.js</h2>
 <blockquote>
-<p>Node.js® is a platform  built on Chrome's JavaScript runtime for easily building fast, scalable network applications. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient, perfect for data-intensive real-time applications that run across distributed devices. - Nodejs.org <a href="https://nodejs.org">https://nodejs.org</a></p>
+<p>Node.js® is a platform  built on Chrome&rsquo;s JavaScript runtime for easily building fast, scalable network applications. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient, perfect for data-intensive real-time applications that run across distributed devices. - Nodejs.org <a href="https://nodejs.org">https://nodejs.org</a></p>
 </blockquote>
 <p>Probably also due to the popularity of JavaScript <a href="https://nodejs.org/">node</a> quickly spread all around the web and is nowadays widely <a href="https://github.com/joyent/node/wiki/projects,-applications,-and-companies-using-node">used</a> and has an impressive ecosystem of additional libraries/modules (just take a look at <a href="https://www.npmjs.com/">npm package manager</a>).</p>
 <p><a href="http://expressjs.com/">express.js</a> is one of many web frameworks based on node, but seems also to be one of the most popular ones. What is a web framework you ask:</p>
@@ -141,7 +141,7 @@ npm start
 <li><strong>views</strong> -&gt; contains our templates (more about this in future posts)</li>
 <li><strong>bin/www</strong> -&gt; executable application (if you run <code>npm start</code> this will be started)</li>
 </ul>
-<p>The execution of <code>npm install</code> in app's directory, installs all the dependencies defined in the <code>package.json</code> file. Those dependencies will be installed only locally in the <code>node_modules</code> directory. After this step we are ready to go and able to run <code>npm start</code> which should result in this:</p>
+<p>The execution of <code>npm install</code> in app&rsquo;s directory, installs all the dependencies defined in the <code>package.json</code> file. Those dependencies will be installed only locally in the <code>node_modules</code> directory. After this step we are ready to go and able to run <code>npm start</code> which should result in this:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">myWebApp|⇒ npm start
 
 &gt; myWebApp@0.0.1 start /private/tmp/myWebApp
@@ -153,7 +153,7 @@ GET /stylesheets/style.css <span style="color:#ae81ff">200</span> 4ms - 110b
 GET / <span style="color:#ae81ff">304</span> 25ms
 GET /stylesheets/style.css <span style="color:#ae81ff">304</span> 1ms
 </code></pre></div><p>You can see, that I opened <a href="http://localhost:3000">http://localhost:3000</a> in the browser and express served me the index page with the <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html">200 code</a> (you can also see that I refreshed the page and got 304 NOT MODIFIED). Everything works also as expected {%gemoji +1%}</p>
-<p><strong>Why? How?</strong> Let's take a quick look at the following:</p>
+<p><strong>Why? How?</strong> Let&rsquo;s take a quick look at the following:</p>
 <p><em>app.js</em></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JavaScript" data-lang="JavaScript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">routes</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;./routes/index&#39;</span>);
 
@@ -169,7 +169,7 @@ GET /stylesheets/style.css <span style="color:#ae81ff">304</span> 1ms
 });
 
 <span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">router</span>;
-</code></pre></div><p>The <code>index.js</code> uses express&rsquo; <code>router</code> and wires request for <strong>/</strong> to the function responding with a rendered <code>index.jade</code> template, to which it passes a variable called <code>title</code>. If you never used <a href="http://jade-lang.com/">jade</a>, don't worry, is a pretty simple HTML template engine. Look at the following:
+</code></pre></div><p>The <code>index.js</code> uses express&rsquo; <code>router</code> and wires request for <strong>/</strong> to the function responding with a rendered <code>index.jade</code> template, to which it passes a variable called <code>title</code>. If you never used <a href="http://jade-lang.com/">jade</a>, don&rsquo;t worry, is a pretty simple HTML template engine. Look at the following:
 <em>index.jade:</em></p>
 <pre><code class="language-jade" data-lang="jade">extends layout
 

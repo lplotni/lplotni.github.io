@@ -84,12 +84,12 @@
     <h1 class="title">Using your yubikey as ssh key provider / Quick(est) guide</h1>
     
     <div class="content">
-      <p>I figured it's time to write up the quickest guide about using the yubikey as
+      <p>I figured it&rsquo;s time to write up the quickest guide about using the yubikey as
 the source of your ssh key. This assumes that:</p>
 <ul>
-<li>You have a yubikey and it's in your usb port</li>
-<li>You've configured gpg on you machine (I'm running gpg (GnuPG) 2.2.7)</li>
-<li>You're using the gpg-agent with enabled ssh support</li>
+<li>You have a yubikey and it&rsquo;s in your usb port</li>
+<li>You&rsquo;ve configured gpg on you machine (I&rsquo;m running gpg (GnuPG) 2.2.7)</li>
+<li>You&rsquo;re using the gpg-agent with enabled ssh support</li>
 </ul>
 <p>Here are the steps:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">gpg --card-edit
@@ -97,7 +97,7 @@ the source of your ssh key. This assumes that:</p>
 &gt; generate
 &gt; <span style="color:#f92672">[</span>enter the requested PIN<span style="color:#f92672">]</span>
 &gt; quit
-</code></pre></div><p>And now you're done. You can check if the new ssh key get pulled correctly from
+</code></pre></div><p>And now you&rsquo;re done. You can check if the new ssh key get pulled correctly from
 your yubikey typing:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ssh-add -L
 </code></pre></div><p>And you should see something like:</p>

@@ -89,7 +89,7 @@
 </figure>
 
 After we managed to set up our basic <a href="/blog/2015/08/04/bootstraping-a-node-dot-js-webapp/">web application</a>,
-let's get our
+let&rsquo;s get our
 hands dirty writing some code. And as we want to do it in a test-driven
 manner (<a href="http://martinfowler.com/bliki/TestDrivenDevelopment.html">TDD</a>), we need
 a proper test setup. This piece is all about our initial test pyramid. Test,
@@ -153,16 +153,16 @@ which given a request body returns a specific JS object. We can use multiple
 tested functionality. Each <!-- raw HTML omitted -->it<!-- raw HTML omitted --> call corresponds with a specific behaviour
 we want to verify. <strong>Jasmine</strong> provides matchers and spies to simplify our
 testing: Just look at the
-<a href="https://jasmine.github.io/2.3/introduction.html">reference</a> to see what's
-possible.  Generally it's a good practice to verify one specific aspect per
+<a href="https://jasmine.github.io/2.3/introduction.html">reference</a> to see what&rsquo;s
+possible.  Generally it&rsquo;s a good practice to verify one specific aspect per
 test. Any other recommendations, you ask {%gemoji sunglasses%} A good unit test
 is:</p>
 <ul>
-<li><strong>fast</strong>: All the unit tests will be executed very often, therefore it's
+<li><strong>fast</strong>: All the unit tests will be executed very often, therefore it&rsquo;s
 necessarry that their execution happens in ms</li>
 <li><strong>atomic</strong>: The unit tests should be independant from one-another, so that you can
 run them parallel. This means that they should not relay on any side
-effects (data modifications done by other tests etc.). It's also way easier
+effects (data modifications done by other tests etc.). It&rsquo;s also way easier
 to reason why a certain test is red, if all you need to care about is only
 the scope of that particular test.</li>
 </ul>
@@ -219,7 +219,7 @@ test, which checks the intgeration between a service and the database:</p>
             });
     });
 });
-</code></pre></div><p>The integration test is similiar to the unit one (it's also based on jasmine),
+</code></pre></div><p>The integration test is similiar to the unit one (it&rsquo;s also based on jasmine),
 but instead of mocking our dependencies we use the real implementation (here
 the <!-- raw HTML omitted -->pg<!-- raw HTML omitted --> PostgreSQL client) and verify the integration of both components.
 In this particular example, we store a participant and expect that if we call

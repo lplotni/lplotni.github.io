@@ -80,18 +80,21 @@
     <div class="subtitle tags is-6 is-pulled-right">
       
     </div>
-    <h2 class="subtitle is-6">December 20, 2019</h2>
+    <h2 class="subtitle is-6">February 22, 2020</h2>
     <h1 class="title">Java Frameworks in 2020 ?</h1>
     
     <div class="content">
-      <p>Java/JVM ecosystem is extremly mature and vast when it comes to production-ready choices for libraries solving problems that we face developing all kinds of services be it from logging/metrics, to async messaging or acces to all the major sql and nosql data stores. Add the big talent pool (Java is very often used as the programming language used during CS-courses)[SOURCE] and it's no wondar that this particular language and ecosystem is on the top or among the top 5 in the programming language statistics [<a href="https://www.tiobe.com/tiobe-index/">1</a>][<a href="https://insights.stackoverflow.com/survey/2019#technology">2</a>]</p>
-<p>Having said that, I often feel that there is certain fatigue when it comes to choice of the application framework. For me it seems that a lot of teams or even companies land on Spring, without questioning if it's acutally the right tool for the particular task and what woudl be the alternatives. This is even more puzzling as microservices becomes a more and more  popular architectural style and that IMHO changes a lot of the requirements one has for the app framework as e.g. memory footprint and startup time become way more relevant.</p>
-<p>This post is by no means intended to say, Spring is a wrong choice or something along those lines. It's more about a suggestion, to look at other alternatives in that space that may be just smaller, simpler and offer a more light-weight approach. And there is something to be told about the <em>more light-weight approach</em> too: It's been a while that I've seen a team that truly understood all the batteries that are included in Spring and did not struggle from time to time with some of the concepts that are in play. Hence, I wanted to take a closer look at some of the other options that are around the block by implementing a small service, that is not so far off a real scenario: cosume messages from a queue, aggragate certain information and expose it via http, and implement it using spirng and others. All code and exact numbers can be found in this <a href="https://github.com/lplotni/testing-jvm-frameworks">repo</a>. This post is a summary of what I've discovered along the way and what you may also find interesting.</p>
-<h1 id="so-lets-look-at-the-options">So let's look at the options?</h1>
-<p>Notes: Ahead-Of-Time compliation</p>
-<h2 id="micrometer">Micrometer</h2>
-<h2 id="quarkus">Quarkus</h2>
-<h2 id="helidion">Helidion</h2>
+      <p>Java/JVM ecosystem is extremely mature and vast. It comes with a palette of production-ready choices for libraries solving problems that we face developing all kinds of services: be it from logging/metrics to async messaging or access to all the major sql and nosql data stores. Add the big talent pool (Java is very often used as the programming language used during CS-courses)[<a href="https://cacm.acm.org/blogs/blog-cacm/176450-python-is-now-the-most-popular-introductory-teaching-language-at-top-u-s-universities/fulltext">1</a>] and it&rsquo;s no wonder that this particular language and ecosystem is on the top or among the top 5 in the programming language statistics [<a href="https://www.tiobe.com/tiobe-index/">2</a>][<a href="https://insights.stackoverflow.com/survey/2019#technology">3</a>].</p>
+<p>Having said that, I often feel that there is a certain fatigue when it comes to choice of the application framework. For me it seems that a lot of teams or even companies land on <a href="https://spring.io/">Spring</a> without questioning if it&rsquo;s actually the right tool for the particular task and what would be the alternatives. This is even more puzzling as microservices become a more and more  popular architectural style and that IMHO changes a lot of the requirements one has for the app framework as e.g. memory footprint and startup time become way more relevant.</p>
+<p>This post is by no means intended to say Spring is a wrong choice or something along those lines. It&rsquo;s more a call-out to look at other alternatives in that space that may be just smaller, simpler and offer a more light-weight approach. And there is something to be told about the <em>more light-weight approach</em> too: It&rsquo;s been a while that I&rsquo;ve seen a team that truly understood all the batteries that are included in Spring and did not struggle from time to time with some of the concepts that are in play. Hence, I wanted to take a closer look at some of the other options that are around the block by implementing a small service, that is not so far off a real scenario: consume messages from a queue, aggregate certain information exposing it via an REST endpoint and implement it using spring and others. All code and exact numbers can be found in this <a href="https://github.com/lplotni/testing-jvm-frameworks">repo</a>. This post will be growing as I will be adding the result of my little experiment one by one over time. In the end it will be a summary of what I&rsquo;ve discovered along the way and what you may also find interesting.</p>
+<h1 id="so-lets-look-at-the-options">So let&rsquo;s look at the options?</h1>
+<p>All the options that I ended up taking into consideration address the changed nature of the systems that we write by switching from reflection-based approach to a compile-time based approach. They also support creation of native images thanks to <a href="https://www.graalvm.org/">GraalVM</a> which makes the result both impressively fast to start and also very small. The tradeoff here is the duration of the compilation time. I will be looking at:</p>
+<ul>
+<li><a href="https://micronaut.io">Micronaut</a></li>
+<li><a href="https://quarkus.io">Quarkus</a></li>
+<li><a href="https://helidon.io/#/">Helidion</a></li>
+</ul>
+<p>If I managed to at least catch your interest, then watch <a href="https://github.com/lplotni/testing-jvm-frameworks">the repo</a> and this space for updates.</p>
 
       
       <div class="related">
@@ -106,7 +109,7 @@
 
 <section class="section">
   <div class="container has-text-centered">
-    <p>Lukasz Plotnicki &copy; 2019 | Follow on <a href="https://twitter.com/lplotni" target="_blank">Twitter</a></p>
+    <p>Lukasz Plotnicki &copy; 2020 | Follow on <a href="https://twitter.com/lplotni" target="_blank">Twitter</a></p>
     
       <p>Powered by <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/ribice/kiss">Kiss</a>.</p>
     
