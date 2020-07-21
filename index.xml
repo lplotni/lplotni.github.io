@@ -1,86 +1,143 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Working thoughts</title>
     <link>https://lukasz.dev/</link>
     <description>Recent content on Working thoughts</description>
-    <generator>Hugo - gohugo.io</generator>
-    <language>en</language>
-    <contact>l.plotnicki@gmail.com</contact>
-    <copyright>Lukasz Plotnicki &copy; 2020 | Follow on <a href="https://twitter.com/lplotni" target="_blank">Twitter</a></copyright>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Lukasz Plotnicki &amp;copy; 2020 | Follow on &lt;a href=&#34;https://twitter.com/lplotni&#34; target=&#34;_blank&#34;&gt;Twitter&lt;/a&gt;</copyright>
+    <lastBuildDate>Sat, 22 Feb 2020 07:49:31 +0100</lastBuildDate>
     
-        <atom:link href="https://lukasz.dev/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://lukasz.dev/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Blogs</title>
-      <link>https://lukasz.dev/blog/</link>
+      <title>Java Frameworks in 2020 ?</title>
+      <link>https://lukasz.dev/blog/java-frameworks/</link>
       <pubDate>Sat, 22 Feb 2020 07:49:31 +0100</pubDate>
-      <author>Lukasz Plotnicki</author>
-      <guid>https://lukasz.dev/blog/</guid>
-      <description></description>
       
-      <content></content>
+      <guid>https://lukasz.dev/blog/java-frameworks/</guid>
+      <description>Java/JVM ecosystem is extremely mature and vast. It comes with a palette of production-ready choices for libraries solving problems that we face developing all kinds of services: be it from logging/metrics to async messaging or access to all the major sql and nosql data stores. Add the big talent pool (Java is very often used as the programming language used during CS-courses)[1] and it&amp;rsquo;s no wonder that this particular language and ecosystem is on the top or among the top 5 in the programming language statistics [2][3].</description>
+    </item>
+    
+    <item>
+      <title>My first UHK layout</title>
+      <link>https://lukasz.dev/blog/uhk_setup/</link>
+      <pubDate>Fri, 28 Dec 2018 23:24:02 +0100</pubDate>
       
+      <guid>https://lukasz.dev/blog/uhk_setup/</guid>
+      <description>I ordered the UHK with the linux layout as I thought that I will be moving towards a linux laptop as the main driver for my work. Somehow this didn&amp;rsquo;t happen 😕 and therefore I ended up using the UHK with a Mackbook Pro. Thus, I changed few settings and love my setup even more. UHK is really a spectacular keyboard.
+    I quickly decided to just align the Fn, Ctrl, Option and Cmd key with the mac layout so that my mussle memory doesn&amp;rsquo;t suffer too much.</description>
+    </item>
+    
+    <item>
+      <title>Using your yubikey as ssh key provider / Quick(est) guide</title>
+      <link>https://lukasz.dev/blog/sshkey_yubikey/</link>
+      <pubDate>Wed, 23 May 2018 21:36:52 +0200</pubDate>
+      
+      <guid>https://lukasz.dev/blog/sshkey_yubikey/</guid>
+      <description>I figured it&amp;rsquo;s time to write up the quickest guide about using the yubikey as the source of your ssh key. This assumes that:
+ You have a yubikey and it&amp;rsquo;s in your usb port You&amp;rsquo;ve configured gpg on you machine (I&amp;rsquo;m running gpg (GnuPG) 2.2.7) You&amp;rsquo;re using the gpg-agent with enabled ssh support  Here are the steps:
+gpg --card-edit &amp;gt; admin &amp;gt; generate &amp;gt; [enter the requested PIN] &amp;gt; quit And now you&amp;rsquo;re done.</description>
+    </item>
+    
+    <item>
+      <title>why hugo?</title>
+      <link>https://lukasz.dev/blog/why-hugo/</link>
+      <pubDate>Mon, 09 Oct 2017 21:44:11 +0200</pubDate>
+      
+      <guid>https://lukasz.dev/blog/why-hugo/</guid>
+      <description>As you can see looking at the frequency of my posts, I&amp;rsquo;m more of an occasional writer. Therefore whenever I drag myself in front of my notebook, to write something up I&amp;rsquo;m feeling like sharing, I should really not have any reason to do something else instead. Sadly, although I was really happy with my octopress setup, more than once I found myself fighting the currently installed ruby versions and some conflicts with the gems that octopress was requiring.</description>
+    </item>
+    
+    <item>
+      <title>bff</title>
+      <link>https://lukasz.dev/blog/2016/02/22/bff/</link>
+      <pubDate>Mon, 22 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://lukasz.dev/blog/2016/02/22/bff/</guid>
+      <description>A while ago I wrote a ThoughtWorks insights post about the Backends for frontends pattern and the story behind its adaption at SoundCloud. It generated interesting discussions and resulted also in some further content and I thought it would be good to have a place with links to all this resources for the future reference.
+ BFF @ SoundCloud - the original post talking about the pattern and journey towards it BFF pattern definition - comprehensive pattern definition Moving to Microservices at SoundCloud - Software Engineering Daily podcast - a podcast talking about microservices in gerneral, SoundCloud&amp;rsquo;s journey towards this style of architecture and usage of BFFs BFF @ SoundCloud (podcast) - an interview about UI composition in a microservices world in general and the BFF pattern  </description>
+    </item>
+    
+    <item>
+      <title>express testing</title>
+      <link>https://lukasz.dev/blog/2015/10/10/express-testing/</link>
+      <pubDate>Sat, 10 Oct 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://lukasz.dev/blog/2015/10/10/express-testing/</guid>
+      <description>After we managed to set up our basic web application, let&amp;rsquo;s get our hands dirty writing some code. And as we want to do it in a test-driven manner (TDD), we need a proper test setup. This piece is all about our initial test pyramid. Test, what? Yes, pyramid:
+ At the base of the test automation pyramid is unit testing. Unit testing should be the foundation of a solid test automation strategy and as such represents the largest part of the pyramid.</description>
+    </item>
+    
+    <item>
+      <title>bootstraping a node.js webapp</title>
+      <link>https://lukasz.dev/blog/2015/08/04/bootstraping-a-node-dot-js-webapp/</link>
+      <pubDate>Tue, 04 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://lukasz.dev/blog/2015/08/04/bootstraping-a-node-dot-js-webapp/</guid>
+      <description>Together with few friends we started building pace - a web application for organizing and managing running events &amp;amp; competitions. We are a colorful bunch of people with different backgrounds, therefore we wanted to choose an approachable tech stack, as some of us wants also to learn one or two things about JavaScript, web applications or programming in general.
+And then, somebody suggested to write one thing or two, about our technology decisions and accompany it with some HowTo information.</description>
+    </item>
+    
+    <item>
+      <title>build monitors</title>
+      <link>https://lukasz.dev/blog/2015/06/27/build-monitors/</link>
+      <pubDate>Sat, 27 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://lukasz.dev/blog/2015/06/27/build-monitors/</guid>
+      <description>During my last four projects or so, the teams I worked with were always using GO.CD as the CD tool of their choosing. Although the pipeline state visualisation GO.CD comes with is quite nice, it still doesn&amp;rsquo;t cut it as a proper, obvious build monitor enabling everybody in the team to quickly recognize what is the pipeline status.
+  Burstah in action   Therefore first cidar, a simple sinatra based build monitor, has been born.</description>
+    </item>
+    
+    <item>
+      <title>scoopcamp hackathon</title>
+      <link>https://lukasz.dev/blog/2013/09/14/scoopcamp-hackathon/</link>
+      <pubDate>Sat, 14 Sep 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://lukasz.dev/blog/2013/09/14/scoopcamp-hackathon/</guid>
+      <description>Last Thursday I was a part of the Scoopcamp hackathon and it was so great that I just couldn&amp;rsquo;t resist to write down some of my thoughts about it. Our team ThoughtWorks and friends a colorful mix of journalists, students and developers had a rough idea for a modern - more agile - journalism, where the journalist reporting about an ongoing event writes the background story and live updates from his perspective, but can also incorporate content written by the readers who create their own streams representing their own take on the particular event.</description>
+    </item>
+    
+    <item>
+      <title>gwt part i</title>
+      <link>https://lukasz.dev/blog/2013/06/15/gwt-part-i/</link>
+      <pubDate>Sat, 15 Jun 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://lukasz.dev/blog/2013/06/15/gwt-part-i/</guid>
+      <description>&lt;p&gt;Back in 2009 I became the job to design and start realizing a quite large web application for a health care research project. I took some time, sat down and thought about the technology stack, I would like to use to build it. As we wanted to have an RIA and I already had some experience with GWT, we quickly decided to use it. Since then four years have passed and we are about to release the 2.0 version of our system. During this time, the whole team learned a lot about GWT, its advantages and also some disadvantages, and I thought it would be useful to write some of them up. This part is about the &lt;strong&gt;status quo&lt;/strong&gt;, in the second part I will try to write about a GWT setup I would go for, when starting the project today - so if you have any hints in this regard, please feel free to leave a comment, I would definitely appreciate it!&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>setting up ...</title>
+      <link>https://lukasz.dev/blog/2013/05/14/setting-up-dot-dot-dot/</link>
+      <pubDate>Tue, 14 May 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://lukasz.dev/blog/2013/05/14/setting-up-dot-dot-dot/</guid>
+      <description>There&amp;rsquo;s nothing like this moment, when you have a big smile on your face, because you&amp;rsquo;re just stunned how well things are working and how simple the set-up process was. Octopress is just amazing. Period. If you haven&amp;rsquo;t heard about it and you&amp;rsquo;re thinking to start a blog or migrate one, then you should definitely check it out. To put it simple:
+ Octopress is a framework designed by Brandon Mathis for Jekyll, the blog aware static site generator powering Github Pages.</description>
+    </item>
+    
+    <item>
+      <title>hello world</title>
+      <link>https://lukasz.dev/blog/2013/05/09/hello-world/</link>
+      <pubDate>Thu, 09 May 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://lukasz.dev/blog/2013/05/09/hello-world/</guid>
+      <description>I had this idea to create my own blog since like forever but always convinced myself that it will be either too time consuming or all the topics I would like to write about, are already well described, so what&amp;rsquo;s the point &amp;hellip;
+But then, I had also too many moments, when I thought - wait, you already had this problem/issue/idea&amp;hellip; What was the solution? Where did you find it?</description>
     </item>
     
     <item>
       <title></title>
       <link>https://lukasz.dev/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <author>Lukasz Plotnicki</author>
+      
       <guid>https://lukasz.dev/about/</guid>
-      <description></description>
-      
-      <content>&lt;p&gt;My name is Lukasz and I really like creating products together with awesome
-teams. My current role in this is of the tech lead and tech-wise I&amp;rsquo;m getting my
-hands dirty with Java, Scala and JavaScript with a proper amount of terraform for
-the infrastructure. Currently @ &lt;a href=&#34;http://thoughtworks.com&#34;&gt;ThoughtWorks&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;This is a personal weblog. The opinions expressed here represent my own and not those of my employer.&lt;/p&gt;
-&lt;h3 id=&#34;my-public-key-fingerprint&#34;&gt;My public key fingerprint&lt;/h3&gt;
-&lt;p&gt;43F9 3BC4 8717 CED6 9B74  E40D 1274 8A7B CA91 C14C&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;-----BEGIN PGP PUBLIC KEY BLOCK-----
-
-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
-=BaNU
------END PGP PUBLIC KEY BLOCK-----
-&lt;/code&gt;&lt;/pre&gt;</content>
-      
+      <description>My name is Lukasz (he/him) and I really like creating products together with awesome teams. My current role in this is of the tech lead and tech-wise I&amp;rsquo;m getting my hands dirty with Java, Scala and JavaScript with a proper amount of terraform for the infrastructure. Currently @ ThoughtWorks.
+This is a personal weblog. The opinions expressed here represent my own and not those of my employer.
+My public key fingerprint 43F9 3BC4 8717 CED6 9B74 E40D 1274 8A7B CA91 C14C</description>
     </item>
     
   </channel>
