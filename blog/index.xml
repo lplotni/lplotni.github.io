@@ -6,11 +6,16 @@
     <description>Recent content in Blogs on Working thoughts</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>Lukasz Plotnicki &amp;copy; 2020 | Follow on &lt;a href=&#34;https://twitter.com/lplotni&#34; target=&#34;_blank&#34;&gt;Twitter&lt;/a&gt;</copyright>
-    <lastBuildDate>Sat, 22 Feb 2020 07:49:31 +0100</lastBuildDate>
-    
-	<atom:link href="https://lukasz.dev/blog/index.xml" rel="self" type="application/rss+xml" />
-    
+    <copyright>Lukasz Plotnicki &amp;copy; 2021 | Follow on &lt;a href=&#34;https://twitter.com/lplotni&#34; target=&#34;_blank&#34;&gt;Twitter&lt;/a&gt;</copyright>
+    <lastBuildDate>Thu, 22 Jul 2021 15:35:37 +0200</lastBuildDate><atom:link href="https://lukasz.dev/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A change / next step</title>
+      <link>https://lukasz.dev/blog/a_change/</link>
+      <pubDate>Thu, 22 Jul 2021 15:35:37 +0200</pubDate>
+      
+      <guid>https://lukasz.dev/blog/a_change/</guid>
+      <description>Back in 2013, I was building a system to help with pediatric kidney transplant research while also trying to write a PhD at the same time. That split did not work out. I liked building the system and the team around it way more than writing papers and the dissertation work itself. Still, it took me a while though to actually acknowledge that. To allow myself to say: I like the one thing more than the original goal.</description>
+    </item>
     
     <item>
       <title>Java Frameworks in 2020 ?</title>
@@ -28,7 +33,7 @@
       
       <guid>https://lukasz.dev/blog/uhk_setup/</guid>
       <description>I ordered the UHK with the linux layout as I thought that I will be moving towards a linux laptop as the main driver for my work. Somehow this didn&amp;rsquo;t happen 😕 and therefore I ended up using the UHK with a Mackbook Pro. Thus, I changed few settings and love my setup even more. UHK is really a spectacular keyboard.
-    I quickly decided to just align the Fn, Ctrl, Option and Cmd key with the mac layout so that my mussle memory doesn&amp;rsquo;t suffer too much.</description>
+   I quickly decided to just align the Fn, Ctrl, Option and Cmd key with the mac layout so that my mussle memory doesn&amp;rsquo;t suffer too much.</description>
     </item>
     
     <item>
@@ -88,7 +93,7 @@ And then, somebody suggested to write one thing or two, about our technology dec
       
       <guid>https://lukasz.dev/blog/2015/06/27/build-monitors/</guid>
       <description>During my last four projects or so, the teams I worked with were always using GO.CD as the CD tool of their choosing. Although the pipeline state visualisation GO.CD comes with is quite nice, it still doesn&amp;rsquo;t cut it as a proper, obvious build monitor enabling everybody in the team to quickly recognize what is the pipeline status.
-  Burstah in action   Therefore first cidar, a simple sinatra based build monitor, has been born.</description>
+ Burstah in action   Therefore first cidar, a simple sinatra based build monitor, has been born.</description>
     </item>
     
     <item>

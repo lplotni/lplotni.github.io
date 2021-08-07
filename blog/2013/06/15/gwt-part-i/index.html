@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"  lang="en-us">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>gwt part i | Working thoughts</title>
 
 
 
-<link href="https://lukasz.dev/index.xml" rel="alternate" type="application/rss+xml" title="Working thoughts" />
+<link href="https://lukasz.dev/index.xml" rel="alternate" type="application/rss+xml" title="Working thoughts">
 
-<link rel="stylesheet" href="/css/style.css"/><link rel='stylesheet' href='https://lukasz.dev/css/custom.css'><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/style.css"><link rel='stylesheet' href='https://lukasz.dev/css/custom.css'><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="manifest" href="/site.webmanifest">
@@ -87,8 +87,7 @@
       <p>Back in 2009 I became the job to design and start realizing a quite large web application for a health care research project. I took some time, sat down and thought about the technology stack, I would like to use to build it. As we wanted to have an RIA and I already had some experience with GWT, we quickly decided to use it. Since then four years have passed and we are about to release the 2.0 version of our system. During this time, the whole team learned a lot about GWT, its advantages and also some disadvantages, and I thought it would be useful to write some of them up. This part is about the <strong>status quo</strong>, in the second part I will try to write about a GWT setup I would go for, when starting the project today - so if you have any hints in this regard, please feel free to leave a comment, I would definitely appreciate it!</p>
 <h2 id="1-client-setup">1. Client setup</h2>
 <p>Around the same time, as I started to draw the first diagrams of the inner life of our web app, Ray Ryan gave a <a href="http://www.youtube.com/watch?v=PDuhR18-EdM">talk at the IO conference</a> about the best practices for GWT app architecture, mentioning the <a href="http://martinfowler.com/eaaDev/uiArchs.html">model view presenter</a>, the usage of an event bus for components communication and the command pattern for dispatching the GWT-RPC calls to the server. Shortly after I discovered the <a href="http://code.google.com/p/gwt-presenter/">gwt-presenter</a> and the <a href="http://code.google.com/p/gwt-dispatch/">gwt-dispatch</a> libraries, offering an easy way to build an GWT app based on the principles from  Ray&rsquo;s talk. I also found a very detailed <a href="http://blog.hivedevelopment.co.uk/2009/08/google-web-toolkit-gwt-mvp-example.html">blog post</a> explaining how everything works together.<br>
-<figure>
-    <img src="/media/gwt_mvp.png"/> <figcaption>
+<figure><img src="/media/gwt_mvp.png"/><figcaption>
             <h4>MVP with EventBus and Dispatcher</h4>
         </figcaption>
 </figure>
@@ -210,8 +209,7 @@ At this point we defined one <strong>Presenter</strong> for all the entities, we
 <h2 id="2-client---server-communication">2. Client - server communication</h2>
 <p>The client - server communication is based fully on the GWT-RPC mechanism. As mentioned above we are using the gwt-dispatch library meaning that for every request, we have a command object, result object and a server side handler. It is a bit verbose, but in the end it is also a very simple pattern and every new dev introduced to our team grasps it very quickly. The implementation of the client-side caching is easily done, as you just need to compare the command object which should be executed and if one of them has been already seen, then you can serve the already received result saving you one round-trip.</p>
 <p>To execute a command a corresponding object just needs to be passed to the dispatcher which is a singleton on the client and gets injected to every presenter that should be able to trigger the communication. In most of the cases the result of a command (or to use gwt-dispatch terminology: an action) contains a DTO object which is then shown by the presenter. On the server side we are using JPA &amp; Hibernate so obviously we need to take care of the server entity to DTO conversion. Although some libraries exists for this purpose (e.g <a href="http://sourceforge.net/projects/gilead/">gilead</a>), in our specific setting we decided to implement it ourself which was actually a straightforward task when using the reflection API and sticking to a well defined class hierarchy of our own.
-<figure>
-    <img src="/media/dto.png"/> <figcaption>
+<figure><img src="/media/dto.png"/><figcaption>
             <h4>DTO</h4>
         </figcaption>
 </figure>
@@ -259,12 +257,14 @@ We also use the JSR303 annotations for validation of the entities and are able t
 
 <section class="section">
   <div class="container has-text-centered">
-    <p>Lukasz Plotnicki &copy; 2020 | Follow on <a href="https://twitter.com/lplotni" target="_blank">Twitter</a></p>
+    <p>Lukasz Plotnicki &copy; 2021 | Follow on <a href="https://twitter.com/lplotni" target="_blank">Twitter</a></p>
     
       <p>Powered by <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/ribice/kiss">Kiss</a>.</p>
     
   </div>
 </section>
+
+
 
 
 

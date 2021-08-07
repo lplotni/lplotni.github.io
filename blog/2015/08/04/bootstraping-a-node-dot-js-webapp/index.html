@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"  lang="en-us">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>bootstraping a node.js webapp | Working thoughts</title>
 
 
 
-<link href="https://lukasz.dev/index.xml" rel="alternate" type="application/rss+xml" title="Working thoughts" />
+<link href="https://lukasz.dev/index.xml" rel="alternate" type="application/rss+xml" title="Working thoughts">
 
-<link rel="stylesheet" href="/css/style.css"/><link rel='stylesheet' href='https://lukasz.dev/css/custom.css'><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/style.css"><link rel='stylesheet' href='https://lukasz.dev/css/custom.css'><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="manifest" href="/site.webmanifest">
@@ -169,7 +169,7 @@ GET /stylesheets/style.css <span style="color:#ae81ff">304</span> 1ms
 });
 
 <span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">router</span>;
-</code></pre></div><p>The <code>index.js</code> uses express&rsquo; <code>router</code> and wires request for <strong>/</strong> to the function responding with a rendered <code>index.jade</code> template, to which it passes a variable called <code>title</code>. If you never used <a href="http://jade-lang.com/">jade</a>, don&rsquo;t worry, is a pretty simple HTML template engine. Look at the following:
+</code></pre></div><p>The <code>index.js</code> uses express' <code>router</code> and wires request for <strong>/</strong> to the function responding with a rendered <code>index.jade</code> template, to which it passes a variable called <code>title</code>. If you never used <a href="http://jade-lang.com/">jade</a>, don&rsquo;t worry, is a pretty simple HTML template engine. Look at the following:
 <em>index.jade:</em></p>
 <pre><code class="language-jade" data-lang="jade">extends layout
 
@@ -214,12 +214,14 @@ html
 
 <section class="section">
   <div class="container has-text-centered">
-    <p>Lukasz Plotnicki &copy; 2020 | Follow on <a href="https://twitter.com/lplotni" target="_blank">Twitter</a></p>
+    <p>Lukasz Plotnicki &copy; 2021 | Follow on <a href="https://twitter.com/lplotni" target="_blank">Twitter</a></p>
     
       <p>Powered by <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/ribice/kiss">Kiss</a>.</p>
     
   </div>
 </section>
+
+
 
 
 
