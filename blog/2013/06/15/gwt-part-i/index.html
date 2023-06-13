@@ -1,100 +1,191 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"  lang="en-us">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en" dir="auto">
 
-<title>gwt part i | Working thoughts</title>
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>gwt part i | Working thoughts 💭🧑‍💻</title>
+<meta name="keywords" content="">
+<meta name="description" content="Back in 2009 I became the job to design and start realizing a quite large web application for a health care research project. I took some time, sat down and thought about the technology stack, I would like to use to build it. As we wanted to have an RIA and I already had some experience with GWT, we quickly decided to use it. Since then four years have passed and we are about to release the 2.0 version of our system. During this time, the whole team learned a lot about GWT, its advantages and also some disadvantages, and I thought it would be useful to write some of them up. This part is about the status quo, in the second part I will try to write about a GWT setup I would go for, when starting the project today - so if you have any hints in this regard, please feel free to leave a comment, I would definitely appreciate it!">
+<meta name="author" content="">
+<link rel="canonical" href="/blog/2013/06/15/gwt-part-i/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.3613efbd0b1772781e8f49935e973cae632a7f61471c05b17be155505ccf87b5.css" integrity="sha256-NhPvvQsXcngej0mTXpc8rmMqf2FHHAWxe&#43;FVUFzPh7U=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="mask-icon" href="safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="gwt part i" />
+<meta property="og:description" content="Back in 2009 I became the job to design and start realizing a quite large web application for a health care research project. I took some time, sat down and thought about the technology stack, I would like to use to build it. As we wanted to have an RIA and I already had some experience with GWT, we quickly decided to use it. Since then four years have passed and we are about to release the 2.0 version of our system. During this time, the whole team learned a lot about GWT, its advantages and also some disadvantages, and I thought it would be useful to write some of them up. This part is about the status quo, in the second part I will try to write about a GWT setup I would go for, when starting the project today - so if you have any hints in this regard, please feel free to leave a comment, I would definitely appreciate it!" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/blog/2013/06/15/gwt-part-i/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2013-06-15T00:00:00+00:00" />
+<meta property="article:modified_time" content="2013-06-15T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="gwt part i"/>
+<meta name="twitter:description" content="Back in 2009 I became the job to design and start realizing a quite large web application for a health care research project. I took some time, sat down and thought about the technology stack, I would like to use to build it. As we wanted to have an RIA and I already had some experience with GWT, we quickly decided to use it. Since then four years have passed and we are about to release the 2.0 version of our system. During this time, the whole team learned a lot about GWT, its advantages and also some disadvantages, and I thought it would be useful to write some of them up. This part is about the status quo, in the second part I will try to write about a GWT setup I would go for, when starting the project today - so if you have any hints in this regard, please feel free to leave a comment, I would definitely appreciate it!"/>
 
 
-
-<link href="https://lukasz.dev/index.xml" rel="alternate" type="application/rss+xml" title="Working thoughts">
-
-<link rel="stylesheet" href="/css/style.css"><link rel='stylesheet' href='https://lukasz.dev/css/custom.css'><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-<link rel="canonical" href="https://lukasz.dev/blog/2013/06/15/gwt-part-i/">
-<meta name="msapplication-TileColor" content="#da532c">
-<meta name="theme-color" content="#ffffff">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Blogs",
+      "item": "/blog/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "gwt part i",
+      "item": "/blog/2013/06/15/gwt-part-i/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "gwt part i",
+  "name": "gwt part i",
+  "description": "Back in 2009 I became the job to design and start realizing a quite large web application for a health care research project. I took some time, sat down and thought about the technology stack, I would like to use to build it. As we wanted to have an RIA and I already had some experience with GWT, we quickly decided to use it. Since then four years have passed and we are about to release the 2.0 version of our system. During this time, the whole team learned a lot about GWT, its advantages and also some disadvantages, and I thought it would be useful to write some of them up. This part is about the status quo, in the second part I will try to write about a GWT setup I would go for, when starting the project today - so if you have any hints in this regard, please feel free to leave a comment, I would definitely appreciate it!\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "Back in 2009 I became the job to design and start realizing a quite large web application for a health care research project. I took some time, sat down and thought about the technology stack, I would like to use to build it. As we wanted to have an RIA and I already had some experience with GWT, we quickly decided to use it. Since then four years have passed and we are about to release the 2.0 version of our system. During this time, the whole team learned a lot about GWT, its advantages and also some disadvantages, and I thought it would be useful to write some of them up. This part is about the status quo, in the second part I will try to write about a GWT setup I would go for, when starting the project today - so if you have any hints in this regard, please feel free to leave a comment, I would definitely appreciate it!\n1. Client setup Around the same time, as I started to draw the first diagrams of the inner life of our web app, Ray Ryan gave a talk at the IO conference about the best practices for GWT app architecture, mentioning the model view presenter, the usage of an event bus for components communication and the command pattern for dispatching the GWT-RPC calls to the server. Shortly after I discovered the gwt-presenter and the gwt-dispatch libraries, offering an easy way to build an GWT app based on the principles from Ray’s talk. I also found a very detailed blog post explaining how everything works together.\nMVP with EventBus and Dispatcher At this point we defined one Presenter for all the entities, we wanted to made accessible on the client, and each presenter defined his own Display interface which then was implemented by the View class. The instantiation of all presenters and views has been managed by gin - a dependency injection framework for the client side. The code looked more or less like this:\nPresenter \u0026 Display:\npublic class HistoryPresenter extends WidgetPresenter implements PresentsDTO { public interface Display extends WidgetDisplay, Resettable, Editable { HasText getPrimaryDisease(); HasText getPrimaryDiagnosis(); HasValue getPrimaryDiseaseStart(); HasValue getHypertension(); // (...) and some more stuff here } private HistoryDTO currentDTO; private final DispatchAsync dispatcher; @Inject public HistoryPresenter(final Display display, final EventBus eventBus, final DispatchAsync dispatcher) { super(display, eventBus); bind(); } @Override protected void onBind() { // Add handlers to the event bus if needed } @Override public void resetUI() { currentDTO = null; display.resetUI(); } @Override public HistoryDTO getDTO() { syncDTO(); return currentDTO; } @Override public void syncDTO() { // create new DTO object with the content from the display } @Override public void showDTO(HistoryDTO dto) { // refresh the display with the data from the DTO } @Override public void setEditable(boolean value) { display.setEditable(value); } @Override protected void onRevealDisplay() { // React on place request e.g use the dispatcher to load the data from the server } } In the gwt-presenter class hierarchy there was no possibility to define the model class the presenter will be responsible for. For that reason we introduced a PresentDTO and PresentDTOs interfaces to ensure the existence of T getDTO() etc. methods. The view classes are quite straightforward, the only difference is that back in 2009 ui:binder was not really there, therefore the gwt-presenter had no direct support for it. But switching to the declarative layout definition was indeed very easy - each view defines its own *.ui.xml file and the asWidget() method just returns the result of the uiBinder.createAndBindUi() call. As you can see in the code below we introduced also a WidgetsManager class which is a convinient way to managed all the widgets the view is defining (offering a general setEditable() method and taking care of the validation visualization).\nView:\npublic class HistoryView implements Display { interface HistoryViewUiBinder extends UiBinder {} private static HistoryViewUiBinder uiBinder = GWT.create(HistoryViewUiBinder.class); @UiField LabeledSuggestBox renalDisease; @UiField DateBox renalDiseaseStart; @UiField TextArea renalDiseaseText; @UiField ValueListBox hypertension; private final WidgetsManager widgetsManager; private final LayoutPanel content; @Inject public HistoryView(WidgetsManager widgetsManager, final RegisterConstants c) { this.widgetsManager = widgetsManager; content = uiBinder.createAndBindUi(this); content.setTitle(c.historyTab()); //Registering the widgets within the widget mgr. widgetsManager.registerWidgets( new String[] {\"primaryDiseaseGroup\", \"primaryDiseaseDiagnosis\", \"primaryDiseaseStart\"}, new Widget[] { renalDisease, renalDiseaseText, renalDiseaseStart}); widgetsManager.configureValidation(HistoryDTO.class); } @Override public Widget asWidget() { return content; } @Override public HasText getPrimaryDiagnosis() { return renalDiseaseText; } @Override public HasText getPrimaryDisease() { return renalDisease; } @Override public HasValue getPrimaryDiseaseStart() { return renalDiseaseStart; } } To ensure a loosely coupled client we try to communicate between the presenters only via the EventBus or PlaceRequests, so if a new part of the UI should be rendered, a new place event needs to be fired.\n2. Client - server communication The client - server communication is based fully on the GWT-RPC mechanism. As mentioned above we are using the gwt-dispatch library meaning that for every request, we have a command object, result object and a server side handler. It is a bit verbose, but in the end it is also a very simple pattern and every new dev introduced to our team grasps it very quickly. The implementation of the client-side caching is easily done, as you just need to compare the command object which should be executed and if one of them has been already seen, then you can serve the already received result saving you one round-trip.\nTo execute a command a corresponding object just needs to be passed to the dispatcher which is a singleton on the client and gets injected to every presenter that should be able to trigger the communication. In most of the cases the result of a command (or to use gwt-dispatch terminology: an action) contains a DTO object which is then shown by the presenter. On the server side we are using JPA \u0026 Hibernate so obviously we need to take care of the server entity to DTO conversion. Although some libraries exists for this purpose (e.g gilead), in our specific setting we decided to implement it ourself which was actually a straightforward task when using the reflection API and sticking to a well defined class hierarchy of our own. DTO We also use the JSR303 annotations for validation of the entities and are able to push the constraint violations back to the client where they will be assigned to the specific widgets by our WidgetsManager - here we are just using a simple convention of associating the input widgets with same names as the property paths in the entities.\n3. Testing the client One of the main advantages of doing MVP is the separation of the business logic (sitting in the presenter) from the actual UI components (being a part of the view) resulting in the ability of writing normal, fast unit test (normal, meaning not using the GWTTestCase) and mocking the views. Nevertheless in our project we use selenium as the main way to assure the correct functionality of our client. As using the normal selenium recorder is not an option with GWT due to the element ids changing during each compile process, we tried to get our selenium tests (written in java as normal unit tests) as independent as it only can be from the layout definition itself (trying not to use exact XPath etc.). Our client is very data input heavy, so we have a lot of input components to test. When we test if the entities get created in a correct way, we just access all visible input components of a certain type, populate them with a random content (which we then store for later comparison), trigger the save action and reload the UI to verify if the same components holds still the same data. Thus, we don’t have to update the tests if our data definition changes and we have introduced some new input components. The test will also work if the layout of the UI changes either on purpose, because we rearranged it, or when a new GWT version switch to a different HTML representation for some standard widgets.\nGetting certain elements from selenium driver:\nprotected static ArrayList\u003cWebElement\u003e getVisibleElements(String tagName, final String classString) { List\u003cWebElement\u003e elements = driver.findElements(By.tagName(tagName)); return Lists.newArrayList(Collections2.filter(elements, new Predicate\u003cWebElement\u003e() { @Override public boolean apply(@Nullable WebElement input) { boolean b = false; try { String classAttribute = input.getAttribute(\"class\"); b = input.isDisplayed() \u0026\u0026 classAttribute != null \u0026\u0026 classAttribute.contains(classString); } catch (StaleElementReferenceException e) { // Ignoring stale element } return b; } })); } 4. Issues We are quite happy how things are working now, but there is room for improvement:\nThe compile time during development: trying to change something in the client code in a iterative manner using the standard DevMode is very frustrating as it takes just too much time. SuperDevMode improved a lot our situation but we still have the problem of having the server and client side in one maven project - changing the server-side code means a mvn clean -DskipTests tomcat7:run-war and this means basically an “espresso” break. The size of the client: our *.cache.js file is currently 6.1MB (we use the gwtquery and gwt-chosen libs which are quite large) We will definitely try to introduce some code splitting in the future release, to load only as much as we need and not everything from the beginning. Execution time of the selenium tests: our current selenium suite takes a bit over 3 hours to run on our CI server. And although we could, we don’t have enough of the presenter unit tests to have a sufficient coverage letting us sleep well at night. Here probably a wrong choice have been made: concentrating to much on the selenium tests and trying to go for a very exhaustive test suite, instead of implementing a good amount of unit tests for the presenters and a simpler selenium suite for the main work flows in the application. ",
+  "wordCount" : "1636",
+  "inLanguage": "en",
+  "datePublished": "2013-06-15T00:00:00Z",
+  "dateModified": "2013-06-15T00:00:00Z",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/blog/2013/06/15/gwt-part-i/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Working thoughts 💭🧑‍💻",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "favicon.ico"
+    }
+  }
+}
+</script>
 </head>
-<body>
-<section class="section">
-  <div class="container">
-    <nav id="nav-main" class="nav">
-      <div id="nav-name" class="nav-left">
-        <a id="nav-anchor" class="nav-item" href="https://lukasz.dev/">
-          <h1 id="nav-heading" class="title is-4">Working thoughts</h1>
-        </a>
-      </div>
-      <div class="nav-right">
-        <nav id="nav-items" class="nav-item level is-mobile"><a class="level-item" aria-label="github" href='https://github.com/lplotni'
-            target='_blank' rel='noopener'>
-            <span class="icon">
-              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-    
-    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
-    
-  </svg></i>
-            </span>
-          </a><a class="level-item" aria-label="twitter" href='https://twitter.com/lplotni'
-            target='_blank' rel='noopener'>
-            <span class="icon">
-              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-    
-    <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
-    
-  </svg></i>
-            </span>
-          </a><a class="level-item" aria-label="linkedin" href='https://linkedin.com/in/lukasz-plotnicki'
-            target='_blank' rel='noopener'>
-            <span class="icon">
-              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-    
-    <path stroke-width="1.8" d="m5.839218,4.101561c0,1.211972 -0.974141,2.194011 -2.176459,2.194011s-2.176459,-0.982039 -2.176459,-2.194011c0,-1.211094 0.974141,-2.194011 2.176459,-2.194011s2.176459,0.982917 2.176459,2.194011zm0.017552,3.94922l-4.388022,0l0,14.04167l4.388022,0l0,-14.04167zm7.005038,0l-4.359939,0l0,14.04167l4.360816,0l0,-7.370999c0,-4.098413 5.291077,-4.433657 5.291077,0l0,7.370999l4.377491,0l0,-8.89101c0,-6.915523 -7.829986,-6.66365 -9.669445,-3.259423l0,-1.891237z"/>
-    
-  </svg></i>
-            </span>
-          </a></nav>
-      </div>
-    </nav>
 
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
     <nav class="nav">
-      
-      <div class="nav-left"><a class="nav-item" href="/about">
-          <h2 class="title is-5">About me</h2>
-        </a><a class="nav-item" href="/blog">
-          <h2 class="title is-5">Blog</h2>
-        </a></div>
-      
-
-      
+        <div class="logo">
+            <a href="" accesskey="h" title="Working thoughts 💭🧑‍💻 (Alt + H)">Working thoughts 💭🧑‍💻</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+        </ul>
     </nav>
+</header>
+<main class="main">
 
-  </div>
-  <script src="/js/navicon-shift.js"></script>
-</section>
-<section class="section">
-  <div class="container">
-    <div class="subtitle tags is-6 is-pulled-right">
-      
-    </div>
-    <h2 class="subtitle is-6">June 15, 2013</h2>
-    <h1 class="title">gwt part i</h1>
+<article class="post-single">
+  <header class="post-header">
     
-    <div class="content">
-      <p>Back in 2009 I became the job to design and start realizing a quite large web application for a health care research project. I took some time, sat down and thought about the technology stack, I would like to use to build it. As we wanted to have an RIA and I already had some experience with GWT, we quickly decided to use it. Since then four years have passed and we are about to release the 2.0 version of our system. During this time, the whole team learned a lot about GWT, its advantages and also some disadvantages, and I thought it would be useful to write some of them up. This part is about the <strong>status quo</strong>, in the second part I will try to write about a GWT setup I would go for, when starting the project today - so if you have any hints in this regard, please feel free to leave a comment, I would definitely appreciate it!</p>
-<h2 id="1-client-setup">1. Client setup</h2>
+    <h1 class="post-title">
+      gwt part i
+    </h1>
+    <div class="post-meta"><span title='2013-06-15 00:00:00 +0000 UTC'>June 15, 2013</span>
+
+</div>
+  </header> 
+  <div class="post-content"><p>Back in 2009 I became the job to design and start realizing a quite large web application for a health care research project. I took some time, sat down and thought about the technology stack, I would like to use to build it. As we wanted to have an RIA and I already had some experience with GWT, we quickly decided to use it. Since then four years have passed and we are about to release the 2.0 version of our system. During this time, the whole team learned a lot about GWT, its advantages and also some disadvantages, and I thought it would be useful to write some of them up. This part is about the <strong>status quo</strong>, in the second part I will try to write about a GWT setup I would go for, when starting the project today - so if you have any hints in this regard, please feel free to leave a comment, I would definitely appreciate it!</p>
+<h2 id="1-client-setup">1. Client setup<a hidden class="anchor" aria-hidden="true" href="#1-client-setup">#</a></h2>
 <p>Around the same time, as I started to draw the first diagrams of the inner life of our web app, Ray Ryan gave a <a href="http://www.youtube.com/watch?v=PDuhR18-EdM">talk at the IO conference</a> about the best practices for GWT app architecture, mentioning the <a href="http://martinfowler.com/eaaDev/uiArchs.html">model view presenter</a>, the usage of an event bus for components communication and the command pattern for dispatching the GWT-RPC calls to the server. Shortly after I discovered the <a href="http://code.google.com/p/gwt-presenter/">gwt-presenter</a> and the <a href="http://code.google.com/p/gwt-dispatch/">gwt-dispatch</a> libraries, offering an easy way to build an GWT app based on the principles from  Ray&rsquo;s talk. I also found a very detailed <a href="http://blog.hivedevelopment.co.uk/2009/08/google-web-toolkit-gwt-mvp-example.html">blog post</a> explaining how everything works together.<br>
-<figure><img src="/media/gwt_mvp.png"/><figcaption>
-            <h4>MVP with EventBus and Dispatcher</h4>
+<figure>
+    <img loading="lazy" src="/media/gwt_mvp.png"/> <figcaption>
+            MVP with EventBus and Dispatcher
         </figcaption>
 </figure>
 
 At this point we defined one <strong>Presenter</strong> for all the entities, we wanted to made accessible on the client, and each presenter defined his own <strong>Display</strong> interface which then was implemented by the <strong>View</strong> class. The instantiation of all presenters and views has been managed by <a href="http://code.google.com/p/google-gin/">gin</a> - a dependency injection framework for the client side. The code looked more or less like this:</p>
 <p><em>Presenter &amp; Display:</em></p>
-<pre><code>public class HistoryPresenter extends WidgetPresenter&lt;HistoryPresenter.Display&gt;
+<pre tabindex="0"><code>public class HistoryPresenter extends WidgetPresenter&lt;HistoryPresenter.Display&gt;
 		implements PresentsDTO&lt;HistoryDTO&gt; {
 
 	public interface Display extends WidgetDisplay, Resettable, Editable {
@@ -153,7 +244,7 @@ At this point we defined one <strong>Presenter</strong> for all the entities, we
 }
 </code></pre><p>In the gwt-presenter class hierarchy there was no possibility to define the model class the presenter will be responsible for. For that reason we introduced a <!-- raw HTML omitted -->PresentDTO&lt;T&gt;<!-- raw HTML omitted --> and <!-- raw HTML omitted -->PresentDTOs&lt;T&gt;<!-- raw HTML omitted --> interfaces to ensure the existence of <!-- raw HTML omitted -->T getDTO()<!-- raw HTML omitted --> etc. methods. The view classes are quite straightforward, the only difference is that back in 2009 ui:binder was not really there, therefore the gwt-presenter had no direct support for it. But switching to the declarative layout definition was indeed very easy - each view defines its own *.ui.xml file and the <!-- raw HTML omitted -->asWidget()<!-- raw HTML omitted --> method just returns the result of the <!-- raw HTML omitted -->uiBinder.createAndBindUi()<!-- raw HTML omitted --> call. As you can see in the code below we introduced also a <!-- raw HTML omitted -->WidgetsManager<!-- raw HTML omitted --> class which is a convinient way to managed all the widgets the view is defining (offering a general <!-- raw HTML omitted -->setEditable()<!-- raw HTML omitted --> method and taking care of the validation visualization).</p>
 <p><em>View:</em></p>
-<pre><code>public class HistoryView implements Display {
+<pre tabindex="0"><code>public class HistoryView implements Display {
 	interface HistoryViewUiBinder extends UiBinder&lt;LayoutPanel, HistoryView&gt; {}
 	private static HistoryViewUiBinder uiBinder = GWT.create(HistoryViewUiBinder.class);
 
@@ -176,8 +267,8 @@ At this point we defined one <strong>Presenter</strong> for all the entities, we
 		content.setTitle(c.historyTab());
 		//Registering the widgets within the widget mgr.
 		widgetsManager.registerWidgets(
-				new String[] {&quot;primaryDiseaseGroup&quot;,
-						&quot;primaryDiseaseDiagnosis&quot;, &quot;primaryDiseaseStart&quot;},
+				new String[] {&#34;primaryDiseaseGroup&#34;,
+						&#34;primaryDiseaseDiagnosis&#34;, &#34;primaryDiseaseStart&#34;},
 				new Widget[] {
 						renalDisease,
 						renalDiseaseText,
@@ -206,68 +297,123 @@ At this point we defined one <strong>Presenter</strong> for all the entities, we
 	}
 }
 </code></pre><p>To ensure a loosely coupled client we try to communicate between the presenters only via the EventBus or PlaceRequests, so if a new part of the UI should be rendered, a new place event needs to be fired.</p>
-<h2 id="2-client---server-communication">2. Client - server communication</h2>
+<h2 id="2-client---server-communication">2. Client - server communication<a hidden class="anchor" aria-hidden="true" href="#2-client---server-communication">#</a></h2>
 <p>The client - server communication is based fully on the GWT-RPC mechanism. As mentioned above we are using the gwt-dispatch library meaning that for every request, we have a command object, result object and a server side handler. It is a bit verbose, but in the end it is also a very simple pattern and every new dev introduced to our team grasps it very quickly. The implementation of the client-side caching is easily done, as you just need to compare the command object which should be executed and if one of them has been already seen, then you can serve the already received result saving you one round-trip.</p>
 <p>To execute a command a corresponding object just needs to be passed to the dispatcher which is a singleton on the client and gets injected to every presenter that should be able to trigger the communication. In most of the cases the result of a command (or to use gwt-dispatch terminology: an action) contains a DTO object which is then shown by the presenter. On the server side we are using JPA &amp; Hibernate so obviously we need to take care of the server entity to DTO conversion. Although some libraries exists for this purpose (e.g <a href="http://sourceforge.net/projects/gilead/">gilead</a>), in our specific setting we decided to implement it ourself which was actually a straightforward task when using the reflection API and sticking to a well defined class hierarchy of our own.
-<figure><img src="/media/dto.png"/><figcaption>
-            <h4>DTO</h4>
+<figure>
+    <img loading="lazy" src="/media/dto.png"/> <figcaption>
+            DTO
         </figcaption>
 </figure>
 
 We also use the JSR303 annotations for validation of the entities and are able to push the constraint violations back to the client where they will be assigned to the specific widgets by our <!-- raw HTML omitted -->WidgetsManager<!-- raw HTML omitted --> - here we are just using a simple convention of associating the input widgets with same names as the property paths in the entities.</p>
-<h2 id="3-testing-the-client">3. Testing the client</h2>
+<h2 id="3-testing-the-client">3. Testing the client<a hidden class="anchor" aria-hidden="true" href="#3-testing-the-client">#</a></h2>
 <p>One of the main advantages of doing MVP is the separation of the business logic (sitting in the presenter) from the actual UI components (being a part of the view) resulting in the ability of writing normal, fast unit test (normal, meaning not using the GWTTestCase) and mocking the views. Nevertheless in our project we use <a href="http://docs.seleniumhq.org/">selenium</a> as the main way to assure the correct functionality of our client. As using the normal selenium recorder is not an option with GWT due to the element ids changing during each compile process, we tried to get our selenium tests (written in java as normal unit tests) as independent as it only can be from the layout definition itself (trying not to use exact XPath etc.). Our client is very data input heavy, so we have a lot of input components to test. When we test if the entities get created in a correct way, we just access all visible input components of a certain type, populate them with a random content (which we then store for later comparison), trigger the save action and reload the UI to verify if the same components holds still the same data. Thus, we don&rsquo;t have to update the tests if our data definition changes and we have introduced some new input components. The test will also work if the layout of the UI changes either on purpose, because we rearranged it, or when a new GWT version switch to a different HTML representation for some standard widgets.</p>
 <p><em>Getting certain elements from selenium driver:</em></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">static</span> ArrayList<span style="color:#f92672">&lt;</span>WebElement<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getVisibleElements</span><span style="color:#f92672">(</span>String tagName<span style="color:#f92672">,</span>
-			<span style="color:#66d9ef">final</span> String classString<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-		List<span style="color:#f92672">&lt;</span>WebElement<span style="color:#f92672">&gt;</span> elements <span style="color:#f92672">=</span> driver<span style="color:#f92672">.</span><span style="color:#a6e22e">findElements</span><span style="color:#f92672">(</span>By<span style="color:#f92672">.</span><span style="color:#a6e22e">tagName</span><span style="color:#f92672">(</span>tagName<span style="color:#f92672">));</span>
-		<span style="color:#66d9ef">return</span> Lists<span style="color:#f92672">.</span><span style="color:#a6e22e">newArrayList</span><span style="color:#f92672">(</span>Collections2<span style="color:#f92672">.</span><span style="color:#a6e22e">filter</span><span style="color:#f92672">(</span>elements<span style="color:#f92672">,</span>
-				<span style="color:#66d9ef">new</span> Predicate<span style="color:#f92672">&lt;</span>WebElement<span style="color:#f92672">&gt;()</span> <span style="color:#f92672">{</span>
-					<span style="color:#a6e22e">@Override</span>
-					<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">apply</span><span style="color:#f92672">(</span><span style="color:#a6e22e">@Nullable</span> WebElement input<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-						<span style="color:#66d9ef">boolean</span> b <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
-						<span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
-							String classAttribute <span style="color:#f92672">=</span> input<span style="color:#f92672">.</span><span style="color:#a6e22e">getAttribute</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;class&#34;</span><span style="color:#f92672">);</span>
-							b <span style="color:#f92672">=</span> input<span style="color:#f92672">.</span><span style="color:#a6e22e">isDisplayed</span><span style="color:#f92672">()</span> <span style="color:#f92672">&amp;&amp;</span> classAttribute <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span>
-									<span style="color:#f92672">&amp;&amp;</span> classAttribute<span style="color:#f92672">.</span><span style="color:#a6e22e">contains</span><span style="color:#f92672">(</span>classString<span style="color:#f92672">);</span>
-						<span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>StaleElementReferenceException e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-							<span style="color:#75715e">// Ignoring stale element
-</span><span style="color:#75715e"></span>						<span style="color:#f92672">}</span>
-						<span style="color:#66d9ef">return</span> b<span style="color:#f92672">;</span>
-					<span style="color:#f92672">}</span>
-				<span style="color:#f92672">}));</span>
-	<span style="color:#f92672">}</span>
-</code></pre></div><h2 id="4-issues">4. Issues</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">static</span> ArrayList<span style="color:#f92672">&lt;</span>WebElement<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getVisibleElements</span><span style="color:#f92672">(</span>String tagName<span style="color:#f92672">,</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">final</span> String classString<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>		List<span style="color:#f92672">&lt;</span>WebElement<span style="color:#f92672">&gt;</span> elements <span style="color:#f92672">=</span> driver<span style="color:#f92672">.</span><span style="color:#a6e22e">findElements</span><span style="color:#f92672">(</span>By<span style="color:#f92672">.</span><span style="color:#a6e22e">tagName</span><span style="color:#f92672">(</span>tagName<span style="color:#f92672">));</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> Lists<span style="color:#f92672">.</span><span style="color:#a6e22e">newArrayList</span><span style="color:#f92672">(</span>Collections2<span style="color:#f92672">.</span><span style="color:#a6e22e">filter</span><span style="color:#f92672">(</span>elements<span style="color:#f92672">,</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#66d9ef">new</span> Predicate<span style="color:#f92672">&lt;</span>WebElement<span style="color:#f92672">&gt;()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>					<span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>					<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">apply</span><span style="color:#f92672">(</span><span style="color:#a6e22e">@Nullable</span> WebElement input<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>						<span style="color:#66d9ef">boolean</span> b <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>						<span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>							String classAttribute <span style="color:#f92672">=</span> input<span style="color:#f92672">.</span><span style="color:#a6e22e">getAttribute</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;class&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>							b <span style="color:#f92672">=</span> input<span style="color:#f92672">.</span><span style="color:#a6e22e">isDisplayed</span><span style="color:#f92672">()</span> <span style="color:#f92672">&amp;&amp;</span> classAttribute <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span>
+</span></span><span style="display:flex;"><span>									<span style="color:#f92672">&amp;&amp;</span> classAttribute<span style="color:#f92672">.</span><span style="color:#a6e22e">contains</span><span style="color:#f92672">(</span>classString<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>						<span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>StaleElementReferenceException e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>							<span style="color:#75715e">// Ignoring stale element
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>						<span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>						<span style="color:#66d9ef">return</span> b<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>					<span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#f92672">}));</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">}</span>
+</span></span></code></pre></div><h2 id="4-issues">4. Issues<a hidden class="anchor" aria-hidden="true" href="#4-issues">#</a></h2>
 <p>We are quite happy how things are working now, but there is room for improvement:</p>
 <ul>
 <li><strong>The compile time during development</strong>: trying to change something in the client code in a iterative manner using the standard <strong>DevMode</strong> is very frustrating as it takes just too much time. <strong>SuperDevMode</strong> improved a lot our situation but we still have the problem of having the server and client side in one maven project - changing the server-side code means a <!-- raw HTML omitted -->mvn clean -DskipTests tomcat7:run-war<!-- raw HTML omitted --> and this means basically an &ldquo;espresso&rdquo; break.</li>
 <li><strong>The size of the client</strong>: our *.cache.js file is currently 6.1MB (we use the gwtquery and gwt-chosen libs which are quite large) We will definitely try to introduce some code splitting in the future release, to load only as much as we need and not everything from the beginning.</li>
 <li><strong>Execution time of the selenium tests</strong>: our current selenium suite takes a bit over 3 hours to run on our CI server. And although we could, we don&rsquo;t have enough of the presenter unit tests to have a sufficient coverage letting us sleep well at night. Here probably a wrong choice have been made: concentrating to much on the selenium tests and trying to go for a very exhaustive test suite, instead of implementing a good amount of unit tests for the presenters and a simpler selenium suite for the main work flows in the application.</li>
 </ul>
-      
-      <div class="related">
-</div>
-      
-    </div>
-    
+
   </div>
-</section>
 
-
-
-<section class="section">
-  <div class="container has-text-centered">
-    <p>Lukasz Plotnicki &copy; 2021 | Follow on <a href="https://twitter.com/lplotni" target="_blank">Twitter</a></p>
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
     
-      <p>Powered by <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/ribice/kiss">Kiss</a>.</p>
-    
-  </div>
-</section>
+<footer class="footer">
+    <span>&copy; 2023 <a href="">Working thoughts 💭🧑‍💻</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
 
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
 
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
 
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
 
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
 
+</script>
 </body>
-</html>
 
+</html>

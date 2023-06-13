@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Tags on Working thoughts</title>
-    <link>https://lukasz.dev/tags/</link>
-    <description>Recent content in Tags on Working thoughts</description>
+    <title>Tags on Working thoughts 💭🧑‍💻</title>
+    <link>/tags/</link>
+    <description>Recent content in Tags on Working thoughts 💭🧑‍💻</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>Lukasz Plotnicki &amp;copy; 2021 | Follow on &lt;a href=&#34;https://twitter.com/lplotni&#34; target=&#34;_blank&#34;&gt;Twitter&lt;/a&gt;</copyright><atom:link href="https://lukasz.dev/tags/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

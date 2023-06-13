@@ -1,90 +1,184 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"  lang="en-us">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en" dir="auto">
 
-<title>express testing | Working thoughts</title>
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>express testing | Working thoughts 💭🧑‍💻</title>
+<meta name="keywords" content="">
+<meta name="description" content="After we managed to set up our basic web application, let&rsquo;s get our hands dirty writing some code. And as we want to do it in a test-driven manner (TDD), we need a proper test setup. This piece is all about our initial test pyramid. Test, what? Yes, pyramid:
+At the base of the test automation pyramid is unit testing. Unit testing should be the foundation of a solid test automation strategy and as such represents the largest part of the pyramid.">
+<meta name="author" content="">
+<link rel="canonical" href="/blog/2015/10/10/express-testing/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.3613efbd0b1772781e8f49935e973cae632a7f61471c05b17be155505ccf87b5.css" integrity="sha256-NhPvvQsXcngej0mTXpc8rmMqf2FHHAWxe&#43;FVUFzPh7U=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="mask-icon" href="safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="express testing" />
+<meta property="og:description" content="After we managed to set up our basic web application, let&rsquo;s get our hands dirty writing some code. And as we want to do it in a test-driven manner (TDD), we need a proper test setup. This piece is all about our initial test pyramid. Test, what? Yes, pyramid:
+At the base of the test automation pyramid is unit testing. Unit testing should be the foundation of a solid test automation strategy and as such represents the largest part of the pyramid." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/blog/2015/10/10/express-testing/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2015-10-10T00:00:00+00:00" />
+<meta property="article:modified_time" content="2015-10-10T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="express testing"/>
+<meta name="twitter:description" content="After we managed to set up our basic web application, let&rsquo;s get our hands dirty writing some code. And as we want to do it in a test-driven manner (TDD), we need a proper test setup. This piece is all about our initial test pyramid. Test, what? Yes, pyramid:
+At the base of the test automation pyramid is unit testing. Unit testing should be the foundation of a solid test automation strategy and as such represents the largest part of the pyramid."/>
 
 
-
-<link href="https://lukasz.dev/index.xml" rel="alternate" type="application/rss+xml" title="Working thoughts">
-
-<link rel="stylesheet" href="/css/style.css"><link rel='stylesheet' href='https://lukasz.dev/css/custom.css'><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-<link rel="canonical" href="https://lukasz.dev/blog/2015/10/10/express-testing/">
-<meta name="msapplication-TileColor" content="#da532c">
-<meta name="theme-color" content="#ffffff">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Blogs",
+      "item": "/blog/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "express testing",
+      "item": "/blog/2015/10/10/express-testing/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "express testing",
+  "name": "express testing",
+  "description": "After we managed to set up our basic web application, let\u0026rsquo;s get our hands dirty writing some code. And as we want to do it in a test-driven manner (TDD), we need a proper test setup. This piece is all about our initial test pyramid. Test, what? Yes, pyramid:\nAt the base of the test automation pyramid is unit testing. Unit testing should be the foundation of a solid test automation strategy and as such represents the largest part of the pyramid.",
+  "keywords": [
+    
+  ],
+  "articleBody": " After we managed to set up our basic web application, let’s get our hands dirty writing some code. And as we want to do it in a test-driven manner (TDD), we need a proper test setup. This piece is all about our initial test pyramid. Test, what? Yes, pyramid:\nAt the base of the test automation pyramid is unit testing. Unit testing should be the foundation of a solid test automation strategy and as such represents the largest part of the pyramid. (…) Automated user interface testing is placed at the top of the test automation pyramid because we want to do as little of it as possible. (…) Testing through the user interface like this is expensive and should be minimized. Although there are many test cases that need to be invoked, not all need to be run through the user interface. And this is where the service layer of the test automation pyramid comes in. - Mike Cohn https://www.mountaingoatsoftware.com/blog/the-forgotten-layer-of-the-test-automation-pyramid\nDepending on your personal style (look at this post by Martin Fowler for more details around different flavours of unit testing) and probably also the task at hand, you will either be starting with a unit test or acceptance/functional test. The rest of this post will show you how to set up each kind of test and give you a brief description of what we mean by saying unit, integration and functional test. I will also describe our gulp setup.\nUnit test In JavaScript and node.js world your are spoiled for choices in regards to your unit tests libraries and runners: Jasmine, Mocha and friends, just pick one. We decided to go with Jasmine, in which a test looks like this:\n/* jshint node: true */ /* global describe, beforeEach, afterEach, it, jasmine, expect */ 'use strict'; describe('exractParticipant', function () { var extractParticipant; var validRequestData = { body: { firstname: 'Mark', lastname: 'Mueller', email: 'm.mueller@example.com' } }; beforeEach(function () { extractParticipant= require('../routes/registration.js').extractParticipant }); it('should read firstname from the request body', function() { expect(extractParticipant(validRequestData).firstname).toBe('Mark'); }); it('should throw an error if no firstname can be found', function () { function callWithNoFirstname() { extractParticipant({body: {}}); } expect(callWithNoFirstname).toThrow(); }); } Here we are verifying the behavior of the extractParticipant() function which given a request body returns a specific JS object. We can use multiple describe calls, or even nested describe calls to cluster the tested functionality. Each it call corresponds with a specific behaviour we want to verify. Jasmine provides matchers and spies to simplify our testing: Just look at the reference to see what’s possible. Generally it’s a good practice to verify one specific aspect per test. Any other recommendations, you ask {%gemoji sunglasses%} A good unit test is:\nfast: All the unit tests will be executed very often, therefore it’s necessarry that their execution happens in ms atomic: The unit tests should be independant from one-another, so that you can run them parallel. This means that they should not relay on any side effects (data modifications done by other tests etc.). It’s also way easier to reason why a certain test is red, if all you need to care about is only the scope of that particular test. As usual Martin Fowler wrote a nice bliki about unit tests.\nIntegration test As the name already states, an integration test verifies the behaviour of a group of components of our software acting together. Look at the following test, which checks the intgeration between a service and the database:\n'use strict'; /* jshint node: true */ /* jshint esnext: true */ /* global describe, beforeEach, afterAll, it, jasmine, expect */ describe('participants service', function () { const participants = require('../../service/participants'); var pg = require('pg'); beforeEach(function (done) { var connectionString = process.env.SNAP_DB_PG_URL || \"tcp://vagrant@localhost/pace\"; var jasmineDone = done; pg.connect(connectionString, function (err, client, done) { client.query('delete from participants', function () { done(); jasmineDone(); }); } ); }); afterAll(function(done) { pg.end(); done(); }); it('should store and read participants', function (done) { var aParticipant = { firstname: 'Hertha', lastname: 'Mustermann', email: 'h.mustermann@example.com' }; participants.save(aParticipant) .then(participants.getAll) .then(function (data) { expect(data.length).toBe(1); expect(data[0].firstname).toBe(aParticipant.firstname); expect(data[0].lastname).toBe(aParticipant.lastname); expect(data[0].email).toBe(aParticipant.email); done(); }); }); }); The integration test is similiar to the unit one (it’s also based on jasmine), but instead of mocking our dependencies we use the real implementation (here the pg PostgreSQL client) and verify the integration of both components. In this particular example, we store a participant and expect that if we call the getAll function, it will be returned in the correct form. As the test will actually store objects in the dabase, we need to assure that before we execute the test, the database is cleared. This is done in the beforeEach method. You may ask ‘why before the test and not afterwards’: In case of an error, we will still have the possibility to check the state of the database.\nAs we need to connect to the database and assure a particular state before each test run, those tests will always be slower than the unit ones. Therefore we should try to test only the integrational aspects in them and everything else on the unit level. In the end we are not interested in a test suite for a 3rd party component, but only a verification of the fact that our usage of it is correct.\nFunctional test Whenever we test the system as a whole, we talk about functional tests. Typically those tests go against an outer-most interface of our app, often the UI. In our case we will interact with pace via its web page. To do that, we use WebDriverIO on top of selenium and a headless browser called phantomjs. This combination offers an easy to use API for browser-interaction.\n/* jshint node: true */ /* global describe, beforeEach, afterEach, it, jasmine, expect */ 'use strict'; describe('regisitration journey', function () { var client; var paceUrl = process.env.PACE_URL || 'http://localhost:3000/'; var originalTimeout; beforeEach(function () { var webdriverio = require('webdriverio'); var options = { desiredCapabilities: { browserName: 'phantomjs' } }; client = webdriverio.remote(options); originalTimeout = jasmine.DEFAULT_TIMEOUT_INTERVAL; jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000; }); afterEach(function () { jasmine.DEFAULT_TIMEOUT_INTERVAL = originalTimeout; }); it('allows to register via the registration page', function (done) { client.init() .url(paceUrl) .click('a#registration') .setValue('input#firstname', 'Max') .setValue('input#lastname', 'Mustermann') .setValue('input#email', 'max@example.com') .setValue('input#gender', 'Unicorn') .click('button#submit') .isVisible('div.thanks') .then(function (isVisible) { expect(isVisible).toBe(true); done(); }) .end(); }); }); First we need to setup the webdriver client to use the proper pace base url and browser. We also change the default jasmine timeout for async tests, as in general the browser based interactions tend to take more time. After that it is pretty straightforward: We click on a link, type into input fields, submit the form and verify that we land on the success page (look at webdriverio API for all the different interactions one can trigger). This is the happy path of our registration journey and as the functional test are the most expensive ones (in regards to the execution time), we will try to stick only to happy-path testing on this level.\nTest execution Ok, so how can you run all the tests in a convenient way? Pace uses gulp to build and automate a lot of stuff. Here are the important commands and convention:\nAll tests (specs) should be places in the /spec directory All integration tests must have ‘IT’ in their filename All functional tests must have ‘Journey’ in their filename gulp test - runs all the unit tests gulp test-integration - runs all the integration tests, depends on existing database gulp test-functional - runs all functional tests, depends on installed selenium-server and drivers To simplify the setup of a dev box, pace offers one simple command:\ngulp dev-setup - prepares the vagrant box with the databse, installs all dependencies for selenium and executes the database migrations ",
+  "wordCount" : "1281",
+  "inLanguage": "en",
+  "datePublished": "2015-10-10T00:00:00Z",
+  "dateModified": "2015-10-10T00:00:00Z",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/blog/2015/10/10/express-testing/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Working thoughts 💭🧑‍💻",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "favicon.ico"
+    }
+  }
+}
+</script>
 </head>
-<body>
-<section class="section">
-  <div class="container">
-    <nav id="nav-main" class="nav">
-      <div id="nav-name" class="nav-left">
-        <a id="nav-anchor" class="nav-item" href="https://lukasz.dev/">
-          <h1 id="nav-heading" class="title is-4">Working thoughts</h1>
-        </a>
-      </div>
-      <div class="nav-right">
-        <nav id="nav-items" class="nav-item level is-mobile"><a class="level-item" aria-label="github" href='https://github.com/lplotni'
-            target='_blank' rel='noopener'>
-            <span class="icon">
-              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-    
-    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
-    
-  </svg></i>
-            </span>
-          </a><a class="level-item" aria-label="twitter" href='https://twitter.com/lplotni'
-            target='_blank' rel='noopener'>
-            <span class="icon">
-              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-    
-    <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
-    
-  </svg></i>
-            </span>
-          </a><a class="level-item" aria-label="linkedin" href='https://linkedin.com/in/lukasz-plotnicki'
-            target='_blank' rel='noopener'>
-            <span class="icon">
-              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-    
-    <path stroke-width="1.8" d="m5.839218,4.101561c0,1.211972 -0.974141,2.194011 -2.176459,2.194011s-2.176459,-0.982039 -2.176459,-2.194011c0,-1.211094 0.974141,-2.194011 2.176459,-2.194011s2.176459,0.982917 2.176459,2.194011zm0.017552,3.94922l-4.388022,0l0,14.04167l4.388022,0l0,-14.04167zm7.005038,0l-4.359939,0l0,14.04167l4.360816,0l0,-7.370999c0,-4.098413 5.291077,-4.433657 5.291077,0l0,7.370999l4.377491,0l0,-8.89101c0,-6.915523 -7.829986,-6.66365 -9.669445,-3.259423l0,-1.891237z"/>
-    
-  </svg></i>
-            </span>
-          </a></nav>
-      </div>
-    </nav>
 
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
     <nav class="nav">
-      
-      <div class="nav-left"><a class="nav-item" href="/about">
-          <h2 class="title is-5">About me</h2>
-        </a><a class="nav-item" href="/blog">
-          <h2 class="title is-5">Blog</h2>
-        </a></div>
-      
-
-      
+        <div class="logo">
+            <a href="" accesskey="h" title="Working thoughts 💭🧑‍💻 (Alt + H)">Working thoughts 💭🧑‍💻</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+        </ul>
     </nav>
+</header>
+<main class="main">
 
-  </div>
-  <script src="/js/navicon-shift.js"></script>
-</section>
-<section class="section">
-  <div class="container">
-    <div class="subtitle tags is-6 is-pulled-right">
-      
-    </div>
-    <h2 class="subtitle is-6">October 10, 2015</h2>
-    <h1 class="title">express testing</h1>
+<article class="post-single">
+  <header class="post-header">
     
-    <div class="content">
-      <p><figure><img src="/media/test_pyramid.jpg"/>
+    <h1 class="post-title">
+      express testing
+    </h1>
+    <div class="post-meta"><span title='2015-10-10 00:00:00 +0000 UTC'>October 10, 2015</span>
+
+</div>
+  </header> 
+  <div class="post-content"><p><figure>
+    <img loading="lazy" src="/media/test_pyramid.jpg"/> 
 </figure>
 
 After we managed to set up our basic <a href="/blog/2015/08/04/bootstraping-a-node-dot-js-webapp/">web application</a>,
@@ -111,42 +205,42 @@ acceptance/functional test. The rest of this post will show you how to set up
 each kind of test and give you a brief description of what we mean by saying
 <strong>unit</strong>, <strong>integration</strong> and <strong>functional</strong> test. I will also describe our
 <strong>gulp setup</strong>.</p>
-<h2 id="unit-test">Unit test</h2>
+<h2 id="unit-test">Unit test<a hidden class="anchor" aria-hidden="true" href="#unit-test">#</a></h2>
 <p>In JavaScript and node.js world your are spoiled for choices in regards to
 your unit tests libraries and runners: Jasmine, Mocha and friends, just pick
 one. We decided to go with
 <a href="https://jasmine.github.io/2.3/introduction.html">Jasmine</a>, in which a test
 looks like this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">/* jshint node: true */</span>
-<span style="color:#75715e">/* global describe, beforeEach, afterEach, it, jasmine, expect */</span>
-<span style="color:#e6db74">&#39;use strict&#39;</span>;
-<span style="color:#a6e22e">describe</span>(<span style="color:#e6db74">&#39;exractParticipant&#39;</span>, <span style="color:#66d9ef">function</span> () {
-  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">extractParticipant</span>;
-  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">validRequestData</span> <span style="color:#f92672">=</span> {
-    <span style="color:#a6e22e">body</span><span style="color:#f92672">:</span> {
-      <span style="color:#a6e22e">firstname</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Mark&#39;</span>,
-      <span style="color:#a6e22e">lastname</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Mueller&#39;</span>,
-      <span style="color:#a6e22e">email</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;m.mueller@example.com&#39;</span>
-    }
-  };
-
-  <span style="color:#a6e22e">beforeEach</span>(<span style="color:#66d9ef">function</span> () {
-    <span style="color:#a6e22e">extractParticipant</span><span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;../routes/registration.js&#39;</span>).<span style="color:#a6e22e">extractParticipant</span>
-  });
-
-  <span style="color:#a6e22e">it</span>(<span style="color:#e6db74">&#39;should read firstname from the request body&#39;</span>, <span style="color:#66d9ef">function</span>() {
-    <span style="color:#a6e22e">expect</span>(<span style="color:#a6e22e">extractParticipant</span>(<span style="color:#a6e22e">validRequestData</span>).<span style="color:#a6e22e">firstname</span>).<span style="color:#a6e22e">toBe</span>(<span style="color:#e6db74">&#39;Mark&#39;</span>);
-  });
-
-  <span style="color:#a6e22e">it</span>(<span style="color:#e6db74">&#39;should throw an error if no firstname can be found&#39;</span>, <span style="color:#66d9ef">function</span> () {
-    <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">callWithNoFirstname</span>() {
-      <span style="color:#a6e22e">extractParticipant</span>({<span style="color:#a6e22e">body</span><span style="color:#f92672">:</span> {}});
-    }
-
-    <span style="color:#a6e22e">expect</span>(<span style="color:#a6e22e">callWithNoFirstname</span>).<span style="color:#a6e22e">toThrow</span>();
-  });
-}
-</code></pre></div><p>Here we are verifying the behavior of the <!-- raw HTML omitted -->extractParticipant()<!-- raw HTML omitted --> function
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">/* jshint node: true */</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/* global describe, beforeEach, afterEach, it, jasmine, expect */</span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;use strict&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">describe</span>(<span style="color:#e6db74">&#39;exractParticipant&#39;</span>, <span style="color:#66d9ef">function</span> () {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">extractParticipant</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">validRequestData</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">body</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">firstname</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Mark&#39;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">lastname</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Mueller&#39;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">email</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;m.mueller@example.com&#39;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">beforeEach</span>(<span style="color:#66d9ef">function</span> () {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">extractParticipant</span><span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;../routes/registration.js&#39;</span>).<span style="color:#a6e22e">extractParticipant</span>
+</span></span><span style="display:flex;"><span>  });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">it</span>(<span style="color:#e6db74">&#39;should read firstname from the request body&#39;</span>, <span style="color:#66d9ef">function</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">expect</span>(<span style="color:#a6e22e">extractParticipant</span>(<span style="color:#a6e22e">validRequestData</span>).<span style="color:#a6e22e">firstname</span>).<span style="color:#a6e22e">toBe</span>(<span style="color:#e6db74">&#39;Mark&#39;</span>);
+</span></span><span style="display:flex;"><span>  });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">it</span>(<span style="color:#e6db74">&#39;should throw an error if no firstname can be found&#39;</span>, <span style="color:#66d9ef">function</span> () {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">callWithNoFirstname</span>() {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">extractParticipant</span>({<span style="color:#a6e22e">body</span><span style="color:#f92672">:</span> {}});
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">expect</span>(<span style="color:#a6e22e">callWithNoFirstname</span>).<span style="color:#a6e22e">toThrow</span>();
+</span></span><span style="display:flex;"><span>  });
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Here we are verifying the behavior of the <!-- raw HTML omitted -->extractParticipant()<!-- raw HTML omitted --> function
 which given a request body returns a specific JS object. We can use multiple
 <!-- raw HTML omitted -->describe<!-- raw HTML omitted --> calls, or even nested <!-- raw HTML omitted -->describe<!-- raw HTML omitted --> calls to cluster the
 tested functionality. Each <!-- raw HTML omitted -->it<!-- raw HTML omitted --> call corresponds with a specific behaviour
@@ -166,59 +260,59 @@ to reason why a certain test is red, if all you need to care about is only
 the scope of that particular test.</li>
 </ul>
 <p>As usual Martin Fowler wrote a nice <a href="http://martinfowler.com/bliki/UnitTest.html">bliki about unit tests</a>.</p>
-<h2 id="integration-test">Integration test</h2>
+<h2 id="integration-test">Integration test<a hidden class="anchor" aria-hidden="true" href="#integration-test">#</a></h2>
 <p>As the name already states, an integration test verifies the behaviour of
 a group of components of our software acting together. Look at the following
 test, which checks the intgeration between a service and the database:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#e6db74">&#39;use strict&#39;</span>;
-<span style="color:#75715e">/* jshint node: true */</span>
-<span style="color:#75715e">/* jshint esnext: true */</span>
-<span style="color:#75715e">/* global describe, beforeEach, afterAll, it, jasmine, expect */</span>
-
-<span style="color:#a6e22e">describe</span>(<span style="color:#e6db74">&#39;participants service&#39;</span>, <span style="color:#66d9ef">function</span> () {
-
-    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">participants</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;../../service/participants&#39;</span>);
-    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">pg</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;pg&#39;</span>);
-
-    <span style="color:#a6e22e">beforeEach</span>(<span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">done</span>) {
-        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">connectionString</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">SNAP_DB_PG_URL</span> <span style="color:#f92672">||</span> <span style="color:#e6db74">&#34;tcp://vagrant@localhost/pace&#34;</span>;
-        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">jasmineDone</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">done</span>;
-
-        <span style="color:#a6e22e">pg</span>.<span style="color:#a6e22e">connect</span>(<span style="color:#a6e22e">connectionString</span>, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">err</span>, <span style="color:#a6e22e">client</span>, <span style="color:#a6e22e">done</span>) {
-                <span style="color:#a6e22e">client</span>.<span style="color:#a6e22e">query</span>(<span style="color:#e6db74">&#39;delete from participants&#39;</span>, <span style="color:#66d9ef">function</span> () {
-                    <span style="color:#a6e22e">done</span>();
-                    <span style="color:#a6e22e">jasmineDone</span>();
-                });
-            }
-        );
-
-    });
-
-    <span style="color:#a6e22e">afterAll</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">done</span>) {
-        <span style="color:#a6e22e">pg</span>.<span style="color:#a6e22e">end</span>();
-        <span style="color:#a6e22e">done</span>();
-    });
-
-
-    <span style="color:#a6e22e">it</span>(<span style="color:#e6db74">&#39;should store and read participants&#39;</span>, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">done</span>) {
-        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">aParticipant</span> <span style="color:#f92672">=</span> {
-            <span style="color:#a6e22e">firstname</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Hertha&#39;</span>,
-            <span style="color:#a6e22e">lastname</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Mustermann&#39;</span>,
-            <span style="color:#a6e22e">email</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;h.mustermann@example.com&#39;</span>
-        };
-
-        <span style="color:#a6e22e">participants</span>.<span style="color:#a6e22e">save</span>(<span style="color:#a6e22e">aParticipant</span>)
-            .<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">participants</span>.<span style="color:#a6e22e">getAll</span>)
-            .<span style="color:#a6e22e">then</span>(<span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">data</span>) {
-                <span style="color:#a6e22e">expect</span>(<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">length</span>).<span style="color:#a6e22e">toBe</span>(<span style="color:#ae81ff">1</span>);
-                <span style="color:#a6e22e">expect</span>(<span style="color:#a6e22e">data</span>[<span style="color:#ae81ff">0</span>].<span style="color:#a6e22e">firstname</span>).<span style="color:#a6e22e">toBe</span>(<span style="color:#a6e22e">aParticipant</span>.<span style="color:#a6e22e">firstname</span>);
-                <span style="color:#a6e22e">expect</span>(<span style="color:#a6e22e">data</span>[<span style="color:#ae81ff">0</span>].<span style="color:#a6e22e">lastname</span>).<span style="color:#a6e22e">toBe</span>(<span style="color:#a6e22e">aParticipant</span>.<span style="color:#a6e22e">lastname</span>);
-                <span style="color:#a6e22e">expect</span>(<span style="color:#a6e22e">data</span>[<span style="color:#ae81ff">0</span>].<span style="color:#a6e22e">email</span>).<span style="color:#a6e22e">toBe</span>(<span style="color:#a6e22e">aParticipant</span>.<span style="color:#a6e22e">email</span>);
-                <span style="color:#a6e22e">done</span>();
-            });
-    });
-});
-</code></pre></div><p>The integration test is similiar to the unit one (it&rsquo;s also based on jasmine),
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#e6db74">&#39;use strict&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/* jshint node: true */</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/* jshint esnext: true */</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/* global describe, beforeEach, afterAll, it, jasmine, expect */</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">describe</span>(<span style="color:#e6db74">&#39;participants service&#39;</span>, <span style="color:#66d9ef">function</span> () {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">participants</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;../../service/participants&#39;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">pg</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;pg&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">beforeEach</span>(<span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">done</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">connectionString</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">SNAP_DB_PG_URL</span> <span style="color:#f92672">||</span> <span style="color:#e6db74">&#34;tcp://vagrant@localhost/pace&#34;</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">jasmineDone</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">done</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">pg</span>.<span style="color:#a6e22e">connect</span>(<span style="color:#a6e22e">connectionString</span>, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">err</span>, <span style="color:#a6e22e">client</span>, <span style="color:#a6e22e">done</span>) {
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">client</span>.<span style="color:#a6e22e">query</span>(<span style="color:#e6db74">&#39;delete from participants&#39;</span>, <span style="color:#66d9ef">function</span> () {
+</span></span><span style="display:flex;"><span>                    <span style="color:#a6e22e">done</span>();
+</span></span><span style="display:flex;"><span>                    <span style="color:#a6e22e">jasmineDone</span>();
+</span></span><span style="display:flex;"><span>                });
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        );
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">afterAll</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">done</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">pg</span>.<span style="color:#a6e22e">end</span>();
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">done</span>();
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">it</span>(<span style="color:#e6db74">&#39;should store and read participants&#39;</span>, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">done</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">aParticipant</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">firstname</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Hertha&#39;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">lastname</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Mustermann&#39;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">email</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;h.mustermann@example.com&#39;</span>
+</span></span><span style="display:flex;"><span>        };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">participants</span>.<span style="color:#a6e22e">save</span>(<span style="color:#a6e22e">aParticipant</span>)
+</span></span><span style="display:flex;"><span>            .<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">participants</span>.<span style="color:#a6e22e">getAll</span>)
+</span></span><span style="display:flex;"><span>            .<span style="color:#a6e22e">then</span>(<span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">data</span>) {
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">expect</span>(<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">length</span>).<span style="color:#a6e22e">toBe</span>(<span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">expect</span>(<span style="color:#a6e22e">data</span>[<span style="color:#ae81ff">0</span>].<span style="color:#a6e22e">firstname</span>).<span style="color:#a6e22e">toBe</span>(<span style="color:#a6e22e">aParticipant</span>.<span style="color:#a6e22e">firstname</span>);
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">expect</span>(<span style="color:#a6e22e">data</span>[<span style="color:#ae81ff">0</span>].<span style="color:#a6e22e">lastname</span>).<span style="color:#a6e22e">toBe</span>(<span style="color:#a6e22e">aParticipant</span>.<span style="color:#a6e22e">lastname</span>);
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">expect</span>(<span style="color:#a6e22e">data</span>[<span style="color:#ae81ff">0</span>].<span style="color:#a6e22e">email</span>).<span style="color:#a6e22e">toBe</span>(<span style="color:#a6e22e">aParticipant</span>.<span style="color:#a6e22e">email</span>);
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">done</span>();
+</span></span><span style="display:flex;"><span>            });
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><p>The integration test is similiar to the unit one (it&rsquo;s also based on jasmine),
 but instead of mocking our dependencies we use the real implementation (here
 the <!-- raw HTML omitted -->pg<!-- raw HTML omitted --> PostgreSQL client) and verify the integration of both components.
 In this particular example, we store a participant and expect that if we call
@@ -234,56 +328,56 @@ we should try to test only the integrational aspects in them and everything
 else on the unit level. In the end we are not interested in a test suite for
 a 3rd party component, but only a verification of the fact that our usage of
 it is correct.</p>
-<h2 id="functional-test">Functional test</h2>
+<h2 id="functional-test">Functional test<a hidden class="anchor" aria-hidden="true" href="#functional-test">#</a></h2>
 <p>Whenever we test the system as a whole, we talk about functional tests.
 Typically those tests go against an outer-most interface of our app, often
 the UI. In our case we will interact with pace via its web page.
 To do that, we use <a href="http://webdriver.io/">WebDriverIO</a> on top of <a href="http://docs.seleniumhq.org/">selenium</a> and a headless browser called <a href="http://phantomjs.org/">phantomjs</a>. This combination offers an easy to use API for browser-interaction.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">/* jshint node: true */</span>
-<span style="color:#75715e">/* global describe, beforeEach, afterEach, it, jasmine, expect */</span>
-<span style="color:#e6db74">&#39;use strict&#39;</span>;
-<span style="color:#a6e22e">describe</span>(<span style="color:#e6db74">&#39;regisitration journey&#39;</span>, <span style="color:#66d9ef">function</span> () {
-    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">client</span>;
-    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">paceUrl</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">PACE_URL</span> <span style="color:#f92672">||</span> <span style="color:#e6db74">&#39;http://localhost:3000/&#39;</span>;
-    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">originalTimeout</span>;
-
-    <span style="color:#a6e22e">beforeEach</span>(<span style="color:#66d9ef">function</span> () {
-        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">webdriverio</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;webdriverio&#39;</span>);
-        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">options</span> <span style="color:#f92672">=</span> {
-            <span style="color:#a6e22e">desiredCapabilities</span><span style="color:#f92672">:</span> {
-                <span style="color:#a6e22e">browserName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;phantomjs&#39;</span>
-            }
-        };
-
-        <span style="color:#a6e22e">client</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">webdriverio</span>.<span style="color:#a6e22e">remote</span>(<span style="color:#a6e22e">options</span>);
-        <span style="color:#a6e22e">originalTimeout</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">jasmine</span>.<span style="color:#a6e22e">DEFAULT_TIMEOUT_INTERVAL</span>;
-        <span style="color:#a6e22e">jasmine</span>.<span style="color:#a6e22e">DEFAULT_TIMEOUT_INTERVAL</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">10000</span>;
-    });
-
-    <span style="color:#a6e22e">afterEach</span>(<span style="color:#66d9ef">function</span> () {
-        <span style="color:#a6e22e">jasmine</span>.<span style="color:#a6e22e">DEFAULT_TIMEOUT_INTERVAL</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">originalTimeout</span>;
-    });
-
-    <span style="color:#a6e22e">it</span>(<span style="color:#e6db74">&#39;allows to register via the registration page&#39;</span>, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">done</span>) {
-
-        <span style="color:#a6e22e">client</span>.<span style="color:#a6e22e">init</span>()
-            .<span style="color:#a6e22e">url</span>(<span style="color:#a6e22e">paceUrl</span>)
-            .<span style="color:#a6e22e">click</span>(<span style="color:#e6db74">&#39;a#registration&#39;</span>)
-            .<span style="color:#a6e22e">setValue</span>(<span style="color:#e6db74">&#39;input#firstname&#39;</span>, <span style="color:#e6db74">&#39;Max&#39;</span>)
-            .<span style="color:#a6e22e">setValue</span>(<span style="color:#e6db74">&#39;input#lastname&#39;</span>, <span style="color:#e6db74">&#39;Mustermann&#39;</span>)
-            .<span style="color:#a6e22e">setValue</span>(<span style="color:#e6db74">&#39;input#email&#39;</span>, <span style="color:#e6db74">&#39;max@example.com&#39;</span>)
-            .<span style="color:#a6e22e">setValue</span>(<span style="color:#e6db74">&#39;input#gender&#39;</span>, <span style="color:#e6db74">&#39;Unicorn&#39;</span>)
-            .<span style="color:#a6e22e">click</span>(<span style="color:#e6db74">&#39;button#submit&#39;</span>)
-            .<span style="color:#a6e22e">isVisible</span>(<span style="color:#e6db74">&#39;div.thanks&#39;</span>)
-            .<span style="color:#a6e22e">then</span>(<span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">isVisible</span>) {
-                <span style="color:#a6e22e">expect</span>(<span style="color:#a6e22e">isVisible</span>).<span style="color:#a6e22e">toBe</span>(<span style="color:#66d9ef">true</span>);
-                <span style="color:#a6e22e">done</span>();
-            })
-            .<span style="color:#a6e22e">end</span>();
-    });
-
-});
-</code></pre></div><p>First we need to setup the webdriver client to use the proper pace base url and
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">/* jshint node: true */</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/* global describe, beforeEach, afterEach, it, jasmine, expect */</span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;use strict&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">describe</span>(<span style="color:#e6db74">&#39;regisitration journey&#39;</span>, <span style="color:#66d9ef">function</span> () {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">client</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">paceUrl</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">PACE_URL</span> <span style="color:#f92672">||</span> <span style="color:#e6db74">&#39;http://localhost:3000/&#39;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">originalTimeout</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">beforeEach</span>(<span style="color:#66d9ef">function</span> () {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">webdriverio</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;webdriverio&#39;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">options</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">desiredCapabilities</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">browserName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;phantomjs&#39;</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">client</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">webdriverio</span>.<span style="color:#a6e22e">remote</span>(<span style="color:#a6e22e">options</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">originalTimeout</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">jasmine</span>.<span style="color:#a6e22e">DEFAULT_TIMEOUT_INTERVAL</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">jasmine</span>.<span style="color:#a6e22e">DEFAULT_TIMEOUT_INTERVAL</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">10000</span>;
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">afterEach</span>(<span style="color:#66d9ef">function</span> () {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">jasmine</span>.<span style="color:#a6e22e">DEFAULT_TIMEOUT_INTERVAL</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">originalTimeout</span>;
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">it</span>(<span style="color:#e6db74">&#39;allows to register via the registration page&#39;</span>, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">done</span>) {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">client</span>.<span style="color:#a6e22e">init</span>()
+</span></span><span style="display:flex;"><span>            .<span style="color:#a6e22e">url</span>(<span style="color:#a6e22e">paceUrl</span>)
+</span></span><span style="display:flex;"><span>            .<span style="color:#a6e22e">click</span>(<span style="color:#e6db74">&#39;a#registration&#39;</span>)
+</span></span><span style="display:flex;"><span>            .<span style="color:#a6e22e">setValue</span>(<span style="color:#e6db74">&#39;input#firstname&#39;</span>, <span style="color:#e6db74">&#39;Max&#39;</span>)
+</span></span><span style="display:flex;"><span>            .<span style="color:#a6e22e">setValue</span>(<span style="color:#e6db74">&#39;input#lastname&#39;</span>, <span style="color:#e6db74">&#39;Mustermann&#39;</span>)
+</span></span><span style="display:flex;"><span>            .<span style="color:#a6e22e">setValue</span>(<span style="color:#e6db74">&#39;input#email&#39;</span>, <span style="color:#e6db74">&#39;max@example.com&#39;</span>)
+</span></span><span style="display:flex;"><span>            .<span style="color:#a6e22e">setValue</span>(<span style="color:#e6db74">&#39;input#gender&#39;</span>, <span style="color:#e6db74">&#39;Unicorn&#39;</span>)
+</span></span><span style="display:flex;"><span>            .<span style="color:#a6e22e">click</span>(<span style="color:#e6db74">&#39;button#submit&#39;</span>)
+</span></span><span style="display:flex;"><span>            .<span style="color:#a6e22e">isVisible</span>(<span style="color:#e6db74">&#39;div.thanks&#39;</span>)
+</span></span><span style="display:flex;"><span>            .<span style="color:#a6e22e">then</span>(<span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">isVisible</span>) {
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">expect</span>(<span style="color:#a6e22e">isVisible</span>).<span style="color:#a6e22e">toBe</span>(<span style="color:#66d9ef">true</span>);
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">done</span>();
+</span></span><span style="display:flex;"><span>            })
+</span></span><span style="display:flex;"><span>            .<span style="color:#a6e22e">end</span>();
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><p>First we need to setup the webdriver client to use the proper pace base url and
 browser. We also change the default jasmine timeout for async tests, as in
 general the browser based interactions tend to take more time. After that it is
 pretty straightforward: We click on a link, type into input fields, submit
@@ -292,7 +386,7 @@ the form and verify that we land on the success page (look at
 one can trigger). This is the happy path of our registration journey and as the
 functional test are the most expensive ones (in regards to the execution time),
 we will try to stick only to happy-path testing on this level.</p>
-<h2 id="test-execution">Test execution</h2>
+<h2 id="test-execution">Test execution<a hidden class="anchor" aria-hidden="true" href="#test-execution">#</a></h2>
 <p>Ok, so how can you run all the tests in a convenient way? Pace uses <a href="http://gulpjs.com/">gulp</a> to build and automate a lot of stuff. Here are the important commands and convention:</p>
 <ul>
 <li>All tests (specs) should be places in the <strong>/spec</strong> directory</li>
@@ -310,30 +404,84 @@ selenium-server and drivers</li>
 all dependencies for selenium and executes the database migrations</li>
 </ul>
 
-      
-      <div class="related">
-</div>
-      
-    </div>
-    
+
   </div>
-</section>
 
-
-
-<section class="section">
-  <div class="container has-text-centered">
-    <p>Lukasz Plotnicki &copy; 2021 | Follow on <a href="https://twitter.com/lplotni" target="_blank">Twitter</a></p>
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
     
-      <p>Powered by <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/ribice/kiss">Kiss</a>.</p>
-    
-  </div>
-</section>
+<footer class="footer">
+    <span>&copy; 2023 <a href="">Working thoughts 💭🧑‍💻</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
 
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
 
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
 
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
 
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
 
+</script>
 </body>
-</html>
 
+</html>

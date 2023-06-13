@@ -1,147 +1,145 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Working thoughts</title>
-    <link>https://lukasz.dev/</link>
-    <description>Recent content on Working thoughts</description>
+    <title>Working thoughts 💭🧑‍💻</title>
+    <link>/</link>
+    <description>Recent content on Working thoughts 💭🧑‍💻</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>Lukasz Plotnicki &amp;copy; 2021 | Follow on &lt;a href=&#34;https://twitter.com/lplotni&#34; target=&#34;_blank&#34;&gt;Twitter&lt;/a&gt;</copyright>
-    <lastBuildDate>Thu, 22 Jul 2021 15:35:37 +0200</lastBuildDate><atom:link href="https://lukasz.dev/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language>
+    <lastBuildDate>Thu, 22 Jul 2021 15:35:37 +0200</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>A change / next step</title>
-      <link>https://lukasz.dev/blog/a_change/</link>
+      <link>/blog/a_change/</link>
       <pubDate>Thu, 22 Jul 2021 15:35:37 +0200</pubDate>
       
-      <guid>https://lukasz.dev/blog/a_change/</guid>
+      <guid>/blog/a_change/</guid>
       <description>Back in 2013, I was building a system to help with pediatric kidney transplant research while also trying to write a PhD at the same time. That split did not work out. I liked building the system and the team around it way more than writing papers and the dissertation work itself. Still, it took me a while though to actually acknowledge that. To allow myself to say: I like the one thing more than the original goal.</description>
     </item>
     
     <item>
       <title>Java Frameworks in 2020 ?</title>
-      <link>https://lukasz.dev/blog/java-frameworks/</link>
+      <link>/blog/java-frameworks/</link>
       <pubDate>Sat, 22 Feb 2020 07:49:31 +0100</pubDate>
       
-      <guid>https://lukasz.dev/blog/java-frameworks/</guid>
+      <guid>/blog/java-frameworks/</guid>
       <description>Java/JVM ecosystem is extremely mature and vast. It comes with a palette of production-ready choices for libraries solving problems that we face developing all kinds of services: be it from logging/metrics to async messaging or access to all the major sql and nosql data stores. Add the big talent pool (Java is very often used as the programming language used during CS-courses)[1] and it&amp;rsquo;s no wonder that this particular language and ecosystem is on the top or among the top 5 in the programming language statistics [2][3].</description>
     </item>
     
     <item>
       <title>My first UHK layout</title>
-      <link>https://lukasz.dev/blog/uhk_setup/</link>
+      <link>/blog/uhk_setup/</link>
       <pubDate>Fri, 28 Dec 2018 23:24:02 +0100</pubDate>
       
-      <guid>https://lukasz.dev/blog/uhk_setup/</guid>
-      <description>I ordered the UHK with the linux layout as I thought that I will be moving towards a linux laptop as the main driver for my work. Somehow this didn&amp;rsquo;t happen 😕 and therefore I ended up using the UHK with a Mackbook Pro. Thus, I changed few settings and love my setup even more. UHK is really a spectacular keyboard.
-   I quickly decided to just align the Fn, Ctrl, Option and Cmd key with the mac layout so that my mussle memory doesn&amp;rsquo;t suffer too much.</description>
+      <guid>/blog/uhk_setup/</guid>
+      <description>I ordered the UHK with the linux layout as I thought that I will be moving towards a linux laptop as the main driver for my work. Somehow this didn&amp;rsquo;t happen :confused: and therefore I ended up using the UHK with a Mackbook Pro. Thus, I changed few settings and love my setup even more. UHK is really a spectacular keyboard.
+I quickly decided to just align the Fn, Ctrl, Option and Cmd key with the mac layout so that my mussle memory doesn&amp;rsquo;t suffer too much.</description>
     </item>
     
     <item>
       <title>Using your yubikey as ssh key provider / Quick(est) guide</title>
-      <link>https://lukasz.dev/blog/sshkey_yubikey/</link>
+      <link>/blog/sshkey_yubikey/</link>
       <pubDate>Wed, 23 May 2018 21:36:52 +0200</pubDate>
       
-      <guid>https://lukasz.dev/blog/sshkey_yubikey/</guid>
+      <guid>/blog/sshkey_yubikey/</guid>
       <description>I figured it&amp;rsquo;s time to write up the quickest guide about using the yubikey as the source of your ssh key. This assumes that:
- You have a yubikey and it&amp;rsquo;s in your usb port You&amp;rsquo;ve configured gpg on you machine (I&amp;rsquo;m running gpg (GnuPG) 2.2.7) You&amp;rsquo;re using the gpg-agent with enabled ssh support  Here are the steps:
+You have a yubikey and it&amp;rsquo;s in your usb port You&amp;rsquo;ve configured gpg on you machine (I&amp;rsquo;m running gpg (GnuPG) 2.2.7) You&amp;rsquo;re using the gpg-agent with enabled ssh support Here are the steps:
 gpg --card-edit &amp;gt; admin &amp;gt; generate &amp;gt; [enter the requested PIN] &amp;gt; quit And now you&amp;rsquo;re done.</description>
     </item>
     
     <item>
       <title>why hugo?</title>
-      <link>https://lukasz.dev/blog/why-hugo/</link>
+      <link>/blog/why-hugo/</link>
       <pubDate>Mon, 09 Oct 2017 21:44:11 +0200</pubDate>
       
-      <guid>https://lukasz.dev/blog/why-hugo/</guid>
+      <guid>/blog/why-hugo/</guid>
       <description>As you can see looking at the frequency of my posts, I&amp;rsquo;m more of an occasional writer. Therefore whenever I drag myself in front of my notebook, to write something up I&amp;rsquo;m feeling like sharing, I should really not have any reason to do something else instead. Sadly, although I was really happy with my octopress setup, more than once I found myself fighting the currently installed ruby versions and some conflicts with the gems that octopress was requiring.</description>
     </item>
     
     <item>
       <title>bff</title>
-      <link>https://lukasz.dev/blog/2016/02/22/bff/</link>
+      <link>/blog/2016/02/22/bff/</link>
       <pubDate>Mon, 22 Feb 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://lukasz.dev/blog/2016/02/22/bff/</guid>
+      <guid>/blog/2016/02/22/bff/</guid>
       <description>A while ago I wrote a ThoughtWorks insights post about the Backends for frontends pattern and the story behind its adaption at SoundCloud. It generated interesting discussions and resulted also in some further content and I thought it would be good to have a place with links to all this resources for the future reference.
- BFF @ SoundCloud - the original post talking about the pattern and journey towards it BFF pattern definition - comprehensive pattern definition Moving to Microservices at SoundCloud - Software Engineering Daily podcast - a podcast talking about microservices in gerneral, SoundCloud&amp;rsquo;s journey towards this style of architecture and usage of BFFs BFF @ SoundCloud (podcast) - an interview about UI composition in a microservices world in general and the BFF pattern  </description>
+BFF @ SoundCloud - the original post talking about the pattern and journey towards it BFF pattern definition - comprehensive pattern definition Moving to Microservices at SoundCloud - Software Engineering Daily podcast - a podcast talking about microservices in gerneral, SoundCloud&amp;rsquo;s journey towards this style of architecture and usage of BFFs BFF @ SoundCloud (podcast) - an interview about UI composition in a microservices world in general and the BFF pattern </description>
     </item>
     
     <item>
       <title>express testing</title>
-      <link>https://lukasz.dev/blog/2015/10/10/express-testing/</link>
+      <link>/blog/2015/10/10/express-testing/</link>
       <pubDate>Sat, 10 Oct 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://lukasz.dev/blog/2015/10/10/express-testing/</guid>
+      <guid>/blog/2015/10/10/express-testing/</guid>
       <description>After we managed to set up our basic web application, let&amp;rsquo;s get our hands dirty writing some code. And as we want to do it in a test-driven manner (TDD), we need a proper test setup. This piece is all about our initial test pyramid. Test, what? Yes, pyramid:
- At the base of the test automation pyramid is unit testing. Unit testing should be the foundation of a solid test automation strategy and as such represents the largest part of the pyramid.</description>
+At the base of the test automation pyramid is unit testing. Unit testing should be the foundation of a solid test automation strategy and as such represents the largest part of the pyramid.</description>
     </item>
     
     <item>
       <title>bootstraping a node.js webapp</title>
-      <link>https://lukasz.dev/blog/2015/08/04/bootstraping-a-node-dot-js-webapp/</link>
+      <link>/blog/2015/08/04/bootstraping-a-node-dot-js-webapp/</link>
       <pubDate>Tue, 04 Aug 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://lukasz.dev/blog/2015/08/04/bootstraping-a-node-dot-js-webapp/</guid>
+      <guid>/blog/2015/08/04/bootstraping-a-node-dot-js-webapp/</guid>
       <description>Together with few friends we started building pace - a web application for organizing and managing running events &amp;amp; competitions. We are a colorful bunch of people with different backgrounds, therefore we wanted to choose an approachable tech stack, as some of us wants also to learn one or two things about JavaScript, web applications or programming in general.
 And then, somebody suggested to write one thing or two, about our technology decisions and accompany it with some HowTo information.</description>
     </item>
     
     <item>
       <title>build monitors</title>
-      <link>https://lukasz.dev/blog/2015/06/27/build-monitors/</link>
+      <link>/blog/2015/06/27/build-monitors/</link>
       <pubDate>Sat, 27 Jun 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://lukasz.dev/blog/2015/06/27/build-monitors/</guid>
+      <guid>/blog/2015/06/27/build-monitors/</guid>
       <description>During my last four projects or so, the teams I worked with were always using GO.CD as the CD tool of their choosing. Although the pipeline state visualisation GO.CD comes with is quite nice, it still doesn&amp;rsquo;t cut it as a proper, obvious build monitor enabling everybody in the team to quickly recognize what is the pipeline status.
- Burstah in action   Therefore first cidar, a simple sinatra based build monitor, has been born.</description>
+Burstah in action Therefore first cidar, a simple sinatra based build monitor, has been born.</description>
     </item>
     
     <item>
       <title>scoopcamp hackathon</title>
-      <link>https://lukasz.dev/blog/2013/09/14/scoopcamp-hackathon/</link>
+      <link>/blog/2013/09/14/scoopcamp-hackathon/</link>
       <pubDate>Sat, 14 Sep 2013 00:00:00 +0000</pubDate>
       
-      <guid>https://lukasz.dev/blog/2013/09/14/scoopcamp-hackathon/</guid>
+      <guid>/blog/2013/09/14/scoopcamp-hackathon/</guid>
       <description>Last Thursday I was a part of the Scoopcamp hackathon and it was so great that I just couldn&amp;rsquo;t resist to write down some of my thoughts about it. Our team ThoughtWorks and friends a colorful mix of journalists, students and developers had a rough idea for a modern - more agile - journalism, where the journalist reporting about an ongoing event writes the background story and live updates from his perspective, but can also incorporate content written by the readers who create their own streams representing their own take on the particular event.</description>
     </item>
     
     <item>
       <title>gwt part i</title>
-      <link>https://lukasz.dev/blog/2013/06/15/gwt-part-i/</link>
+      <link>/blog/2013/06/15/gwt-part-i/</link>
       <pubDate>Sat, 15 Jun 2013 00:00:00 +0000</pubDate>
       
-      <guid>https://lukasz.dev/blog/2013/06/15/gwt-part-i/</guid>
+      <guid>/blog/2013/06/15/gwt-part-i/</guid>
       <description>&lt;p&gt;Back in 2009 I became the job to design and start realizing a quite large web application for a health care research project. I took some time, sat down and thought about the technology stack, I would like to use to build it. As we wanted to have an RIA and I already had some experience with GWT, we quickly decided to use it. Since then four years have passed and we are about to release the 2.0 version of our system. During this time, the whole team learned a lot about GWT, its advantages and also some disadvantages, and I thought it would be useful to write some of them up. This part is about the &lt;strong&gt;status quo&lt;/strong&gt;, in the second part I will try to write about a GWT setup I would go for, when starting the project today - so if you have any hints in this regard, please feel free to leave a comment, I would definitely appreciate it!&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>setting up ...</title>
-      <link>https://lukasz.dev/blog/2013/05/14/setting-up-dot-dot-dot/</link>
+      <link>/blog/2013/05/14/setting-up-dot-dot-dot/</link>
       <pubDate>Tue, 14 May 2013 00:00:00 +0000</pubDate>
       
-      <guid>https://lukasz.dev/blog/2013/05/14/setting-up-dot-dot-dot/</guid>
+      <guid>/blog/2013/05/14/setting-up-dot-dot-dot/</guid>
       <description>There&amp;rsquo;s nothing like this moment, when you have a big smile on your face, because you&amp;rsquo;re just stunned how well things are working and how simple the set-up process was. Octopress is just amazing. Period. If you haven&amp;rsquo;t heard about it and you&amp;rsquo;re thinking to start a blog or migrate one, then you should definitely check it out. To put it simple:
- Octopress is a framework designed by Brandon Mathis for Jekyll, the blog aware static site generator powering Github Pages.</description>
+Octopress is a framework designed by Brandon Mathis for Jekyll, the blog aware static site generator powering Github Pages.</description>
     </item>
     
     <item>
       <title>hello world</title>
-      <link>https://lukasz.dev/blog/2013/05/09/hello-world/</link>
+      <link>/blog/2013/05/09/hello-world/</link>
       <pubDate>Thu, 09 May 2013 00:00:00 +0000</pubDate>
       
-      <guid>https://lukasz.dev/blog/2013/05/09/hello-world/</guid>
+      <guid>/blog/2013/05/09/hello-world/</guid>
       <description>I had this idea to create my own blog since like forever but always convinced myself that it will be either too time consuming or all the topics I would like to write about, are already well described, so what&amp;rsquo;s the point &amp;hellip;
 But then, I had also too many moments, when I thought - wait, you already had this problem/issue/idea&amp;hellip; What was the solution? Where did you find it?</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://lukasz.dev/about/</link>
+      <link>/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lukasz.dev/about/</guid>
-      <description>My name is Lukasz (he/him) and I really like creating products together with awesome teams. The roles that I play vary: from a dev, to a tech lead, to sombody trying to aling multiple teams going in the same direction. Whenever I can, I get my hands dirty with Java, Kotlin and JavaScript with a proper amount of terraform for the infrastructure. Ex-Thoughtworks, currently building things at Gropyus 👷‍♂️
-This is a personal weblog.</description>
+      <guid>/about/</guid>
+      <description>My name is Lukasz (he/him) and I really like creating products together with awesome teams. The roles that I play vary: from a dev, to a tech lead, to sombody trying to aling multiple teams going in the same direction. Whenever I can, I get my hands dirty with Java, Kotlin and JavaScript with a proper amount of terraform for the infrastructure. Ex-Thoughtworks, currently building things at air up 💦‍️.</description>
     </item>
     
   </channel>

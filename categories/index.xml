@@ -1,76 +1,72 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Categories on Working thoughts</title>
-    <link>https://lplotni.github.io/categories/</link>
-    <description>Recent content in Categories on Working thoughts</description>
+    <title>Categories on Working thoughts 💭🧑‍💻</title>
+    <link>/categories/</link>
+    <description>Recent content in Categories on Working thoughts 💭🧑‍💻</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>&amp;copy; 2017 | Follow on &lt;a href=&#34;https://twitter.com/lplotni&#34; target=&#34;_blank&#34;&gt;Twitter&lt;/a&gt; | &lt;a href=&#34;https://github.com/mgjohansen/hucore.git&#34; target=&#34;_blank&#34;&gt;Hucore theme&lt;/a&gt; &amp; &lt;a href=&#34;http://gohugo.io&#34; target=&#34;_blank&#34;&gt;Hugo&lt;/a&gt; ♥</copyright>
-    
-	<atom:link href="https://lplotni.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>en</language>
+    <lastBuildDate>Tue, 04 Aug 2015 00:00:00 +0000</lastBuildDate><atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Development</title>
-      <link>https://lplotni.github.io/categories/development/</link>
+      <title>development</title>
+      <link>/categories/development/</link>
       <pubDate>Tue, 04 Aug 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://lplotni.github.io/categories/development/</guid>
+      <guid>/categories/development/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Expressjs</title>
-      <link>https://lplotni.github.io/categories/expressjs/</link>
+      <title>expressjs</title>
+      <link>/categories/expressjs/</link>
       <pubDate>Tue, 04 Aug 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://lplotni.github.io/categories/expressjs/</guid>
+      <guid>/categories/expressjs/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Howto</title>
-      <link>https://lplotni.github.io/categories/howto/</link>
+      <title>howto</title>
+      <link>/categories/howto/</link>
       <pubDate>Tue, 04 Aug 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://lplotni.github.io/categories/howto/</guid>
+      <guid>/categories/howto/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Javascript</title>
-      <link>https://lplotni.github.io/categories/javascript/</link>
+      <title>JavaScript</title>
+      <link>/categories/javascript/</link>
       <pubDate>Tue, 04 Aug 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://lplotni.github.io/categories/javascript/</guid>
+      <guid>/categories/javascript/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Nodejs</title>
-      <link>https://lplotni.github.io/categories/nodejs/</link>
+      <title>nodejs</title>
+      <link>/categories/nodejs/</link>
       <pubDate>Tue, 04 Aug 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://lplotni.github.io/categories/nodejs/</guid>
+      <guid>/categories/nodejs/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Pace</title>
-      <link>https://lplotni.github.io/categories/pace/</link>
+      <title>pace</title>
+      <link>/categories/pace/</link>
       <pubDate>Tue, 04 Aug 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://lplotni.github.io/categories/pace/</guid>
+      <guid>/categories/pace/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Technology</title>
-      <link>https://lplotni.github.io/categories/technology/</link>
+      <title>technology</title>
+      <link>/categories/technology/</link>
       <pubDate>Tue, 04 Aug 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://lplotni.github.io/categories/technology/</guid>
+      <guid>/categories/technology/</guid>
       <description></description>
     </item>
     

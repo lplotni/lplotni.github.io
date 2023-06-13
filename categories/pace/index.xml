@@ -1,23 +1,18 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Pace on Working thoughts</title>
-    <link>https://lplotni.github.io/categories/pace/</link>
-    <description>Recent content in Pace on Working thoughts</description>
+    <title>pace on Working thoughts 💭🧑‍💻</title>
+    <link>/categories/pace/</link>
+    <description>Recent content in pace on Working thoughts 💭🧑‍💻</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>&amp;copy; 2017 | Follow on &lt;a href=&#34;https://twitter.com/lplotni&#34; target=&#34;_blank&#34;&gt;Twitter&lt;/a&gt; | &lt;a href=&#34;https://github.com/mgjohansen/hucore.git&#34; target=&#34;_blank&#34;&gt;Hucore theme&lt;/a&gt; &amp; &lt;a href=&#34;http://gohugo.io&#34; target=&#34;_blank&#34;&gt;Hugo&lt;/a&gt; ♥</copyright>
-    <lastBuildDate>Tue, 04 Aug 2015 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://lplotni.github.io/categories/pace/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>en</language>
+    <lastBuildDate>Tue, 04 Aug 2015 00:00:00 +0000</lastBuildDate><atom:link href="/categories/pace/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>bootstraping a node.js webapp</title>
-      <link>https://lplotni.github.io/blog/2015/08/04/bootstraping-a-node-dot-js-webapp/</link>
+      <link>/blog/2015/08/04/bootstraping-a-node-dot-js-webapp/</link>
       <pubDate>Tue, 04 Aug 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://lplotni.github.io/blog/2015/08/04/bootstraping-a-node-dot-js-webapp/</guid>
+      <guid>/blog/2015/08/04/bootstraping-a-node-dot-js-webapp/</guid>
       <description>Together with few friends we started building pace - a web application for organizing and managing running events &amp;amp; competitions. We are a colorful bunch of people with different backgrounds, therefore we wanted to choose an approachable tech stack, as some of us wants also to learn one or two things about JavaScript, web applications or programming in general.
 And then, somebody suggested to write one thing or two, about our technology decisions and accompany it with some HowTo information.</description>
     </item>
