@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>expressjs on Working thoughts 💭🧑‍💻</title>
+    <title>Expressjs on Working thoughts 💭🧑‍💻</title>
     <link>/categories/expressjs/</link>
-    <description>Recent content in expressjs on Working thoughts 💭🧑‍💻</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Expressjs on Working thoughts 💭🧑‍💻</description>
+    <generator>Hugo -- 0.134.3</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 04 Aug 2015 00:00:00 +0000</lastBuildDate><atom:link href="/categories/expressjs/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 04 Aug 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/categories/expressjs/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>bootstraping a node.js webapp</title>
       <link>/blog/2015/08/04/bootstraping-a-node-dot-js-webapp/</link>
       <pubDate>Tue, 04 Aug 2015 00:00:00 +0000</pubDate>
-      
       <guid>/blog/2015/08/04/bootstraping-a-node-dot-js-webapp/</guid>
-      <description>Together with few friends we started building pace - a web application for organizing and managing running events &amp;amp; competitions. We are a colorful bunch of people with different backgrounds, therefore we wanted to choose an approachable tech stack, as some of us wants also to learn one or two things about JavaScript, web applications or programming in general.
-And then, somebody suggested to write one thing or two, about our technology decisions and accompany it with some HowTo information.</description>
+      <description>&lt;p&gt;Together with few friends we started building &lt;strong&gt;&lt;a href=&#34;https://github.com/lplotni/pace&#34;&gt;pace&lt;/a&gt;&lt;/strong&gt; - a web application for
+organizing and managing running events &amp;amp; competitions. We are a colorful bunch of people with different backgrounds, therefore we wanted to choose an approachable tech stack, as some of us wants also to learn one or two things about &lt;strong&gt;JavaScript&lt;/strong&gt;, &lt;strong&gt;web applications&lt;/strong&gt; or &lt;strong&gt;programming&lt;/strong&gt; in general.&lt;/p&gt;
+&lt;p&gt;And then, somebody suggested to write one thing or two, about our technology
+decisions and accompany it with some &lt;em&gt;HowTo&lt;/em&gt; information. So here we are.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

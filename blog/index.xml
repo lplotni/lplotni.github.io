@@ -4,134 +4,194 @@
     <title>Blogs on Working thoughts 💭🧑‍💻</title>
     <link>/blog/</link>
     <description>Recent content in Blogs on Working thoughts 💭🧑‍💻</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.134.3</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 22 Jul 2021 15:35:37 +0200</lastBuildDate><atom:link href="/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 22 Jul 2021 15:35:37 +0200</lastBuildDate>
+    <atom:link href="/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>A change / next step</title>
       <link>/blog/a_change/</link>
       <pubDate>Thu, 22 Jul 2021 15:35:37 +0200</pubDate>
-      
       <guid>/blog/a_change/</guid>
-      <description>Back in 2013, I was building a system to help with pediatric kidney transplant research while also trying to write a PhD at the same time. That split did not work out. I liked building the system and the team around it way more than writing papers and the dissertation work itself. Still, it took me a while though to actually acknowledge that. To allow myself to say: I like the one thing more than the original goal.</description>
+      <description>&lt;p&gt;Back in 2013, I was building a &lt;a href=&#34;https://certain-registry.eu&#34;&gt;system&lt;/a&gt; to help
+with pediatric kidney transplant research while also trying to write a PhD at the
+same time. That split did not work out. I liked building the system and the team around
+it way more than writing papers and the dissertation work itself. Still, it took me
+a while though to actually acknowledge that. To allow myself to say: I like the one
+thing more than the original goal. But finally I did and
+decided to focus exactly on this: building tech, building teams, learning how
+to do it better and to do a lot of that.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Java Frameworks in 2020 ?</title>
       <link>/blog/java-frameworks/</link>
       <pubDate>Sat, 22 Feb 2020 07:49:31 +0100</pubDate>
-      
       <guid>/blog/java-frameworks/</guid>
-      <description>Java/JVM ecosystem is extremely mature and vast. It comes with a palette of production-ready choices for libraries solving problems that we face developing all kinds of services: be it from logging/metrics to async messaging or access to all the major sql and nosql data stores. Add the big talent pool (Java is very often used as the programming language used during CS-courses)[1] and it&amp;rsquo;s no wonder that this particular language and ecosystem is on the top or among the top 5 in the programming language statistics [2][3].</description>
+      <description>&lt;p&gt;Java/JVM ecosystem is extremely mature and vast. It comes with a palette of production-ready choices for libraries solving problems that we face developing all kinds of services: be it from logging/metrics to async messaging or access to all the major sql and nosql data stores. Add the big talent pool (Java is very often used as the programming language used during CS-courses)[&lt;a href=&#34;https://cacm.acm.org/blogs/blog-cacm/176450-python-is-now-the-most-popular-introductory-teaching-language-at-top-u-s-universities/fulltext&#34;&gt;1&lt;/a&gt;] and it&amp;rsquo;s no wonder that this particular language and ecosystem is on the top or among the top 5 in the programming language statistics [&lt;a href=&#34;https://www.tiobe.com/tiobe-index/&#34;&gt;2&lt;/a&gt;][&lt;a href=&#34;https://insights.stackoverflow.com/survey/2019#technology&#34;&gt;3&lt;/a&gt;].&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>My first UHK layout</title>
       <link>/blog/uhk_setup/</link>
       <pubDate>Fri, 28 Dec 2018 23:24:02 +0100</pubDate>
-      
       <guid>/blog/uhk_setup/</guid>
-      <description>I ordered the UHK with the linux layout as I thought that I will be moving towards a linux laptop as the main driver for my work. Somehow this didn&amp;rsquo;t happen :confused: and therefore I ended up using the UHK with a Mackbook Pro. Thus, I changed few settings and love my setup even more. UHK is really a spectacular keyboard.
-I quickly decided to just align the Fn, Ctrl, Option and Cmd key with the mac layout so that my mussle memory doesn&amp;rsquo;t suffer too much.</description>
+      <description>&lt;p&gt;I ordered the &lt;a href=&#34;https://ultimatehackingkeyboard.com&#34;&gt;UHK&lt;/a&gt; with the linux layout
+as I thought that I will be moving towards a linux laptop as the main driver
+for my work. Somehow this didn&amp;rsquo;t happen :confused: and therefore I ended up using the UHK
+with a Mackbook Pro. Thus, I changed few settings and love my setup even more.
+UHK is really a spectacular keyboard.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;img loading=&#34;lazy&#34; src=&#34;/media/keyboard.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;I quickly decided to just align the &lt;strong&gt;Fn&lt;/strong&gt;, &lt;strong&gt;Ctrl&lt;/strong&gt;, &lt;strong&gt;Option&lt;/strong&gt; and &lt;strong&gt;Cmd&lt;/strong&gt;
+key with the mac layout so that my mussle memory doesn&amp;rsquo;t suffer too much. This
+also made me fell in love with the UHK agent: It&amp;rsquo;s just so easy to remap the
+keys to your liking.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Using your yubikey as ssh key provider / Quick(est) guide</title>
       <link>/blog/sshkey_yubikey/</link>
       <pubDate>Wed, 23 May 2018 21:36:52 +0200</pubDate>
-      
       <guid>/blog/sshkey_yubikey/</guid>
-      <description>I figured it&amp;rsquo;s time to write up the quickest guide about using the yubikey as the source of your ssh key. This assumes that:
-You have a yubikey and it&amp;rsquo;s in your usb port You&amp;rsquo;ve configured gpg on you machine (I&amp;rsquo;m running gpg (GnuPG) 2.2.7) You&amp;rsquo;re using the gpg-agent with enabled ssh support Here are the steps:
-gpg --card-edit &amp;gt; admin &amp;gt; generate &amp;gt; [enter the requested PIN] &amp;gt; quit And now you&amp;rsquo;re done.</description>
+      <description>&lt;p&gt;I figured it&amp;rsquo;s time to write up the quickest guide about using the yubikey as
+the source of your ssh key. This assumes that:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;You have a yubikey and it&amp;rsquo;s in your usb port&lt;/li&gt;
+&lt;li&gt;You&amp;rsquo;ve configured gpg on you machine (I&amp;rsquo;m running gpg (GnuPG) 2.2.7)&lt;/li&gt;
+&lt;li&gt;You&amp;rsquo;re using the gpg-agent with enabled ssh support&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Here are the steps:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;gpg --card-edit
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;gt; admin
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;gt; generate
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;enter the requested PIN&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;gt; quit
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;And now you&amp;rsquo;re done. You can check if the new ssh key get pulled correctly from
+your yubikey typing:&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>why hugo?</title>
       <link>/blog/why-hugo/</link>
       <pubDate>Mon, 09 Oct 2017 21:44:11 +0200</pubDate>
-      
       <guid>/blog/why-hugo/</guid>
-      <description>As you can see looking at the frequency of my posts, I&amp;rsquo;m more of an occasional writer. Therefore whenever I drag myself in front of my notebook, to write something up I&amp;rsquo;m feeling like sharing, I should really not have any reason to do something else instead. Sadly, although I was really happy with my octopress setup, more than once I found myself fighting the currently installed ruby versions and some conflicts with the gems that octopress was requiring.</description>
+      <description>&lt;p&gt;As you can see looking at the frequency of my posts, I&amp;rsquo;m more of an occasional
+writer. Therefore whenever I drag myself in front of my notebook, to write
+something up I&amp;rsquo;m feeling like sharing, I should really not have any reason to
+do something else instead. Sadly, although I was really happy with my
+&lt;a href=&#34;http://octopress.org&#34;&gt;octopress&lt;/a&gt; setup, more than once
+I found myself fighting the currently installed ruby versions and some
+conflicts with the gems that octopress was requiring.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>bff</title>
       <link>/blog/2016/02/22/bff/</link>
       <pubDate>Mon, 22 Feb 2016 00:00:00 +0000</pubDate>
-      
       <guid>/blog/2016/02/22/bff/</guid>
-      <description>A while ago I wrote a ThoughtWorks insights post about the Backends for frontends pattern and the story behind its adaption at SoundCloud. It generated interesting discussions and resulted also in some further content and I thought it would be good to have a place with links to all this resources for the future reference.
-BFF @ SoundCloud - the original post talking about the pattern and journey towards it BFF pattern definition - comprehensive pattern definition Moving to Microservices at SoundCloud - Software Engineering Daily podcast - a podcast talking about microservices in gerneral, SoundCloud&amp;rsquo;s journey towards this style of architecture and usage of BFFs BFF @ SoundCloud (podcast) - an interview about UI composition in a microservices world in general and the BFF pattern </description>
+      <description>&lt;p&gt;A while ago I wrote a &lt;a href=&#34;https://www.thoughtworks.com/insights/blog/bff-soundcloud&#34;&gt;ThoughtWorks insights post&lt;/a&gt; about the
+&lt;strong&gt;Backends for frontends&lt;/strong&gt; pattern and the story behind its adaption at
+&lt;a href=&#34;http://soundcloud.com&#34;&gt;SoundCloud&lt;/a&gt;. It generated interesting discussions
+and resulted also in some further content and I thought it would be good to
+have a place with links to all this resources for the future reference.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.thoughtworks.com/insights/blog/bff-soundcloud&#34;&gt;BFF @ SoundCloud&lt;/a&gt; - the original post talking about the pattern and journey towards it&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://samnewman.io/patterns/architectural/bff/&#34;&gt;BFF pattern definition&lt;/a&gt; - comprehensive pattern definition&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://softwareengineeringdaily.com/2016/02/04/moving-to-microservices-at-soundcloud-with-lukasz-plotnicki/&#34;&gt;Moving to Microservices at SoundCloud - Software Engineering Daily podcast&lt;/a&gt; - a podcast talking about microservices in gerneral, SoundCloud&amp;rsquo;s journey towards this style of architecture and usage of BFFs&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://soundcloud.com/thoughtworks/bff-soundcloud&#34;&gt;BFF @ SoundCloud (podcast)&lt;/a&gt; - an interview about UI composition in a microservices world in general and the BFF pattern&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
     </item>
-    
     <item>
       <title>express testing</title>
       <link>/blog/2015/10/10/express-testing/</link>
       <pubDate>Sat, 10 Oct 2015 00:00:00 +0000</pubDate>
-      
       <guid>/blog/2015/10/10/express-testing/</guid>
-      <description>After we managed to set up our basic web application, let&amp;rsquo;s get our hands dirty writing some code. And as we want to do it in a test-driven manner (TDD), we need a proper test setup. This piece is all about our initial test pyramid. Test, what? Yes, pyramid:
-At the base of the test automation pyramid is unit testing. Unit testing should be the foundation of a solid test automation strategy and as such represents the largest part of the pyramid.</description>
+      <description>&lt;p&gt;&lt;figure&gt;
+    &lt;img loading=&#34;lazy&#34; src=&#34;/media/test_pyramid.jpg&#34;/&gt; 
+&lt;/figure&gt;
+
+After we managed to set up our basic &lt;a href=&#34;/blog/2015/08/04/bootstraping-a-node-dot-js-webapp/&#34;&gt;web application&lt;/a&gt;,
+let&amp;rsquo;s get our
+hands dirty writing some code. And as we want to do it in a test-driven
+manner (&lt;a href=&#34;http://martinfowler.com/bliki/TestDrivenDevelopment.html&#34;&gt;TDD&lt;/a&gt;), we need
+a proper test setup. This piece is all about our initial test pyramid. Test,
+what? Yes, pyramid:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;At the base of the test automation pyramid is unit testing. Unit testing should
+be the foundation of a solid test automation strategy and as such represents
+the largest part of the pyramid. (&amp;hellip;) Automated user interface testing is
+placed at the top of the test automation pyramid because we want to do as
+little of it as possible. (&amp;hellip;) Testing through the user interface like this is
+expensive and should be minimized. Although there are many test cases that need
+to be invoked, not all need to be run through the user interface. And this is
+where the service layer of the test automation pyramid comes in. - Mike Cohn &lt;a href=&#34;https://www.mountaingoatsoftware.com/blog/the-forgotten-layer-of-the-test-automation-pyramid&#34;&gt;https://www.mountaingoatsoftware.com/blog/the-forgotten-layer-of-the-test-automation-pyramid&lt;/a&gt;&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>bootstraping a node.js webapp</title>
       <link>/blog/2015/08/04/bootstraping-a-node-dot-js-webapp/</link>
       <pubDate>Tue, 04 Aug 2015 00:00:00 +0000</pubDate>
-      
       <guid>/blog/2015/08/04/bootstraping-a-node-dot-js-webapp/</guid>
-      <description>Together with few friends we started building pace - a web application for organizing and managing running events &amp;amp; competitions. We are a colorful bunch of people with different backgrounds, therefore we wanted to choose an approachable tech stack, as some of us wants also to learn one or two things about JavaScript, web applications or programming in general.
-And then, somebody suggested to write one thing or two, about our technology decisions and accompany it with some HowTo information.</description>
+      <description>&lt;p&gt;Together with few friends we started building &lt;strong&gt;&lt;a href=&#34;https://github.com/lplotni/pace&#34;&gt;pace&lt;/a&gt;&lt;/strong&gt; - a web application for
+organizing and managing running events &amp;amp; competitions. We are a colorful bunch of people with different backgrounds, therefore we wanted to choose an approachable tech stack, as some of us wants also to learn one or two things about &lt;strong&gt;JavaScript&lt;/strong&gt;, &lt;strong&gt;web applications&lt;/strong&gt; or &lt;strong&gt;programming&lt;/strong&gt; in general.&lt;/p&gt;
+&lt;p&gt;And then, somebody suggested to write one thing or two, about our technology
+decisions and accompany it with some &lt;em&gt;HowTo&lt;/em&gt; information. So here we are.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>build monitors</title>
       <link>/blog/2015/06/27/build-monitors/</link>
       <pubDate>Sat, 27 Jun 2015 00:00:00 +0000</pubDate>
-      
       <guid>/blog/2015/06/27/build-monitors/</guid>
-      <description>During my last four projects or so, the teams I worked with were always using GO.CD as the CD tool of their choosing. Although the pipeline state visualisation GO.CD comes with is quite nice, it still doesn&amp;rsquo;t cut it as a proper, obvious build monitor enabling everybody in the team to quickly recognize what is the pipeline status.
-Burstah in action Therefore first cidar, a simple sinatra based build monitor, has been born.</description>
+      <description>&lt;p&gt;During my last four projects or so, the teams I worked with were always using &lt;a href=&#34;http://www.go.cd/&#34;&gt;GO.CD&lt;/a&gt; as the CD tool of their
+choosing. Although the pipeline state visualisation GO.CD comes with is quite nice, it still doesn&amp;rsquo;t cut it as a proper,
+&lt;em&gt;obvious&lt;/em&gt; build monitor enabling everybody in the team to quickly recognize what is the pipeline status.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;img loading=&#34;lazy&#34; src=&#34;/media/burstah_example.png&#34;/&gt; &lt;figcaption&gt;
+            Burstah in action
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Therefore first &lt;a href=&#34;https://github.com/lplotni/cidar&#34;&gt;cidar&lt;/a&gt;, a simple sinatra based build monitor, has been born. I quickly discovered
+that sinatra and especially the nokogiri dependency, doesn&amp;rsquo;t make it easy to use e.g. a Raspberry Pi as the monitor hardware. So,
+having the liberty, I decided to re-implement everything in JavaScript using node.js &amp;amp; express. &lt;a href=&#34;https://github.com/lplotni/burstah&#34;&gt;Burstah&lt;/a&gt;
+, my second attempt at the ultimative build monitor, has been born :grin:&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>scoopcamp hackathon</title>
       <link>/blog/2013/09/14/scoopcamp-hackathon/</link>
       <pubDate>Sat, 14 Sep 2013 00:00:00 +0000</pubDate>
-      
       <guid>/blog/2013/09/14/scoopcamp-hackathon/</guid>
-      <description>Last Thursday I was a part of the Scoopcamp hackathon and it was so great that I just couldn&amp;rsquo;t resist to write down some of my thoughts about it. Our team ThoughtWorks and friends a colorful mix of journalists, students and developers had a rough idea for a modern - more agile - journalism, where the journalist reporting about an ongoing event writes the background story and live updates from his perspective, but can also incorporate content written by the readers who create their own streams representing their own take on the particular event.</description>
+      <description>&lt;p&gt;Last Thursday I was a part of the &lt;a href=&#34;http://scoopcamp.de/hackathon/&#34;&gt;Scoopcamp hackathon&lt;/a&gt; and it was so great that I just couldn&amp;rsquo;t resist to write down some of my thoughts about it. Our team &lt;strong&gt;ThoughtWorks and friends&lt;/strong&gt; a colorful mix of journalists, students and developers had a rough idea for a modern - more &lt;strong&gt;agile&lt;/strong&gt; - journalism, where the journalist reporting about an ongoing event writes the background story and live updates from his perspective, but can also incorporate content written by the readers who create their own streams representing their own take on the particular event. Being able to see which stream/entry is getting most likes (=feedback), he/she can quickly react and focus on the currently favorite perspective. During a quick brainstorming we came up with the name: &lt;strong&gt;LiquidPub&lt;/strong&gt; (for liquid publishing) and started defining the first user stories.
+&lt;figure&gt;
+    &lt;img loading=&#34;lazy&#34; src=&#34;/media/liquidpub_screenshot.png&#34;/&gt; &lt;figcaption&gt;
+            Our app
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+ To be able to deliver something within less than a day of coding, we went with Ruby on Rails. This gave me the opportunity to finally try out Rails and learn it a bit by pairing with some experienced Ruby/Rails devs. The application itself has been deployed on heroku and being ThoughtWorks we built and deployed it after each push to our &lt;a href=&#34;https://github.com/thoughtworks/liquid-pub&#34;&gt;github repo&lt;/a&gt; using &lt;a href=&#34;https://www.snap-ci.com/&#34;&gt;snap-ci&lt;/a&gt; - &lt;a href=&#34;http://martinfowler.com/bliki/ContinuousDelivery.html&#34;&gt;continuous delivery&lt;/a&gt; FTW!&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>gwt part i</title>
       <link>/blog/2013/06/15/gwt-part-i/</link>
       <pubDate>Sat, 15 Jun 2013 00:00:00 +0000</pubDate>
-      
       <guid>/blog/2013/06/15/gwt-part-i/</guid>
       <description>&lt;p&gt;Back in 2009 I became the job to design and start realizing a quite large web application for a health care research project. I took some time, sat down and thought about the technology stack, I would like to use to build it. As we wanted to have an RIA and I already had some experience with GWT, we quickly decided to use it. Since then four years have passed and we are about to release the 2.0 version of our system. During this time, the whole team learned a lot about GWT, its advantages and also some disadvantages, and I thought it would be useful to write some of them up. This part is about the &lt;strong&gt;status quo&lt;/strong&gt;, in the second part I will try to write about a GWT setup I would go for, when starting the project today - so if you have any hints in this regard, please feel free to leave a comment, I would definitely appreciate it!&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>setting up ...</title>
       <link>/blog/2013/05/14/setting-up-dot-dot-dot/</link>
       <pubDate>Tue, 14 May 2013 00:00:00 +0000</pubDate>
-      
       <guid>/blog/2013/05/14/setting-up-dot-dot-dot/</guid>
-      <description>There&amp;rsquo;s nothing like this moment, when you have a big smile on your face, because you&amp;rsquo;re just stunned how well things are working and how simple the set-up process was. Octopress is just amazing. Period. If you haven&amp;rsquo;t heard about it and you&amp;rsquo;re thinking to start a blog or migrate one, then you should definitely check it out. To put it simple:
-Octopress is a framework designed by Brandon Mathis for Jekyll, the blog aware static site generator powering Github Pages.</description>
+      <description>&lt;p&gt;There&amp;rsquo;s nothing like this moment, when you have a big smile on your face, because you&amp;rsquo;re just stunned how well things are working and how simple the set-up process was. &lt;a href=&#34;http://octopress.org&#34;&gt;Octopress&lt;/a&gt; is just amazing. &lt;strong&gt;Period&lt;/strong&gt;. If you haven&amp;rsquo;t heard about it and you&amp;rsquo;re thinking to start a blog or migrate one, then you should definitely check it out. To put it simple:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Octopress is a framework designed by Brandon Mathis for Jekyll, the blog aware static site generator powering Github Pages. To start blogging with Jekyll, you have to write your own HTML templates, CSS, Javascripts and set up your configuration. But with Octopress All of that is already taken care of. Simply clone or fork Octopress, install dependencies and the theme, and you&amp;rsquo;re set. - Brandon Mathis &lt;a href=&#34;http://octopress.org/blog/2011/07/23/octopress-20-surfaces/&#34;&gt;http://octopress.org/blog/2011/07/23/octopress-20-surfaces/&lt;/a&gt;&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>hello world</title>
       <link>/blog/2013/05/09/hello-world/</link>
       <pubDate>Thu, 09 May 2013 00:00:00 +0000</pubDate>
-      
       <guid>/blog/2013/05/09/hello-world/</guid>
-      <description>I had this idea to create my own blog since like forever but always convinced myself that it will be either too time consuming or all the topics I would like to write about, are already well described, so what&amp;rsquo;s the point &amp;hellip;
-But then, I had also too many moments, when I thought - wait, you already had this problem/issue/idea&amp;hellip; What was the solution? Where did you find it?</description>
+      <description>&lt;p&gt;I had this idea to create my own blog since like forever but always convinced myself that it will be either too time consuming or all the topics I would like to write about, are already well described, so what&amp;rsquo;s the point &amp;hellip;&lt;/p&gt;
+&lt;p&gt;But then, I had also too many moments, when I thought - wait, you already had this problem/issue/idea&amp;hellip; What was the solution? Where did you find it?&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

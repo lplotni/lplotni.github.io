@@ -4,71 +4,58 @@
     <title>Categories on Working thoughts 💭🧑‍💻</title>
     <link>/categories/</link>
     <description>Recent content in Categories on Working thoughts 💭🧑‍💻</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.134.3</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 04 Aug 2015 00:00:00 +0000</lastBuildDate><atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 04 Aug 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>development</title>
+      <title>Development</title>
       <link>/categories/development/</link>
       <pubDate>Tue, 04 Aug 2015 00:00:00 +0000</pubDate>
-      
       <guid>/categories/development/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>expressjs</title>
+      <title>Expressjs</title>
       <link>/categories/expressjs/</link>
       <pubDate>Tue, 04 Aug 2015 00:00:00 +0000</pubDate>
-      
       <guid>/categories/expressjs/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>howto</title>
+      <title>Howto</title>
       <link>/categories/howto/</link>
       <pubDate>Tue, 04 Aug 2015 00:00:00 +0000</pubDate>
-      
       <guid>/categories/howto/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>JavaScript</title>
       <link>/categories/javascript/</link>
       <pubDate>Tue, 04 Aug 2015 00:00:00 +0000</pubDate>
-      
       <guid>/categories/javascript/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>nodejs</title>
+      <title>Nodejs</title>
       <link>/categories/nodejs/</link>
       <pubDate>Tue, 04 Aug 2015 00:00:00 +0000</pubDate>
-      
       <guid>/categories/nodejs/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>pace</title>
+      <title>Pace</title>
       <link>/categories/pace/</link>
       <pubDate>Tue, 04 Aug 2015 00:00:00 +0000</pubDate>
-      
       <guid>/categories/pace/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>technology</title>
+      <title>Technology</title>
       <link>/categories/technology/</link>
       <pubDate>Tue, 04 Aug 2015 00:00:00 +0000</pubDate>
-      
       <guid>/categories/technology/</guid>
       <description></description>
     </item>
-    
   </channel>
 </rss>
