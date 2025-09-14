@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Pace on Working thoughts 💭🧑‍💻</title>
-    <link>/categories/pace/</link>
+    <link>https://lukasz.dev/categories/pace/</link>
     <description>Recent content in Pace on Working thoughts 💭🧑‍💻</description>
     <generator>Hugo -- 0.150.0</generator>
     <language>en</language>
     <copyright>2013-2025 Lukasz Plotnicki</copyright>
     <lastBuildDate>Tue, 04 Aug 2015 00:00:00 +0000</lastBuildDate>
-    <atom:link href="/categories/pace/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://lukasz.dev/categories/pace/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>bootstraping a node.js webapp</title>
-      <link>/blog/2015/08/04/bootstraping-a-node-dot-js-webapp/</link>
+      <link>https://lukasz.dev/blog/2015/08/04/bootstraping-a-node-dot-js-webapp/</link>
       <pubDate>Tue, 04 Aug 2015 00:00:00 +0000</pubDate>
-      <guid>/blog/2015/08/04/bootstraping-a-node-dot-js-webapp/</guid>
+      <guid>https://lukasz.dev/blog/2015/08/04/bootstraping-a-node-dot-js-webapp/</guid>
       <description>&lt;p&gt;Together with few friends we started building &lt;strong&gt;&lt;a href=&#34;https://github.com/lplotni/pace&#34;&gt;pace&lt;/a&gt;&lt;/strong&gt; - a web application for
 organizing and managing running events &amp;amp; competitions. We are a colorful bunch of people with different backgrounds, therefore we wanted to choose an approachable tech stack, as some of us wants also to learn one or two things about &lt;strong&gt;JavaScript&lt;/strong&gt;, &lt;strong&gt;web applications&lt;/strong&gt; or &lt;strong&gt;programming&lt;/strong&gt; in general.&lt;/p&gt;
 &lt;p&gt;And then, somebody suggested to write one thing or two, about our technology

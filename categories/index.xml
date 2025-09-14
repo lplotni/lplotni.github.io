@@ -2,60 +2,60 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Categories on Working thoughts 💭🧑‍💻</title>
-    <link>/categories/</link>
+    <link>https://lukasz.dev/categories/</link>
     <description>Recent content in Categories on Working thoughts 💭🧑‍💻</description>
     <generator>Hugo -- 0.150.0</generator>
     <language>en</language>
     <copyright>2013-2025 Lukasz Plotnicki</copyright>
     <lastBuildDate>Tue, 04 Aug 2015 00:00:00 +0000</lastBuildDate>
-    <atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://lukasz.dev/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Development</title>
-      <link>/categories/development/</link>
+      <link>https://lukasz.dev/categories/development/</link>
       <pubDate>Tue, 04 Aug 2015 00:00:00 +0000</pubDate>
-      <guid>/categories/development/</guid>
+      <guid>https://lukasz.dev/categories/development/</guid>
       <description></description>
     </item>
     <item>
       <title>Expressjs</title>
-      <link>/categories/expressjs/</link>
+      <link>https://lukasz.dev/categories/expressjs/</link>
       <pubDate>Tue, 04 Aug 2015 00:00:00 +0000</pubDate>
-      <guid>/categories/expressjs/</guid>
+      <guid>https://lukasz.dev/categories/expressjs/</guid>
       <description></description>
     </item>
     <item>
       <title>Howto</title>
-      <link>/categories/howto/</link>
+      <link>https://lukasz.dev/categories/howto/</link>
       <pubDate>Tue, 04 Aug 2015 00:00:00 +0000</pubDate>
-      <guid>/categories/howto/</guid>
+      <guid>https://lukasz.dev/categories/howto/</guid>
       <description></description>
     </item>
     <item>
       <title>JavaScript</title>
-      <link>/categories/javascript/</link>
+      <link>https://lukasz.dev/categories/javascript/</link>
       <pubDate>Tue, 04 Aug 2015 00:00:00 +0000</pubDate>
-      <guid>/categories/javascript/</guid>
+      <guid>https://lukasz.dev/categories/javascript/</guid>
       <description></description>
     </item>
     <item>
       <title>Nodejs</title>
-      <link>/categories/nodejs/</link>
+      <link>https://lukasz.dev/categories/nodejs/</link>
       <pubDate>Tue, 04 Aug 2015 00:00:00 +0000</pubDate>
-      <guid>/categories/nodejs/</guid>
+      <guid>https://lukasz.dev/categories/nodejs/</guid>
       <description></description>
     </item>
     <item>
       <title>Pace</title>
-      <link>/categories/pace/</link>
+      <link>https://lukasz.dev/categories/pace/</link>
       <pubDate>Tue, 04 Aug 2015 00:00:00 +0000</pubDate>
-      <guid>/categories/pace/</guid>
+      <guid>https://lukasz.dev/categories/pace/</guid>
       <description></description>
     </item>
     <item>
       <title>Technology</title>
-      <link>/categories/technology/</link>
+      <link>https://lukasz.dev/categories/technology/</link>
       <pubDate>Tue, 04 Aug 2015 00:00:00 +0000</pubDate>
-      <guid>/categories/technology/</guid>
+      <guid>https://lukasz.dev/categories/technology/</guid>
       <description></description>
     </item>
   </channel>

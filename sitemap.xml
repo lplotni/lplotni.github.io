@@ -2,79 +2,79 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/blog/a_change/</loc>
+    <loc>https://lukasz.dev/blog/a_change/</loc>
     <lastmod>2021-07-22T15:35:37+02:00</lastmod>
   </url><url>
-    <loc>/blog/</loc>
+    <loc>https://lukasz.dev/blog/</loc>
     <lastmod>2021-07-22T15:35:37+02:00</lastmod>
   </url><url>
-    <loc>/</loc>
+    <loc>https://lukasz.dev/</loc>
     <lastmod>2021-07-22T15:35:37+02:00</lastmod>
   </url><url>
-    <loc>/blog/java-frameworks/</loc>
+    <loc>https://lukasz.dev/blog/java-frameworks/</loc>
     <lastmod>2020-02-22T07:49:31+01:00</lastmod>
   </url><url>
-    <loc>/blog/uhk_setup/</loc>
+    <loc>https://lukasz.dev/blog/uhk_setup/</loc>
     <lastmod>2018-12-28T23:24:02+01:00</lastmod>
   </url><url>
-    <loc>/blog/sshkey_yubikey/</loc>
+    <loc>https://lukasz.dev/blog/sshkey_yubikey/</loc>
     <lastmod>2018-05-23T21:36:52+02:00</lastmod>
   </url><url>
-    <loc>/blog/why-hugo/</loc>
+    <loc>https://lukasz.dev/blog/why-hugo/</loc>
     <lastmod>2017-10-09T21:44:11+02:00</lastmod>
   </url><url>
-    <loc>/blog/2016/02/22/bff/</loc>
+    <loc>https://lukasz.dev/blog/2016/02/22/bff/</loc>
     <lastmod>2016-02-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/blog/2015/10/10/express-testing/</loc>
+    <loc>https://lukasz.dev/blog/2015/10/10/express-testing/</loc>
     <lastmod>2015-10-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/blog/2015/08/04/bootstraping-a-node-dot-js-webapp/</loc>
+    <loc>https://lukasz.dev/blog/2015/08/04/bootstraping-a-node-dot-js-webapp/</loc>
     <lastmod>2015-08-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/categories/</loc>
+    <loc>https://lukasz.dev/categories/</loc>
     <lastmod>2015-08-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/categories/development/</loc>
+    <loc>https://lukasz.dev/categories/development/</loc>
     <lastmod>2015-08-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/categories/expressjs/</loc>
+    <loc>https://lukasz.dev/categories/expressjs/</loc>
     <lastmod>2015-08-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/categories/howto/</loc>
+    <loc>https://lukasz.dev/categories/howto/</loc>
     <lastmod>2015-08-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/categories/javascript/</loc>
+    <loc>https://lukasz.dev/categories/javascript/</loc>
     <lastmod>2015-08-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/categories/nodejs/</loc>
+    <loc>https://lukasz.dev/categories/nodejs/</loc>
     <lastmod>2015-08-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/categories/pace/</loc>
+    <loc>https://lukasz.dev/categories/pace/</loc>
     <lastmod>2015-08-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/categories/technology/</loc>
+    <loc>https://lukasz.dev/categories/technology/</loc>
     <lastmod>2015-08-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/blog/2015/06/27/build-monitors/</loc>
+    <loc>https://lukasz.dev/blog/2015/06/27/build-monitors/</loc>
     <lastmod>2015-06-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/blog/2013/09/14/scoopcamp-hackathon/</loc>
+    <loc>https://lukasz.dev/blog/2013/09/14/scoopcamp-hackathon/</loc>
     <lastmod>2013-09-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/blog/2013/06/15/gwt-part-i/</loc>
+    <loc>https://lukasz.dev/blog/2013/06/15/gwt-part-i/</loc>
     <lastmod>2013-06-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/blog/2013/05/14/setting-up-dot-dot-dot/</loc>
+    <loc>https://lukasz.dev/blog/2013/05/14/setting-up-dot-dot-dot/</loc>
     <lastmod>2013-05-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/blog/2013/05/09/hello-world/</loc>
+    <loc>https://lukasz.dev/blog/2013/05/09/hello-world/</loc>
     <lastmod>2013-05-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/about/</loc>
+    <loc>https://lukasz.dev/about/</loc>
   </url><url>
-    <loc>/search/</loc>
+    <loc>https://lukasz.dev/search/</loc>
   </url><url>
-    <loc>/tags/</loc>
+    <loc>https://lukasz.dev/tags/</loc>
   </url>
 </urlset>
