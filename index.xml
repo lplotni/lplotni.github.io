@@ -7,8 +7,31 @@
     <generator>Hugo -- 0.150.0</generator>
     <language>en</language>
     <copyright>2013-2025 Lukasz Plotnicki</copyright>
-    <lastBuildDate>Thu, 22 Jul 2021 15:35:37 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 14 Sep 2025 21:22:55 +0200</lastBuildDate>
     <atom:link href="https://lukasz.dev/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Why Now</title>
+      <link>https://lukasz.dev/blog/why-now/</link>
+      <pubDate>Sun, 14 Sep 2025 21:22:55 +0200</pubDate>
+      <guid>https://lukasz.dev/blog/why-now/</guid>
+      <description>&lt;p&gt;It&amp;rsquo;s been a while, huh!? I think my writing comes in waves.
+This time what inspired me, was rediscovering a &lt;a href=&#34;https://hamvocke.com/&#34;&gt;blog of buddy of mine, Ham&lt;/a&gt;
+and binge-reading the posts that I&amp;rsquo;ve missed in recent years. While reading it,
+and seeing that Ham is not limiting himself only to technical bits, I started
+thinking how much pleasure writing gives me&amp;hellip; So after re-dusting my
+whole hugo+github setup (read: sinking few hours in updating it), I finally
+got to press some keys to create a &lt;a href=&#34;https://lukasz.dev/now&#34;&gt;Now&lt;/a&gt; page - also inspired by
+&lt;a href=&#34;https://hamvocke.com/now/&#34;&gt;Ham&amp;rsquo;s blog&lt;/a&gt; and the discovery of the concept of
+a &lt;a href=&#34;https://nownownow.com/about&#34;&gt;now page&lt;/a&gt;. Go there to read about my current setup
+and what is currently on my mind.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Now</title>
+      <link>https://lukasz.dev/now/</link>
+      <pubDate>Sun, 14 Sep 2025 12:20:12 +0200</pubDate>
+      <guid>https://lukasz.dev/now/</guid>
+      <description>This a living space where I describe what I&amp;#39;m currently looking into, what&amp;#39;s on my mind &amp;amp; working with (home office setup, dotfiles etc.)</description>
+    </item>
     <item>
       <title>A change / next step</title>
       <link>https://lukasz.dev/blog/a_change/</link>

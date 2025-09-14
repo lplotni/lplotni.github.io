@@ -5,25 +5,20 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>Using your yubikey as ssh key provider / Quick(est) guide | Working thoughts 💭🧑‍💻</title>
+<title>Why Now | Working thoughts 💭🧑‍💻</title>
 <meta name="keywords" content="">
-<meta name="description" content="I figured it&rsquo;s time to write up the quickest guide about using the yubikey as
-the source of your ssh key. This assumes that:
-
-You have a yubikey and it&rsquo;s in your usb port
-You&rsquo;ve configured gpg on you machine (I&rsquo;m running gpg (GnuPG) 2.2.7)
-You&rsquo;re using the gpg-agent with enabled ssh support
-
-Here are the steps:
-gpg --card-edit
-&gt; admin
-&gt; generate
-&gt; [enter the requested PIN]
-&gt; quit
-And now you&rsquo;re done. You can check if the new ssh key get pulled correctly from
-your yubikey typing:">
+<meta name="description" content="It&rsquo;s been a while, huh!? I think my writing comes in waves.
+This time what inspired me, was rediscovering a blog of buddy of mine, Ham
+and binge-reading the posts that I&rsquo;ve missed in recent years. While reading it,
+and seeing that Ham is not limiting himself only to technical bits, I started
+thinking how much pleasure writing gives me&hellip; So after re-dusting my
+whole hugo&#43;github setup (read: sinking few hours in updating it), I finally
+got to press some keys to create a Now page - also inspired by
+Ham&rsquo;s blog and the discovery of the concept of
+a now page. Go there to read about my current setup
+and what is currently on my mind.">
 <meta name="author" content="Lukasz Plotnicki">
-<link rel="canonical" href="https://lukasz.dev/blog/sshkey_yubikey/">
+<link rel="canonical" href="https://lukasz.dev/blog/why-now/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.2211ca3164be7830024f6aad2b3a2e520843a64f8f048445c3401c1249aa051d.css" integrity="sha256-IhHKMWS&#43;eDACT2qtKzouUghDpk&#43;PBIRFw0AcEkmqBR0=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://lukasz.dev/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://lukasz.dev/favicon-16x16.png">
@@ -32,7 +27,7 @@ your yubikey typing:">
 <link rel="mask-icon" href="https://lukasz.dev/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="https://lukasz.dev/blog/sshkey_yubikey/">
+<link rel="alternate" hreflang="en" href="https://lukasz.dev/blog/why-now/">
 <noscript>
     <style>
         #theme-toggle,
@@ -69,34 +64,27 @@ your yubikey typing:">
         }
 
     </style>
-</noscript><meta property="og:url" content="https://lukasz.dev/blog/sshkey_yubikey/">
+</noscript><meta property="og:url" content="https://lukasz.dev/blog/why-now/">
   <meta property="og:site_name" content="Working thoughts 💭🧑‍💻">
-  <meta property="og:title" content="Using your yubikey as ssh key provider / Quick(est) guide">
-  <meta property="og:description" content="I figured it’s time to write up the quickest guide about using the yubikey as the source of your ssh key. This assumes that:
-You have a yubikey and it’s in your usb port You’ve configured gpg on you machine (I’m running gpg (GnuPG) 2.2.7) You’re using the gpg-agent with enabled ssh support Here are the steps:
-gpg --card-edit &gt; admin &gt; generate &gt; [enter the requested PIN] &gt; quit And now you’re done. You can check if the new ssh key get pulled correctly from your yubikey typing:">
+  <meta property="og:title" content="Why Now">
+  <meta property="og:description" content="It’s been a while, huh!? I think my writing comes in waves. This time what inspired me, was rediscovering a blog of buddy of mine, Ham and binge-reading the posts that I’ve missed in recent years. While reading it, and seeing that Ham is not limiting himself only to technical bits, I started thinking how much pleasure writing gives me… So after re-dusting my whole hugo&#43;github setup (read: sinking few hours in updating it), I finally got to press some keys to create a Now page - also inspired by Ham’s blog and the discovery of the concept of a now page. Go there to read about my current setup and what is currently on my mind.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="blog">
-    <meta property="article:published_time" content="2018-05-23T21:36:52+02:00">
-    <meta property="article:modified_time" content="2018-05-23T21:36:52+02:00">
+    <meta property="article:published_time" content="2025-09-14T21:22:55+02:00">
+    <meta property="article:modified_time" content="2025-09-14T21:22:55+02:00">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Using your yubikey as ssh key provider / Quick(est) guide">
-<meta name="twitter:description" content="I figured it&rsquo;s time to write up the quickest guide about using the yubikey as
-the source of your ssh key. This assumes that:
-
-You have a yubikey and it&rsquo;s in your usb port
-You&rsquo;ve configured gpg on you machine (I&rsquo;m running gpg (GnuPG) 2.2.7)
-You&rsquo;re using the gpg-agent with enabled ssh support
-
-Here are the steps:
-gpg --card-edit
-&gt; admin
-&gt; generate
-&gt; [enter the requested PIN]
-&gt; quit
-And now you&rsquo;re done. You can check if the new ssh key get pulled correctly from
-your yubikey typing:">
+<meta name="twitter:title" content="Why Now">
+<meta name="twitter:description" content="It&rsquo;s been a while, huh!? I think my writing comes in waves.
+This time what inspired me, was rediscovering a blog of buddy of mine, Ham
+and binge-reading the posts that I&rsquo;ve missed in recent years. While reading it,
+and seeing that Ham is not limiting himself only to technical bits, I started
+thinking how much pleasure writing gives me&hellip; So after re-dusting my
+whole hugo&#43;github setup (read: sinking few hours in updating it), I finally
+got to press some keys to create a Now page - also inspired by
+Ham&rsquo;s blog and the discovery of the concept of
+a now page. Go there to read about my current setup
+and what is currently on my mind.">
 
 
 <script type="application/ld+json">
@@ -113,8 +101,8 @@ your yubikey typing:">
     {
       "@type": "ListItem",
       "position":  2 ,
-      "name": "Using your yubikey as ssh key provider / Quick(est) guide",
-      "item": "https://lukasz.dev/blog/sshkey_yubikey/"
+      "name": "Why Now",
+      "item": "https://lukasz.dev/blog/why-now/"
     }
   ]
 }
@@ -123,24 +111,24 @@ your yubikey typing:">
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "Using your yubikey as ssh key provider / Quick(est) guide",
-  "name": "Using your yubikey as ssh key provider \/ Quick(est) guide",
-  "description": "I figured it\u0026rsquo;s time to write up the quickest guide about using the yubikey as the source of your ssh key. This assumes that:\nYou have a yubikey and it\u0026rsquo;s in your usb port You\u0026rsquo;ve configured gpg on you machine (I\u0026rsquo;m running gpg (GnuPG) 2.2.7) You\u0026rsquo;re using the gpg-agent with enabled ssh support Here are the steps:\ngpg --card-edit \u0026gt; admin \u0026gt; generate \u0026gt; [enter the requested PIN] \u0026gt; quit And now you\u0026rsquo;re done. You can check if the new ssh key get pulled correctly from your yubikey typing:\n",
+  "headline": "Why Now",
+  "name": "Why Now",
+  "description": "It\u0026rsquo;s been a while, huh!? I think my writing comes in waves. This time what inspired me, was rediscovering a blog of buddy of mine, Ham and binge-reading the posts that I\u0026rsquo;ve missed in recent years. While reading it, and seeing that Ham is not limiting himself only to technical bits, I started thinking how much pleasure writing gives me\u0026hellip; So after re-dusting my whole hugo+github setup (read: sinking few hours in updating it), I finally got to press some keys to create a Now page - also inspired by Ham\u0026rsquo;s blog and the discovery of the concept of a now page. Go there to read about my current setup and what is currently on my mind.\n",
   "keywords": [
     
   ],
-  "articleBody": "I figured it’s time to write up the quickest guide about using the yubikey as the source of your ssh key. This assumes that:\nYou have a yubikey and it’s in your usb port You’ve configured gpg on you machine (I’m running gpg (GnuPG) 2.2.7) You’re using the gpg-agent with enabled ssh support Here are the steps:\ngpg --card-edit \u003e admin \u003e generate \u003e [enter the requested PIN] \u003e quit And now you’re done. You can check if the new ssh key get pulled correctly from your yubikey typing:\nssh-add -L And you should see something like:\nssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC2ooHO4NuRkjkOQ6zpl/P+RQwRibWd2EZStK61IX2RksD8m2PQKA4rpoYlbwR8tHqJYp+9hF3630ZhDBLqaN6wnLOzJ9tdAFg2QkR7uw/TlWh3/3kuDjzF8GatYIvfvnbtlX0FtVuz+rmUAeUswYpvRQKA5feX5Tf9M56IhttRtFbXZjNz5BNy8qkXD9FOTX4Ym0Zidgn6tl9EKKH4ctvK1/wTF4oSHEfyVwpKLqn/FI+0DIDi5Lx8cpFLnB4nJqj1WFe8o86yRVNWq5PehOJR3qSpllfx3fheUXePRNPrvYGyO5Ch9aikzuPoLZh4oq/TTqkfjcZLQvTv1Ai+qk8J cardno:000605308805 Now you can use this key e.g for as your github key and whenever your push/pull/clone you will need to enter the yubikey into your device.\n",
-  "wordCount" : "126",
+  "articleBody": "It’s been a while, huh!? I think my writing comes in waves. This time what inspired me, was rediscovering a blog of buddy of mine, Ham and binge-reading the posts that I’ve missed in recent years. While reading it, and seeing that Ham is not limiting himself only to technical bits, I started thinking how much pleasure writing gives me… So after re-dusting my whole hugo+github setup (read: sinking few hours in updating it), I finally got to press some keys to create a Now page - also inspired by Ham’s blog and the discovery of the concept of a now page. Go there to read about my current setup and what is currently on my mind.\n",
+  "wordCount" : "117",
   "inLanguage": "en",
-  "datePublished": "2018-05-23T21:36:52+02:00",
-  "dateModified": "2018-05-23T21:36:52+02:00",
+  "datePublished": "2025-09-14T21:22:55+02:00",
+  "dateModified": "2025-09-14T21:22:55+02:00",
   "author":{
     "@type": "Person",
     "name": "Lukasz Plotnicki"
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://lukasz.dev/blog/sshkey_yubikey/"
+    "@id": "https://lukasz.dev/blog/why-now/"
   },
   "publisher": {
     "@type": "Organization",
@@ -218,34 +206,22 @@ your yubikey typing:">
   <header class="post-header">
     
     <h1 class="post-title entry-hint-parent">
-      Using your yubikey as ssh key provider / Quick(est) guide
+      Why Now
     </h1>
-    <div class="post-meta"><span title='2018-05-23 21:36:52 +0200 CEST'>May 23, 2018</span>&nbsp;·&nbsp;Lukasz Plotnicki
+    <div class="post-meta"><span title='2025-09-14 21:22:55 +0200 CEST'>September 14, 2025</span>&nbsp;·&nbsp;Lukasz Plotnicki
 
 </div>
   </header> 
-  <div class="post-content"><p>I figured it&rsquo;s time to write up the quickest guide about using the yubikey as
-the source of your ssh key. This assumes that:</p>
-<ul>
-<li>You have a yubikey and it&rsquo;s in your usb port</li>
-<li>You&rsquo;ve configured gpg on you machine (I&rsquo;m running gpg (GnuPG) 2.2.7)</li>
-<li>You&rsquo;re using the gpg-agent with enabled ssh support</li>
-</ul>
-<p>Here are the steps:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>gpg --card-edit
-</span></span><span style="display:flex;"><span>&gt; admin
-</span></span><span style="display:flex;"><span>&gt; generate
-</span></span><span style="display:flex;"><span>&gt; <span style="color:#f92672">[</span>enter the requested PIN<span style="color:#f92672">]</span>
-</span></span><span style="display:flex;"><span>&gt; quit
-</span></span></code></pre></div><p>And now you&rsquo;re done. You can check if the new ssh key get pulled correctly from
-your yubikey typing:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh-add -L
-</span></span></code></pre></div><p>And you should see something like:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh-rsa
-</span></span><span style="display:flex;"><span>AAAAB3NzaC1yc2EAAAADAQABAAABAQC2ooHO4NuRkjkOQ6zpl/P+RQwRibWd2EZStK61IX2RksD8m2PQKA4rpoYlbwR8tHqJYp+9hF3630ZhDBLqaN6wnLOzJ9tdAFg2QkR7uw/TlWh3/3kuDjzF8GatYIvfvnbtlX0FtVuz+rmUAeUswYpvRQKA5feX5Tf9M56IhttRtFbXZjNz5BNy8qkXD9FOTX4Ym0Zidgn6tl9EKKH4ctvK1/wTF4oSHEfyVwpKLqn/FI+0DIDi5Lx8cpFLnB4nJqj1WFe8o86yRVNWq5PehOJR3qSpllfx3fheUXePRNPrvYGyO5Ch9aikzuPoLZh4oq/TTqkfjcZLQvTv1Ai+qk8J
-</span></span><span style="display:flex;"><span>cardno:000605308805
-</span></span></code></pre></div><p>Now you can use this key e.g for as your github key and whenever your
-push/pull/clone you will need to enter the yubikey into your device.</p>
+  <div class="post-content"><p>It&rsquo;s been a while, huh!? I think my writing comes in waves.
+This time what inspired me, was rediscovering a <a href="https://hamvocke.com/">blog of buddy of mine, Ham</a>
+and binge-reading the posts that I&rsquo;ve missed in recent years. While reading it,
+and seeing that Ham is not limiting himself only to technical bits, I started
+thinking how much pleasure writing gives me&hellip; So after re-dusting my
+whole hugo+github setup (read: sinking few hours in updating it), I finally
+got to press some keys to create a <a href="/now">Now</a> page - also inspired by
+<a href="https://hamvocke.com/now/">Ham&rsquo;s blog</a> and the discovery of the concept of
+a <a href="https://nownownow.com/about">now page</a>. Go there to read about my current setup
+and what is currently on my mind.</p>
 
 
   </div>
