@@ -7,8 +7,15 @@
     <generator>Hugo -- 0.150.0</generator>
     <language>en</language>
     <copyright>2013-2025 Lukasz Plotnicki</copyright>
-    <lastBuildDate>Sun, 14 Sep 2025 21:22:55 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 21 Sep 2025 13:51:28 +0200</lastBuildDate>
     <atom:link href="https://lukasz.dev/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Uses</title>
+      <link>https://lukasz.dev/uses/</link>
+      <pubDate>Sun, 21 Sep 2025 13:51:28 +0200</pubDate>
+      <guid>https://lukasz.dev/uses/</guid>
+      <description>Over the years I&amp;#39;ve experimented with a lot of different tools/things to make what I do more efficient/ergonomic. Every so often, I got asked, what I use and why and thought, that dropping it somewhere on my page, would be a neat idea.</description>
+    </item>
     <item>
       <title>Why Now</title>
       <link>https://lukasz.dev/blog/why-now/</link>
@@ -30,7 +37,7 @@ and what is currently on my mind.&lt;/p&gt;</description>
       <link>https://lukasz.dev/now/</link>
       <pubDate>Sun, 14 Sep 2025 12:20:12 +0200</pubDate>
       <guid>https://lukasz.dev/now/</guid>
-      <description>This a living space where I describe what I&amp;#39;m currently looking into, what&amp;#39;s on my mind &amp;amp; working with (home office setup, dotfiles etc.)</description>
+      <description>This a living doc where I describe what I&amp;#39;m currently looking into &amp;amp; what&amp;#39;s on my mind.</description>
     </item>
     <item>
       <title>A change / next step</title>
