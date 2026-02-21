@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="en" dir="auto" data-theme="auto">
 
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,11 +20,11 @@ UHK is really a spectacular keyboard.
 
 I quickly decided to just align the Fn, Ctrl, Option and Cmd
 key with the mac layout so that my mussle memory doesn&rsquo;t suffer too much. This
-also made me fell in love with the UHK agent: It&rsquo;s just so easy to remap the
+also made me fall in love with the UHK agent: It&rsquo;s just so easy to remap the
 keys to your liking.">
 <meta name="author" content="Lukasz Plotnicki">
 <link rel="canonical" href="https://lukasz.dev/blog/uhk_setup/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.2211ca3164be7830024f6aad2b3a2e520843a64f8f048445c3401c1249aa051d.css" integrity="sha256-IhHKMWS&#43;eDACT2qtKzouUghDpk&#43;PBIRFw0AcEkmqBR0=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b071f18839e140aad6e597b083171da7f28d21435dec51f4aca4022414f1a6ab.css" integrity="sha256-sHHxiDnhQKrW5Zewgxcdp/KNIUNd7FH0rKQCJBTxpqs=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://lukasz.dev/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://lukasz.dev/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://lukasz.dev/favicon-32x32.png">
@@ -53,27 +53,42 @@ keys to your liking.">
                 --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
+                color-scheme: dark;
             }
 
             .list {
                 background: var(--theme);
             }
 
-            .list:not(.dark)::-webkit-scrollbar-track {
-                background: 0 0;
+            .toc {
+                background: var(--entry);
             }
+        }
 
-            .list:not(.dark)::-webkit-scrollbar-thumb {
-                border-color: var(--theme);
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
             }
         }
 
     </style>
-</noscript><meta property="og:url" content="https://lukasz.dev/blog/uhk_setup/">
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><meta property="og:url" content="https://lukasz.dev/blog/uhk_setup/">
   <meta property="og:site_name" content="Working thoughts 💭🧑‍💻">
   <meta property="og:title" content="My first UHK layout">
   <meta property="og:description" content="I ordered the UHK with the linux layout as I thought that I will be moving towards a linux laptop as the main driver for my work. Somehow this didn’t happen :confused: and therefore I ended up using the UHK with a Mackbook Pro. Thus, I changed few settings and love my setup even more. UHK is really a spectacular keyboard.
-I quickly decided to just align the Fn, Ctrl, Option and Cmd key with the mac layout so that my mussle memory doesn’t suffer too much. This also made me fell in love with the UHK agent: It’s just so easy to remap the keys to your liking.">
+I quickly decided to just align the Fn, Ctrl, Option and Cmd key with the mac layout so that my mussle memory doesn’t suffer too much. This also made me fall in love with the UHK agent: It’s just so easy to remap the keys to your liking.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="blog">
@@ -94,7 +109,7 @@ UHK is really a spectacular keyboard.
 
 I quickly decided to just align the Fn, Ctrl, Option and Cmd
 key with the mac layout so that my mussle memory doesn&rsquo;t suffer too much. This
-also made me fell in love with the UHK agent: It&rsquo;s just so easy to remap the
+also made me fall in love with the UHK agent: It&rsquo;s just so easy to remap the
 keys to your liking.">
 
 
@@ -124,11 +139,11 @@ keys to your liking.">
   "@type": "BlogPosting",
   "headline": "My first UHK layout",
   "name": "My first UHK layout",
-  "description": "I ordered the UHK with the linux layout as I thought that I will be moving towards a linux laptop as the main driver for my work. Somehow this didn\u0026rsquo;t happen :confused: and therefore I ended up using the UHK with a Mackbook Pro. Thus, I changed few settings and love my setup even more. UHK is really a spectacular keyboard.\nI quickly decided to just align the Fn, Ctrl, Option and Cmd key with the mac layout so that my mussle memory doesn\u0026rsquo;t suffer too much. This also made me fell in love with the UHK agent: It\u0026rsquo;s just so easy to remap the keys to your liking.\n",
+  "description": "I ordered the UHK with the linux layout as I thought that I will be moving towards a linux laptop as the main driver for my work. Somehow this didn\u0026rsquo;t happen :confused: and therefore I ended up using the UHK with a Mackbook Pro. Thus, I changed few settings and love my setup even more. UHK is really a spectacular keyboard.\nI quickly decided to just align the Fn, Ctrl, Option and Cmd key with the mac layout so that my mussle memory doesn\u0026rsquo;t suffer too much. This also made me fall in love with the UHK agent: It\u0026rsquo;s just so easy to remap the keys to your liking.\n",
   "keywords": [
     
   ],
-  "articleBody": "I ordered the UHK with the linux layout as I thought that I will be moving towards a linux laptop as the main driver for my work. Somehow this didn’t happen :confused: and therefore I ended up using the UHK with a Mackbook Pro. Thus, I changed few settings and love my setup even more. UHK is really a spectacular keyboard.\nI quickly decided to just align the Fn, Ctrl, Option and Cmd key with the mac layout so that my mussle memory doesn’t suffer too much. This also made me fell in love with the UHK agent: It’s just so easy to remap the keys to your liking.\nWhile at it, I also changed the default Mouse key to become my Ctrl (cause I alwas been remaping the Caps key to have that behaviour) and decided to allocate the Mouse key behavoiur to the Space key on the edge of the keyboard as I have not been using this key at all.\nTo customize my internal keyboard layout on the Mac, I’ve been using karabiner-essentials for a while now, With it, I made my CAPS become ESC while pressed alone and Ctrl if pressed with in combination with other key. Since the switch to the UHK and my Mod+Mouse being ESC, I missed this on when working on the go only with the internal keyboard, therefore I now use Cmd + Caps for ESC on my internal keyboard too, as it’s the same movement for my fingers. To be able to do so, I wrote a little complex modification for karabiner-elements:\n",
+  "articleBody": "I ordered the UHK with the linux layout as I thought that I will be moving towards a linux laptop as the main driver for my work. Somehow this didn’t happen :confused: and therefore I ended up using the UHK with a Mackbook Pro. Thus, I changed few settings and love my setup even more. UHK is really a spectacular keyboard.\nI quickly decided to just align the Fn, Ctrl, Option and Cmd key with the mac layout so that my mussle memory doesn’t suffer too much. This also made me fall in love with the UHK agent: It’s just so easy to remap the keys to your liking.\nWhile at it, I also changed the default Mouse key to become my Ctrl (cause I always been remaping the Caps key to have that behaviour) and decided to allocate the Mouse key behaviour to the Space key on the edge of the keyboard as I have not been using this key at all.\nTo customize my internal keyboard layout on the Mac, I’ve been using karabiner-essentials for a while now, With it, I made my CAPS become ESC while pressed alone and Ctrl if pressed with in combination with other key. Since the switch to the UHK and my Mod+Mouse being ESC, I missed this on when working on the go only with the internal keyboard, therefore I now use Cmd + Caps for ESC on my internal keyboard too, as it’s the same movement for my fingers. To be able to do so, I wrote a little complex modification for karabiner-elements:\n",
   "wordCount" : "262",
   "inLanguage": "en",
   "datePublished": "2018-12-28T23:24:02+01:00",
@@ -152,20 +167,8 @@ keys to your liking.">
 }
 </script>
 </head>
-
-<body class="" id="top">
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.body.classList.add('dark');
-    } else if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
-    }
-
-</script>
-
-<header class="header">
+<body id="top">
+    <header class="header">
     <nav class="nav">
         <div class="logo">
             <a href="https://lukasz.dev/" accesskey="h" title="Working thoughts 💭🧑‍💻 (Alt + H)">Working thoughts 💭🧑‍💻</a>
@@ -224,7 +227,7 @@ keys to your liking.">
     <h1 class="post-title entry-hint-parent">
       My first UHK layout
     </h1>
-    <div class="post-meta"><span title='2018-12-28 23:24:02 +0100 CET'>December 28, 2018</span>&nbsp;·&nbsp;Lukasz Plotnicki
+    <div class="post-meta"><span title='2018-12-28 23:24:02 +0100 CET'>December 28, 2018</span>&nbsp;·&nbsp;<span>Lukasz Plotnicki</span>
 
 </div>
   </header> 
@@ -241,13 +244,13 @@ UHK is really a spectacular keyboard.</p>
 <li>
 <p>I quickly decided to just align the <strong>Fn</strong>, <strong>Ctrl</strong>, <strong>Option</strong> and <strong>Cmd</strong>
 key with the mac layout so that my mussle memory doesn&rsquo;t suffer too much. This
-also made me fell in love with the UHK agent: It&rsquo;s just so easy to remap the
+also made me fall in love with the UHK agent: It&rsquo;s just so easy to remap the
 keys to your liking.</p>
 </li>
 <li>
 <p>While at it, I also changed the default <strong>Mouse</strong> key to
-become my <strong>Ctrl</strong> (cause I alwas been remaping the Caps key to have that
-behaviour) and decided to allocate the <strong>Mouse</strong> key behavoiur to the <strong>Space</strong> key on
+become my <strong>Ctrl</strong> (cause I always been remaping the Caps key to have that
+behaviour) and decided to allocate the <strong>Mouse</strong> key behaviour to the <strong>Space</strong> key on
 the edge of the keyboard as I have not been using this key at all.</p>
 </li>
 <li>
@@ -275,7 +278,7 @@ able to do so, I wrote a little <em>complex modification</em> for karabiner-elem
     </main>
     
 <footer class="footer">
-        <span>© 2013-2025 Lukasz Plotnicki</span> · 
+        <span>© 2013-2026 Lukasz Plotnicki</span> · 
 
     <span>
         Powered by
@@ -290,9 +293,14 @@ able to do so, I wrote a little <em>complex modification</em> for karabiner-elem
 </a>
 
 <script>
-    let menu = document.getElementById('menu')
+    let menu = document.getElementById('menu');
     if (menu) {
-        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
         menu.onscroll = function () {
             localStorage.setItem("menu-scroll-position", menu.scrollLeft);
         }
@@ -333,11 +341,12 @@ able to do so, I wrote a little <em>complex modification</em> for karabiner-elem
 </script>
 <script>
     document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
-            document.body.classList.remove('dark');
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
             localStorage.setItem("pref-theme", 'light');
         } else {
-            document.body.classList.add('dark');
+            html.dataset.theme = 'dark';
             localStorage.setItem("pref-theme", 'dark');
         }
     })

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="en" dir="auto" data-theme="auto">
 
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,7 +10,7 @@
 <meta name="description" content="Back in 2009 I became the job to design and start realizing a quite large web application for a health care research project. I took some time, sat down and thought about the technology stack, I would like to use to build it. As we wanted to have an RIA and I already had some experience with GWT, we quickly decided to use it. Since then four years have passed and we are about to release the 2.0 version of our system. During this time, the whole team learned a lot about GWT, its advantages and also some disadvantages, and I thought it would be useful to write some of them up. This part is about the status quo, in the second part I will try to write about a GWT setup I would go for, when starting the project today - so if you have any hints in this regard, please feel free to leave a comment, I would definitely appreciate it!">
 <meta name="author" content="Lukasz Plotnicki">
 <link rel="canonical" href="https://lukasz.dev/blog/2013/06/15/gwt-part-i/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.2211ca3164be7830024f6aad2b3a2e520843a64f8f048445c3401c1249aa051d.css" integrity="sha256-IhHKMWS&#43;eDACT2qtKzouUghDpk&#43;PBIRFw0AcEkmqBR0=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b071f18839e140aad6e597b083171da7f28d21435dec51f4aca4022414f1a6ab.css" integrity="sha256-sHHxiDnhQKrW5Zewgxcdp/KNIUNd7FH0rKQCJBTxpqs=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://lukasz.dev/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://lukasz.dev/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://lukasz.dev/favicon-32x32.png">
@@ -39,23 +39,38 @@
                 --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
+                color-scheme: dark;
             }
 
             .list {
                 background: var(--theme);
             }
 
-            .list:not(.dark)::-webkit-scrollbar-track {
-                background: 0 0;
+            .toc {
+                background: var(--entry);
             }
+        }
 
-            .list:not(.dark)::-webkit-scrollbar-thumb {
-                border-color: var(--theme);
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
             }
         }
 
     </style>
-</noscript><meta property="og:url" content="https://lukasz.dev/blog/2013/06/15/gwt-part-i/">
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><meta property="og:url" content="https://lukasz.dev/blog/2013/06/15/gwt-part-i/">
   <meta property="og:site_name" content="Working thoughts 💭🧑‍💻">
   <meta property="og:title" content="gwt part i">
   <meta property="og:description" content="Back in 2009 I became the job to design and start realizing a quite large web application for a health care research project. I took some time, sat down and thought about the technology stack, I would like to use to build it. As we wanted to have an RIA and I already had some experience with GWT, we quickly decided to use it. Since then four years have passed and we are about to release the 2.0 version of our system. During this time, the whole team learned a lot about GWT, its advantages and also some disadvantages, and I thought it would be useful to write some of them up. This part is about the status quo, in the second part I will try to write about a GWT setup I would go for, when starting the project today - so if you have any hints in this regard, please feel free to leave a comment, I would definitely appreciate it!">
@@ -123,20 +138,8 @@
 }
 </script>
 </head>
-
-<body class="" id="top">
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.body.classList.add('dark');
-    } else if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
-    }
-
-</script>
-
-<header class="header">
+<body id="top">
+    <header class="header">
     <nav class="nav">
         <div class="logo">
             <a href="https://lukasz.dev/" accesskey="h" title="Working thoughts 💭🧑‍💻 (Alt + H)">Working thoughts 💭🧑‍💻</a>
@@ -195,7 +198,7 @@
     <h1 class="post-title entry-hint-parent">
       gwt part i
     </h1>
-    <div class="post-meta"><span title='2013-06-15 00:00:00 +0000 UTC'>June 15, 2013</span>&nbsp;·&nbsp;Lukasz Plotnicki
+    <div class="post-meta"><span title='2013-06-15 00:00:00 +0000 UTC'>June 15, 2013</span>&nbsp;·&nbsp;<span>Lukasz Plotnicki</span>
 
 </div>
   </header> 
@@ -335,7 +338,7 @@ We also use the JSR303 annotations for validation of the entities and are able t
 <h2 id="3-testing-the-client">3. Testing the client<a hidden class="anchor" aria-hidden="true" href="#3-testing-the-client">#</a></h2>
 <p>One of the main advantages of doing MVP is the separation of the business logic (sitting in the presenter) from the actual UI components (being a part of the view) resulting in the ability of writing normal, fast unit test (normal, meaning not using the GWTTestCase) and mocking the views. Nevertheless in our project we use <a href="http://docs.seleniumhq.org/">selenium</a> as the main way to assure the correct functionality of our client. As using the normal selenium recorder is not an option with GWT due to the element ids changing during each compile process, we tried to get our selenium tests (written in java as normal unit tests) as independent as it only can be from the layout definition itself (trying not to use exact XPath etc.). Our client is very data input heavy, so we have a lot of input components to test. When we test if the entities get created in a correct way, we just access all visible input components of a certain type, populate them with a random content (which we then store for later comparison), trigger the save action and reload the UI to verify if the same components holds still the same data. Thus, we don&rsquo;t have to update the tests if our data definition changes and we have introduced some new input components. The test will also work if the layout of the UI changes either on purpose, because we rearranged it, or when a new GWT version switch to a different HTML representation for some standard widgets.</p>
 <p><em>Getting certain elements from selenium driver:</em></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">static</span> ArrayList<span style="color:#f92672">&lt;</span>WebElement<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getVisibleElements</span>(String tagName,
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">static</span> ArrayList<span style="color:#f92672">&lt;</span>WebElement<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getVisibleElements</span>(String tagName,
 </span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">final</span> String classString) {
 </span></span><span style="display:flex;"><span>		List<span style="color:#f92672">&lt;</span>WebElement<span style="color:#f92672">&gt;</span> elements <span style="color:#f92672">=</span> driver.<span style="color:#a6e22e">findElements</span>(By.<span style="color:#a6e22e">tagName</span>(tagName));
 </span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> Lists.<span style="color:#a6e22e">newArrayList</span>(Collections2.<span style="color:#a6e22e">filter</span>(elements,
@@ -372,7 +375,7 @@ We also use the JSR303 annotations for validation of the entities and are able t
     </main>
     
 <footer class="footer">
-        <span>© 2013-2025 Lukasz Plotnicki</span> · 
+        <span>© 2013-2026 Lukasz Plotnicki</span> · 
 
     <span>
         Powered by
@@ -387,9 +390,14 @@ We also use the JSR303 annotations for validation of the entities and are able t
 </a>
 
 <script>
-    let menu = document.getElementById('menu')
+    let menu = document.getElementById('menu');
     if (menu) {
-        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
         menu.onscroll = function () {
             localStorage.setItem("menu-scroll-position", menu.scrollLeft);
         }
@@ -430,11 +438,12 @@ We also use the JSR303 annotations for validation of the entities and are able t
 </script>
 <script>
     document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
-            document.body.classList.remove('dark');
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
             localStorage.setItem("pref-theme", 'light');
         } else {
-            document.body.classList.add('dark');
+            html.dataset.theme = 'dark';
             localStorage.setItem("pref-theme", 'dark');
         }
     })

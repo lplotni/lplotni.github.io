@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="en" dir="auto" data-theme="auto">
 
 <head>
-	<meta name="generator" content="Hugo 0.150.0"><meta charset="utf-8">
+	<meta name="generator" content="Hugo 0.156.0"><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
@@ -11,7 +11,7 @@
 <meta name="description" content="This is my personal blog where I irregularly collect thoughts of mine, that I wanted to capture for one reason or another">
 <meta name="author" content="Lukasz Plotnicki">
 <link rel="canonical" href="https://lukasz.dev/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.2211ca3164be7830024f6aad2b3a2e520843a64f8f048445c3401c1249aa051d.css" integrity="sha256-IhHKMWS&#43;eDACT2qtKzouUghDpk&#43;PBIRFw0AcEkmqBR0=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b071f18839e140aad6e597b083171da7f28d21435dec51f4aca4022414f1a6ab.css" integrity="sha256-sHHxiDnhQKrW5Zewgxcdp/KNIUNd7FH0rKQCJBTxpqs=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://lukasz.dev/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://lukasz.dev/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://lukasz.dev/favicon-32x32.png">
@@ -19,8 +19,8 @@
 <link rel="mask-icon" href="https://lukasz.dev/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="https://lukasz.dev/index.xml">
-<link rel="alternate" type="application/json" href="https://lukasz.dev/index.json">
+<link rel="alternate" type="application/rss+xml" href="https://lukasz.dev/index.xml" title="rss">
+<link rel="alternate" type="application/json" href="https://lukasz.dev/index.json" title="json">
 <link rel="alternate" hreflang="en" href="https://lukasz.dev/">
 <noscript>
     <style>
@@ -42,23 +42,38 @@
                 --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
+                color-scheme: dark;
             }
 
             .list {
                 background: var(--theme);
             }
 
-            .list:not(.dark)::-webkit-scrollbar-track {
-                background: 0 0;
+            .toc {
+                background: var(--entry);
             }
+        }
 
-            .list:not(.dark)::-webkit-scrollbar-thumb {
-                border-color: var(--theme);
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
             }
         }
 
     </style>
-</noscript><meta property="og:url" content="https://lukasz.dev/">
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><meta property="og:url" content="https://lukasz.dev/">
   <meta property="og:site_name" content="Working thoughts 💭🧑‍💻">
   <meta property="og:title" content="Working thoughts 💭🧑‍💻">
   <meta property="og:description" content="This is my personal blog where I irregularly collect thoughts of mine, that I wanted to capture for one reason or another">
@@ -82,20 +97,8 @@
 }
 </script>
 </head>
-
 <body class="list" id="top">
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.body.classList.add('dark');
-    } else if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
-    }
-
-</script>
-
-<header class="header">
+    <header class="header">
     <nav class="nav">
         <div class="logo">
             <a href="https://lukasz.dev/" accesskey="h" title="Working thoughts 💭🧑‍💻 (Alt + H)">Working thoughts 💭🧑‍💻</a>
@@ -195,14 +198,27 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">On remote work
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>I’ve been working fully remotely since 2021. This was something that I always wanted to try out/do since I recognized that being a parent and consultant travelling a lot was not aligning with my vision of the kind of dad I would like to be. I’ve talked to friends who embraced that idea (moving out of a big city, back to a smaller place where they’ve grown up, enjoying old friendships and different sense of community), read books (“Remote / Office not required”) and followed companies (e.g. GitLab) that went really big on remote before the whole pandemic made it a norm (for a “short” time). I also liked the idea that I didn’t restrict myself only to working for companies that are present where I live.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2026-02-21 10:57:31 +0100 CET'>February 21, 2026</span>&nbsp;·&nbsp;<span>Lukasz Plotnicki</span></footer>
+  <a class="entry-link" aria-label="post link to On remote work" href="https://lukasz.dev/blog/on-remote-work-and-office/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Why Now
     </h2>
   </header>
   <div class="entry-content">
-    <p>It’s been a while, huh!? I think my writing comes in waves. This time what inspired me, was rediscovering a blog of buddy of mine, Ham and binge-reading the posts that I’ve missed in recent years. While reading it, and seeing that Ham is not limiting himself only to technical bits, I started thinking how much pleasure writing gives me… So after re-dusting my whole hugo&#43;github setup (read: sinking few hours in updating it), I finally got to press some keys to create a Now page - also inspired by Ham’s blog and the discovery of the concept of a now page. Go there to read about my current setup and what is currently on my mind.
+    <p>It’s been a while, huh!? I think my writing comes in waves. This time what inspired me, was rediscovering the blog of a buddy of mine, Ham and binge-reading the posts that I’ve missed in recent years. While reading it, and seeing that Ham is not limiting himself only to technical bits, I started thinking how much pleasure writing gives me… So after re-dusting my whole hugo&#43;github setup (read: sinking few hours in updating it), I finally got to press some keys to create a Now page - also inspired by Ham’s blog and the discovery of the concept of a now page. Go there to read about my current setup and what is currently on my mind.
 </p>
   </div>
-  <footer class="entry-footer"><span title='2025-09-14 21:22:55 +0200 CEST'>September 14, 2025</span>&nbsp;·&nbsp;Lukasz Plotnicki</footer>
+  <footer class="entry-footer"><span title='2025-09-14 21:22:55 +0200 CEST'>September 14, 2025</span>&nbsp;·&nbsp;<span>Lukasz Plotnicki</span></footer>
   <a class="entry-link" aria-label="post link to Why Now" href="https://lukasz.dev/blog/why-now/"></a>
 </article>
 
@@ -215,7 +231,7 @@
     <p>Back in 2013, I was building a system to help with pediatric kidney transplant research while also trying to write a PhD at the same time. That split did not work out. I liked building the system and the team around it way more than writing papers and the dissertation work itself. Still, it took me a while though to actually acknowledge that. To allow myself to say: I like the one thing more than the original goal. But finally I did and decided to focus exactly on this: building tech, building teams, learning how to do it better and to do a lot of that.
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2021-07-22 15:35:37 +0200 CEST'>July 22, 2021</span>&nbsp;·&nbsp;Lukasz Plotnicki</footer>
+  <footer class="entry-footer"><span title='2021-07-22 15:35:37 +0200 CEST'>July 22, 2021</span>&nbsp;·&nbsp;<span>Lukasz Plotnicki</span></footer>
   <a class="entry-link" aria-label="post link to A change / next step" href="https://lukasz.dev/blog/a_change/"></a>
 </article>
 
@@ -228,7 +244,7 @@
     <p>Java/JVM ecosystem is extremely mature and vast. It comes with a palette of production-ready choices for libraries solving problems that we face developing all kinds of services: be it from logging/metrics to async messaging or access to all the major sql and nosql data stores. Add the big talent pool (Java is very often used as the programming language used during CS-courses)[1] and it’s no wonder that this particular language and ecosystem is on the top or among the top 5 in the programming language statistics [2][3].
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2020-02-22 07:49:31 +0100 CET'>February 22, 2020</span>&nbsp;·&nbsp;Lukasz Plotnicki</footer>
+  <footer class="entry-footer"><span title='2020-02-22 07:49:31 +0100 CET'>February 22, 2020</span>&nbsp;·&nbsp;<span>Lukasz Plotnicki</span></footer>
   <a class="entry-link" aria-label="post link to Java Frameworks in 2020 ?" href="https://lukasz.dev/blog/java-frameworks/"></a>
 </article>
 
@@ -239,10 +255,10 @@
   </header>
   <div class="entry-content">
     <p>I ordered the UHK with the linux layout as I thought that I will be moving towards a linux laptop as the main driver for my work. Somehow this didn’t happen :confused: and therefore I ended up using the UHK with a Mackbook Pro. Thus, I changed few settings and love my setup even more. UHK is really a spectacular keyboard.
-I quickly decided to just align the Fn, Ctrl, Option and Cmd key with the mac layout so that my mussle memory doesn’t suffer too much. This also made me fell in love with the UHK agent: It’s just so easy to remap the keys to your liking.
+I quickly decided to just align the Fn, Ctrl, Option and Cmd key with the mac layout so that my mussle memory doesn’t suffer too much. This also made me fall in love with the UHK agent: It’s just so easy to remap the keys to your liking.
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2018-12-28 23:24:02 +0100 CET'>December 28, 2018</span>&nbsp;·&nbsp;Lukasz Plotnicki</footer>
+  <footer class="entry-footer"><span title='2018-12-28 23:24:02 +0100 CET'>December 28, 2018</span>&nbsp;·&nbsp;<span>Lukasz Plotnicki</span></footer>
   <a class="entry-link" aria-label="post link to My first UHK layout" href="https://lukasz.dev/blog/uhk_setup/"></a>
 </article>
 
@@ -257,7 +273,7 @@ You have a yubikey and it’s in your usb port You’ve configured gpg on you ma
 gpg --card-edit &gt; admin &gt; generate &gt; [enter the requested PIN] &gt; quit And now you’re done. You can check if the new ssh key get pulled correctly from your yubikey typing:
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2018-05-23 21:36:52 +0200 CEST'>May 23, 2018</span>&nbsp;·&nbsp;Lukasz Plotnicki</footer>
+  <footer class="entry-footer"><span title='2018-05-23 21:36:52 +0200 CEST'>May 23, 2018</span>&nbsp;·&nbsp;<span>Lukasz Plotnicki</span></footer>
   <a class="entry-link" aria-label="post link to Using your yubikey as ssh key provider / Quick(est) guide" href="https://lukasz.dev/blog/sshkey_yubikey/"></a>
 </article>
 
@@ -270,7 +286,7 @@ gpg --card-edit &gt; admin &gt; generate &gt; [enter the requested PIN] &gt; qui
     <p>As you can see looking at the frequency of my posts, I’m more of an occasional writer. Therefore whenever I drag myself in front of my notebook, to write something up I’m feeling like sharing, I should really not have any reason to do something else instead. Sadly, although I was really happy with my octopress setup, more than once I found myself fighting the currently installed ruby versions and some conflicts with the gems that octopress was requiring.
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2017-10-09 21:44:11 +0200 CEST'>October 9, 2017</span>&nbsp;·&nbsp;Lukasz Plotnicki</footer>
+  <footer class="entry-footer"><span title='2017-10-09 21:44:11 +0200 CEST'>October 9, 2017</span>&nbsp;·&nbsp;<span>Lukasz Plotnicki</span></footer>
   <a class="entry-link" aria-label="post link to why hugo?" href="https://lukasz.dev/blog/why-hugo/"></a>
 </article>
 
@@ -281,9 +297,9 @@ gpg --card-edit &gt; admin &gt; generate &gt; [enter the requested PIN] &gt; qui
   </header>
   <div class="entry-content">
     <p>A while ago I wrote a ThoughtWorks insights post about the Backends for frontends pattern and the story behind its adaption at SoundCloud. It generated interesting discussions and resulted also in some further content and I thought it would be good to have a place with links to all this resources for the future reference.
-BFF @ SoundCloud - the original post talking about the pattern and journey towards it BFF pattern definition - comprehensive pattern definition Moving to Microservices at SoundCloud - Software Engineering Daily podcast - a podcast talking about microservices in gerneral, SoundCloud’s journey towards this style of architecture and usage of BFFs BFF @ SoundCloud (podcast) - an interview about UI composition in a microservices world in general and the BFF pattern </p>
+BFF @ SoundCloud - the original post talking about the pattern and journey towards it BFF pattern definition - comprehensive pattern definition Moving to Microservices at SoundCloud - Software Engineering Daily podcast - a podcast talking about microservices in general, SoundCloud’s journey towards this style of architecture and usage of BFFs BFF @ SoundCloud (podcast) - an interview about UI composition in a microservices world in general and the BFF pattern </p>
   </div>
-  <footer class="entry-footer"><span title='2016-02-22 00:00:00 +0000 UTC'>February 22, 2016</span>&nbsp;·&nbsp;Lukasz Plotnicki</footer>
+  <footer class="entry-footer"><span title='2016-02-22 00:00:00 +0000 UTC'>February 22, 2016</span>&nbsp;·&nbsp;<span>Lukasz Plotnicki</span></footer>
   <a class="entry-link" aria-label="post link to bff" href="https://lukasz.dev/blog/2016/02/22/bff/"></a>
 </article>
 
@@ -297,7 +313,7 @@ BFF @ SoundCloud - the original post talking about the pattern and journey towar
 At the base of the test automation pyramid is unit testing. Unit testing should be the foundation of a solid test automation strategy and as such represents the largest part of the pyramid. (…) Automated user interface testing is placed at the top of the test automation pyramid because we want to do as little of it as possible. (…) Testing through the user interface like this is expensive and should be minimized. Although there are many test cases that need to be invoked, not all need to be run through the user interface. And this is where the service layer of the test automation pyramid comes in. - Mike Cohn https://www.mountaingoatsoftware.com/blog/the-forgotten-layer-of-the-test-automation-pyramid
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2015-10-10 00:00:00 +0000 UTC'>October 10, 2015</span>&nbsp;·&nbsp;Lukasz Plotnicki</footer>
+  <footer class="entry-footer"><span title='2015-10-10 00:00:00 +0000 UTC'>October 10, 2015</span>&nbsp;·&nbsp;<span>Lukasz Plotnicki</span></footer>
   <a class="entry-link" aria-label="post link to express testing" href="https://lukasz.dev/blog/2015/10/10/express-testing/"></a>
 </article>
 
@@ -311,22 +327,8 @@ At the base of the test automation pyramid is unit testing. Unit testing should 
 And then, somebody suggested to write one thing or two, about our technology decisions and accompany it with some HowTo information. So here we are.
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2015-08-04 00:00:00 +0000 UTC'>August 4, 2015</span>&nbsp;·&nbsp;Lukasz Plotnicki</footer>
+  <footer class="entry-footer"><span title='2015-08-04 00:00:00 +0000 UTC'>August 4, 2015</span>&nbsp;·&nbsp;<span>Lukasz Plotnicki</span></footer>
   <a class="entry-link" aria-label="post link to bootstraping a node.js webapp" href="https://lukasz.dev/blog/2015/08/04/bootstraping-a-node-dot-js-webapp/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">build monitors
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>During my last four projects or so, the teams I worked with were always using GO.CD as the CD tool of their choosing. Although the pipeline state visualisation GO.CD comes with is quite nice, it still doesn’t cut it as a proper, obvious build monitor enabling everybody in the team to quickly recognize what is the pipeline status.
-Burstah in action Therefore first cidar, a simple sinatra based build monitor, has been born. I quickly discovered that sinatra and especially the nokogiri dependency, doesn’t make it easy to use e.g. a Raspberry Pi as the monitor hardware. So, having the liberty, I decided to re-implement everything in JavaScript using node.js &amp; express. Burstah , my second attempt at the ultimative build monitor, has been born :grin:
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2015-06-27 00:00:00 +0000 UTC'>June 27, 2015</span>&nbsp;·&nbsp;Lukasz Plotnicki</footer>
-  <a class="entry-link" aria-label="post link to build monitors" href="https://lukasz.dev/blog/2015/06/27/build-monitors/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
@@ -337,7 +339,7 @@ Burstah in action Therefore first cidar, a simple sinatra based build monitor, h
     </main>
     
 <footer class="footer">
-        <span>© 2013-2025 Lukasz Plotnicki</span> · 
+        <span>© 2013-2026 Lukasz Plotnicki</span> · 
 
     <span>
         Powered by
@@ -352,9 +354,14 @@ Burstah in action Therefore first cidar, a simple sinatra based build monitor, h
 </a>
 
 <script>
-    let menu = document.getElementById('menu')
+    let menu = document.getElementById('menu');
     if (menu) {
-        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
         menu.onscroll = function () {
             localStorage.setItem("menu-scroll-position", menu.scrollLeft);
         }
@@ -395,11 +402,12 @@ Burstah in action Therefore first cidar, a simple sinatra based build monitor, h
 </script>
 <script>
     document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
-            document.body.classList.remove('dark');
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
             localStorage.setItem("pref-theme", 'light');
         } else {
-            document.body.classList.add('dark');
+            html.dataset.theme = 'dark';
             localStorage.setItem("pref-theme", 'dark');
         }
     })

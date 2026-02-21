@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="en" dir="auto" data-theme="auto">
 
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,11 +8,17 @@
 <title>Few words about me | Working thoughts 💭🧑‍💻</title>
 <meta name="keywords" content="">
 <meta name="description" content="My name is Lukasz (he/him) and I really like creating products together with
-awesome teams. The roles that I play vary from a staff engineer, tech lead, engineering manager or head of engineering as I enjoy jumping between the IC and management tracks.
-Whenever I can, I get my hands dirty with Java, Kotlin and JavaTypeScript with a proper amount of terraform for the infrastructure. Ex-Thoughtworks, currently building things at air up 💦‍️.">
+awesome teams.
+The roles that I play vary from a staff engineer, tech lead,
+engineering manager or head of engineering as
+I enjoy jumping between the IC and management tracks.
+Whenever I can, I get my hands dirty with Java, Kotlin and JavaTypeScript
+with a proper amount of terraform for the infrastructure.
+Ex-Thoughtworks,
+currently building things at air up 💦‍️.">
 <meta name="author" content="Lukasz Plotnicki">
 <link rel="canonical" href="https://lukasz.dev/about/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.2211ca3164be7830024f6aad2b3a2e520843a64f8f048445c3401c1249aa051d.css" integrity="sha256-IhHKMWS&#43;eDACT2qtKzouUghDpk&#43;PBIRFw0AcEkmqBR0=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b071f18839e140aad6e597b083171da7f28d21435dec51f4aca4022414f1a6ab.css" integrity="sha256-sHHxiDnhQKrW5Zewgxcdp/KNIUNd7FH0rKQCJBTxpqs=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://lukasz.dev/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://lukasz.dev/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://lukasz.dev/favicon-32x32.png">
@@ -41,23 +47,38 @@ Whenever I can, I get my hands dirty with Java, Kotlin and JavaTypeScript with a
                 --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
+                color-scheme: dark;
             }
 
             .list {
                 background: var(--theme);
             }
 
-            .list:not(.dark)::-webkit-scrollbar-track {
-                background: 0 0;
+            .toc {
+                background: var(--entry);
             }
+        }
 
-            .list:not(.dark)::-webkit-scrollbar-thumb {
-                border-color: var(--theme);
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
             }
         }
 
     </style>
-</noscript><meta property="og:url" content="https://lukasz.dev/about/">
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><meta property="og:url" content="https://lukasz.dev/about/">
   <meta property="og:site_name" content="Working thoughts 💭🧑‍💻">
   <meta property="og:title" content="Few words about me">
   <meta property="og:description" content="My name is Lukasz (he/him) and I really like creating products together with awesome teams. The roles that I play vary from a staff engineer, tech lead, engineering manager or head of engineering as I enjoy jumping between the IC and management tracks. Whenever I can, I get my hands dirty with Java, Kotlin and JavaTypeScript with a proper amount of terraform for the infrastructure. Ex-Thoughtworks, currently building things at air up 💦‍️.">
@@ -66,8 +87,14 @@ Whenever I can, I get my hands dirty with Java, Kotlin and JavaTypeScript with a
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Few words about me">
 <meta name="twitter:description" content="My name is Lukasz (he/him) and I really like creating products together with
-awesome teams. The roles that I play vary from a staff engineer, tech lead, engineering manager or head of engineering as I enjoy jumping between the IC and management tracks.
-Whenever I can, I get my hands dirty with Java, Kotlin and JavaTypeScript with a proper amount of terraform for the infrastructure. Ex-Thoughtworks, currently building things at air up 💦‍️.">
+awesome teams.
+The roles that I play vary from a staff engineer, tech lead,
+engineering manager or head of engineering as
+I enjoy jumping between the IC and management tracks.
+Whenever I can, I get my hands dirty with Java, Kotlin and JavaTypeScript
+with a proper amount of terraform for the infrastructure.
+Ex-Thoughtworks,
+currently building things at air up 💦‍️.">
 
 
 <script type="application/ld+json">
@@ -94,8 +121,8 @@ Whenever I can, I get my hands dirty with Java, Kotlin and JavaTypeScript with a
   "keywords": [
     
   ],
-  "articleBody": "My name is Lukasz (he/him) and I really like creating products together with awesome teams. The roles that I play vary from a staff engineer, tech lead, engineering manager or head of engineering as I enjoy jumping between the IC and management tracks. Whenever I can, I get my hands dirty with Java, Kotlin and JavaTypeScript with a proper amount of terraform for the infrastructure. Ex-Thoughtworks, currently building things at air up 💦‍️.\nThis is a personal weblog. The opinions expressed here represent my own and not those of my employer.\nMy public key fingerprint 43F9 3BC4 8717 CED6 9B74 E40D 1274 8A7B CA91 C14C\n-----BEGIN PGP PUBLIC KEY BLOCK----- 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 =BaNU -----END PGP PUBLIC KEY BLOCK----- ",
-  "wordCount" : "153",
+  "articleBody": "My name is Lukasz (he/him) and I really like creating products together with awesome teams. The roles that I play vary from a staff engineer, tech lead, engineering manager or head of engineering as I enjoy jumping between the IC and management tracks. Whenever I can, I get my hands dirty with Java, Kotlin and JavaTypeScript with a proper amount of terraform for the infrastructure. Ex-Thoughtworks, currently building things at air up 💦‍️.\nThis is a personal weblog. The opinions expressed here represent my own and not those of my employer.\nShort work history Company What did I do air up (2023-now) Senior Engineering Manager Driving the set up of the tech organisation responsible for the shop and its evolution. Established ’You build it, you run it’ mindset, proper on-call, observability and engineering practices rooted in XP ideas. Lead the shop/platfrom re-write initiative. Tech involved: next.js on vercel / typescript / kotlin / http4k / terraform / aws gropyus (2021-2023) Expert Software Engineer \u0026 Head of Engineering As an IC I was leading the effort to design and implement data collection from the edge devices in GROPYUS buildings. After 6 months. I’ve switched to the managerial track and was tasked to lead the space working on the digital factory \u0026 construction. Tech involved: react.js / typescript / kotlin / spring boot / azure (esp. iothub) / terraform / twincat thoughtworks (2013-2021) Software Developer \u0026 Principal Consultant As a consultant I worked with multiple clients across different industries (retail, medical devices, publishing, rights management). Progressing from senior developer to principal, I set up and tech-led teams building large-scale e-commerce platforms, a clinical data management system and a content distribution platform — ending up responsible for the technical side of a project with 100+ engineers. It was also during this time that I discovered the true value of agile (with a small ‘a’) and XP practices. Tech involved: java / spring / scala / akka / javascript / angularjs / docker / terraform / aws / postgresql / mongodb University Hostpital Heidelberg (2009-2013) Development Lead \u0026 PhD student Built and led the development of the CERTAIN Registry, a web-based registry and research platform for paediatric renal transplantation, while pursuing a PhD. My public key fingerprint 43F9 3BC4 8717 CED6 9B74 E40D 1274 8A7B CA91 C14C\n-----BEGIN PGP PUBLIC KEY BLOCK----- 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 =BaNU -----END PGP PUBLIC KEY BLOCK----- ",
+  "wordCount" : "431",
   "inLanguage": "en",
   "datePublished": "0001-01-01T00:00:00Z",
   "dateModified": "0001-01-01T00:00:00Z",
@@ -118,20 +145,8 @@ Whenever I can, I get my hands dirty with Java, Kotlin and JavaTypeScript with a
 }
 </script>
 </head>
-
-<body class="" id="top">
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.body.classList.add('dark');
-    } else if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
-    }
-
-</script>
-
-<header class="header">
+<body id="top">
+    <header class="header">
     <nav class="nav">
         <div class="logo">
             <a href="https://lukasz.dev/" accesskey="h" title="Working thoughts 💭🧑‍💻 (Alt + H)">Working thoughts 💭🧑‍💻</a>
@@ -190,14 +205,64 @@ Whenever I can, I get my hands dirty with Java, Kotlin and JavaTypeScript with a
     <h1 class="post-title entry-hint-parent">
       Few words about me
     </h1>
-    <div class="post-meta">Lukasz Plotnicki
+    <div class="post-meta"><span>Lukasz Plotnicki</span>
 
 </div>
   </header> 
   <div class="post-content"><p>My name is Lukasz (he/him) and I really like creating products together with
-awesome teams. The roles that I play vary from a staff engineer, tech lead, engineering manager or head of engineering as I enjoy jumping between the IC and management tracks.
-Whenever I can, I get my hands dirty with Java, Kotlin and <del>Java</del>TypeScript with a proper amount of terraform for the infrastructure. Ex-<a href="https://thoughtworks.com">Thoughtworks</a>, currently building things at <a href="https://www.air-up.com">air up</a> 💦‍️.</p>
-<p>This is a personal weblog. The opinions expressed here represent my own and not those of my employer.</p>
+awesome teams.
+The roles that I play vary from a staff engineer, tech lead,
+engineering manager or head of engineering as
+I enjoy jumping between the IC and management tracks.
+Whenever I can, I get my hands dirty with Java, Kotlin and <del>Java</del>TypeScript
+with a proper amount of terraform for the infrastructure.
+Ex-<a href="https://thoughtworks.com">Thoughtworks</a>,
+currently building things at <a href="https://www.air-up.com">air up</a> 💦‍️.</p>
+<p>This is a personal weblog. The opinions expressed here represent
+my own and not those of my employer.</p>
+<h2 id="short-work-history">Short work history<a hidden class="anchor" aria-hidden="true" href="#short-work-history">#</a></h2>
+<table>
+  <thead>
+      <tr>
+          <th>Company</th>
+          <th>What did I do</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><a href="https://air-up.com"><strong>air up</strong></a> (2023-now)</td>
+          <td><strong>Senior Engineering Manager</strong></td>
+      </tr>
+      <tr>
+          <td></td>
+          <td><em>Driving the set up of the tech organisation responsible for the shop and its evolution. Established ’You build it, you run it’ mindset, proper on-call, observability  and engineering practices rooted in XP ideas. Lead the shop/platfrom re-write initiative. Tech involved: next.js on vercel / typescript / kotlin / http4k / terraform / aws</em></td>
+      </tr>
+      <tr>
+          <td><a href="https://gropyus.com"><strong>gropyus</strong></a> (2021-2023)</td>
+          <td><strong>Expert Software Engineer &amp; Head of Engineering</strong></td>
+      </tr>
+      <tr>
+          <td></td>
+          <td><em>As an IC I was leading the effort to design and implement data collection from the edge devices in GROPYUS buildings. After 6 months. I&rsquo;ve switched to the managerial track and was tasked to lead the space working on the digital factory &amp; construction. Tech involved: react.js / typescript / kotlin / spring boot / azure (esp. iothub) / terraform / twincat</em></td>
+      </tr>
+      <tr>
+          <td><a href="https://thoughtworks.com"><strong>thoughtworks</strong></a> (2013-2021)</td>
+          <td><strong>Software Developer &amp; Principal Consultant</strong></td>
+      </tr>
+      <tr>
+          <td></td>
+          <td><em>As a consultant I worked with multiple clients across different industries (retail, medical devices, publishing, rights management). Progressing from senior developer to principal, I set up and tech-led teams building large-scale e-commerce platforms, a clinical data management system and a content distribution platform — ending up responsible for the technical side of a project with 100+ engineers. It was also during this time that I discovered the true value of agile (with a small &lsquo;a&rsquo;) and XP practices. Tech involved: java / spring / scala / akka / javascript / angularjs / docker / terraform / aws / postgresql / mongodb</em></td>
+      </tr>
+      <tr>
+          <td><a href="https://www.klinikum.uni-heidelberg.de/zentrum-fuer-kinder-und-jugendmedizin"><strong>University Hostpital Heidelberg</strong></a> (2009-2013)</td>
+          <td><strong>Development Lead &amp; PhD student</strong></td>
+      </tr>
+      <tr>
+          <td></td>
+          <td><em>Built and led the development of the <a href="https://certain-registry.kikli.uni-heidelberg.de/">CERTAIN Registry</a>, a web-based registry and research platform for paediatric renal transplantation, while pursuing a PhD.</em></td>
+      </tr>
+  </tbody>
+</table>
 <h3 id="my-public-key-fingerprint">My public key fingerprint<a hidden class="anchor" aria-hidden="true" href="#my-public-key-fingerprint">#</a></h3>
 <p>43F9 3BC4 8717 CED6 9B74  E40D 1274 8A7B CA91 C14C</p>
 <pre tabindex="0"><code>-----BEGIN PGP PUBLIC KEY BLOCK-----
@@ -253,7 +318,7 @@ A9o/G9joWka4lYFNaeBWONZ56arjFvK3yvpi8hr+z8b6HFgr+1xPVGp8Ht1XXyr4
     </main>
     
 <footer class="footer">
-        <span>© 2013-2025 Lukasz Plotnicki</span> · 
+        <span>© 2013-2026 Lukasz Plotnicki</span> · 
 
     <span>
         Powered by
@@ -268,9 +333,14 @@ A9o/G9joWka4lYFNaeBWONZ56arjFvK3yvpi8hr+z8b6HFgr+1xPVGp8Ht1XXyr4
 </a>
 
 <script>
-    let menu = document.getElementById('menu')
+    let menu = document.getElementById('menu');
     if (menu) {
-        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
         menu.onscroll = function () {
             localStorage.setItem("menu-scroll-position", menu.scrollLeft);
         }
@@ -311,11 +381,12 @@ A9o/G9joWka4lYFNaeBWONZ56arjFvK3yvpi8hr+z8b6HFgr+1xPVGp8Ht1XXyr4
 </script>
 <script>
     document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
-            document.body.classList.remove('dark');
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
             localStorage.setItem("pref-theme", 'light');
         } else {
-            document.body.classList.add('dark');
+            html.dataset.theme = 'dark';
             localStorage.setItem("pref-theme", 'dark');
         }
     })

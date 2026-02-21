@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="en" dir="auto" data-theme="auto">
 
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -28,7 +28,7 @@ to be invoked, not all need to be run through the user interface. And this is
 where the service layer of the test automation pyramid comes in. - Mike Cohn https://www.mountaingoatsoftware.com/blog/the-forgotten-layer-of-the-test-automation-pyramid">
 <meta name="author" content="Lukasz Plotnicki">
 <link rel="canonical" href="https://lukasz.dev/blog/2015/10/10/express-testing/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.2211ca3164be7830024f6aad2b3a2e520843a64f8f048445c3401c1249aa051d.css" integrity="sha256-IhHKMWS&#43;eDACT2qtKzouUghDpk&#43;PBIRFw0AcEkmqBR0=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b071f18839e140aad6e597b083171da7f28d21435dec51f4aca4022414f1a6ab.css" integrity="sha256-sHHxiDnhQKrW5Zewgxcdp/KNIUNd7FH0rKQCJBTxpqs=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://lukasz.dev/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://lukasz.dev/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://lukasz.dev/favicon-32x32.png">
@@ -57,23 +57,38 @@ where the service layer of the test automation pyramid comes in. - Mike Cohn htt
                 --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
+                color-scheme: dark;
             }
 
             .list {
                 background: var(--theme);
             }
 
-            .list:not(.dark)::-webkit-scrollbar-track {
-                background: 0 0;
+            .toc {
+                background: var(--entry);
             }
+        }
 
-            .list:not(.dark)::-webkit-scrollbar-thumb {
-                border-color: var(--theme);
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
             }
         }
 
     </style>
-</noscript><meta property="og:url" content="https://lukasz.dev/blog/2015/10/10/express-testing/">
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><meta property="og:url" content="https://lukasz.dev/blog/2015/10/10/express-testing/">
   <meta property="og:site_name" content="Working thoughts 💭🧑‍💻">
   <meta property="og:title" content="express testing">
   <meta property="og:description" content=" After we managed to set up our basic web application, let’s get our hands dirty writing some code. And as we want to do it in a test-driven manner (TDD), we need a proper test setup. This piece is all about our initial test pyramid. Test, what? Yes, pyramid:
@@ -136,7 +151,7 @@ where the service layer of the test automation pyramid comes in. - Mike Cohn htt
   "keywords": [
     
   ],
-  "articleBody": " After we managed to set up our basic web application, let’s get our hands dirty writing some code. And as we want to do it in a test-driven manner (TDD), we need a proper test setup. This piece is all about our initial test pyramid. Test, what? Yes, pyramid:\nAt the base of the test automation pyramid is unit testing. Unit testing should be the foundation of a solid test automation strategy and as such represents the largest part of the pyramid. (…) Automated user interface testing is placed at the top of the test automation pyramid because we want to do as little of it as possible. (…) Testing through the user interface like this is expensive and should be minimized. Although there are many test cases that need to be invoked, not all need to be run through the user interface. And this is where the service layer of the test automation pyramid comes in. - Mike Cohn https://www.mountaingoatsoftware.com/blog/the-forgotten-layer-of-the-test-automation-pyramid\nDepending on your personal style (look at this post by Martin Fowler for more details around different flavours of unit testing) and probably also the task at hand, you will either be starting with a unit test or acceptance/functional test. The rest of this post will show you how to set up each kind of test and give you a brief description of what we mean by saying unit, integration and functional test. I will also describe our gulp setup.\nUnit test In JavaScript and node.js world your are spoiled for choices in regards to your unit tests libraries and runners: Jasmine, Mocha and friends, just pick one. We decided to go with Jasmine, in which a test looks like this:\n/* jshint node: true */ /* global describe, beforeEach, afterEach, it, jasmine, expect */ 'use strict'; describe('exractParticipant', function () { var extractParticipant; var validRequestData = { body: { firstname: 'Mark', lastname: 'Mueller', email: 'm.mueller@example.com' } }; beforeEach(function () { extractParticipant= require('../routes/registration.js').extractParticipant }); it('should read firstname from the request body', function() { expect(extractParticipant(validRequestData).firstname).toBe('Mark'); }); it('should throw an error if no firstname can be found', function () { function callWithNoFirstname() { extractParticipant({body: {}}); } expect(callWithNoFirstname).toThrow(); }); } Here we are verifying the behavior of the extractParticipant() function which given a request body returns a specific JS object. We can use multiple describe calls, or even nested describe calls to cluster the tested functionality. Each it call corresponds with a specific behaviour we want to verify. Jasmine provides matchers and spies to simplify our testing: Just look at the reference to see what’s possible. Generally it’s a good practice to verify one specific aspect per test. Any other recommendations, you ask {%gemoji sunglasses%} A good unit test is:\nfast: All the unit tests will be executed very often, therefore it’s necessarry that their execution happens in ms atomic: The unit tests should be independant from one-another, so that you can run them parallel. This means that they should not relay on any side effects (data modifications done by other tests etc.). It’s also way easier to reason why a certain test is red, if all you need to care about is only the scope of that particular test. As usual Martin Fowler wrote a nice bliki about unit tests.\nIntegration test As the name already states, an integration test verifies the behaviour of a group of components of our software acting together. Look at the following test, which checks the intgeration between a service and the database:\n'use strict'; /* jshint node: true */ /* jshint esnext: true */ /* global describe, beforeEach, afterAll, it, jasmine, expect */ describe('participants service', function () { const participants = require('../../service/participants'); var pg = require('pg'); beforeEach(function (done) { var connectionString = process.env.SNAP_DB_PG_URL || \"tcp://vagrant@localhost/pace\"; var jasmineDone = done; pg.connect(connectionString, function (err, client, done) { client.query('delete from participants', function () { done(); jasmineDone(); }); } ); }); afterAll(function(done) { pg.end(); done(); }); it('should store and read participants', function (done) { var aParticipant = { firstname: 'Hertha', lastname: 'Mustermann', email: 'h.mustermann@example.com' }; participants.save(aParticipant) .then(participants.getAll) .then(function (data) { expect(data.length).toBe(1); expect(data[0].firstname).toBe(aParticipant.firstname); expect(data[0].lastname).toBe(aParticipant.lastname); expect(data[0].email).toBe(aParticipant.email); done(); }); }); }); The integration test is similiar to the unit one (it’s also based on jasmine), but instead of mocking our dependencies we use the real implementation (here the pg PostgreSQL client) and verify the integration of both components. In this particular example, we store a participant and expect that if we call the getAll function, it will be returned in the correct form. As the test will actually store objects in the dabase, we need to assure that before we execute the test, the database is cleared. This is done in the beforeEach method. You may ask ‘why before the test and not afterwards’: In case of an error, we will still have the possibility to check the state of the database.\nAs we need to connect to the database and assure a particular state before each test run, those tests will always be slower than the unit ones. Therefore we should try to test only the integrational aspects in them and everything else on the unit level. In the end we are not interested in a test suite for a 3rd party component, but only a verification of the fact that our usage of it is correct.\nFunctional test Whenever we test the system as a whole, we talk about functional tests. Typically those tests go against an outer-most interface of our app, often the UI. In our case we will interact with pace via its web page. To do that, we use WebDriverIO on top of selenium and a headless browser called phantomjs. This combination offers an easy to use API for browser-interaction.\n/* jshint node: true */ /* global describe, beforeEach, afterEach, it, jasmine, expect */ 'use strict'; describe('regisitration journey', function () { var client; var paceUrl = process.env.PACE_URL || 'http://localhost:3000/'; var originalTimeout; beforeEach(function () { var webdriverio = require('webdriverio'); var options = { desiredCapabilities: { browserName: 'phantomjs' } }; client = webdriverio.remote(options); originalTimeout = jasmine.DEFAULT_TIMEOUT_INTERVAL; jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000; }); afterEach(function () { jasmine.DEFAULT_TIMEOUT_INTERVAL = originalTimeout; }); it('allows to register via the registration page', function (done) { client.init() .url(paceUrl) .click('a#registration') .setValue('input#firstname', 'Max') .setValue('input#lastname', 'Mustermann') .setValue('input#email', 'max@example.com') .setValue('input#gender', 'Unicorn') .click('button#submit') .isVisible('div.thanks') .then(function (isVisible) { expect(isVisible).toBe(true); done(); }) .end(); }); }); First we need to setup the webdriver client to use the proper pace base url and browser. We also change the default jasmine timeout for async tests, as in general the browser based interactions tend to take more time. After that it is pretty straightforward: We click on a link, type into input fields, submit the form and verify that we land on the success page (look at webdriverio API for all the different interactions one can trigger). This is the happy path of our registration journey and as the functional test are the most expensive ones (in regards to the execution time), we will try to stick only to happy-path testing on this level.\nTest execution Ok, so how can you run all the tests in a convenient way? Pace uses gulp to build and automate a lot of stuff. Here are the important commands and convention:\nAll tests (specs) should be places in the /spec directory All integration tests must have ‘IT’ in their filename All functional tests must have ‘Journey’ in their filename gulp test - runs all the unit tests gulp test-integration - runs all the integration tests, depends on existing database gulp test-functional - runs all functional tests, depends on installed selenium-server and drivers To simplify the setup of a dev box, pace offers one simple command:\ngulp dev-setup - prepares the vagrant box with the databse, installs all dependencies for selenium and executes the database migrations ",
+  "articleBody": " After we managed to set up our basic web application, let’s get our hands dirty writing some code. And as we want to do it in a test-driven manner (TDD), we need a proper test setup. This piece is all about our initial test pyramid. Test, what? Yes, pyramid:\nAt the base of the test automation pyramid is unit testing. Unit testing should be the foundation of a solid test automation strategy and as such represents the largest part of the pyramid. (…) Automated user interface testing is placed at the top of the test automation pyramid because we want to do as little of it as possible. (…) Testing through the user interface like this is expensive and should be minimized. Although there are many test cases that need to be invoked, not all need to be run through the user interface. And this is where the service layer of the test automation pyramid comes in. - Mike Cohn https://www.mountaingoatsoftware.com/blog/the-forgotten-layer-of-the-test-automation-pyramid\nDepending on your personal style (look at this post by Martin Fowler for more details around different flavours of unit testing) and probably also the task at hand, you will either be starting with a unit test or acceptance/functional test. The rest of this post will show you how to set up each kind of test and give you a brief description of what we mean by saying unit, integration and functional test. I will also describe our gulp setup.\nUnit test In JavaScript and node.js world you are spoiled for choices in regards to your unit tests libraries and runners: Jasmine, Mocha and friends, just pick one. We decided to go with Jasmine, in which a test looks like this:\n/* jshint node: true */ /* global describe, beforeEach, afterEach, it, jasmine, expect */ 'use strict'; describe('exractParticipant', function () { var extractParticipant; var validRequestData = { body: { firstname: 'Mark', lastname: 'Mueller', email: 'm.mueller@example.com' } }; beforeEach(function () { extractParticipant= require('../routes/registration.js').extractParticipant }); it('should read firstname from the request body', function() { expect(extractParticipant(validRequestData).firstname).toBe('Mark'); }); it('should throw an error if no firstname can be found', function () { function callWithNoFirstname() { extractParticipant({body: {}}); } expect(callWithNoFirstname).toThrow(); }); } Here we are verifying the behavior of the extractParticipant() function which given a request body returns a specific JS object. We can use multiple describe calls, or even nested describe calls to cluster the tested functionality. Each it call corresponds with a specific behaviour we want to verify. Jasmine provides matchers and spies to simplify our testing: Just look at the reference to see what’s possible. Generally it’s a good practice to verify one specific aspect per test. Any other recommendations, you ask {%gemoji sunglasses%} A good unit test is:\nfast: All the unit tests will be executed very often, therefore it’s necessary that their execution happens in ms atomic: The unit tests should be independent from one-another, so that you can run them parallel. This means that they should not rely on any side effects (data modifications done by other tests etc.). It’s also way easier to reason why a certain test is red, if all you need to care about is only the scope of that particular test. As usual Martin Fowler wrote a nice bliki about unit tests.\nIntegration test As the name already states, an integration test verifies the behaviour of a group of components of our software acting together. Look at the following test, which checks the integration between a service and the database:\n'use strict'; /* jshint node: true */ /* jshint esnext: true */ /* global describe, beforeEach, afterAll, it, jasmine, expect */ describe('participants service', function () { const participants = require('../../service/participants'); var pg = require('pg'); beforeEach(function (done) { var connectionString = process.env.SNAP_DB_PG_URL || \"tcp://vagrant@localhost/pace\"; var jasmineDone = done; pg.connect(connectionString, function (err, client, done) { client.query('delete from participants', function () { done(); jasmineDone(); }); } ); }); afterAll(function(done) { pg.end(); done(); }); it('should store and read participants', function (done) { var aParticipant = { firstname: 'Hertha', lastname: 'Mustermann', email: 'h.mustermann@example.com' }; participants.save(aParticipant) .then(participants.getAll) .then(function (data) { expect(data.length).toBe(1); expect(data[0].firstname).toBe(aParticipant.firstname); expect(data[0].lastname).toBe(aParticipant.lastname); expect(data[0].email).toBe(aParticipant.email); done(); }); }); }); The integration test is similar to the unit one (it’s also based on jasmine), but instead of mocking our dependencies we use the real implementation (here the pg PostgreSQL client) and verify the integration of both components. In this particular example, we store a participant and expect that if we call the getAll function, it will be returned in the correct form. As the test will actually store objects in the dabase, we need to assure that before we execute the test, the database is cleared. This is done in the beforeEach method. You may ask ‘why before the test and not afterwards’: In case of an error, we will still have the possibility to check the state of the database.\nAs we need to connect to the database and assure a particular state before each test run, those tests will always be slower than the unit ones. Therefore we should try to test only the integrational aspects in them and everything else on the unit level. In the end we are not interested in a test suite for a 3rd party component, but only a verification of the fact that our usage of it is correct.\nFunctional test Whenever we test the system as a whole, we talk about functional tests. Typically those tests go against an outer-most interface of our app, often the UI. In our case we will interact with pace via its web page. To do that, we use WebDriverIO on top of selenium and a headless browser called phantomjs. This combination offers an easy to use API for browser-interaction.\n/* jshint node: true */ /* global describe, beforeEach, afterEach, it, jasmine, expect */ 'use strict'; describe('regisitration journey', function () { var client; var paceUrl = process.env.PACE_URL || 'http://localhost:3000/'; var originalTimeout; beforeEach(function () { var webdriverio = require('webdriverio'); var options = { desiredCapabilities: { browserName: 'phantomjs' } }; client = webdriverio.remote(options); originalTimeout = jasmine.DEFAULT_TIMEOUT_INTERVAL; jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000; }); afterEach(function () { jasmine.DEFAULT_TIMEOUT_INTERVAL = originalTimeout; }); it('allows to register via the registration page', function (done) { client.init() .url(paceUrl) .click('a#registration') .setValue('input#firstname', 'Max') .setValue('input#lastname', 'Mustermann') .setValue('input#email', 'max@example.com') .setValue('input#gender', 'Unicorn') .click('button#submit') .isVisible('div.thanks') .then(function (isVisible) { expect(isVisible).toBe(true); done(); }) .end(); }); }); First we need to setup the webdriver client to use the proper pace base url and browser. We also change the default jasmine timeout for async tests, as in general the browser based interactions tend to take more time. After that it is pretty straightforward: We click on a link, type into input fields, submit the form and verify that we land on the success page (look at webdriverio API for all the different interactions one can trigger). This is the happy path of our registration journey and as the functional test are the most expensive ones (in regards to the execution time), we will try to stick only to happy-path testing on this level.\nTest execution Ok, so how can you run all the tests in a convenient way? Pace uses gulp to build and automate a lot of stuff. Here are the important commands and convention:\nAll tests (specs) should be places in the /spec directory All integration tests must have ‘IT’ in their filename All functional tests must have ‘Journey’ in their filename gulp test - runs all the unit tests gulp test-integration - runs all the integration tests, depends on existing database gulp test-functional - runs all functional tests, depends on installed selenium-server and drivers To simplify the setup of a dev box, pace offers one simple command:\ngulp dev-setup - prepares the vagrant box with the databse, installs all dependencies for selenium and executes the database migrations ",
   "wordCount" : "1281",
   "inLanguage": "en",
   "datePublished": "2015-10-10T00:00:00Z",
@@ -160,20 +175,8 @@ where the service layer of the test automation pyramid comes in. - Mike Cohn htt
 }
 </script>
 </head>
-
-<body class="" id="top">
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.body.classList.add('dark');
-    } else if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
-    }
-
-</script>
-
-<header class="header">
+<body id="top">
+    <header class="header">
     <nav class="nav">
         <div class="logo">
             <a href="https://lukasz.dev/" accesskey="h" title="Working thoughts 💭🧑‍💻 (Alt + H)">Working thoughts 💭🧑‍💻</a>
@@ -232,7 +235,7 @@ where the service layer of the test automation pyramid comes in. - Mike Cohn htt
     <h1 class="post-title entry-hint-parent">
       express testing
     </h1>
-    <div class="post-meta"><span title='2015-10-10 00:00:00 +0000 UTC'>October 10, 2015</span>&nbsp;·&nbsp;Lukasz Plotnicki
+    <div class="post-meta"><span title='2015-10-10 00:00:00 +0000 UTC'>October 10, 2015</span>&nbsp;·&nbsp;<span>Lukasz Plotnicki</span>
 
 </div>
   </header> 
@@ -254,7 +257,8 @@ placed at the top of the test automation pyramid because we want to do as
 little of it as possible. (&hellip;) Testing through the user interface like this is
 expensive and should be minimized. Although there are many test cases that need
 to be invoked, not all need to be run through the user interface. And this is
-where the service layer of the test automation pyramid comes in. - Mike Cohn <a href="https://www.mountaingoatsoftware.com/blog/the-forgotten-layer-of-the-test-automation-pyramid">https://www.mountaingoatsoftware.com/blog/the-forgotten-layer-of-the-test-automation-pyramid</a></p></blockquote>
+where the service layer of the test automation pyramid comes in. - Mike Cohn <a href="https://www.mountaingoatsoftware.com/blog/the-forgotten-layer-of-the-test-automation-pyramid">https://www.mountaingoatsoftware.com/blog/the-forgotten-layer-of-the-test-automation-pyramid</a></p>
+</blockquote>
 <p>Depending on your personal style (look at this
 <a href="http://martinfowler.com/bliki/TestPyramid.html">post</a> by Martin Fowler for
 more details around different <em>flavours</em> of unit testing) and probably also the
@@ -264,12 +268,12 @@ each kind of test and give you a brief description of what we mean by saying
 <strong>unit</strong>, <strong>integration</strong> and <strong>functional</strong> test. I will also describe our
 <strong>gulp setup</strong>.</p>
 <h2 id="unit-test">Unit test<a hidden class="anchor" aria-hidden="true" href="#unit-test">#</a></h2>
-<p>In JavaScript and node.js world your are spoiled for choices in regards to
+<p>In JavaScript and node.js world you are spoiled for choices in regards to
 your unit tests libraries and runners: Jasmine, Mocha and friends, just pick
 one. We decided to go with
 <a href="https://jasmine.github.io/2.3/introduction.html">Jasmine</a>, in which a test
 looks like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">/* jshint node: true */</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">/* jshint node: true */</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">/* global describe, beforeEach, afterEach, it, jasmine, expect */</span>
 </span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;use strict&#39;</span>;
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">describe</span>(<span style="color:#e6db74">&#39;exractParticipant&#39;</span>, <span style="color:#66d9ef">function</span> () {
@@ -310,9 +314,9 @@ test. Any other recommendations, you ask {%gemoji sunglasses%} A good unit test
 is:</p>
 <ul>
 <li><strong>fast</strong>: All the unit tests will be executed very often, therefore it&rsquo;s
-necessarry that their execution happens in ms</li>
-<li><strong>atomic</strong>: The unit tests should be independant from one-another, so that you can
-run them parallel. This means that they should not relay on any side
+necessary that their execution happens in ms</li>
+<li><strong>atomic</strong>: The unit tests should be independent from one-another, so that you can
+run them parallel. This means that they should not rely on any side
 effects (data modifications done by other tests etc.). It&rsquo;s also way easier
 to reason why a certain test is red, if all you need to care about is only
 the scope of that particular test.</li>
@@ -321,8 +325,8 @@ the scope of that particular test.</li>
 <h2 id="integration-test">Integration test<a hidden class="anchor" aria-hidden="true" href="#integration-test">#</a></h2>
 <p>As the name already states, an integration test verifies the behaviour of
 a group of components of our software acting together. Look at the following
-test, which checks the intgeration between a service and the database:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#e6db74">&#39;use strict&#39;</span>;
+test, which checks the integration between a service and the database:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#e6db74">&#39;use strict&#39;</span>;
 </span></span><span style="display:flex;"><span><span style="color:#75715e">/* jshint node: true */</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">/* jshint esnext: true */</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">/* global describe, beforeEach, afterAll, it, jasmine, expect */</span>
@@ -370,7 +374,7 @@ test, which checks the intgeration between a service and the database:</p>
 </span></span><span style="display:flex;"><span>            });
 </span></span><span style="display:flex;"><span>    });
 </span></span><span style="display:flex;"><span>});
-</span></span></code></pre></div><p>The integration test is similiar to the unit one (it&rsquo;s also based on jasmine),
+</span></span></code></pre></div><p>The integration test is similar to the unit one (it&rsquo;s also based on jasmine),
 but instead of mocking our dependencies we use the real implementation (here
 the <!-- raw HTML omitted -->pg<!-- raw HTML omitted --> PostgreSQL client) and verify the integration of both components.
 In this particular example, we store a participant and expect that if we call
@@ -391,7 +395,7 @@ it is correct.</p>
 Typically those tests go against an outer-most interface of our app, often
 the UI. In our case we will interact with pace via its web page.
 To do that, we use <a href="http://webdriver.io/">WebDriverIO</a> on top of <a href="http://docs.seleniumhq.org/">selenium</a> and a headless browser called <a href="http://phantomjs.org/">phantomjs</a>. This combination offers an easy to use API for browser-interaction.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">/* jshint node: true */</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">/* jshint node: true */</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">/* global describe, beforeEach, afterEach, it, jasmine, expect */</span>
 </span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;use strict&#39;</span>;
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">describe</span>(<span style="color:#e6db74">&#39;regisitration journey&#39;</span>, <span style="color:#66d9ef">function</span> () {
@@ -473,7 +477,7 @@ all dependencies for selenium and executes the database migrations</li>
     </main>
     
 <footer class="footer">
-        <span>© 2013-2025 Lukasz Plotnicki</span> · 
+        <span>© 2013-2026 Lukasz Plotnicki</span> · 
 
     <span>
         Powered by
@@ -488,9 +492,14 @@ all dependencies for selenium and executes the database migrations</li>
 </a>
 
 <script>
-    let menu = document.getElementById('menu')
+    let menu = document.getElementById('menu');
     if (menu) {
-        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
         menu.onscroll = function () {
             localStorage.setItem("menu-scroll-position", menu.scrollLeft);
         }
@@ -531,11 +540,12 @@ all dependencies for selenium and executes the database migrations</li>
 </script>
 <script>
     document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
-            document.body.classList.remove('dark');
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
             localStorage.setItem("pref-theme", 'light');
         } else {
-            document.body.classList.add('dark');
+            html.dataset.theme = 'dark';
             localStorage.setItem("pref-theme", 'dark');
         }
     })

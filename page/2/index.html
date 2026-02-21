@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="en" dir="auto" data-theme="auto">
 
 <head>
-	<meta name="generator" content="Hugo 0.150.0"><meta charset="utf-8">
+	<meta name="generator" content="Hugo 0.156.0"><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
@@ -11,7 +11,7 @@
 <meta name="description" content="This is my personal blog where I irregularly collect thoughts of mine, that I wanted to capture for one reason or another">
 <meta name="author" content="Lukasz Plotnicki">
 <link rel="canonical" href="https://lukasz.dev/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.2211ca3164be7830024f6aad2b3a2e520843a64f8f048445c3401c1249aa051d.css" integrity="sha256-IhHKMWS&#43;eDACT2qtKzouUghDpk&#43;PBIRFw0AcEkmqBR0=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b071f18839e140aad6e597b083171da7f28d21435dec51f4aca4022414f1a6ab.css" integrity="sha256-sHHxiDnhQKrW5Zewgxcdp/KNIUNd7FH0rKQCJBTxpqs=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://lukasz.dev/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://lukasz.dev/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://lukasz.dev/favicon-32x32.png">
@@ -19,8 +19,8 @@
 <link rel="mask-icon" href="https://lukasz.dev/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="https://lukasz.dev/index.xml">
-<link rel="alternate" type="application/json" href="https://lukasz.dev/index.json">
+<link rel="alternate" type="application/rss+xml" href="https://lukasz.dev/index.xml" title="rss">
+<link rel="alternate" type="application/json" href="https://lukasz.dev/index.json" title="json">
 <link rel="alternate" hreflang="en" href="https://lukasz.dev/">
 <noscript>
     <style>
@@ -42,23 +42,38 @@
                 --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
+                color-scheme: dark;
             }
 
             .list {
                 background: var(--theme);
             }
 
-            .list:not(.dark)::-webkit-scrollbar-track {
-                background: 0 0;
+            .toc {
+                background: var(--entry);
             }
+        }
 
-            .list:not(.dark)::-webkit-scrollbar-thumb {
-                border-color: var(--theme);
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
             }
         }
 
     </style>
-</noscript><meta property="og:url" content="https://lukasz.dev/">
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><meta property="og:url" content="https://lukasz.dev/">
   <meta property="og:site_name" content="Working thoughts 💭🧑‍💻">
   <meta property="og:title" content="Working thoughts 💭🧑‍💻">
   <meta property="og:description" content="This is my personal blog where I irregularly collect thoughts of mine, that I wanted to capture for one reason or another">
@@ -82,20 +97,8 @@
 }
 </script>
 </head>
-
 <body class="list" id="top">
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.body.classList.add('dark');
-    } else if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
-    }
-
-</script>
-
-<header class="header">
+    <header class="header">
     <nav class="nav">
         <div class="logo">
             <a href="https://lukasz.dev/" accesskey="h" title="Working thoughts 💭🧑‍💻 (Alt + H)">Working thoughts 💭🧑‍💻</a>
@@ -150,6 +153,20 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">build monitors
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>During my last four projects or so, the teams I worked with were always using GO.CD as the CD tool of their choosing. Although the pipeline state visualisation GO.CD comes with is quite nice, it still doesn’t cut it as a proper, obvious build monitor enabling everybody in the team to quickly recognize what is the pipeline status.
+Burstah in action Therefore first cidar, a simple sinatra based build monitor, has been born. I quickly discovered that sinatra and especially the nokogiri dependency, doesn’t make it easy to use e.g. a Raspberry Pi as the monitor hardware. So, having the liberty, I decided to re-implement everything in JavaScript using node.js &amp; express. Burstah , my second attempt at the ultimative build monitor, has been born :grin:
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2015-06-27 00:00:00 +0000 UTC'>June 27, 2015</span>&nbsp;·&nbsp;<span>Lukasz Plotnicki</span></footer>
+  <a class="entry-link" aria-label="post link to build monitors" href="https://lukasz.dev/blog/2015/06/27/build-monitors/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">scoopcamp hackathon
     </h2>
   </header>
@@ -157,7 +174,7 @@
     <p>Last Thursday I was a part of the Scoopcamp hackathon and it was so great that I just couldn’t resist to write down some of my thoughts about it. Our team ThoughtWorks and friends a colorful mix of journalists, students and developers had a rough idea for a modern - more agile - journalism, where the journalist reporting about an ongoing event writes the background story and live updates from his perspective, but can also incorporate content written by the readers who create their own streams representing their own take on the particular event. Being able to see which stream/entry is getting most likes (=feedback), he/she can quickly react and focus on the currently favorite perspective. During a quick brainstorming we came up with the name: LiquidPub (for liquid publishing) and started defining the first user stories. Our app To be able to deliver something within less than a day of coding, we went with Ruby on Rails. This gave me the opportunity to finally try out Rails and learn it a bit by pairing with some experienced Ruby/Rails devs. The application itself has been deployed on heroku and being ThoughtWorks we built and deployed it after each push to our github repo using snap-ci - continuous delivery FTW!
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2013-09-14 00:00:00 +0000 UTC'>September 14, 2013</span>&nbsp;·&nbsp;Lukasz Plotnicki</footer>
+  <footer class="entry-footer"><span title='2013-09-14 00:00:00 +0000 UTC'>September 14, 2013</span>&nbsp;·&nbsp;<span>Lukasz Plotnicki</span></footer>
   <a class="entry-link" aria-label="post link to scoopcamp hackathon" href="https://lukasz.dev/blog/2013/09/14/scoopcamp-hackathon/"></a>
 </article>
 
@@ -170,7 +187,7 @@
     <p>Back in 2009 I became the job to design and start realizing a quite large web application for a health care research project. I took some time, sat down and thought about the technology stack, I would like to use to build it. As we wanted to have an RIA and I already had some experience with GWT, we quickly decided to use it. Since then four years have passed and we are about to release the 2.0 version of our system. During this time, the whole team learned a lot about GWT, its advantages and also some disadvantages, and I thought it would be useful to write some of them up. This part is about the status quo, in the second part I will try to write about a GWT setup I would go for, when starting the project today - so if you have any hints in this regard, please feel free to leave a comment, I would definitely appreciate it!
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2013-06-15 00:00:00 +0000 UTC'>June 15, 2013</span>&nbsp;·&nbsp;Lukasz Plotnicki</footer>
+  <footer class="entry-footer"><span title='2013-06-15 00:00:00 +0000 UTC'>June 15, 2013</span>&nbsp;·&nbsp;<span>Lukasz Plotnicki</span></footer>
   <a class="entry-link" aria-label="post link to gwt part i" href="https://lukasz.dev/blog/2013/06/15/gwt-part-i/"></a>
 </article>
 
@@ -184,7 +201,7 @@
 Octopress is a framework designed by Brandon Mathis for Jekyll, the blog aware static site generator powering Github Pages. To start blogging with Jekyll, you have to write your own HTML templates, CSS, Javascripts and set up your configuration. But with Octopress All of that is already taken care of. Simply clone or fork Octopress, install dependencies and the theme, and you’re set. - Brandon Mathis http://octopress.org/blog/2011/07/23/octopress-20-surfaces/
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2013-05-14 00:00:00 +0000 UTC'>May 14, 2013</span>&nbsp;·&nbsp;Lukasz Plotnicki</footer>
+  <footer class="entry-footer"><span title='2013-05-14 00:00:00 +0000 UTC'>May 14, 2013</span>&nbsp;·&nbsp;<span>Lukasz Plotnicki</span></footer>
   <a class="entry-link" aria-label="post link to setting up ..." href="https://lukasz.dev/blog/2013/05/14/setting-up-dot-dot-dot/"></a>
 </article>
 
@@ -198,7 +215,7 @@ Octopress is a framework designed by Brandon Mathis for Jekyll, the blog aware s
 But then, I had also too many moments, when I thought - wait, you already had this problem/issue/idea… What was the solution? Where did you find it?
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2013-05-09 00:00:00 +0000 UTC'>May 9, 2013</span>&nbsp;·&nbsp;Lukasz Plotnicki</footer>
+  <footer class="entry-footer"><span title='2013-05-09 00:00:00 +0000 UTC'>May 9, 2013</span>&nbsp;·&nbsp;<span>Lukasz Plotnicki</span></footer>
   <a class="entry-link" aria-label="post link to hello world" href="https://lukasz.dev/blog/2013/05/09/hello-world/"></a>
 </article>
 <footer class="page-footer">
@@ -211,7 +228,7 @@ But then, I had also too many moments, when I thought - wait, you already had th
     </main>
     
 <footer class="footer">
-        <span>© 2013-2025 Lukasz Plotnicki</span> · 
+        <span>© 2013-2026 Lukasz Plotnicki</span> · 
 
     <span>
         Powered by
@@ -226,9 +243,14 @@ But then, I had also too many moments, when I thought - wait, you already had th
 </a>
 
 <script>
-    let menu = document.getElementById('menu')
+    let menu = document.getElementById('menu');
     if (menu) {
-        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
         menu.onscroll = function () {
             localStorage.setItem("menu-scroll-position", menu.scrollLeft);
         }
@@ -269,11 +291,12 @@ But then, I had also too many moments, when I thought - wait, you already had th
 </script>
 <script>
     document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
-            document.body.classList.remove('dark');
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
             localStorage.setItem("pref-theme", 'light');
         } else {
-            document.body.classList.add('dark');
+            html.dataset.theme = 'dark';
             localStorage.setItem("pref-theme", 'dark');
         }
     })

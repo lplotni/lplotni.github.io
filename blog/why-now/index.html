@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="en" dir="auto" data-theme="auto">
 
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,7 +8,7 @@
 <title>Why Now | Working thoughts 💭🧑‍💻</title>
 <meta name="keywords" content="">
 <meta name="description" content="It&rsquo;s been a while, huh!? I think my writing comes in waves.
-This time what inspired me, was rediscovering a blog of buddy of mine, Ham
+This time what inspired me, was rediscovering the blog of a buddy of mine, Ham
 and binge-reading the posts that I&rsquo;ve missed in recent years. While reading it,
 and seeing that Ham is not limiting himself only to technical bits, I started
 thinking how much pleasure writing gives me&hellip; So after re-dusting my
@@ -19,7 +19,7 @@ a now page. Go there to read about my current setup
 and what is currently on my mind.">
 <meta name="author" content="Lukasz Plotnicki">
 <link rel="canonical" href="https://lukasz.dev/blog/why-now/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.2211ca3164be7830024f6aad2b3a2e520843a64f8f048445c3401c1249aa051d.css" integrity="sha256-IhHKMWS&#43;eDACT2qtKzouUghDpk&#43;PBIRFw0AcEkmqBR0=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b071f18839e140aad6e597b083171da7f28d21435dec51f4aca4022414f1a6ab.css" integrity="sha256-sHHxiDnhQKrW5Zewgxcdp/KNIUNd7FH0rKQCJBTxpqs=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://lukasz.dev/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://lukasz.dev/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://lukasz.dev/favicon-32x32.png">
@@ -48,26 +48,41 @@ and what is currently on my mind.">
                 --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
+                color-scheme: dark;
             }
 
             .list {
                 background: var(--theme);
             }
 
-            .list:not(.dark)::-webkit-scrollbar-track {
-                background: 0 0;
+            .toc {
+                background: var(--entry);
             }
+        }
 
-            .list:not(.dark)::-webkit-scrollbar-thumb {
-                border-color: var(--theme);
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
             }
         }
 
     </style>
-</noscript><meta property="og:url" content="https://lukasz.dev/blog/why-now/">
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><meta property="og:url" content="https://lukasz.dev/blog/why-now/">
   <meta property="og:site_name" content="Working thoughts 💭🧑‍💻">
   <meta property="og:title" content="Why Now">
-  <meta property="og:description" content="It’s been a while, huh!? I think my writing comes in waves. This time what inspired me, was rediscovering a blog of buddy of mine, Ham and binge-reading the posts that I’ve missed in recent years. While reading it, and seeing that Ham is not limiting himself only to technical bits, I started thinking how much pleasure writing gives me… So after re-dusting my whole hugo&#43;github setup (read: sinking few hours in updating it), I finally got to press some keys to create a Now page - also inspired by Ham’s blog and the discovery of the concept of a now page. Go there to read about my current setup and what is currently on my mind.">
+  <meta property="og:description" content="It’s been a while, huh!? I think my writing comes in waves. This time what inspired me, was rediscovering the blog of a buddy of mine, Ham and binge-reading the posts that I’ve missed in recent years. While reading it, and seeing that Ham is not limiting himself only to technical bits, I started thinking how much pleasure writing gives me… So after re-dusting my whole hugo&#43;github setup (read: sinking few hours in updating it), I finally got to press some keys to create a Now page - also inspired by Ham’s blog and the discovery of the concept of a now page. Go there to read about my current setup and what is currently on my mind.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="blog">
@@ -76,7 +91,7 @@ and what is currently on my mind.">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Why Now">
 <meta name="twitter:description" content="It&rsquo;s been a while, huh!? I think my writing comes in waves.
-This time what inspired me, was rediscovering a blog of buddy of mine, Ham
+This time what inspired me, was rediscovering the blog of a buddy of mine, Ham
 and binge-reading the posts that I&rsquo;ve missed in recent years. While reading it,
 and seeing that Ham is not limiting himself only to technical bits, I started
 thinking how much pleasure writing gives me&hellip; So after re-dusting my
@@ -113,12 +128,12 @@ and what is currently on my mind.">
   "@type": "BlogPosting",
   "headline": "Why Now",
   "name": "Why Now",
-  "description": "It\u0026rsquo;s been a while, huh!? I think my writing comes in waves. This time what inspired me, was rediscovering a blog of buddy of mine, Ham and binge-reading the posts that I\u0026rsquo;ve missed in recent years. While reading it, and seeing that Ham is not limiting himself only to technical bits, I started thinking how much pleasure writing gives me\u0026hellip; So after re-dusting my whole hugo+github setup (read: sinking few hours in updating it), I finally got to press some keys to create a Now page - also inspired by Ham\u0026rsquo;s blog and the discovery of the concept of a now page. Go there to read about my current setup and what is currently on my mind.\n",
+  "description": "It\u0026rsquo;s been a while, huh!? I think my writing comes in waves. This time what inspired me, was rediscovering the blog of a buddy of mine, Ham and binge-reading the posts that I\u0026rsquo;ve missed in recent years. While reading it, and seeing that Ham is not limiting himself only to technical bits, I started thinking how much pleasure writing gives me\u0026hellip; So after re-dusting my whole hugo+github setup (read: sinking few hours in updating it), I finally got to press some keys to create a Now page - also inspired by Ham\u0026rsquo;s blog and the discovery of the concept of a now page. Go there to read about my current setup and what is currently on my mind.\n",
   "keywords": [
     
   ],
-  "articleBody": "It’s been a while, huh!? I think my writing comes in waves. This time what inspired me, was rediscovering a blog of buddy of mine, Ham and binge-reading the posts that I’ve missed in recent years. While reading it, and seeing that Ham is not limiting himself only to technical bits, I started thinking how much pleasure writing gives me… So after re-dusting my whole hugo+github setup (read: sinking few hours in updating it), I finally got to press some keys to create a Now page - also inspired by Ham’s blog and the discovery of the concept of a now page. Go there to read about my current setup and what is currently on my mind.\n",
-  "wordCount" : "117",
+  "articleBody": "It’s been a while, huh!? I think my writing comes in waves. This time what inspired me, was rediscovering the blog of a buddy of mine, Ham and binge-reading the posts that I’ve missed in recent years. While reading it, and seeing that Ham is not limiting himself only to technical bits, I started thinking how much pleasure writing gives me… So after re-dusting my whole hugo+github setup (read: sinking few hours in updating it), I finally got to press some keys to create a Now page - also inspired by Ham’s blog and the discovery of the concept of a now page. Go there to read about my current setup and what is currently on my mind.\n",
+  "wordCount" : "118",
   "inLanguage": "en",
   "datePublished": "2025-09-14T21:22:55+02:00",
   "dateModified": "2025-09-14T21:22:55+02:00",
@@ -141,20 +156,8 @@ and what is currently on my mind.">
 }
 </script>
 </head>
-
-<body class="" id="top">
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.body.classList.add('dark');
-    } else if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
-    }
-
-</script>
-
-<header class="header">
+<body id="top">
+    <header class="header">
     <nav class="nav">
         <div class="logo">
             <a href="https://lukasz.dev/" accesskey="h" title="Working thoughts 💭🧑‍💻 (Alt + H)">Working thoughts 💭🧑‍💻</a>
@@ -213,12 +216,12 @@ and what is currently on my mind.">
     <h1 class="post-title entry-hint-parent">
       Why Now
     </h1>
-    <div class="post-meta"><span title='2025-09-14 21:22:55 +0200 CEST'>September 14, 2025</span>&nbsp;·&nbsp;Lukasz Plotnicki
+    <div class="post-meta"><span title='2025-09-14 21:22:55 +0200 CEST'>September 14, 2025</span>&nbsp;·&nbsp;<span>Lukasz Plotnicki</span>
 
 </div>
   </header> 
   <div class="post-content"><p>It&rsquo;s been a while, huh!? I think my writing comes in waves.
-This time what inspired me, was rediscovering a <a href="https://hamvocke.com/">blog of buddy of mine, Ham</a>
+This time what inspired me, was rediscovering the <a href="https://hamvocke.com/">blog of a buddy of mine, Ham</a>
 and binge-reading the posts that I&rsquo;ve missed in recent years. While reading it,
 and seeing that Ham is not limiting himself only to technical bits, I started
 thinking how much pleasure writing gives me&hellip; So after re-dusting my
@@ -239,7 +242,7 @@ and what is currently on my mind.</p>
     </main>
     
 <footer class="footer">
-        <span>© 2013-2025 Lukasz Plotnicki</span> · 
+        <span>© 2013-2026 Lukasz Plotnicki</span> · 
 
     <span>
         Powered by
@@ -254,9 +257,14 @@ and what is currently on my mind.</p>
 </a>
 
 <script>
-    let menu = document.getElementById('menu')
+    let menu = document.getElementById('menu');
     if (menu) {
-        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
         menu.onscroll = function () {
             localStorage.setItem("menu-scroll-position", menu.scrollLeft);
         }
@@ -297,11 +305,12 @@ and what is currently on my mind.</p>
 </script>
 <script>
     document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
-            document.body.classList.remove('dark');
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
             localStorage.setItem("pref-theme", 'light');
         } else {
-            document.body.classList.add('dark');
+            html.dataset.theme = 'dark';
             localStorage.setItem("pref-theme", 'dark');
         }
     })

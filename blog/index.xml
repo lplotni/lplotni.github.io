@@ -4,18 +4,25 @@
     <title>Blogs on Working thoughts 💭🧑‍💻</title>
     <link>https://lukasz.dev/blog/</link>
     <description>Recent content in Blogs on Working thoughts 💭🧑‍💻</description>
-    <generator>Hugo -- 0.150.0</generator>
+    <generator>Hugo -- 0.156.0</generator>
     <language>en</language>
-    <copyright>2013-2025 Lukasz Plotnicki</copyright>
-    <lastBuildDate>Sun, 14 Sep 2025 21:22:55 +0200</lastBuildDate>
+    <copyright>2013-2026 Lukasz Plotnicki</copyright>
+    <lastBuildDate>Sat, 21 Feb 2026 10:57:31 +0100</lastBuildDate>
     <atom:link href="https://lukasz.dev/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>On remote work</title>
+      <link>https://lukasz.dev/blog/on-remote-work-and-office/</link>
+      <pubDate>Sat, 21 Feb 2026 10:57:31 +0100</pubDate>
+      <guid>https://lukasz.dev/blog/on-remote-work-and-office/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve been working fully remotely since 2021. This was something that I always wanted to try out/do since I recognized that being a parent and consultant travelling a lot was not aligning with my vision of the kind of dad I would like to be. I&amp;rsquo;ve talked to friends who embraced that idea (moving out of a big city, back to a smaller place where they&amp;rsquo;ve grown up, enjoying old friendships and different sense of community), read books (&lt;a href=&#34;https://www.penguinrandomhouse.com/books/228370/remote-by-jason-fried-and-david-heinemeier-hansson/&#34;&gt;&amp;ldquo;Remote / Office not required&amp;rdquo;&lt;/a&gt;) and followed companies (e.g. &lt;a href=&#34;https://handbook.gitlab.com/&#34;&gt;GitLab&lt;/a&gt;) that went really big on remote before the whole pandemic made it a norm (for a &amp;ldquo;short&amp;rdquo; time). I also liked the idea that I didn&amp;rsquo;t restrict myself only to working for companies that are present where I live.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Why Now</title>
       <link>https://lukasz.dev/blog/why-now/</link>
       <pubDate>Sun, 14 Sep 2025 21:22:55 +0200</pubDate>
       <guid>https://lukasz.dev/blog/why-now/</guid>
       <description>&lt;p&gt;It&amp;rsquo;s been a while, huh!? I think my writing comes in waves.
-This time what inspired me, was rediscovering a &lt;a href=&#34;https://hamvocke.com/&#34;&gt;blog of buddy of mine, Ham&lt;/a&gt;
+This time what inspired me, was rediscovering the &lt;a href=&#34;https://hamvocke.com/&#34;&gt;blog of a buddy of mine, Ham&lt;/a&gt;
 and binge-reading the posts that I&amp;rsquo;ve missed in recent years. While reading it,
 and seeing that Ham is not limiting himself only to technical bits, I started
 thinking how much pleasure writing gives me&amp;hellip; So after re-dusting my
@@ -64,7 +71,7 @@ UHK is really a spectacular keyboard.&lt;/p&gt;
 &lt;li&gt;
 &lt;p&gt;I quickly decided to just align the &lt;strong&gt;Fn&lt;/strong&gt;, &lt;strong&gt;Ctrl&lt;/strong&gt;, &lt;strong&gt;Option&lt;/strong&gt; and &lt;strong&gt;Cmd&lt;/strong&gt;
 key with the mac layout so that my mussle memory doesn&amp;rsquo;t suffer too much. This
-also made me fell in love with the UHK agent: It&amp;rsquo;s just so easy to remap the
+also made me fall in love with the UHK agent: It&amp;rsquo;s just so easy to remap the
 keys to your liking.&lt;/p&gt;</description>
     </item>
     <item>
@@ -80,7 +87,7 @@ the source of your ssh key. This assumes that:&lt;/p&gt;
 &lt;li&gt;You&amp;rsquo;re using the gpg-agent with enabled ssh support&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Here are the steps:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;gpg --card-edit
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;gpg --card-edit
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;gt; admin
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;gt; generate
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;enter the requested PIN&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
@@ -114,7 +121,7 @@ have a place with links to all this resources for the future reference.&lt;/p&gt
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://www.thoughtworks.com/insights/blog/bff-soundcloud&#34;&gt;BFF @ SoundCloud&lt;/a&gt; - the original post talking about the pattern and journey towards it&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;http://samnewman.io/patterns/architectural/bff/&#34;&gt;BFF pattern definition&lt;/a&gt; - comprehensive pattern definition&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://softwareengineeringdaily.com/2016/02/04/moving-to-microservices-at-soundcloud-with-lukasz-plotnicki/&#34;&gt;Moving to Microservices at SoundCloud - Software Engineering Daily podcast&lt;/a&gt; - a podcast talking about microservices in gerneral, SoundCloud&amp;rsquo;s journey towards this style of architecture and usage of BFFs&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://softwareengineeringdaily.com/2016/02/04/moving-to-microservices-at-soundcloud-with-lukasz-plotnicki/&#34;&gt;Moving to Microservices at SoundCloud - Software Engineering Daily podcast&lt;/a&gt; - a podcast talking about microservices in general, SoundCloud&amp;rsquo;s journey towards this style of architecture and usage of BFFs&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://soundcloud.com/thoughtworks/bff-soundcloud&#34;&gt;BFF @ SoundCloud (podcast)&lt;/a&gt; - an interview about UI composition in a microservices world in general and the BFF pattern&lt;/li&gt;
 &lt;/ul&gt;
 &lt;!-- raw HTML omitted --&gt;</description>

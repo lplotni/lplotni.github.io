@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="en" dir="auto" data-theme="auto">
 
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,7 +24,7 @@ And now you&rsquo;re done. You can check if the new ssh key get pulled correctly
 your yubikey typing:">
 <meta name="author" content="Lukasz Plotnicki">
 <link rel="canonical" href="https://lukasz.dev/blog/sshkey_yubikey/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.2211ca3164be7830024f6aad2b3a2e520843a64f8f048445c3401c1249aa051d.css" integrity="sha256-IhHKMWS&#43;eDACT2qtKzouUghDpk&#43;PBIRFw0AcEkmqBR0=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b071f18839e140aad6e597b083171da7f28d21435dec51f4aca4022414f1a6ab.css" integrity="sha256-sHHxiDnhQKrW5Zewgxcdp/KNIUNd7FH0rKQCJBTxpqs=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://lukasz.dev/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://lukasz.dev/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://lukasz.dev/favicon-32x32.png">
@@ -53,23 +53,38 @@ your yubikey typing:">
                 --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
+                color-scheme: dark;
             }
 
             .list {
                 background: var(--theme);
             }
 
-            .list:not(.dark)::-webkit-scrollbar-track {
-                background: 0 0;
+            .toc {
+                background: var(--entry);
             }
+        }
 
-            .list:not(.dark)::-webkit-scrollbar-thumb {
-                border-color: var(--theme);
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
             }
         }
 
     </style>
-</noscript><meta property="og:url" content="https://lukasz.dev/blog/sshkey_yubikey/">
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><meta property="og:url" content="https://lukasz.dev/blog/sshkey_yubikey/">
   <meta property="og:site_name" content="Working thoughts 💭🧑‍💻">
   <meta property="og:title" content="Using your yubikey as ssh key provider / Quick(est) guide">
   <meta property="og:description" content="I figured it’s time to write up the quickest guide about using the yubikey as the source of your ssh key. This assumes that:
@@ -153,20 +168,8 @@ your yubikey typing:">
 }
 </script>
 </head>
-
-<body class="" id="top">
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.body.classList.add('dark');
-    } else if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
-    }
-
-</script>
-
-<header class="header">
+<body id="top">
+    <header class="header">
     <nav class="nav">
         <div class="logo">
             <a href="https://lukasz.dev/" accesskey="h" title="Working thoughts 💭🧑‍💻 (Alt + H)">Working thoughts 💭🧑‍💻</a>
@@ -225,7 +228,7 @@ your yubikey typing:">
     <h1 class="post-title entry-hint-parent">
       Using your yubikey as ssh key provider / Quick(est) guide
     </h1>
-    <div class="post-meta"><span title='2018-05-23 21:36:52 +0200 CEST'>May 23, 2018</span>&nbsp;·&nbsp;Lukasz Plotnicki
+    <div class="post-meta"><span title='2018-05-23 21:36:52 +0200 CEST'>May 23, 2018</span>&nbsp;·&nbsp;<span>Lukasz Plotnicki</span>
 
 </div>
   </header> 
@@ -237,16 +240,16 @@ the source of your ssh key. This assumes that:</p>
 <li>You&rsquo;re using the gpg-agent with enabled ssh support</li>
 </ul>
 <p>Here are the steps:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>gpg --card-edit
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>gpg --card-edit
 </span></span><span style="display:flex;"><span>&gt; admin
 </span></span><span style="display:flex;"><span>&gt; generate
 </span></span><span style="display:flex;"><span>&gt; <span style="color:#f92672">[</span>enter the requested PIN<span style="color:#f92672">]</span>
 </span></span><span style="display:flex;"><span>&gt; quit
 </span></span></code></pre></div><p>And now you&rsquo;re done. You can check if the new ssh key get pulled correctly from
 your yubikey typing:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh-add -L
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh-add -L
 </span></span></code></pre></div><p>And you should see something like:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh-rsa
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh-rsa
 </span></span><span style="display:flex;"><span>AAAAB3NzaC1yc2EAAAADAQABAAABAQC2ooHO4NuRkjkOQ6zpl/P+RQwRibWd2EZStK61IX2RksD8m2PQKA4rpoYlbwR8tHqJYp+9hF3630ZhDBLqaN6wnLOzJ9tdAFg2QkR7uw/TlWh3/3kuDjzF8GatYIvfvnbtlX0FtVuz+rmUAeUswYpvRQKA5feX5Tf9M56IhttRtFbXZjNz5BNy8qkXD9FOTX4Ym0Zidgn6tl9EKKH4ctvK1/wTF4oSHEfyVwpKLqn/FI+0DIDi5Lx8cpFLnB4nJqj1WFe8o86yRVNWq5PehOJR3qSpllfx3fheUXePRNPrvYGyO5Ch9aikzuPoLZh4oq/TTqkfjcZLQvTv1Ai+qk8J
 </span></span><span style="display:flex;"><span>cardno:000605308805
 </span></span></code></pre></div><p>Now you can use this key e.g for as your github key and whenever your
@@ -263,7 +266,7 @@ push/pull/clone you will need to enter the yubikey into your device.</p>
     </main>
     
 <footer class="footer">
-        <span>© 2013-2025 Lukasz Plotnicki</span> · 
+        <span>© 2013-2026 Lukasz Plotnicki</span> · 
 
     <span>
         Powered by
@@ -278,9 +281,14 @@ push/pull/clone you will need to enter the yubikey into your device.</p>
 </a>
 
 <script>
-    let menu = document.getElementById('menu')
+    let menu = document.getElementById('menu');
     if (menu) {
-        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
         menu.onscroll = function () {
             localStorage.setItem("menu-scroll-position", menu.scrollLeft);
         }
@@ -321,11 +329,12 @@ push/pull/clone you will need to enter the yubikey into your device.</p>
 </script>
 <script>
     document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
-            document.body.classList.remove('dark');
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
             localStorage.setItem("pref-theme", 'light');
         } else {
-            document.body.classList.add('dark');
+            html.dataset.theme = 'dark';
             localStorage.setItem("pref-theme", 'dark');
         }
     })
