@@ -7,8 +7,15 @@
     <generator>Hugo -- 0.156.0</generator>
     <language>en</language>
     <copyright>2013-2026 Lukasz Plotnicki</copyright>
-    <lastBuildDate>Sat, 21 Feb 2026 10:57:31 +0100</lastBuildDate>
+    <lastBuildDate>Sat, 28 Feb 2026 12:20:12 +0200</lastBuildDate>
     <atom:link href="https://lukasz.dev/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Now</title>
+      <link>https://lukasz.dev/now/</link>
+      <pubDate>Sat, 28 Feb 2026 12:20:12 +0200</pubDate>
+      <guid>https://lukasz.dev/now/</guid>
+      <description>This a living doc where I describe what I&amp;#39;m currently looking into &amp;amp; what&amp;#39;s on my mind.</description>
+    </item>
     <item>
       <title>On remote work</title>
       <link>https://lukasz.dev/blog/on-remote-work-and-office/</link>
@@ -38,13 +45,6 @@ got to press some keys to create a &lt;a href=&#34;https://lukasz.dev/now&#34;&g
 &lt;a href=&#34;https://hamvocke.com/now/&#34;&gt;Ham&amp;rsquo;s blog&lt;/a&gt; and the discovery of the concept of
 a &lt;a href=&#34;https://nownownow.com/about&#34;&gt;now page&lt;/a&gt;. Go there to read about my current setup
 and what is currently on my mind.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Now</title>
-      <link>https://lukasz.dev/now/</link>
-      <pubDate>Sun, 14 Sep 2025 12:20:12 +0200</pubDate>
-      <guid>https://lukasz.dev/now/</guid>
-      <description>This a living doc where I describe what I&amp;#39;m currently looking into &amp;amp; what&amp;#39;s on my mind.</description>
     </item>
     <item>
       <title>A change / next step</title>
