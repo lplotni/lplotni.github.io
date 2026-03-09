@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>On adopting AI tools | Working thoughts 💭🧑‍💻</title>
+<meta name="keywords" content="">
+<meta name="description" content="There is so much AI &amp; AI engineering related content out there, that I really thought twice, before sitting down and capturing my thoughts on this. But, at the same time whenever I sit down to write something, it forces me to reflect on my experience. And boy, is there a lot in this space to reflect on. This is truly a unique time as the reality of my job is changing/evolving rapidly before my eyes, in a way it almost never has before.">
+<meta name="author" content="Lukasz Plotnicki">
+<link rel="canonical" href="https://lukasz.dev/blog/on-adopting-ai-tools/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b071f18839e140aad6e597b083171da7f28d21435dec51f4aca4022414f1a6ab.css" integrity="sha256-sHHxiDnhQKrW5Zewgxcdp/KNIUNd7FH0rKQCJBTxpqs=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://lukasz.dev/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://lukasz.dev/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://lukasz.dev/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://lukasz.dev/apple-touch-icon.png">
+<link rel="mask-icon" href="https://lukasz.dev/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://lukasz.dev/blog/on-adopting-ai-tools/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><meta property="og:url" content="https://lukasz.dev/blog/on-adopting-ai-tools/">
+  <meta property="og:site_name" content="Working thoughts 💭🧑‍💻">
+  <meta property="og:title" content="On adopting AI tools">
+  <meta property="og:description" content="There is so much AI &amp; AI engineering related content out there, that I really thought twice, before sitting down and capturing my thoughts on this. But, at the same time whenever I sit down to write something, it forces me to reflect on my experience. And boy, is there a lot in this space to reflect on. This is truly a unique time as the reality of my job is changing/evolving rapidly before my eyes, in a way it almost never has before.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2026-03-08T08:18:29+01:00">
+    <meta property="article:modified_time" content="2026-03-08T08:18:29+01:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="On adopting AI tools">
+<meta name="twitter:description" content="There is so much AI &amp; AI engineering related content out there, that I really thought twice, before sitting down and capturing my thoughts on this. But, at the same time whenever I sit down to write something, it forces me to reflect on my experience. And boy, is there a lot in this space to reflect on. This is truly a unique time as the reality of my job is changing/evolving rapidly before my eyes, in a way it almost never has before.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Blogs",
+      "item": "https://lukasz.dev/blog/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "On adopting AI tools",
+      "item": "https://lukasz.dev/blog/on-adopting-ai-tools/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "On adopting AI tools",
+  "name": "On adopting AI tools",
+  "description": "There is so much AI \u0026amp; AI engineering related content out there, that I really thought twice, before sitting down and capturing my thoughts on this. But, at the same time whenever I sit down to write something, it forces me to reflect on my experience. And boy, is there a lot in this space to reflect on. This is truly a unique time as the reality of my job is changing/evolving rapidly before my eyes, in a way it almost never has before.\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "There is so much AI \u0026 AI engineering related content out there, that I really thought twice, before sitting down and capturing my thoughts on this. But, at the same time whenever I sit down to write something, it forces me to reflect on my experience. And boy, is there a lot in this space to reflect on. This is truly a unique time as the reality of my job is changing/evolving rapidly before my eyes, in a way it almost never has before.\nMy AI journey so far Using ChatGPT when it came out, was for sure impressive, but I remained sceptical as to GenAI being able to tackle software engineering autonomously. I couldn’t let go of the thought, that anything that is probabilistic, will not be able to deliver the same quality / outcome. But, I also stayed intrigued and tried not to lose interest / not give in to the fatigue as being bombarded with AI content all over the internet.\nAround October ‘25 I was still pretty sceptical of delegating writing software to a model. I remember playing a lot with different setups (intellij + copilot and neovim + CodeCompanion) and models and although they were helpful when trying to figure out how an API may work or how to do X, whenever tasked with a bigger issue/feature that would touch a whole codebase (e.g. we have a problem with global state used within our i18n library, please help me refactor its usage), they ended up failing at the last 20% forcing me to roll-up my sleeves. Ergo, the question “Is it really worth it to start with the LLM / Wouldn’t it be quicker to just do it in a classical fashion (aka on my own)” was still unresolved. At the same time I started using nicely dockerized opencode setup that a colleague of mine introduced me to and so I’ve discovered the power of the ‘plan’ mode.\nopencode with Opus 4.6 for production Fast forward to beginning of this year (2026): I’ve heard a lot of good things about Opus 4.6 model, so I defaulted to it within my opencode configuration. And indeed, this time around I was not hitting the 80/20 wall described above. I plan \u0026 build and thanks to our codebase offering pretty solid harness (applying TDD FTW), I’m yet to find a task where it failed. I still review the code - here I found out, that I needed to improve my local diff setup (using delta) - as sometimes, the changes are too verbose or not needed (or a whole test file gets deleted 🤷).\nThis model, really unlocked a new potential for me (as an Eng. Manager) - I can pick up an idea/task/refactoring between the meetings and wrap it up the same day 🙌. I’m still about to discover the threshold of too many changes, too quick pace for the team(s) as not everyone is adopting this model.\nClaude Code for fun Given that I was so convinced by the Opus 4.6 model, I’ve started to wonder, if using claude would yield even better results (vs. opencode). As at that time we didn’t have a claude license at my work, I organized one for personal use and started dusting off some personal projects (some financial stats, that I previously did with an overly complex jupyter notebook + pandas).\nGiven that the underlying model is the same, it would be really surprising to see different quality of results. So it comes down, to the experience of the tool and here, I need to say that, opencode for sure feels quicker to navigate around the codebase and provide a solution (I assume that this is due to the LSP setup) and I like how explicit the plan vs. build modes in opencode are. For work I will definitely stick to opencode / for personal projects though, the 20USD/month for Opus 4.6 via claude are an offering hard to compete with (no wonder Anthropic disallowed usage of the Pro/Max subscriptions over the API).\nAlso: Iterating on my dotfiles, customizing the tmux theme has been so much fun with claude as I never need to leave my terminal to search around for specific settings or projects that allow me certain customisation. For the first time, I also found myself just dropping a screenshot and asking it to fix the tabs alignment in tmux - and voilà, it just does it right.\nGemini CLI for personal assistant At work we use google suite, ergo gemini cli is also at our disposal. Ever since I came across the idea of having a GenAI powered personal assistant, I started setting up a set of md files describing the tools I use at work (asana, gcal etc.) and the setup of my departments (teams, projects etc.), so that with a few MCPs / extensions (asana mcp \u0026 gws), I’m able to retrieve/summarise information very quickly again without leaving my terminal 🤩\nWhat I use it for, you ask?\nFor example:\nGet me the summary of all the information about the initial version of the project X that was created before 2022 and provide link to the main tasks on asana. What happened last week when I was on holidays? Go through the ideas on this board and provide your estimate about their impact based on X/Y KPI with references to sources and save all of it (task id + your estimates) to a file. After taking a look / reviewing that Update all the tasks with the corresponding information from the file. Conclusion I found out that experimenting on my own with different models / tools in this space is very enjoyable as it lowers the barrier of getting things done significantly. It allows me to create my own opinion and not give into the AI fatigue (is this a term already? 🤔). This is really crucial so that I can also guide the adoption more in the professional setting, as I believe that AI assistance is here to stay and will have a profound impact on the evolution of software engineering and how we create products, work in teams going forward / How exactly we are doing this currently at my company, is something that I will highlight / reflect on another time.\n",
+  "wordCount" : "1049",
+  "inLanguage": "en",
+  "datePublished": "2026-03-08T08:18:29+01:00",
+  "dateModified": "2026-03-08T08:18:29+01:00",
+  "author":{
+    "@type": "Person",
+    "name": "Lukasz Plotnicki"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://lukasz.dev/blog/on-adopting-ai-tools/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Working thoughts 💭🧑‍💻",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://lukasz.dev/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://lukasz.dev/" accesskey="h" title="Working thoughts 💭🧑‍💻 (Alt + H)">Working thoughts 💭🧑‍💻</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://lukasz.dev/about" title="about">
+                    <span>about</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://lukasz.dev/uses" title="uses">
+                    <span>uses</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://lukasz.dev/now" title="now">
+                    <span>now</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://lukasz.dev/search" title="search (Alt &#43; /)" accesskey=/>
+                    <span>search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://lukasz.dev/">Home</a>&nbsp;»&nbsp;<a href="https://lukasz.dev/blog/">Blogs</a></div>
+    <h1 class="post-title entry-hint-parent">
+      On adopting AI tools
+    </h1>
+    <div class="post-meta"><span title='2026-03-08 08:18:29 +0100 CET'>March 8, 2026</span>&nbsp;·&nbsp;<span>Lukasz Plotnicki</span>
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#my-ai-journey-so-far" aria-label="My AI journey so far">My AI journey so far</a></li>
+                <li>
+                    <a href="#opencode-with-opus-46-for-production" aria-label="opencode with Opus 4.6 for production">opencode with Opus 4.6 for production</a></li>
+                <li>
+                    <a href="#claude-code-for-fun" aria-label="Claude Code for fun">Claude Code for fun</a></li>
+                <li>
+                    <a href="#gemini-cli-for-personal-assistant" aria-label="Gemini CLI for personal assistant">Gemini CLI for personal assistant</a></li>
+                <li>
+                    <a href="#conclusion" aria-label="Conclusion">Conclusion</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><p>There is so much AI &amp; AI engineering related content out there, that I really thought twice, before sitting down and capturing my thoughts on this. But, at the same time whenever I sit down to write something, it forces me to reflect on my experience. And boy, is there a lot in this space to reflect on. This is truly a unique time as the reality of my job is changing/evolving rapidly before my eyes, in a way it almost never has before.</p>
+<h2 id="my-ai-journey-so-far">My AI journey so far<a hidden class="anchor" aria-hidden="true" href="#my-ai-journey-so-far">#</a></h2>
+<p>Using ChatGPT when it came out, was for sure impressive, but I remained sceptical as to GenAI being able to tackle software engineering autonomously. I couldn&rsquo;t let go of the thought, that anything that is probabilistic, will not be able to deliver the same quality / outcome. But, I also stayed intrigued and tried not to lose interest / not give in to the fatigue as being bombarded with AI content all over the internet.</p>
+<p>Around October &lsquo;25 I was still pretty sceptical of delegating writing software to a model. I remember playing a lot with different setups (<code>intellij</code> + <code>copilot</code> and <code>neovim</code> + <a href="https://codecompanion.olimorris.dev/"><code>CodeCompanion</code></a>) and models and although they were helpful when trying to figure out how an API may work or how to do X, whenever tasked with a bigger issue/feature that would touch a whole codebase (e.g. <strong>we have a problem with global state used within our i18n library, please help me refactor its usage</strong>), they ended up failing at the last 20% forcing me to roll-up my sleeves. Ergo, the question &ldquo;Is it really worth it to start with the LLM / Wouldn&rsquo;t it be quicker to just do it in a <strong>classical</strong> fashion (aka on my own)&rdquo; was still unresolved. At the same time I started using nicely dockerized <a href="https://opencode.ai/"><code>opencode</code></a> setup that a colleague of mine introduced me to and so I&rsquo;ve discovered the power of the &lsquo;plan&rsquo; mode.</p>
+<h2 id="opencode-with-opus-46-for-production">opencode with Opus 4.6 for production<a hidden class="anchor" aria-hidden="true" href="#opencode-with-opus-46-for-production">#</a></h2>
+<p>Fast forward to beginning of this year (2026): I&rsquo;ve heard a lot of good things about <code>Opus 4.6</code> model, so I defaulted to it within my <code>opencode</code> configuration. And indeed, this time around I was not hitting the 80/20 wall described above. I <code>plan</code> &amp; <code>build</code> and thanks to our codebase offering pretty solid harness (applying TDD FTW), I&rsquo;m yet to find a task where it failed. I still review the code - here I found out, that I needed to improve my local diff setup (using <a href="https://github.com/dandavison/delta"><code>delta</code></a>) - as sometimes, the changes are too verbose or not needed (or a whole test file gets deleted 🤷).</p>
+<p>This model, really unlocked a new potential for me (as an Eng. Manager) - I can pick up an idea/task/refactoring between the meetings and wrap it up the same day 🙌. I&rsquo;m still about to discover the threshold of too many changes, too quick pace for the team(s) as not everyone is adopting this model.</p>
+<h2 id="claude-code-for-fun">Claude Code for fun<a hidden class="anchor" aria-hidden="true" href="#claude-code-for-fun">#</a></h2>
+<p>Given that I was so convinced by the Opus 4.6 model, I&rsquo;ve started to wonder, if using <code>claude</code> would yield even better results (vs. <code>opencode</code>). As at that time we didn&rsquo;t have a <code>claude</code> license at my work, I organized one for personal use and started dusting off some personal projects (<a href="https://github.com/lplotni/ing-bankstats">some financial stats, that I previously did with an overly complex jupyter notebook + pandas</a>).</p>
+<p>Given that the underlying model is the same, it would be really surprising to see different quality of results. So it comes down, to the experience of the tool and here, I need to say that, <code>opencode</code> for sure feels quicker to navigate around the codebase and provide a solution (I assume that this is due to the LSP setup) and I like how explicit the plan vs. build modes in <code>opencode</code> are. For work I will definitely stick to <code>opencode</code> / for personal projects though, the 20USD/month for Opus 4.6 via <code>claude</code> are an offering hard to compete with (no wonder Anthropic disallowed usage of the Pro/Max subscriptions over the API).</p>
+<p>Also: Iterating on my dotfiles, customizing the <code>tmux</code> theme has been so much fun with <code>claude</code> as I never need to leave my terminal to search around for specific settings or projects that allow me certain customisation. For the first time, I also found myself just dropping a screenshot and asking it to fix the tabs alignment in <code>tmux</code> - and voilà, it just does it right.</p>
+<h2 id="gemini-cli-for-personal-assistant">Gemini CLI for personal assistant<a hidden class="anchor" aria-hidden="true" href="#gemini-cli-for-personal-assistant">#</a></h2>
+<p>At work we use google suite, ergo <code>gemini cli</code> is also at our disposal. Ever since I came across the idea of having a <a href="https://obie.medium.com/building-a-personal-cto-operating-system-with-claude-code-b3fb9c4933c7">GenAI powered personal assistant</a>, I started setting up a set of md files describing the tools I use at work (asana, gcal etc.) and the setup of my departments (teams, projects etc.), so that with a few MCPs / extensions (<a href="https://developers.asana.com/docs/using-asanas-mcp-server">asana mcp</a> &amp; <a href="https://github.com/niclasmartinsson-sys/google-workspace-cli">gws</a>), I&rsquo;m able to retrieve/summarise information very quickly again without leaving my terminal 🤩</p>
+<p>What I use it for, you ask?</p>
+<p>For example:</p>
+<ul>
+<li>Get me the summary of all the information about the initial version of the project X that was created before 2022 and provide link to the main tasks on asana.</li>
+<li>What happened last week when I was on holidays?</li>
+<li>Go through the ideas on this board and provide your estimate about their impact based on X/Y KPI with references to sources and save all of it (task id + your estimates) to a file. <strong>After taking a look / reviewing that</strong> Update all the tasks with the corresponding information from the file.</li>
+</ul>
+<h2 id="conclusion">Conclusion<a hidden class="anchor" aria-hidden="true" href="#conclusion">#</a></h2>
+<p>I found out that experimenting on my own with different models / tools in this space is very enjoyable as it lowers the barrier of getting things done significantly. It allows me to create my own opinion and not give into the AI fatigue (is this a term already? 🤔). This is really crucial so that I can also guide the adoption more in the professional setting, as I believe that AI assistance is here to stay and will have a profound impact on the evolution of software engineering and how we create products, work in teams going forward / How exactly we are doing this currently at my company, is something that I will highlight / reflect on another time.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>© 2013-2026 Lukasz Plotnicki</span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

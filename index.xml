@@ -4,11 +4,18 @@
     <title>Working thoughts 💭🧑‍💻</title>
     <link>https://lukasz.dev/</link>
     <description>Recent content on Working thoughts 💭🧑‍💻</description>
-    <generator>Hugo -- 0.156.0</generator>
+    <generator>Hugo -- 0.157.0</generator>
     <language>en</language>
     <copyright>2013-2026 Lukasz Plotnicki</copyright>
-    <lastBuildDate>Sat, 28 Feb 2026 12:20:12 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 08 Mar 2026 08:18:29 +0100</lastBuildDate>
     <atom:link href="https://lukasz.dev/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>On adopting AI tools</title>
+      <link>https://lukasz.dev/blog/on-adopting-ai-tools/</link>
+      <pubDate>Sun, 08 Mar 2026 08:18:29 +0100</pubDate>
+      <guid>https://lukasz.dev/blog/on-adopting-ai-tools/</guid>
+      <description>&lt;p&gt;There is so much AI &amp;amp; AI engineering related content out there, that I really thought twice, before sitting down and capturing my thoughts on this. But, at the same time whenever I sit down to write something, it forces me to reflect on my experience. And boy, is there a lot in this space to reflect on. This is truly a unique time as the reality of my job is changing/evolving rapidly before my eyes, in a way it almost never has before.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Now</title>
       <link>https://lukasz.dev/now/</link>
