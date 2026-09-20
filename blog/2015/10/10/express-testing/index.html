@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto" data-theme="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="noindex, nofollow">
 <title>express testing | Working thoughts 💭🧑‍💻</title>
 <meta name="keywords" content="">
 <meta name="description" content="
@@ -27,16 +27,16 @@ expensive and should be minimized. Although there are many test cases that need
 to be invoked, not all need to be run through the user interface. And this is
 where the service layer of the test automation pyramid comes in. - Mike Cohn https://www.mountaingoatsoftware.com/blog/the-forgotten-layer-of-the-test-automation-pyramid">
 <meta name="author" content="Lukasz Plotnicki">
-<link rel="canonical" href="https://lukasz.dev/blog/2015/10/10/express-testing/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.b071f18839e140aad6e597b083171da7f28d21435dec51f4aca4022414f1a6ab.css" integrity="sha256-sHHxiDnhQKrW5Zewgxcdp/KNIUNd7FH0rKQCJBTxpqs=" rel="preload stylesheet" as="style">
-<link rel="icon" href="https://lukasz.dev/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://lukasz.dev/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://lukasz.dev/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://lukasz.dev/apple-touch-icon.png">
-<link rel="mask-icon" href="https://lukasz.dev/safari-pinned-tab.svg">
+<link rel="canonical" href="http://localhost:1313/blog/2015/10/10/express-testing/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.04d7db52e1dda432d2e99a916a2ffec2a1852be4accaae0d7571eaf61eeb99ab.css" integrity="sha256-BNfbUuHdpDLS6ZqRai/&#43;wqGFK&#43;Ssyq4NdXHq9h7rmas=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="https://lukasz.dev/blog/2015/10/10/express-testing/">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/blog/2015/10/10/express-testing/">
 <noscript>
     <style>
         #theme-toggle,
@@ -88,98 +88,13 @@ where the service layer of the test automation pyramid comes in. - Mike Cohn htt
         document.querySelector("html").dataset.theme = 'light';
     }
 
-</script><meta property="og:url" content="https://lukasz.dev/blog/2015/10/10/express-testing/">
-  <meta property="og:site_name" content="Working thoughts 💭🧑‍💻">
-  <meta property="og:title" content="express testing">
-  <meta property="og:description" content=" After we managed to set up our basic web application, let’s get our hands dirty writing some code. And as we want to do it in a test-driven manner (TDD), we need a proper test setup. This piece is all about our initial test pyramid. Test, what? Yes, pyramid:
-At the base of the test automation pyramid is unit testing. Unit testing should be the foundation of a solid test automation strategy and as such represents the largest part of the pyramid. (…) Automated user interface testing is placed at the top of the test automation pyramid because we want to do as little of it as possible. (…) Testing through the user interface like this is expensive and should be minimized. Although there are many test cases that need to be invoked, not all need to be run through the user interface. And this is where the service layer of the test automation pyramid comes in. - Mike Cohn https://www.mountaingoatsoftware.com/blog/the-forgotten-layer-of-the-test-automation-pyramid">
-  <meta property="og:locale" content="en">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="blog">
-    <meta property="article:published_time" content="2015-10-10T00:00:00+00:00">
-    <meta property="article:modified_time" content="2015-10-10T00:00:00+00:00">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="express testing">
-<meta name="twitter:description" content="
-     
-
-
-After we managed to set up our basic web application,
-let&rsquo;s get our
-hands dirty writing some code. And as we want to do it in a test-driven
-manner (TDD), we need
-a proper test setup. This piece is all about our initial test pyramid. Test,
-what? Yes, pyramid:
-
-At the base of the test automation pyramid is unit testing. Unit testing should
-be the foundation of a solid test automation strategy and as such represents
-the largest part of the pyramid. (&hellip;) Automated user interface testing is
-placed at the top of the test automation pyramid because we want to do as
-little of it as possible. (&hellip;) Testing through the user interface like this is
-expensive and should be minimized. Although there are many test cases that need
-to be invoked, not all need to be run through the user interface. And this is
-where the service layer of the test automation pyramid comes in. - Mike Cohn https://www.mountaingoatsoftware.com/blog/the-forgotten-layer-of-the-test-automation-pyramid">
-
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position":  1 ,
-      "name": "Blogs",
-      "item": "https://lukasz.dev/blog/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
-      "name": "express testing",
-      "item": "https://lukasz.dev/blog/2015/10/10/express-testing/"
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "express testing",
-  "name": "express testing",
-  "description": " After we managed to set up our basic web application, let\u0026rsquo;s get our hands dirty writing some code. And as we want to do it in a test-driven manner (TDD), we need a proper test setup. This piece is all about our initial test pyramid. Test, what? Yes, pyramid:\nAt the base of the test automation pyramid is unit testing. Unit testing should be the foundation of a solid test automation strategy and as such represents the largest part of the pyramid. (\u0026hellip;) Automated user interface testing is placed at the top of the test automation pyramid because we want to do as little of it as possible. (\u0026hellip;) Testing through the user interface like this is expensive and should be minimized. Although there are many test cases that need to be invoked, not all need to be run through the user interface. And this is where the service layer of the test automation pyramid comes in. - Mike Cohn https://www.mountaingoatsoftware.com/blog/the-forgotten-layer-of-the-test-automation-pyramid\n",
-  "keywords": [
-    
-  ],
-  "articleBody": " After we managed to set up our basic web application, let’s get our hands dirty writing some code. And as we want to do it in a test-driven manner (TDD), we need a proper test setup. This piece is all about our initial test pyramid. Test, what? Yes, pyramid:\nAt the base of the test automation pyramid is unit testing. Unit testing should be the foundation of a solid test automation strategy and as such represents the largest part of the pyramid. (…) Automated user interface testing is placed at the top of the test automation pyramid because we want to do as little of it as possible. (…) Testing through the user interface like this is expensive and should be minimized. Although there are many test cases that need to be invoked, not all need to be run through the user interface. And this is where the service layer of the test automation pyramid comes in. - Mike Cohn https://www.mountaingoatsoftware.com/blog/the-forgotten-layer-of-the-test-automation-pyramid\nDepending on your personal style (look at this post by Martin Fowler for more details around different flavours of unit testing) and probably also the task at hand, you will either be starting with a unit test or acceptance/functional test. The rest of this post will show you how to set up each kind of test and give you a brief description of what we mean by saying unit, integration and functional test. I will also describe our gulp setup.\nUnit test In JavaScript and node.js world you are spoiled for choices in regards to your unit tests libraries and runners: Jasmine, Mocha and friends, just pick one. We decided to go with Jasmine, in which a test looks like this:\n/* jshint node: true */ /* global describe, beforeEach, afterEach, it, jasmine, expect */ 'use strict'; describe('exractParticipant', function () { var extractParticipant; var validRequestData = { body: { firstname: 'Mark', lastname: 'Mueller', email: 'm.mueller@example.com' } }; beforeEach(function () { extractParticipant= require('../routes/registration.js').extractParticipant }); it('should read firstname from the request body', function() { expect(extractParticipant(validRequestData).firstname).toBe('Mark'); }); it('should throw an error if no firstname can be found', function () { function callWithNoFirstname() { extractParticipant({body: {}}); } expect(callWithNoFirstname).toThrow(); }); } Here we are verifying the behavior of the extractParticipant() function which given a request body returns a specific JS object. We can use multiple describe calls, or even nested describe calls to cluster the tested functionality. Each it call corresponds with a specific behaviour we want to verify. Jasmine provides matchers and spies to simplify our testing: Just look at the reference to see what’s possible. Generally it’s a good practice to verify one specific aspect per test. Any other recommendations, you ask {%gemoji sunglasses%} A good unit test is:\nfast: All the unit tests will be executed very often, therefore it’s necessary that their execution happens in ms atomic: The unit tests should be independent from one-another, so that you can run them parallel. This means that they should not rely on any side effects (data modifications done by other tests etc.). It’s also way easier to reason why a certain test is red, if all you need to care about is only the scope of that particular test. As usual Martin Fowler wrote a nice bliki about unit tests.\nIntegration test As the name already states, an integration test verifies the behaviour of a group of components of our software acting together. Look at the following test, which checks the integration between a service and the database:\n'use strict'; /* jshint node: true */ /* jshint esnext: true */ /* global describe, beforeEach, afterAll, it, jasmine, expect */ describe('participants service', function () { const participants = require('../../service/participants'); var pg = require('pg'); beforeEach(function (done) { var connectionString = process.env.SNAP_DB_PG_URL || \"tcp://vagrant@localhost/pace\"; var jasmineDone = done; pg.connect(connectionString, function (err, client, done) { client.query('delete from participants', function () { done(); jasmineDone(); }); } ); }); afterAll(function(done) { pg.end(); done(); }); it('should store and read participants', function (done) { var aParticipant = { firstname: 'Hertha', lastname: 'Mustermann', email: 'h.mustermann@example.com' }; participants.save(aParticipant) .then(participants.getAll) .then(function (data) { expect(data.length).toBe(1); expect(data[0].firstname).toBe(aParticipant.firstname); expect(data[0].lastname).toBe(aParticipant.lastname); expect(data[0].email).toBe(aParticipant.email); done(); }); }); }); The integration test is similar to the unit one (it’s also based on jasmine), but instead of mocking our dependencies we use the real implementation (here the pg PostgreSQL client) and verify the integration of both components. In this particular example, we store a participant and expect that if we call the getAll function, it will be returned in the correct form. As the test will actually store objects in the dabase, we need to assure that before we execute the test, the database is cleared. This is done in the beforeEach method. You may ask ‘why before the test and not afterwards’: In case of an error, we will still have the possibility to check the state of the database.\nAs we need to connect to the database and assure a particular state before each test run, those tests will always be slower than the unit ones. Therefore we should try to test only the integrational aspects in them and everything else on the unit level. In the end we are not interested in a test suite for a 3rd party component, but only a verification of the fact that our usage of it is correct.\nFunctional test Whenever we test the system as a whole, we talk about functional tests. Typically those tests go against an outer-most interface of our app, often the UI. In our case we will interact with pace via its web page. To do that, we use WebDriverIO on top of selenium and a headless browser called phantomjs. This combination offers an easy to use API for browser-interaction.\n/* jshint node: true */ /* global describe, beforeEach, afterEach, it, jasmine, expect */ 'use strict'; describe('regisitration journey', function () { var client; var paceUrl = process.env.PACE_URL || 'http://localhost:3000/'; var originalTimeout; beforeEach(function () { var webdriverio = require('webdriverio'); var options = { desiredCapabilities: { browserName: 'phantomjs' } }; client = webdriverio.remote(options); originalTimeout = jasmine.DEFAULT_TIMEOUT_INTERVAL; jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000; }); afterEach(function () { jasmine.DEFAULT_TIMEOUT_INTERVAL = originalTimeout; }); it('allows to register via the registration page', function (done) { client.init() .url(paceUrl) .click('a#registration') .setValue('input#firstname', 'Max') .setValue('input#lastname', 'Mustermann') .setValue('input#email', 'max@example.com') .setValue('input#gender', 'Unicorn') .click('button#submit') .isVisible('div.thanks') .then(function (isVisible) { expect(isVisible).toBe(true); done(); }) .end(); }); }); First we need to setup the webdriver client to use the proper pace base url and browser. We also change the default jasmine timeout for async tests, as in general the browser based interactions tend to take more time. After that it is pretty straightforward: We click on a link, type into input fields, submit the form and verify that we land on the success page (look at webdriverio API for all the different interactions one can trigger). This is the happy path of our registration journey and as the functional test are the most expensive ones (in regards to the execution time), we will try to stick only to happy-path testing on this level.\nTest execution Ok, so how can you run all the tests in a convenient way? Pace uses gulp to build and automate a lot of stuff. Here are the important commands and convention:\nAll tests (specs) should be places in the /spec directory All integration tests must have ‘IT’ in their filename All functional tests must have ‘Journey’ in their filename gulp test - runs all the unit tests gulp test-integration - runs all the integration tests, depends on existing database gulp test-functional - runs all functional tests, depends on installed selenium-server and drivers To simplify the setup of a dev box, pace offers one simple command:\ngulp dev-setup - prepares the vagrant box with the databse, installs all dependencies for selenium and executes the database migrations ",
-  "wordCount" : "1281",
-  "inLanguage": "en",
-  "datePublished": "2015-10-10T00:00:00Z",
-  "dateModified": "2015-10-10T00:00:00Z",
-  "author":{
-    "@type": "Person",
-    "name": "Lukasz Plotnicki"
-  },
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://lukasz.dev/blog/2015/10/10/express-testing/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Working thoughts 💭🧑‍💻",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://lukasz.dev/favicon.ico"
-    }
-  }
-}
 </script>
 </head>
 <body id="top">
     <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://lukasz.dev/" accesskey="h" title="Working thoughts 💭🧑‍💻 (Alt + H)">Working thoughts 💭🧑‍💻</a>
+            <a href="http://localhost:1313/" accesskey="h" title="Working thoughts 💭🧑‍💻 (Alt + H)">Working thoughts 💭🧑‍💻</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -205,22 +120,22 @@ where the service layer of the test automation pyramid comes in. - Mike Cohn htt
         </div>
         <ul id="menu">
             <li>
-                <a href="https://lukasz.dev/about" title="about">
+                <a href="http://localhost:1313/about" title="about">
                     <span>about</span>
                 </a>
             </li>
             <li>
-                <a href="https://lukasz.dev/uses" title="uses">
+                <a href="http://localhost:1313/uses" title="uses">
                     <span>uses</span>
                 </a>
             </li>
             <li>
-                <a href="https://lukasz.dev/now" title="now">
+                <a href="http://localhost:1313/now" title="now">
                     <span>now</span>
                 </a>
             </li>
             <li>
-                <a href="https://lukasz.dev/search" title="search (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search" title="search (Alt &#43; /)" accesskey=/>
                     <span>search</span>
                 </a>
             </li>
@@ -231,7 +146,7 @@ where the service layer of the test automation pyramid comes in. - Mike Cohn htt
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://lukasz.dev/">Home</a>&nbsp;»&nbsp;<a href="https://lukasz.dev/blog/">Blogs</a></div>
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/blog/">Blogs</a></div>
     <h1 class="post-title entry-hint-parent">
       express testing
     </h1>
