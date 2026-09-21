@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto" data-theme="auto">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="index, follow">
 <title>Uses | Working thoughts 💭🧑‍💻</title>
 <meta name="keywords" content="">
 <meta name="description" content="Over the years I&#39;ve experimented with a lot of different tools/things to make what I do more efficient/ergonomic. Every so often, I got asked, what I use and why and thought, that dropping it somewhere on my page, would be a neat idea.">
 <meta name="author" content="Lukasz Plotnicki">
-<link rel="canonical" href="http://localhost:1313/uses/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.04d7db52e1dda432d2e99a916a2ffec2a1852be4accaae0d7571eaf61eeb99ab.css" integrity="sha256-BNfbUuHdpDLS6ZqRai/&#43;wqGFK&#43;Ssyq4NdXHq9h7rmas=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<link rel="canonical" href="https://lukasz.dev/uses/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b071f18839e140aad6e597b083171da7f28d21435dec51f4aca4022414f1a6ab.css" integrity="sha256-sHHxiDnhQKrW5Zewgxcdp/KNIUNd7FH0rKQCJBTxpqs=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://lukasz.dev/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://lukasz.dev/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://lukasz.dev/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://lukasz.dev/apple-touch-icon.png">
+<link rel="mask-icon" href="https://lukasz.dev/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/uses/">
+<link rel="alternate" hreflang="en" href="https://lukasz.dev/uses/">
 <noscript>
     <style>
         #theme-toggle,
@@ -70,13 +70,72 @@
         document.querySelector("html").dataset.theme = 'light';
     }
 
+</script><meta property="og:url" content="https://lukasz.dev/uses/">
+  <meta property="og:site_name" content="Working thoughts 💭🧑‍💻">
+  <meta property="og:title" content="Uses">
+  <meta property="og:description" content="Over the years I&#39;ve experimented with a lot of different tools/things to make what I do more efficient/ergonomic. Every so often, I got asked, what I use and why and thought, that dropping it somewhere on my page, would be a neat idea.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2025-09-21T13:51:28+02:00">
+    <meta property="article:modified_time" content="2025-09-21T13:51:28+02:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Uses">
+<meta name="twitter:description" content="Over the years I&#39;ve experimented with a lot of different tools/things to make what I do more efficient/ergonomic. Every so often, I got asked, what I use and why and thought, that dropping it somewhere on my page, would be a neat idea.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Uses",
+      "item": "https://lukasz.dev/uses/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Uses",
+  "name": "Uses",
+  "description": "Over the years I've experimented with a lot of different tools/things to make what I do more efficient/ergonomic. Every so often, I got asked, what I use and why and thought, that dropping it somewhere on my page, would be a neat idea.",
+  "keywords": [
+    
+  ],
+  "articleBody": "Machine setup Hardware This is pretty standard: MacBook Air M1 for private use and a MacBook Pro M2 14’' for work. I have a clear preference for choosing maximal 14’' notebooks as I find them best for travel or working from a coffee/co-working space.\nFor password management I use a yubikey and pass cli.\nDotfiles \u0026 software I’m a fan of the terminal and spending the majority of my time here. I use alacritty + tmux + neovim for that. I’m also a fan of a tiling window manager - currently I use Amethyst for that on my mac. Some other curated tools can be found in the excerpt of my setup script below.\nWorth calling out: To capture my notes, I was using vimwiki for a while but moved to telekasten since switching to neovim.\n#!/bin/sh if [ ${#@} -ne 0 ] \u0026\u0026 [ \"${@#\"--help\"}\" = \"\" ]; then printf -- 'This will install all the curated setup\\n' exit 0 fi brew install alacritty mkdir -p ~/.config/alacritty/themes git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes brew install alfred brew install amethyst brew install tmux git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm brew install bash brew install zsh echo 'remember to install zsh4humans' brew install git brew install remotemobprogramming/brew/mob brew install htop brew install neovim git clone https://github.com/LazyVim/starter ~/.config/nvim rm -rf ~/.config/nvim/.git brew install fd brew install git-lfs brew install wget brew install gpg brew install pinentry-mac brew install coreutils brew install autojump brew install pass brew install ykman brew install krisp #quick code analysis brew install cloc brew install scc brew install direnv brew install bmon brew install lsd brew install ripgrep #(...) Some more stuff Office setup As a 100% remote-working person, I’ve decided to curate my home-office setup and while I was doing so, I’ve stumbled upon some people describing their choices and this helped me a lot. Thus I felt a bit inspired to do the same.\nDisplay I’m a one display kind of a person. I find this setup most ergonomic for me and the work that I’m currently doing. I’ve settled on a 27’’ 4K monitor from Dell (U2720Q) that is also able to charge my notebook (this is a key characteristic as I try to have as little cables as possible). Using a 4K non ultra wide monitor makes sharing whole screen a bit easier for others as the scaling works out of the box on the receiving end. I’m using this monitor since 2020 and cannot really find a reason why I should change that.\nMicrophone I value audio quality and go an extra mile to provide very good level of it on the receiving end. For that reason, I’ve got the podmic from Rode. Apart from being really good at capturing me talking, it’s definitely a conversation starter with people that haven’t yet seen me in any calls (Do you do any podcasting? - No, I don’t / I just try to make my remote presence as good as possible).\nAudio Interface The mic I’ve listed above uses an XLR connection, so I needed also an audio interface to run it with my notebook. I went with Focusrite Scarlet Solo. (Talking about going down the rabbit hole…)\nWebcam For a while I was using the Logitech Stream Cam but as I also enjoy making photos, I had Fujifilm X-T2 on my shelf. I once found out that Fuji offers an official software to operate the camera as an webcam. I liked this a lot and this became my standard setup. Sadly some mac update killed this and I needed to switch to a capture card (elgato camlink).\nSpeakers As I prefer to not wear headphones when not necessary and at home I don’t have any co-workers to worry about, I use Yamaha HS5 monitors for calls and enjoying music while coding alone.\nLight Sometimes I need additional lighting while recording or in a call, for that I’ve got this Logitech Litra Glow light. It’s very straight forward in its use and what I like the most, is the ability to dial down how intense it is.\nKeyboard(s) (Daily) UHK 60 v1 …with Cherry MX brown switches and custom key caps by yuzu. I remember when I’ve learned about this keyboard/project while listening to the changelog podcast in 2015 and decided to join the crowd funding campaign. Few years later it finally arrived and I’ve really fell in love with it. Main reason to go with UHK was ‘staying on the home row’ \u0026 the split design to prevent RSI from happening.\n(Occasional) Keychron K6 …with Glorious Panda Pre-Lubed switches and key caps from Tai-Hao. After some time, I thought that I would be really nice to have a wireless keyboard with hot-swappable switches so that I could have one cable less to connect and also the ability to experiment a bit with different kind of switches. I really like Keychron keyboards as they have really good value-for-money ratio. The only problem: as this is not a split keyboard, whenever I use it for longer period of time my wrist/arm will start to complain.\nStanding desk A little Ikea hack combining a small bamboo top (I have a rather limited space. Thus, I went with a desk that has a small footprint) with height adjustable frame/legs. Officially those 2 do not fit, but one can easily drill additional holes in the bamboo top so that it can be mounted on the frame. If you ask yourself: Why should you even bother, to deal with a standing desk? Short answer: prolonged sitting kills.\nChair Having a proper office chair with good back support is a really important bit of the setup. For a while I was working using a simple Ikea chair and I’ve quickly developed pain in my lower back. Instead of spending a small fortune on a herman miller chair, a friend of mine recommended to look into steelcase office chairs. I’ve ended up with a white version of Series 1 as it feels less corporate.\nRug Don’t ask me why, but I wanted to have a rug under my desk (although I’m not a drummer / I feel a bit like a one). A friend of mine, discovered that her grandpa, who sailed on a commercial vessel in the past, left her a lot of rugs as he often brought some while traveling back from another part of the world. What a coincidence, right?\n",
+  "wordCount" : "1067",
+  "inLanguage": "en",
+  "datePublished": "2025-09-21T13:51:28+02:00",
+  "dateModified": "2025-09-21T13:51:28+02:00",
+  "author":{
+    "@type": "Person",
+    "name": "Lukasz Plotnicki"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://lukasz.dev/uses/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Working thoughts 💭🧑‍💻",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://lukasz.dev/favicon.ico"
+    }
+  }
+}
 </script>
 </head>
 <body id="top">
     <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="Working thoughts 💭🧑‍💻 (Alt + H)">Working thoughts 💭🧑‍💻</a>
+            <a href="https://lukasz.dev/" accesskey="h" title="Working thoughts 💭🧑‍💻 (Alt + H)">Working thoughts 💭🧑‍💻</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -102,22 +161,22 @@
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/about" title="about">
+                <a href="https://lukasz.dev/about" title="about">
                     <span>about</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/uses" title="uses">
+                <a href="https://lukasz.dev/uses" title="uses">
                     <span class="active">uses</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/now" title="now">
+                <a href="https://lukasz.dev/now" title="now">
                     <span>now</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/search" title="search (Alt &#43; /)" accesskey=/>
+                <a href="https://lukasz.dev/search" title="search (Alt &#43; /)" accesskey=/>
                     <span>search</span>
                 </a>
             </li>
@@ -128,7 +187,7 @@
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a></div>
+    <div class="breadcrumbs"><a href="https://lukasz.dev/">Home</a></div>
     <h1 class="post-title entry-hint-parent">
       Uses
     </h1>

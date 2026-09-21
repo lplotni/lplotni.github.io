@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto" data-theme="auto">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="index, follow">
 <title>bootstraping a node.js webapp | Working thoughts 💭🧑‍💻</title>
 <meta name="keywords" content="">
 <meta name="description" content="Together with few friends we started building pace - a web application for
@@ -12,16 +12,16 @@ organizing and managing running events &amp; competitions. We are a colorful bun
 And then, somebody suggested to write one thing or two, about our technology
 decisions and accompany it with some HowTo information. So here we are.">
 <meta name="author" content="Lukasz Plotnicki">
-<link rel="canonical" href="http://localhost:1313/blog/2015/08/04/bootstraping-a-node-dot-js-webapp/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.04d7db52e1dda432d2e99a916a2ffec2a1852be4accaae0d7571eaf61eeb99ab.css" integrity="sha256-BNfbUuHdpDLS6ZqRai/&#43;wqGFK&#43;Ssyq4NdXHq9h7rmas=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<link rel="canonical" href="https://lukasz.dev/blog/2015/08/04/bootstraping-a-node-dot-js-webapp/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b071f18839e140aad6e597b083171da7f28d21435dec51f4aca4022414f1a6ab.css" integrity="sha256-sHHxiDnhQKrW5Zewgxcdp/KNIUNd7FH0rKQCJBTxpqs=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://lukasz.dev/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://lukasz.dev/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://lukasz.dev/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://lukasz.dev/apple-touch-icon.png">
+<link rel="mask-icon" href="https://lukasz.dev/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/blog/2015/08/04/bootstraping-a-node-dot-js-webapp/">
+<link rel="alternate" hreflang="en" href="https://lukasz.dev/blog/2015/08/04/bootstraping-a-node-dot-js-webapp/">
 <noscript>
     <style>
         #theme-toggle,
@@ -73,13 +73,83 @@ decisions and accompany it with some HowTo information. So here we are.">
         document.querySelector("html").dataset.theme = 'light';
     }
 
+</script><meta property="og:url" content="https://lukasz.dev/blog/2015/08/04/bootstraping-a-node-dot-js-webapp/">
+  <meta property="og:site_name" content="Working thoughts 💭🧑‍💻">
+  <meta property="og:title" content="bootstraping a node.js webapp">
+  <meta property="og:description" content="Together with few friends we started building pace - a web application for organizing and managing running events &amp; competitions. We are a colorful bunch of people with different backgrounds, therefore we wanted to choose an approachable tech stack, as some of us wants also to learn one or two things about JavaScript, web applications or programming in general.
+And then, somebody suggested to write one thing or two, about our technology decisions and accompany it with some HowTo information. So here we are.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2015-08-04T00:00:00+00:00">
+    <meta property="article:modified_time" content="2015-08-04T00:00:00+00:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="bootstraping a node.js webapp">
+<meta name="twitter:description" content="Together with few friends we started building pace - a web application for
+organizing and managing running events &amp; competitions. We are a colorful bunch of people with different backgrounds, therefore we wanted to choose an approachable tech stack, as some of us wants also to learn one or two things about JavaScript, web applications or programming in general.
+And then, somebody suggested to write one thing or two, about our technology
+decisions and accompany it with some HowTo information. So here we are.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Blogs",
+      "item": "https://lukasz.dev/blog/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "bootstraping a node.js webapp",
+      "item": "https://lukasz.dev/blog/2015/08/04/bootstraping-a-node-dot-js-webapp/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "bootstraping a node.js webapp",
+  "name": "bootstraping a node.js webapp",
+  "description": "Together with few friends we started building pace - a web application for organizing and managing running events \u0026amp; competitions. We are a colorful bunch of people with different backgrounds, therefore we wanted to choose an approachable tech stack, as some of us wants also to learn one or two things about JavaScript, web applications or programming in general.\nAnd then, somebody suggested to write one thing or two, about our technology decisions and accompany it with some HowTo information. So here we are.\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "Together with few friends we started building pace - a web application for organizing and managing running events \u0026 competitions. We are a colorful bunch of people with different backgrounds, therefore we wanted to choose an approachable tech stack, as some of us wants also to learn one or two things about JavaScript, web applications or programming in general.\nAnd then, somebody suggested to write one thing or two, about our technology decisions and accompany it with some HowTo information. So here we are.\nThis is the first post out of the pace series. We will take a look at how to quickly bootstrap a new express.js application and what is actually happening during that process.\nFirst things first: node.js \u0026 express.js Node.js® is a platform built on Chrome’s JavaScript runtime for easily building fast, scalable network applications. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient, perfect for data-intensive real-time applications that run across distributed devices. - Nodejs.org https://nodejs.org\nProbably also due to the popularity of JavaScript node quickly spread all around the web and is nowadays widely used and has an impressive ecosystem of additional libraries/modules (just take a look at npm package manager).\nexpress.js is one of many web frameworks based on node, but seems also to be one of the most popular ones. What is a web framework you ask:\nA web application framework is a software framework that is designed to support the development of dynamic websites, web applications, web services and web resources. The framework aims to alleviate the overhead associated with common activities performed in web development. For example, many frameworks provide libraries for database access, templating frameworks and session management, and they often promote code reuse - http://localhost:1313/post/2016/02/22/bff/\nHow to bootstrap a web app \u0026 what happens Assuming you have node already installed on your machine (if not look at here)\nnpm install express-generator -g express myWebApp cd myWebApp npm install npm start What happened you ask? So first we globally installed express-generator (it will be now available to you via express cmd). Then we made it bootstrap for us an app called myWebApp. This resulted in the following:\n/tmp|⇒ express myWebApp create : myWebApp create : myWebApp/package.json create : myWebApp/app.js create : myWebApp/public create : myWebApp/public/javascripts create : myWebApp/public/images create : myWebApp/routes create : myWebApp/routes/index.js create : myWebApp/routes/users.js create : myWebApp/public/stylesheets create : myWebApp/public/stylesheets/style.css create : myWebApp/views create : myWebApp/views/index.jade create : myWebApp/views/layout.jade create : myWebApp/views/error.jade create : myWebApp/bin create : myWebApp/bin/www install dependencies: $ cd myWebApp \u0026\u0026 npm install run the app: $ DEBUG=myWebApp ./bin/www The generator created for us a new directory which contains all the needed files the web application consists of:\npackage.json -\u003e definition of our node dependencies and some node configuration app.js -\u003e the main entry point into the application public -\u003e contains all public assets which will be exposed to the public routes -\u003e contains the definitions of our routes (as ourDomain/index or ourDomain/somethingDifferent) views -\u003e contains our templates (more about this in future posts) bin/www -\u003e executable application (if you run npm start this will be started) The execution of npm install in app’s directory, installs all the dependencies defined in the package.json file. Those dependencies will be installed only locally in the node_modules directory. After this step we are ready to go and able to run npm start which should result in this:\nmyWebApp|⇒ npm start \u003e myWebApp@0.0.1 start /private/tmp/myWebApp \u003e node ./bin/www GET / 200 305ms - 170b GET / 200 34ms - 170b GET /stylesheets/style.css 200 4ms - 110b GET / 304 25ms GET /stylesheets/style.css 304 1ms You can see, that I opened http://localhost:3000 in the browser and express served me the index page with the 200 code (you can also see that I refreshed the page and got 304 NOT MODIFIED). Everything works also as expected {%gemoji +1%}\nWhy? How? Let’s take a quick look at the following:\napp.js\nvar routes = require('./routes/index'); app.use('/', routes) This is only a part of the app.js file but shows the wiring of our default root to the index.js file shown below. BTW: you can also see how to load dependencies/modules for our code via the require function (if you want to read more about that, here is a nice write-up)\nroutes/index.js:\nvar express = require('express'); var router = express.Router(); /* GET home page. */ router.get('/', function(req, res) { title = \"bootstraping a node dot js webapp\" }); module.exports = router; The index.js uses express’ router and wires request for / to the function responding with a rendered index.jade template, to which it passes a variable called title. If you never used jade, don’t worry, is a pretty simple HTML template engine. Look at the following: index.jade:\nextends layout block content h1= title p Welcome to #{title} Jade enables template composition. In here we extend layout.jade which defines the general page structure. If other template defines a block called content it will be then injected at the corresponding place. layout.jade:\ndoctype html html head title= title link(rel='stylesheet', href='/stylesheets/style.css') body block content Jade is indentation aware, meaning that the above example results in the following:\n\u003c!DOCTYPE html\u003e \u003chtml\u003e \u003chead\u003e \u003ctitle\u003eExpress\u003c/title\u003e \u003clink rel=\"stylesheet\" href=\"/stylesheets/style.css\"\u003e \u003c/head\u003e \u003cbody\u003e \u003ch1\u003eExpress\u003c/h1\u003e \u003cp\u003eWelcome to Express\u003c/p\u003e \u003c/body\u003e \u003c/html\u003e Now you have seen all the parts making the browser render the most basic page of all time :sunglasses:\nNext post out of the pace series, will actually explain how to start working on the functionality we need. Right now you can start to play around with the data which is passed by the index.js to the index.jade template and how the template uses it. Have fun!\n",
+  "wordCount" : "937",
+  "inLanguage": "en",
+  "datePublished": "2015-08-04T00:00:00Z",
+  "dateModified": "2015-08-04T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Lukasz Plotnicki"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://lukasz.dev/blog/2015/08/04/bootstraping-a-node-dot-js-webapp/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Working thoughts 💭🧑‍💻",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://lukasz.dev/favicon.ico"
+    }
+  }
+}
 </script>
 </head>
 <body id="top">
     <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="Working thoughts 💭🧑‍💻 (Alt + H)">Working thoughts 💭🧑‍💻</a>
+            <a href="https://lukasz.dev/" accesskey="h" title="Working thoughts 💭🧑‍💻 (Alt + H)">Working thoughts 💭🧑‍💻</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -105,22 +175,22 @@ decisions and accompany it with some HowTo information. So here we are.">
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/about" title="about">
+                <a href="https://lukasz.dev/about" title="about">
                     <span>about</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/uses" title="uses">
+                <a href="https://lukasz.dev/uses" title="uses">
                     <span>uses</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/now" title="now">
+                <a href="https://lukasz.dev/now" title="now">
                     <span>now</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/search" title="search (Alt &#43; /)" accesskey=/>
+                <a href="https://lukasz.dev/search" title="search (Alt &#43; /)" accesskey=/>
                     <span>search</span>
                 </a>
             </li>
@@ -131,7 +201,7 @@ decisions and accompany it with some HowTo information. So here we are.">
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/blog/">Blogs</a></div>
+    <div class="breadcrumbs"><a href="https://lukasz.dev/">Home</a>&nbsp;»&nbsp;<a href="https://lukasz.dev/blog/">Blogs</a></div>
     <h1 class="post-title entry-hint-parent">
       bootstraping a node.js webapp
     </h1>

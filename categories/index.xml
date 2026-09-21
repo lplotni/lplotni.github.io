@@ -2,60 +2,60 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Categories on Working thoughts 💭🧑‍💻</title>
-    <link>http://localhost:1313/categories/</link>
+    <link>https://lukasz.dev/categories/</link>
     <description>Recent content in Categories on Working thoughts 💭🧑‍💻</description>
-    <generator>Hugo -- 0.166.0</generator>
+    <generator>Hugo -- 0.157.0</generator>
     <language>en</language>
     <copyright>2013-2026 Lukasz Plotnicki</copyright>
     <lastBuildDate>Tue, 04 Aug 2015 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://lukasz.dev/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Development</title>
-      <link>http://localhost:1313/categories/development/</link>
+      <link>https://lukasz.dev/categories/development/</link>
       <pubDate>Tue, 04 Aug 2015 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/development/</guid>
+      <guid>https://lukasz.dev/categories/development/</guid>
       <description></description>
     </item>
     <item>
       <title>Expressjs</title>
-      <link>http://localhost:1313/categories/expressjs/</link>
+      <link>https://lukasz.dev/categories/expressjs/</link>
       <pubDate>Tue, 04 Aug 2015 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/expressjs/</guid>
+      <guid>https://lukasz.dev/categories/expressjs/</guid>
       <description></description>
     </item>
     <item>
       <title>Howto</title>
-      <link>http://localhost:1313/categories/howto/</link>
+      <link>https://lukasz.dev/categories/howto/</link>
       <pubDate>Tue, 04 Aug 2015 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/howto/</guid>
+      <guid>https://lukasz.dev/categories/howto/</guid>
       <description></description>
     </item>
     <item>
       <title>JavaScript</title>
-      <link>http://localhost:1313/categories/javascript/</link>
+      <link>https://lukasz.dev/categories/javascript/</link>
       <pubDate>Tue, 04 Aug 2015 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/javascript/</guid>
+      <guid>https://lukasz.dev/categories/javascript/</guid>
       <description></description>
     </item>
     <item>
       <title>Nodejs</title>
-      <link>http://localhost:1313/categories/nodejs/</link>
+      <link>https://lukasz.dev/categories/nodejs/</link>
       <pubDate>Tue, 04 Aug 2015 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/nodejs/</guid>
+      <guid>https://lukasz.dev/categories/nodejs/</guid>
       <description></description>
     </item>
     <item>
       <title>Pace</title>
-      <link>http://localhost:1313/categories/pace/</link>
+      <link>https://lukasz.dev/categories/pace/</link>
       <pubDate>Tue, 04 Aug 2015 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/pace/</guid>
+      <guid>https://lukasz.dev/categories/pace/</guid>
       <description></description>
     </item>
     <item>
       <title>Technology</title>
-      <link>http://localhost:1313/categories/technology/</link>
+      <link>https://lukasz.dev/categories/technology/</link>
       <pubDate>Tue, 04 Aug 2015 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/technology/</guid>
+      <guid>https://lukasz.dev/categories/technology/</guid>
       <description></description>
     </item>
   </channel>
