@@ -4,7 +4,7 @@
     <title>Working thoughts 💭🧑‍💻</title>
     <link>https://lukasz.dev/</link>
     <description>Recent content on Working thoughts 💭🧑‍💻</description>
-    <generator>Hugo -- 0.157.0</generator>
+    <generator>Hugo -- 0.169.0</generator>
     <language>en</language>
     <copyright>2013-2026 Lukasz Plotnicki</copyright>
     <lastBuildDate>Sun, 08 Mar 2026 08:18:29 +0100</lastBuildDate>
@@ -21,7 +21,7 @@
       <link>https://lukasz.dev/now/</link>
       <pubDate>Sat, 28 Feb 2026 12:20:12 +0200</pubDate>
       <guid>https://lukasz.dev/now/</guid>
-      <description>This a living doc where I describe what I&amp;#39;m currently looking into &amp;amp; what&amp;#39;s on my mind.</description>
+      <description>This is a living doc where I describe what I&amp;#39;m currently looking into &amp;amp; what&amp;#39;s on my mind.</description>
     </item>
     <item>
       <title>On remote work</title>
@@ -35,7 +35,7 @@
       <link>https://lukasz.dev/uses/</link>
       <pubDate>Sun, 21 Sep 2025 13:51:28 +0200</pubDate>
       <guid>https://lukasz.dev/uses/</guid>
-      <description>Over the years I&amp;#39;ve experimented with a lot of different tools/things to make what I do more efficient/ergonomic. Every so often, I got asked, what I use and why and thought, that dropping it somewhere on my page, would be a neat idea.</description>
+      <description>Over the years I&amp;#39;ve experimented with a lot of different tools/things to make what I do more efficient/ergonomic. Every so often I get asked what I use and why, and I thought that dropping it somewhere on my page would be a neat idea.</description>
     </item>
     <item>
       <title>Why Now</title>
@@ -93,7 +93,25 @@ UHK is really a spectacular keyboard.&lt;/p&gt;
 &lt;p&gt;I quickly decided to just align the &lt;strong&gt;Fn&lt;/strong&gt;, &lt;strong&gt;Ctrl&lt;/strong&gt;, &lt;strong&gt;Option&lt;/strong&gt; and &lt;strong&gt;Cmd&lt;/strong&gt;
 key with the mac layout so that my mussle memory doesn&amp;rsquo;t suffer too much. This
 also made me fall in love with the UHK agent: It&amp;rsquo;s just so easy to remap the
-keys to your liking.&lt;/p&gt;</description>
+keys to your liking.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;While at it, I also changed the default &lt;strong&gt;Mouse&lt;/strong&gt; key to
+become my &lt;strong&gt;Ctrl&lt;/strong&gt; (cause I always been remaping the Caps key to have that
+behaviour) and decided to allocate the &lt;strong&gt;Mouse&lt;/strong&gt; key behaviour to the &lt;strong&gt;Space&lt;/strong&gt; key on
+the edge of the keyboard as I have not been using this key at all.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;To customize my internal keyboard layout on the Mac, I&amp;rsquo;ve been using
+&lt;a href=&#34;https://github.com/tekezo/Karabiner-Elements&#34;&gt;karabiner-essentials&lt;/a&gt; for
+a while now, With it, I made my &lt;strong&gt;CAPS&lt;/strong&gt; become &lt;strong&gt;ESC&lt;/strong&gt; while pressed alone and
+&lt;strong&gt;Ctrl&lt;/strong&gt; if pressed with in combination with other key. Since the switch to the
+UHK and my &lt;strong&gt;Mod+Mouse&lt;/strong&gt; being &lt;strong&gt;ESC&lt;/strong&gt;, I missed this on when working on the
+go only with the internal keyboard, therefore I now use &lt;strong&gt;Cmd + Caps&lt;/strong&gt; for &lt;strong&gt;ESC&lt;/strong&gt;
+on my internal keyboard too, as it&amp;rsquo;s the same movement for my fingers. To be
+able to do so, I wrote a little &lt;em&gt;complex modification&lt;/em&gt; for karabiner-elements:&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</description>
     </item>
     <item>
       <title>Using your yubikey as ssh key provider / Quick(est) guide</title>
@@ -170,7 +188,8 @@ placed at the top of the test automation pyramid because we want to do as
 little of it as possible. (&amp;hellip;) Testing through the user interface like this is
 expensive and should be minimized. Although there are many test cases that need
 to be invoked, not all need to be run through the user interface. And this is
-where the service layer of the test automation pyramid comes in. - Mike Cohn &lt;a href=&#34;https://www.mountaingoatsoftware.com/blog/the-forgotten-layer-of-the-test-automation-pyramid&#34;&gt;https://www.mountaingoatsoftware.com/blog/the-forgotten-layer-of-the-test-automation-pyramid&lt;/a&gt;&lt;/p&gt;</description>
+where the service layer of the test automation pyramid comes in. - Mike Cohn &lt;a href=&#34;https://www.mountaingoatsoftware.com/blog/the-forgotten-layer-of-the-test-automation-pyramid&#34;&gt;https://www.mountaingoatsoftware.com/blog/the-forgotten-layer-of-the-test-automation-pyramid&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;</description>
     </item>
     <item>
       <title>bootstraping a node.js webapp</title>
@@ -228,7 +247,8 @@ having the liberty, I decided to re-implement everything in JavaScript using nod
       <guid>https://lukasz.dev/blog/2013/05/14/setting-up-dot-dot-dot/</guid>
       <description>&lt;p&gt;There&amp;rsquo;s nothing like this moment, when you have a big smile on your face, because you&amp;rsquo;re just stunned how well things are working and how simple the set-up process was. &lt;a href=&#34;http://octopress.org&#34;&gt;Octopress&lt;/a&gt; is just amazing. &lt;strong&gt;Period&lt;/strong&gt;. If you haven&amp;rsquo;t heard about it and you&amp;rsquo;re thinking to start a blog or migrate one, then you should definitely check it out. To put it simple:&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Octopress is a framework designed by Brandon Mathis for Jekyll, the blog aware static site generator powering Github Pages. To start blogging with Jekyll, you have to write your own HTML templates, CSS, Javascripts and set up your configuration. But with Octopress All of that is already taken care of. Simply clone or fork Octopress, install dependencies and the theme, and you&amp;rsquo;re set. - Brandon Mathis &lt;a href=&#34;http://octopress.org/blog/2011/07/23/octopress-20-surfaces/&#34;&gt;http://octopress.org/blog/2011/07/23/octopress-20-surfaces/&lt;/a&gt;&lt;/p&gt;</description>
+&lt;p&gt;Octopress is a framework designed by Brandon Mathis for Jekyll, the blog aware static site generator powering Github Pages. To start blogging with Jekyll, you have to write your own HTML templates, CSS, Javascripts and set up your configuration. But with Octopress All of that is already taken care of. Simply clone or fork Octopress, install dependencies and the theme, and you&amp;rsquo;re set. - Brandon Mathis &lt;a href=&#34;http://octopress.org/blog/2011/07/23/octopress-20-surfaces/&#34;&gt;http://octopress.org/blog/2011/07/23/octopress-20-surfaces/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;</description>
     </item>
     <item>
       <title>hello world</title>
